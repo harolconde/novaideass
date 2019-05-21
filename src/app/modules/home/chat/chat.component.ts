@@ -69,12 +69,12 @@ export class ChatComponent implements OnInit {
 
   //Add comments
   addComments(i){
-    this.replyButton =! this.replyButton
+    this.replyButton = ! this.replyButton
   }
 
   //Popover
   popLikes(i){
-    this.popovers =! this.popovers
+    this.popovers = ! this.popovers
   }
   
   //Responder a idea
