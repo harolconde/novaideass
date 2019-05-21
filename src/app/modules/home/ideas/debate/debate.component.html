@@ -1,0 +1,208 @@
+<section class="sectionIdeasDebate">
+    <div class="containerIdeas">
+        <div class="row">
+            <div class="col">
+                <div class="containerWriteIdeas">
+                    <div class="containerIdeaGeneral row">
+                        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 containerWriteIdeaBoard">
+                            <label class="sr-only" for="inlineFormInputGroup"></label>
+                            <div class="input-group groupMessageSend mb-2">
+                                <form action="" class="formNewMessage">
+                                    <input name="idea" id="" cols="30" rows="10" class="spaceWriteIdea" placeholder="Cual es tu idea?" required>
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <button class="btn btnPlusIdea" type="submit" value="Enviar Comentario" >
+                                                <img [src]="'assets/img/icons/dashboard/browser.svg'" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 notificationDashboard">
+                            <div class="notification">
+                                <span class="titleNotification">Notificaciones</span>
+                                <div class="imgAlertNotification">
+                                    <img [src]="'assets/img/icons/dashboard/notification.svg'" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 menuHamburgerDashboard">
+                            <div class="menuHamburguer">
+                                <span class="titleMenu">Menu</span>
+                                <button class="navbar-toggler" (click)="showMenuUser()">
+                                    <img [src]="'assets/img/icons/dashboard/hamburguer.svg'" alt="">
+                                </button>
+                            </div>
+                            <div class="menuNav" *ngIf="menuComponents">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/dashboard'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Dashboard
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/postuladas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas postuladas
+                                            </span>
+                                            </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/aprobadas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas aprobadas
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/debate'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas en debate
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/finalizadas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas finalizadas
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/muertas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalBlack.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas muertas
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ideas en debate -->
+<section class="sectionDebateIdeas">
+	<div class="containerSectionDebateIdeas">
+		<div class="row">
+			<div class="col-12 titleDebate">
+				<h3>Ideas en debate</h3>
+				<hr>
+			</div>
+			<div class="col-12">
+				<div class="row">
+					<div class="card-columns">
+						<div class="card">
+							<div class="cardContainer">
+								<div class="card-title">
+									<div class="img">
+										<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="">
+									</div>
+									<div class="name">
+										<span>Luisa Rodriguez</span>
+									</div>
+								</div>
+								<div class="card-body">
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">
+											<span class="title">Lorem ipsum dolor sit amet.</span>
+										</li>
+										<li class="list-group-item">
+											<P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi tempora molestiae, minus animi officiis eveniet. Quam, optio odit odio voluptatibus alias totam eius autem ipsum ullam laborum recusandae doloribus voluptatem?</P>
+										</li>
+									</ul>
+								</div>
+								<div class="card-footer">
+									<button class="btn btn-block btnMoreDebate">
+										Ver mas
+									</button>
+								</div>
+								</div>
+										
+							</div>
+							<div class="card">
+								<div class="cardContainer">
+									<div class="card-title">
+									<div class="img">
+										<img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="">
+									</div>
+									<div class="name">
+										<span>Harol Conde</span>
+									</div>
+								</div>
+								<div class="card-body">
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">
+											<span class="title">Lorem ipsum dolor sit amet.</span>
+										</li>
+										<li class="list-group-item">
+											<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
+										</li>
+									</ul>
+								</div>
+								<div class="card-footer">
+									<button class="btn btn-block btnMoreDebate">
+										Ver mas
+									</button>
+								</div>
+								</div>
+										
+							</div>
+							<div class="card">
+								<div class="cardContainer">
+									<div class="card-title">
+									<div class="img">
+										<img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
+									</div>
+									<div class="name">
+										<span>Luisa con coletas</span>
+									</div>
+								</div>
+								<div class="card-body">
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">
+											<span class="title">Lorem ipsum dolor sit amet.</span>
+										</li>
+										<li class="list-group-item">
+											<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
+										</li>
+									</ul>
+								</div>
+								<div class="card-footer">
+									<button class="btn btn-block btnMoreDebate">
+										Ver mas
+									</button>
+								</div>
+							</div>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+

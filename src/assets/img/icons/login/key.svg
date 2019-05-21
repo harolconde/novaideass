@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.1 (55044) - http://www.bohemiancoding.com/sketch -->
+    <title>787B3DB1-497B-4A71-BA51-ED34FC6A6234</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="149" y="545" width="331" height="39" rx="19.5"></rect>
+        <filter x="-13.6%" y="-76.9%" width="127.2%" height="330.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="15" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0705882353   0 0 0 0 0.592156863   0 0 0 0 0.576470588  0 0 0 0.4 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-Login" transform="translate(-164.000000, -557.000000)">
+            <rect id="Base" fill="#FFFFFF" x="0" y="-7" width="684" height="860"></rect>
+            <g id="Field-Copy">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <rect stroke="#ACACAC" stroke-width="1" stroke-linejoin="square" x="149.5" y="545.5" width="330" height="38" rx="19"></rect>
+            </g>
+            <g id="key" transform="translate(164.000000, 557.000000)" fill="#ACACAC" fill-rule="nonzero">
+                <path d="M14.4638752,1.53609357 C12.4572943,-0.470487329 9.19251462,-0.47045614 7.18593372,1.53612476 C5.81532943,2.90672904 5.33925926,4.9265653 5.93272515,6.75907992 L0.137107212,12.554729 C0.0493723197,12.6424639 3.11890838e-05,12.761232 3.11890838e-05,12.8855205 L3.11890838e-05,15.5321637 C3.11890838e-05,15.7907524 0.209278752,16 0.467867446,16 L3.11451072,16 C3.23876803,16 3.35756725,15.9506589 3.44527096,15.862924 L4.10682261,15.2009045 C4.20778168,15.0999454 4.25712281,14.9583158 4.24068616,14.8162183 L4.15844055,14.1053255 L5.14345419,14.0125692 C5.36732943,13.9915478 5.54414035,13.8147368 5.56516179,13.5908616 L5.65791813,12.605848 L6.36881092,12.6885302 C6.50083431,12.7063392 6.63379337,12.6620195 6.73384795,12.5734113 C6.8334347,12.4843353 6.89054191,12.3573021 6.89054191,12.2239064 L6.89054191,11.3528265 L7.74580897,11.3528265 C7.87006628,11.3528265 7.9888655,11.3034854 8.0765692,11.2157505 L9.27631969,10.0318752 C11.1083665,10.625809 13.093271,10.1856062 14.4638752,8.81406628 C16.4704561,6.80751657 16.4704561,3.54267446 14.4638752,1.53609357 Z M13.1403665,4.84431969 C12.5930292,5.39165692 11.7030487,5.39165692 11.1557115,4.84431969 C10.6083743,4.29698246 10.6083743,3.40700195 11.1557115,2.85966472 C11.7030487,2.31232749 12.5930292,2.31232749 13.1403665,2.85966472 C13.6877037,3.40700195 13.6876725,4.29698246 13.1403665,4.84431969 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

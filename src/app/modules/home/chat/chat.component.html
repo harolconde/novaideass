@@ -1,0 +1,93 @@
+<div class="container containerChatIdeas">
+  <div class="row">
+    
+    <div class="col-12 titleChatIdeas">
+      <h6 class="text-uppercase text-center py-2">Chat de ideas </h6>
+    </div>
+    <div class="col-12 containerChat">
+      <div class="containerMessageIdeas">
+         <div class="contenedor" *ngFor="let idea of ideas; index as i"> <!--*ngFor="let idea of ideas; index as i" -->
+          <div class="containerIdeaCredentials">
+            <div class="imgUserInChat">
+              <img src="{{idea.img}}" alt="">
+            </div>
+            <div class="containerNameVotes">
+              <h3 class="nameUserIdea"> {{idea.user}}
+                <ul class="containerBtnsLikesDslike">
+                  <li class="listIconsMessage">
+                    <div class="btnLikeMyHeark" >
+                      <ul class="contentBtnMyHeart" >
+                        <li>
+                            <img [src]="'assets/img/icons/chat/myHeart.svg'" alt="" data-toggle="tooltip" data-placement="top" title="Votos"    class="imgHeart" (click)="popLikes(i)" > <!-- (click)="popLikes(i)" -->
+                            <span> {{idea.votes}} </span>
+                        </li>
+                      </ul>
+                      <ul class="votos" *ngIf="btnPopovers"  [id]="idea.id">
+                        <li class="upButton">
+                          <img [src]="'assets/img/icons/chat/hapy.svg'" alt="">
+                        </li>
+                        <li class="upButton">
+                          <img [src]="'assets/img/icons/chat/sad.svg'" alt="">
+                        </li>
+                        <li class="upButton">
+                          <img [src]="'assets/img/icons/chat/mee.svg'" alt="">
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </h3>
+            </div>
+            <p class="ideaMessageChatUsers">
+              <a [routerLink]="['/idea', i]" class="paragraphIdea"> {{idea.description}} </a>
+            </p>
+            <div class="containerDisplayReply">
+              <h4 class="replyTitle">Comentarios
+                <span class="btnAddNewReply" (click)="addComments(i)" > 
+                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="left" title="Agregar respuesta"></i>
+                </span>
+              </h4>
+              <ul class="elementReply list-group list-group-flush">
+
+              </ul>
+            </div>
+            <button class="btn btn-block btnSeeMoreMessage" id="btnSeeMoreMessage" (click)="collapseIdea(i)">
+              Ver
+              <i class="fas fa-comment-alt answerMessage" id="answerMessage"></i>
+              <i class="fas fa-plus iconMoreMinus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="replyMessage" id="replyMessage" *ngIf="replyButton">
+            <div class="row rowReply">
+                <div class="col-12 col-sm-12 my-1">
+                    <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+                    <div class="input-group input-group-reply-message">
+                        <form  class="formReply">
+                            <textarea type="text" class="form-control input-reply-idea" id=" input-reply-idea" placeholder="Responde esta idea" name="reply_ideas" ></textarea><!-- [(ngModel)]="commentAdd.idea" -->
+                            
+                            <div class="input-group-prepend">
+                                <div class="input-group-text group-btn-reply-message">
+                                    <button type="button" class="btn btn-reply-message" id="btn-reply-message" (click)="replyIdea(i)">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 seeAllIdeasChat">
+      <div class="containerIconTopMessages">
+          <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="linkSeeMoreIdeas">
+        <a [routerLink]="['/todas']">Ver todas</a>
+      </div>
+    </div>
+  </div>
+  
+</div>

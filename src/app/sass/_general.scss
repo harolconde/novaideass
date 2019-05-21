@@ -1,0 +1,83 @@
+// Variables
+$backgroundDisplay : #fff;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6,span,a,p,li{
+    font-family: "Aristotelica Display";
+}
+body{
+    background-color: $backgroundDisplay !important;
+}
+button {
+    outline: none !important;
+}
+hr {
+    margin-top: .5rem;
+    margin-bottom: 0rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.btn:focus, .btn.focus {
+    outline: 0 !important; 
+    box-shadow: none !important; 
+}
+.containerAplication{
+    background-color:$backgroundDisplay;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.sectionGeneral {
+    width: 100%;
+    overflow: hidden;
+}
+.container-app{
+    display: flex;
+}
+.contaierFooterAplication{
+    bottom: 0;
+    width: 100%;
+}
+.clateralRightBoard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 0 !important;
+    position: absolute;
+    right: 0;
+    background-color: $backgroundDisplay; 
+}
+.containerRoutesAplication{
+    width: 100%;
+}
+
+//Estilos nabvar
+/* Configuracion y estilos del Scrollbar del chat de ideas*/
+
+.container::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+}
+.container::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 4px;
+}
+.container::-webkit-scrollbar-thumb:hover{
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.container::-webkit-scrollbar-thumb:active{
+    background-color: #999999;
+}
+.container::-webkit-scrollbar-track{
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+.container::-webkit-scrollbar-track:hover,
+.container::-webkit-scrollbar-track:active{
+    background: #d4d4d4;
+}

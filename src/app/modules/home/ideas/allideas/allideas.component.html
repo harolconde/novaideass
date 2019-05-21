@@ -1,0 +1,167 @@
+<section class="sectionAllIdeas">
+    <div class="containerIdeas">
+        <div class="row">
+            <div class="col">
+                <div class="containerWriteIdeas">
+                    <div class="containerIdeaGeneral row">
+                        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 containerWriteIdeaBoard">
+                            <label class="sr-only" for="inlineFormInputGroup"></label>
+                            <div class="input-group groupMessageSend mb-2">
+                                <form action="" class="formNewMessage">
+                                    <input name="idea" id="" cols="30" rows="10" class="spaceWriteIdea" placeholder="Cual es tu idea?" required>
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <button class="btn btnPlusIdea" type="submit" value="Enviar Comentario" >
+                                                <img [src]="'assets/img/icons/dashboard/browser.svg'" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 notificationDashboard">
+                            <div class="notification">
+                                <span class="titleNotification">Notificaciones</span>
+                                <div class="imgAlertNotification">
+                                    <img [src]="'assets/img/icons/dashboard/notification.svg'" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 menuHamburgerDashboard">
+                            <div class="menuHamburguer">
+                                <span class="titleMenu">Menu</span>
+                                <button class="navbar-toggler" (click)="showMenuUser()">
+                                    <img [src]="'assets/img/icons/dashboard/hamburguer.svg'" alt="">
+                                </button>
+                            </div>
+                            <div class="menuNav" *ngIf="menuComponents">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/dashboard'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Dashboard
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/postuladas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas postuladas
+                                            </span>
+                                           </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/aprobadas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas aprobadas
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/debate'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas en debate
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/finalizadas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas finalizadas
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/muertas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalBlack.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas muertas
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="filterAddIdeas">
+    <div class="container"> 
+        <div class="row">
+            <div class="col-sm-12 col-lg-12 col-xl-12 filter">
+                <div class="allIdeasContent row card-columns" >
+                    <div class="containerIdeaCredentials col-sm-12 col-lg-3 col-xl-3 card" *ngFor="let idea of ideas; index as i" >
+                        <div class="imgUserInChat">
+                            <img src="{{idea.img}}" alt="">
+                        </div>
+                        <div class="containerNameVotes">
+                            <h3 class="nameUserIdea">{{idea.user}}
+                                <ul class="containerBtnsLikesDslike">
+                                    <li class="listIconsMessage">
+                                        <div class="btnLikeMyHeark" >
+                                            <ul class="contentBtnMyHeart" >
+                                                <li>
+                                                    <img [src]="'assets/img/icons/myHeart.svg'" alt="" data-toggle="tooltip" data-placement="top" title="Votos"  (click)="popLikes(i)"  class="imgHeart">
+                                                    <span> {{idea.votes}} </span>
+                                                </li>
+                                            </ul>
+                                            <ul class="votos" *ngIf="btnPopovers"  [id]="idea.id">
+                                                <li class="upButton">
+                                                    <img [src]="'assets/img/icons/hapy.svg'" alt="">
+                                                </li>
+                                                <li class="upButton">
+                                                    <img [src]="'assets/img/icons/sad.svg'" alt="">
+                                                </li>
+                                                <li class="upButton">
+                                                    <img [src]="'assets/img/icons/mee.svg'" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </h3>
+                        </div>
+                        <p class="ideaMessageChatUsers ideaMessageChatUsersAllIdeas">
+                            <a [routerLink]="['/idea', i]" class="paragraphIdea">{{idea.description}}</a>
+                        </p>
+                        <div class="containerDisplayReply containerDisplayReplyAllIdeas">
+                            <h4 class="replyTitle">Comentarios
+                                <span class="btnAddNewReply" (click)="addComments(i)" >
+                                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="left" title="Agregar respuesta"></i>
+                                </span>
+                            </h4>
+                            <ul class="elementReply list-group list-group-flush">
+                      
+                            </ul>
+                        </div>
+                        <button class="btn btn-block btnSeeMoreMessage btnSeeMoreMessageAllIdeas" id="btnSeeMoreMessage" (click)="collapseIdea(i)">
+                            Ver
+                            <i class="fas fa-comment-alt answerMessage" id="answerMessage"></i>
+                            <i class="fas fa-plus iconMoreMinus iconMoreMinusAllIdeas"></i>
+                        </button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

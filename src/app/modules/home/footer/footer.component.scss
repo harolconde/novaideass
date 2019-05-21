@@ -1,0 +1,39 @@
+//Colores
+$colorText : #5A5858;
+$colorSocialNet : #444;
+$fontFamilyRegular: "Aristotelica Display Regular";
+
+h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
+    font-family: $fontFamilyRegular;
+}
+
+.containerFooter{
+    padding: 1.5rem 0rem 1.5rem 0rem;
+}
+.containerFooter .copy{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.containerFooter .copy span{
+    color: $colorText;
+    font-size: 0.625rem;
+    display: block;
+}
+.containerFooter .logoFooter .containerImgFooter{
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.containerFooter .logoFooter{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 50%;
+}
+.containerFooter .logoFooter img{
+    width: 150px;
+    height: auto;
+}

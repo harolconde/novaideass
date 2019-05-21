@@ -1,0 +1,112 @@
+$fontFamilyRegular: "Aristotelica Display Regular";
+
+h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
+    font-family: $fontFamilyRegular;
+}
+.sectionDatesUserDashboard{ 
+    position: relative;
+}
+.sectionDatesUserDashboard .containerDatesUser{
+    padding-top: .75rem;
+    padding-bottom: .7rem;
+}
+.sectionDatesUserDashboard .containerDatesUser .row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .containerLogoApp{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates hr{
+    background-color: #ffff;
+    height: 1px;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser{
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .img{
+    margin: 0rem 1rem 0rem 1rem;  
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .name{
+    margin: 0rem 1rem 0rem 1rem;
+    width: auto;  
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .name span{
+    color: #fff;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .arrow .btnDatesUser{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 50px;
+    border: 0;
+    background: transparent;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .arrow .btnDatesUser img{
+    width: 12.95px;
+    height: 8px;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .infoPerfil{
+    position: absolute;
+    width: 178.91px;
+    height: calc(91.14px - 10px);
+    left: 60px;
+    bottom: -82px;
+    z-index: 1005;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .infoPerfil::before,.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .infoPerfil::after{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent #fff;
+    right: 7px;
+    z-index: 1000;
+    top: -8px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .infoPerfil::before{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.12);
+    right: 7px;
+    z-index: 1000;
+    top: -10px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .infoPerfil .list-group .list-group-item{
+    border: 0;
+    padding: 0.2rem 1.5rem;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .infoPerfil .list-group .list-group-item a{
+    color: #6E707B;
+}
+.sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .infoPerfil .list-group .list-group-item a span{
+    font-size: .9rem;
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="16px" viewBox="0 0 12 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.1 (55044) - http://www.bohemiancoding.com/sketch -->
+    <title>4098D405-7217-4829-B9CF-023AD077D01A</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="149" y="467" width="331" height="39" rx="19.5"></rect>
+        <filter x="-13.6%" y="-76.9%" width="127.2%" height="330.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="15" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0705882353   0 0 0 0 0.592156863   0 0 0 0 0.576470588  0 0 0 0.4 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-Login" transform="translate(-164.000000, -479.000000)">
+            <rect id="Base" fill="#FFFFFF" x="0" y="-7" width="684" height="860"></rect>
+            <g id="Field-Copy-5">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <rect stroke="#ACACAC" stroke-width="1" stroke-linejoin="square" x="149.5" y="467.5" width="330" height="38" rx="19"></rect>
+            </g>
+            <path d="M170.000043,487 C168.343197,487 167,485.209157 167,483.000023 C167,480.790843 167.441076,479 170.000043,479 C172.559009,479 173,480.790843 173,483.000023 C173,485.209157 171.656803,487 170.000043,487 Z M175.993283,492.603483 C175.997025,492.84809 175.999008,492.890398 176,492.868571 C175.999865,492.933403 175.999775,493.028701 175.999775,493.165749 C175.999775,493.165749 175.116419,495 170.000135,495 C164.883761,495 164.000496,493.165749 164.000496,493.165749 C164.000496,492.952444 164.000225,492.830117 164,492.763985 C164.000992,492.79928 164.003562,492.783304 164.009107,492.479252 C164.076731,488.755718 164.591038,487.682225 168.260564,487 C168.260564,487 168.782896,487.685522 170.000135,487.685522 C171.217375,487.685522 171.739616,487 171.739616,487 C175.449627,487.689748 175.934449,488.779403 175.993283,492.603483 Z" id="Combined-Shape" fill="#ACACAC" fill-rule="nonzero"></path>
+            <path d="M164.006928,493.5 C164.000928,492.527072 163.994928,493.225879 164.006928,493.5 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

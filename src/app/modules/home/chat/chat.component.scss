@@ -1,0 +1,334 @@
+$backgroundColorReply : #fff;
+$backgroundTitleChat : #fff;
+$backgroundContChat : #fafafa;
+$fontFamilyRegular: "Aristotelica Display Regular";
+
+h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
+    font-family: $fontFamilyRegular;
+}
+.containerChatIdeas{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: calc(100% - 168.19px);
+}
+.containerGeneralChat{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.containerChatIdeas .row{
+    margin: 0;
+}
+.containerChatIdeas .row .titleChatIdeas{
+    position: absolute;
+    top:0;
+    height: 6%;
+    background-color: $backgroundTitleChat;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.containerChatIdeas .row .titleChatIdeas h6{
+    padding-bottom: 0 !important;
+    font-weight: 700;
+}
+.containerChatIdeas .row .containerChat{
+    background-color: $backgroundContChat;
+    height: calc(100% - 12%);
+    position: absolute;
+    top: 6%;
+    width: 100%;
+    z-index: 1001;
+    overflow-y: auto;
+    background-image: linear-gradient(rgba(109, 76, 65, 0.12), rgba(109, 76, 65, 0.12)), 
+    url('/assets/img/textures/doodles.png');
+    background-repeat: repeat;
+    padding: 0 3px 0 3px;
+    overflow-x: hidden;
+}
+.containerChatIdeas .row .containerMessageIdeas{
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor{
+    width: 100%;
+    margin-right: auto;
+    margin-left: 65px;
+    font-size: 0.9rem;
+    line-height: 135%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials{
+    position: relative;
+    width: 75%;
+    margin: 10px;
+    padding: 5px;
+    background-color: $backgroundContChat;
+    border-radius: 4px;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.45);
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials::before, .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials::after{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 15px 12px 0px;
+    border-style: solid;
+    border-color: transparent #fafafa;
+    left: -14px;
+    z-index: 1000;
+    top: 8px;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials::before{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 15px 12px 0px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.3);
+    left: -15px;
+    z-index: 1000;
+    top: 8px;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .imgUserInChat{
+    position: absolute;
+    top: 0;
+    left: -65px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .imgUserInChat img{
+    width: 98%;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea{
+    font-size: 0.85rem;
+    padding: 0 0 7px 0;
+    clear: both;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike{
+    position: absolute;
+    width: auto;
+    height: auto;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    top: 5px;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage{
+    display: flex;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark{
+    width: auto;
+    height: auto;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .contentBtnMyHeart{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .contentBtnMyHeart li img{
+    width: 1.8rem;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .votos{
+    position: absolute;
+    width: auto;
+    padding: 5px;
+    background-color:$backgroundColorReply ;
+    right: 0;
+    border: 1px solid #eee;
+    top: 2rem;
+    list-style: none;
+    border-radius: 4px;
+    /* margin-bottom: 0; */
+    /* top: 3px; */
+    /* right: 8px; */
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .votos .upButton{
+    height: auto;
+    width: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .votos .upButton img{
+    color: #333;
+    width: 4.2rem;
+    border-radius: 50%;
+    border: 0px transparent;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .ideaMessageChatUsers{
+    width: 100%;
+    /* height: 100px; */
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    display: block;
+    font-size: 0.8rem;
+    transition: all .5s;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .ideaMessageChatUsers .paragraphIdea{
+    color: #444;
+    text-decoration: none;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerDisplayReply{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 10px 0px 10px 0px;
+    border-top: 1px dotted #ddd;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerDisplayReply .replyTitle{
+    font-size: .8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerDisplayReply .replyTitle .btnAddNewReply{
+    position: absolute;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .btnSeeMoreMessage{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    /* background-color: red; */
+    position: relative;
+    border-radius: 5px;
+    /* left: 0; */
+    font-weight: 600;
+    border: 1px solid transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .btnSeeMoreMessage .answerMessage{
+    color: #607d8b;
+    font-size: .8rem;
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+}
+.containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .btnSeeMoreMessage .iconMoreMinus{
+    position: absolute;
+    right: 10px;
+    color: #444;
+}
+.containerChatIdeas .row .seeAllIdeasChat{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6.5%;
+    background-color: $backgroundTitleChat;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    z-index: 1002;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.containerChatIdeas .row .seeAllIdeasChat .linkSeeMoreIdeas{
+    position: absolute;
+    right: 10px;
+}
+
+//Estilos del scrollbar
+/* Configuracion y estilos del Scrollbar del chat de ideas*/
+
+.containerMessageIdeas::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+}
+.containerMessageIdeas::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 4px;
+}
+.containerMessageIdeas::-webkit-scrollbar-thumb:hover{
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.containerMessageIdeas::-webkit-scrollbar-thumb:active{
+    background-color: #999999;
+}
+.containerMessageIdeas::-webkit-scrollbar-track{
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+.containerMessageIdeas::-webkit-scrollbar-track:hover,
+.containerMessageIdeas::-webkit-scrollbar-track:active{
+    background: #d4d4d4;
+}
+
+//Popover addClass
+.showPopover{
+    display: flex;
+    transition: display 500ms ease-in-out;
+}
+
+//Responder mensajes
+.containerChatIdeas .replyMessage{
+    display: flex;
+    position: absolute;
+    bottom: calc(0vh);
+    z-index: 1003;
+    background-color: $backgroundColorReply;
+    width: 100%;
+}
+.containerChatIdeas .replyMessage .rowReply{
+    width: 100%;
+}
+.containerChatIdeas .replyMessage .rowReply .input-group-reply-message .formReply{
+    width: 100%;
+    display: flex;
+    padding: 1rem 1rem 3rem 1rem;
+}
+.containerChatIdeas .replyMessage .rowReply .input-group-reply-message .formReply .input-reply-idea{
+    border-radius: 50px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.containerChatIdeas .replyMessage .rowReply .input-group-reply-message .formReply .input-group-prepend{
+    border-radius: 50px;
+    width: auto;
+    height: auto;
+    margin-left: 5px;
+}
+.containerChatIdeas .replyMessage .rowReply .input-group-reply-message .formReply .input-group-prepend .group-btn-reply-message{
+    border-radius: 50px;
+    width: 62px;
+    padding: 0;
+}
+.containerChatIdeas .replyMessage .rowReply .input-group-reply-message .formReply .input-group-prepend .group-btn-reply-message .btn-reply-message{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    font-size: 2rem;
+}

@@ -1,0 +1,62 @@
+<section class="sectionLogin">
+    <div class="containerSignUp containerLogin">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 formLogin">
+                    <div class="container-icon">
+                        <img [src]="'assets/img/logos/Logo-NovaideasLogin.png'" alt="">
+                    </div>
+                    <div class="containerDescription">
+                        <div class="titleDescription">
+                            <h5>Bienvenido a Nova<span>ideas</span></h5>
+                        </div>
+                        <div class="descriptionApp">
+                            <p>Ingresa con tu usuario y tu contraseña para que puedas compartirnos tus ideas.</p>
+                        </div>
+                    </div>
+                    <!-- <form class="formSingUp"> -->
+                        <div class="form-group">
+                            <label class="labels" for="exampleInputEmail1">Usuario</label>
+                            <div class="input-group mb-3 formGroupLogin">
+                                <div class="input-group-prepend inputGropPrependLogin">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <img [src]="'assets/img/icons/login/User.svg'" alt="">
+                                    </span>
+                                </div>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario">
+                                
+                            </div>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> 
+                        </div>
+                        <div class="form-group">
+                            <label class="labels" for="exampleInputPassword1">Contraseña</label>
+                            <div class="input-group mb-3 formGroupLogin">
+                                <div class="input-group-prepend inputGropPrependLogin">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <img [src]="'assets/img/icons/login/key.svg'" alt="">
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                            </div> 
+                        </div>
+                        <div class="row containerButtons">
+                            <div class="col-sm-12  col-md-6 col-lg-6 col-xl-6 buttonsLogin buttonCancel">
+                                <button type="submit" class="btn btn-primary btn-block btnLogin btnCancel">Cancelar</button>
+                            </div>
+                            <div class="col-sm-12 col-6 col-md-6 col-lg-6 col-xl-6 buttonsLogin buttonsAcept">
+                                <button [routerLink] = "'./dashboard'" type="submit" class="btn btn-primary btn-block btnLogin">Ingresar</button>
+                            </div>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label checkLogin" for="exampleCheck1">Recordar</label>
+                        </div>   
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containerSignUp containerLoginImg">
+        <img class="backgroundLoginImg" [src]="'assets/img/pics/fondo-login-novaideas.jpg'" alt="">
+    </div>
+</section>

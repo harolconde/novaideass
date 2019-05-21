@@ -1,0 +1,147 @@
+//Variables
+$buttons: #E7B843;
+$borderRadius: 50px;
+$color: #898989;
+$colorLabel: #8A8A8A;
+$fontFamilyRegular: "Aristotelica Display Regular";
+$borderColor: 1px solid #ACACAC;
+
+h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
+    font-family: $fontFamilyRegular;
+}
+.sectionLogin{
+    width: 100%;
+    height: calc(100vh);
+    display: flex;
+}
+.sectionLogin .containerSignUp{
+    width: 50%;
+    height: 100%;
+}
+.sectionLogin .containerLogin {
+    display: flex;
+    align-items: center;
+}
+.sectionLogin .containerLogin .container .row{
+    display: flex;
+    justify-content: center;
+}
+.sectionLogin .containerLogin .container-icon{
+    margin-bottom: 96.65px;
+}
+.sectionLogin .containerLogin .container-icon img{
+    width: 85%;
+}
+.sectionLogin .containerLogin .containerDescription{
+    margin-bottom: 22px;
+}
+.sectionLogin .containerLogin .containerDescription .titleDescription{
+    //font-family: "Aristotelica Display";
+    letter-spacing: 1.47px;
+    line-height: 26px;
+    font-size: 1.25rem;
+    color: $color;
+}
+.sectionLogin .containerLogin .containerDescription .titleDescription span{
+    color: $buttons;
+}
+.sectionLogin .containerLogin .containerDescription .descriptionApp{
+    font-size: .9rem;
+    letter-spacing: 1.03px;
+    line-height: 19px;
+    color: $color;
+}
+.sectionLogin .containerLogin .formLogin{
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+}
+
+.sectionLogin .containerLogin .formLogin .form-group .labels{
+    font-size: .9rem;
+    color: $colorLabel;
+    font-weight: 600;
+    letter-spacing: 1.03px;
+    line-height: 19px;
+    display: block;
+    padding-left: 13px;
+}
+.sectionLogin .containerLogin .formLogin .form-group .formGroupLogin{
+    height: 40px;
+}
+.sectionLogin .containerLogin .formLogin .form-group .formGroupLogin .inputGropPrependLogin{
+    border-radius: $borderRadius 0px 0px $borderRadius;
+    border-right: 0;
+}
+.sectionLogin .containerLogin .formLogin .form-group .formGroupLogin .inputGropPrependLogin span{
+    border-radius: $borderRadius 0px 0px $borderRadius;
+    background-color: transparent;
+    border: $borderColor;
+    border-right: 0;
+}
+.sectionLogin .containerLogin .formLogin .form-group .form-control{
+    border-radius: 0px $borderRadius $borderRadius 0px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border: $borderColor;
+    border-left: 0;
+    /* margin: 9px 0px 9px 0px;*/
+}
+.sectionLogin .containerLogin .formLogin .form-group small{
+    display: none;
+    padding-left: 13px;
+}
+.sectionLogin .containerLogin .formLogin .containerButtons{
+    margin: 27px 0px 9px 0px;
+}
+.sectionLogin .containerLogin .formLogin .containerButtons .buttonsLogin{
+    margin: 9px 0px 9px 0px;
+    &.buttonCancel{
+        padding-left: 0px;
+    }
+    &.buttonsAcept{
+        padding-right: 0px;
+    }
+}
+.sectionLogin .containerLogin .formLogin .containerButtons .btnLogin{
+    height: 40px;
+    border-radius: $borderRadius;
+    background-color: $buttons;
+    //box-shadow: 0 4px 25px 0 rgba(18,151,147,0.4);
+    border: 1px solid $buttons;
+    font-size: .9rem;
+    letter-spacing: 1.03px;
+    line-height: 19px;
+    padding: .8rem;
+    position: relative;
+    &.btnCancel{
+        background-color: #fff;
+        border: 1px solid $buttons;
+        color: $buttons;
+    }
+}
+
+.sectionLogin .containerLogin .formLogin .form-check input[type="checkbox"]{
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border: $borderColor;
+}
+
+.sectionLogin .containerLogin .formLogin .form-check .checkLogin{
+    font-size: .9rem;
+    color: $colorLabel;
+    letter-spacing: 1.03px;
+    line-height: 19px;
+}
+
+//Section right
+.sectionLogin .containerLoginImg{
+    overflow-x: hidden;
+    position: relative;
+}
+.sectionLogin .containerLoginImg .backgroundLoginImg{
+    height: 100%;
+    position: absolute;
+    right: 0;
+}

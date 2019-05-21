@@ -1,0 +1,343 @@
+$bacgroundComponent: #fff;
+$colorSectionWrite : #fff;
+$colorSections : #eee;
+$colorBtnIdeas: #263238;
+$colorBrowser: #fafafa;
+$colorText: #5A5858;
+$fontFamilyRegular: "Aristotelica Display Regular";
+$colorTitle: #E7B843;
+$colorButtons: #E7B843;
+$radiusButtons: 50px;
+
+h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
+    font-family: $fontFamilyRegular;
+}
+//Formulario donde se escriben las ideas
+.sectionAllIdeas{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $colorSectionWrite;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sectionAllIdeas .containerIdeas{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    padding-left: 28px;
+    padding-right: 28px;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral{
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: left;
+    margin: 0;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard{
+    width: 100%;
+    padding: 0;
+}
+
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend{
+    flex-wrap: nowrap;
+    //margin-bottom: 0;
+    border-radius: 3px;
+    height: 32px;
+    width: 90%;
+    margin-bottom: 0 !important;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+    border-radius: 50px;
+    padding: 0;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage .spaceWriteIdea{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    border-radius: 50px 0px 0px 50px;
+    padding: .7rem .5rem .5rem 1rem;
+    border: none;
+    background-color: $colorBrowser;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage .input-group-text{
+    padding: 0 14px 0px 0px;
+    background-color: $colorBrowser;
+    border: none;
+    border-radius: 0px 50px 50px 0px;
+    
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage .input-group-text .btnPlusIdea{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    color: $colorBrowser;
+    align-items: center;
+    padding: .5rem;
+}
+
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage .input-group-text .btnPlusIdea img{
+    width: 16px;
+    height: 16px;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard{
+    display: flex;
+    justify-content: flex-end;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification .titleNotification{
+    color: $colorText;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 1.18px;
+    display: block;
+    width: auto;
+    height: 15px;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification .imgAlertNotification{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .titleMenu{
+    color: $colorText;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 1.18px;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav{
+    position: absolute;
+    width: 178.91px;
+    height: calc(190px);
+    right: 7px;
+    top: 40px;
+    z-index: 1005;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::before,.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::after{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent #fff;
+    right: 7px;
+    z-index: 1000;
+    top: -8px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::before{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.12);
+    right: 7px;
+    z-index: 1000;
+    top: -10px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item{
+    padding: 0.1rem 1.25rem;
+    border: 0;
+}
+.sectionAllIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item a{
+    color: #6E707B;
+    font-size: .9rem;
+}
+
+
+//Ideas
+.filterAddIdeas .filter .allIdeasContent{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-top: .6rem;
+}
+.filterAddIdeas .filter .allIdeasContent .contenedor{
+    
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials{
+    position: relative;
+    margin: 10px 10px 10px 76px;
+    padding: 5px;
+    background-color: #fafafa;
+    border-radius: 4px;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.125);
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials::before,.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials::after{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 15px 12px 0px;
+    border-style: solid;
+    border-color: transparent #fafafa;
+    left: -14px;
+    z-index: 1000;
+    top: 8px;
+}
+.filterAddIdeas .filter .allIdeasContent  .containerIdeaCredentials::before{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 15px 12px 0px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.125);
+    left: -15px;
+    z-index: 1000;
+    top: 8px;
+}
+.filterAddIdeas .filter .allIdeasContent  .containerIdeaCredentials .imgUserInChat{
+    position: absolute;
+    top: 0;
+    left: -65px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .imgUserInChat img{
+    width: 98%;
+} 
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes{
+    width: 100%;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea{
+    font-size: 0.85rem;
+    padding: 0 0 7px 0;
+    clear: both;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: #444;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike{
+    position: absolute;
+    width: auto;
+    height: auto;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    top: 5px;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage{
+    display: flex;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark{
+    width: auto;
+    height: auto;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .contentBtnMyHeart{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .contentBtnMyHeart li{
+
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .contentBtnMyHeart li .imgHeart{
+    width: 1.8rem;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .ideaMessageChatUsers{
+    width: 100%;
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    display: block;
+    font-size: 0.8rem;
+    transition: all .5s;
+    
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .ideaMessageChatUsers .paragraphIdea{
+    color: #444;
+    text-decoration: none;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerDisplayReply{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 10px 0px 10px 0px;
+    border-top: 1px dotted #ddd;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerDisplayReply .replyTitle{
+    font-size: .8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerDisplayReply .replyTitle .btnAddNewReply{
+    position: absolute;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .btnSeeMoreMessage{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .btnSeeMoreMessage .answerMessage{
+    color: #607d8b;
+    font-size: .8rem;
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+}
+.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .btnSeeMoreMessage .iconMoreMinus{
+    position: absolute;
+    right: 10px;
+    color: #444;
+}

@@ -1,0 +1,24 @@
+
+//General
+@import 'sass/general';
+@import 'sass/fonts';
+
+//Components dashboard
+@import 'modules/home/barlateral/barlateral.component.scss';
+@import 'modules/home/chat/chat.component.scss';
+@import 'modules/home/datesuser/datesuser.component.scss';
+@import 'modules/home/ideas/idea/idea.component.scss';
+@import 'modules/home/ideas/allideas/allideas.component.scss';
+@import 'modules/home/ideas/deadideas/deadideas.component.scss';
+@import 'modules/home/ideas/finishideas/finishideas.component.scss';
+@import 'modules/home/ideas/ideaspostulate/ideaspostulate.component.scss';
+@import 'modules/home/ideas/approved/approved.component.scss';
+@import 'modules/home/ideas/debate/debate.component.scss';
+@import 'modules/home/footer/footer.component.scss';
+@import 'modules/home/perfiluser/perfiluser.component.scss';
+
+//Layouts
+@import 'modules/login/loginuser/loginuser.component.scss';
+@import 'modules/home/dashboard/dashboard.component.scss';
+@import 'modules/user/perfiluser/perfiluser.component.scss';
+@import 'modules/administrator/perfiladministrator/perfiladministrator.component.scss';

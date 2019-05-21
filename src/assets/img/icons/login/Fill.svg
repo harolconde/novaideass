@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="10px" viewBox="0 0 16 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.1 (55044) - http://www.bohemiancoding.com/sketch -->
+    <title>247F800B-9E09-48E5-A4D5-6FDE1EE112A0</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="149" y="545" width="331" height="39" rx="19.5"></rect>
+        <filter x="-13.6%" y="-76.9%" width="127.2%" height="330.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="15" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0705882353   0 0 0 0 0.592156863   0 0 0 0 0.576470588  0 0 0 0.4 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-Login" transform="translate(-451.000000, -560.000000)">
+            <rect id="Base" fill="#FFFFFF" x="0" y="-7" width="684" height="860"></rect>
+            <g id="Field-Copy">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <rect stroke="#ACACAC" stroke-width="1" stroke-linejoin="square" x="149.5" y="545.5" width="330" height="38" rx="19"></rect>
+            </g>
+            <path d="M462.944531,562.651625 C463.884594,563.251219 464.681156,564.054344 465.279531,565 C464.681188,565.945656 463.884531,566.748781 462.944531,567.348375 C461.763375,568.101781 460.399375,568.5 459,568.5 C457.600656,568.5 456.236625,568.101781 455.055469,567.348375 C454.115469,566.74875 453.318906,565.945625 452.720563,565 C453.318875,564.054313 454.115469,563.251188 455.055469,562.651625 C455.116688,562.612562 455.178531,562.574719 455.24075,562.537563 C455.085156,562.964563 455,563.425406 455,563.90625 C455,566.115344 456.790875,567.90625 459,567.90625 C461.209125,567.90625 463,566.115344 463,563.90625 C463,563.425406 462.914875,562.964563 462.759281,562.537531 C462.821438,562.574687 462.883312,562.612562 462.944531,562.651625 M459,560 C455.510656,560 452.486219,562.031906 451,565 C452.486219,567.968062 455.510656,570 459,570 C462.489281,570 465.51375,567.968062 467,565 C465.513812,562.031906 462.489281,560 459,560" id="Fill-1" fill="#ACACAC"></path>
+        </g>
+    </g>
+</svg>

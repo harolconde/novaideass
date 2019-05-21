@@ -1,0 +1,703 @@
+//Variables
+$colorSectionWrite : #fff;
+$colorSections : #eee;
+$colorBtnIdeas: #263238;
+$colorBrowser: #fafafa;
+$colorText: #5A5858;
+$fontFamilyRegular: "Aristotelica Display Regular";
+$colorTitle: #E7B843;
+$colorButtons: #E7B843;
+$radiusButtons: 50px;
+$colorTextCardPerfil: #3B3D4D;
+
+h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
+    font-family: $fontFamilyRegular;
+}
+//Formulario donde se escriben las ideas
+.sectionWriteIdeas{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $colorSectionWrite;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sectionWriteIdeas .containerIdeas{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    padding-left: 28px;
+    padding-right: 28px;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral{
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: left;
+    margin: 0;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard{
+    width: 100%;
+    padding: 0;
+}
+
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend{
+    flex-wrap: nowrap;
+    //margin-bottom: 0;
+    border-radius: 3px;
+    height: 32px;
+    width: 90%;
+    margin-bottom: 0 !important;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+    border-radius: $radiusButtons;
+    padding: 0;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage .spaceWriteIdea{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    border-radius: 50px 0px 0px 50px;
+    padding: .7rem .5rem .5rem 1rem;
+    border: none;
+    background-color: $colorBrowser;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage .input-group-text{
+    padding: 0 14px 0px 0px;
+    background-color: $colorBrowser;
+    border: none;
+    border-radius: 0px 50px 50px 0px;
+    
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage .input-group-text .btnPlusIdea{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    color: $colorBrowser;
+    align-items: center;
+    padding: .5rem;
+}
+
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage .input-group-text .btnPlusIdea img{
+    width: 16px;
+    height: 16px;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard{
+    display: flex;
+    justify-content: flex-end;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification .titleNotification{
+    color: $colorText;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 1.18px;
+    display: block;
+    width: auto;
+    height: 15px;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification .imgAlertNotification{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .titleMenu{
+    color: $colorText;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 1.18px;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav{
+    position: absolute;
+    width: 178.91px;
+    height: calc(190px);
+    right: 7px;
+    top: 40px;
+    z-index: 1005;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::before,.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::after{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent #fff;
+    right: 7px;
+    z-index: 1000;
+    top: -8px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::before{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.12);
+    right: 7px;
+    z-index: 1000;
+    top: -10px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item{
+    padding: 0.1rem 1.25rem;
+    border: 0;
+}
+.sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item a{
+    color: #6E707B;
+    font-size: .9rem;
+}
+
+//Cards perfil de usuario
+.sectionPerfilUser{
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-bottom: 150px;
+}
+.sectionPerfilUser .containerPerfilUser{
+    width: 100%;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser{
+    width: 100%;
+    padding-left: .9rem;
+    padding-right: .9rem;
+    padding-top: 29px;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .containerCardPerfil{
+    padding-right: 0;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .row .card{
+    background-color: $colorSectionWrite;
+    margin-bottom: 1rem;
+    &.datesPerfilUser{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &.ideasPostuladas{
+        height: 210px;
+    }
+    &.ideasComentadas{
+        height: 210px;
+    }
+    &.misOpiniones{
+        height: 210px;
+    }
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .row .card .card-title{
+    padding-left: 14px;
+}
+
+//Card perfil usuario info
+.sectionPerfilUser .containerPerfilUser .titleDashboard{
+    padding-top: 28px;
+    padding-bottom: calc(26px -1rem);
+    color: $colorButtons;
+}
+.sectionPerfilUser .containerPerfilUser hr{
+    height: 1px;
+    background-color: $colorButtons;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader{
+    width: 50px;
+    height: 50px;
+    margin-top: 31px;
+    position: relative;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader .imgPerfilUser{
+    width: 50px;
+    height: 50px;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader .btnImgPerfilUser{
+    width: 50px;
+    height: 50px;
+    border-radius: $radiusButtons;
+    position: absolute;
+    border: none;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+    display: none;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader:hover .btnImgPerfilUser{
+    display: block;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .namePerfilUser{
+    margin-top: 19px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .namePerfilUser span{
+    color: $colorTextCardPerfil;
+    font-size: 1rem;
+    line-height: 17px;
+} 
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body{
+    width: 100%;
+    margin-top: 18px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body form .form-group{
+    margin-bottom: .3rem;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body label{
+    font-size: 0.625rem;
+    line-height: 17px;
+    margin-bottom: 0;
+    color: #666666; 
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body form .form-group label{
+    margin-bottom: 0;
+    font-size: 0.625rem;
+    line-height: 17px;
+    color: #666666;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body .emailPerfilUser{
+    display: block;
+    font-size: 0.6875rem;
+    line-height: 17px;
+    color: $colorTextCardPerfil;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body form .form-group .form-control{
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid $colorButtons;
+    border-radius: 0;
+    height: 22px;
+    font-size: 1rem;
+    line-height: 17px;
+    box-sizing: border-box;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-footer{
+    width: 100%;
+    margin-top: 9px;
+    padding-top: 20px;
+    padding-bottom: 29px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0;
+    background-color: $colorSectionWrite;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-footer .btnEditPerfilUser{
+    width: 150px;
+    height: 30px;
+    border-radius: $radiusButtons;
+    border: 0;
+    background-color: $colorButtons;
+    color: #fff;
+    font-size: .8125rem;
+    line-height: 21px;
+    font-weight: 600;
+    padding-top: .5rem;
+}
+
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-title{
+    padding-left: 10px;
+    margin-bottom: 0;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-title span{
+    font-size: .9rem;
+    font-weight: 600;
+    color: $colorText;
+    letter-spacing: 1.18px;
+    line-height: 19px;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .list-group-flush .list-group-item{
+    border-top: 0;
+    padding: 0.4rem 1.25rem;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop{
+    display: flex;
+    align-items: center;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .imgUserTop{
+    width: 5%;
+    margin-right: 10px;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .imgUserTop img{
+    width: 30px;
+    height: 30px;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .topParticipation{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .topParticipation .topParticipationNamePercentage{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .topParticipation .topParticipationNamePercentage .nameUserTop{
+    font-size: .625rem;
+    line-height: 17px;
+    width: 73%;
+    overflow: hidden;
+    height: 14px;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .topParticipation .topParticipationNamePercentage .contentIdeaTop{
+    font-size: .9rem;
+    color: #3B3D4D;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .topParticipation .topParticipationNamePercentage .percentage{
+    font-size: 0.625rem;
+    position: absolute;
+    right: 0;
+    line-height: 17px;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .topParticipation .topParticipationNamePercentage .percentagetIdeaTop{
+    font-size: .9rem;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .topParticipation .progress{
+    height: 6px;
+}
+.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .card-content .containerUserTop .topParticipation .progress .progress-bar{
+    background-color: #63C533;
+}
+
+//Card mis ideas postuladas
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-body{
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-body .list-group-flush .list-group-item{
+    //border-top: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0rem 1.25rem;
+    display: flex;
+    align-items: center;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-body .list-group-flush .list-group-item .spinnerIdea{
+    font-size: 3rem;
+    display: flex;
+    width: 7px;
+    height: 7px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin-top: -10px;
+    color: #63C533;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-body .list-group-flush .list-group-item .contenIdeaText{
+    margin-left: 10px;
+    font-size: .9rem;
+    font-weight: 300;
+    line-height: 30px;
+    width: 73%;
+    height: 29px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-body .list-group-flush .list-group-item .contentIconIdeaText{
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-body .list-group-flush .list-group-item .contentIconIdeaText button{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border-radius: $radiusButtons;
+    display: flex;
+    align-items: center;
+    border: none;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $colorSectionWrite;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-footer .btnSeeMore{
+    background-color: $colorButtons;
+    border-radius: $radiusButtons;
+    width: 50%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+//Card mis comentarios
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-body{
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-body .list-group-flush .list-group-item{
+    //border-top: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0rem 1.25rem;
+    display: flex;
+    align-items: center;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-body .list-group-flush .list-group-item .spinnerIdea{
+    font-size: 3rem;
+    display: flex;
+    width: 7px;
+    height: 7px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin-top: -10px;
+    color: #63C533;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-body .list-group-flush .list-group-item .contenIdeaText{
+    margin-left: 10px;
+    font-size: .9rem;
+    font-weight: 300;
+    line-height: 30px;
+    width: 73%;
+    height: 29px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-body .list-group-flush .list-group-item .contentIconIdeaText{
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-body .list-group-flush .list-group-item .contentIconIdeaText button{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border-radius: $radiusButtons;
+    display: flex;
+    align-items: center;
+    border: none;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $colorSectionWrite;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+.sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-footer .btnSeeMore{
+    background-color: $colorButtons;
+    border-radius: $radiusButtons;
+    width: 50%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+//Modal
+.modal .modal-dialog .modal-content{
+    border-radius: 2px;
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.22), 0 24px 24px 0 rgba(0,0,0,0.3);
+}
+.modal .modal-dialog .modal-content .modal-header .modal-title{
+    font-size: 1.125rem;
+    color: rgba(0,0,0,0.87);
+    line-height: 28px;
+}
+.modal .modal-dialog .modal-content .modal-header{
+    display: flex;
+    align-items: center;
+    padding: 1.5625rem 1rem .375rem 1rem;
+}
+.modal .modal-dialog .modal-content .modal-header .close{
+    width: 24px;
+    height: 24px;
+    border-radius: $radiusButtons;
+    background-color: #9E9E9E;
+    margin-right: -5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: .81rem .5rem .5rem .5rem;
+}
+.modal .modal-dialog .modal-content .modal-body{
+    padding: 0rem 1rem 1rem;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .titleModalBody{
+    margin-top: 11px;
+    color: rgba(0,0,0,0.87);
+    font-size: .9rem;
+    font-weight: 300;
+    line-height: 28px;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgPerfilSelected{
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgPerfilSelected .imgSelected{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgPerfilSelected .imgSelected img{
+    margin-bottom: 5.26px;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 14px;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .containerImgUpload{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0,0,0,0.38);
+    border-radius: 50px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .containerImgUpload img{
+    width: 100%;
+    height: 100%;
+    border-radius: $radiusButtons;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .containerBtnUpload{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 14px;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .containerBtnUpload input[type=file]{
+    display: block;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .containerBtnUpload .inputUpload{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+}
+// .modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .containerBtnUpload .inputUpload + label{
+//     border-radius: $radiusButtons;
+//     width: 153px;
+//     height: 30px;
+//     border: 1px solid #E7B843;
+//     background-color: #fff;
+//     color: #E7B843;
+//     font-size: .9rem;
+//     line-height: 19px;
+//     cursor: pointer;
+// }
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .btnUpload{
+    border-radius: $radiusButtons;
+    width: 153px;
+    height: 30px;
+    border: 1px solid #E7B843;
+    background-color: #fff;
+    color: #E7B843;
+    font-size: .9rem;
+    line-height: 19px;
+    cursor: pointer;
+}
+.modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .btnUpload:hover{
+    background-color: $colorButtons;
+    color: #fff;
+    transition: 500ms;
+}
+.modal .modal-dialog .modal-content .modal-footer{
+    padding-top: 1.1875rem;
+    padding-bottom: 1.875rem;
+    display: flex;
+    justify-content: flex-start;
+}
+.modal .modal-dialog .modal-content .modal-footer .btnModal{
+    width: 153px;
+    height: 39px;
+    border: 1px solid #E7B843;
+    border-radius: $radiusButtons;
+    //box-shadow: 0 4px 25px 0 rgba(18,151,147,0.4);
+    font-size: .9rem;
+    letter-spacing: 1.03px;
+    line-height: 8px;
+    padding-top: .65rem;
+    &.btnCancel{
+        background-color: #fff;
+        color: #E7B843;
+    }
+    &.btnCancel:hover{
+        background-color: $colorButtons;
+        color: #fff;
+        transition: 500ms;
+    }
+    &.btnSave{
+        background-color: $colorButtons;
+        color: #fff;
+    }
+    &.btnSave:hover{
+        background-color: #fff;
+        color: $colorButtons;
+        transition: 500ms;
+    }
+}
+
+
+//Media queries
+@media (min-width: 1px) and (max-width: 991px) { 
+    .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .containerCardPerfil{
+        padding-right: 1rem !important;
+    }
+}

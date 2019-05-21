@@ -1,0 +1,51 @@
+<section class="sectionDatesUserDashboard">
+    <div class="container containerDatesUser"> 
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 containerDates">
+                <div class="containerLogoApp">
+                    <img [src]="'assets/img/logos/logo_novaideasChat.png'" alt="" class="imgLogoInChat">
+                </div>
+                <hr>
+                <div class="datesOfUser">
+                    <div class="row gridDatesUser">
+                        <div class="img">
+                            <img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="mgUserInChat">
+                        </div>
+                        <div class="name"> 
+                            <span>Harol Conde</span>
+                        </div>
+                        <div class="arrow">
+                            <button class="btnDatesUser" data-toggle="tooltip" data-placement="top" title="Datos de perfil" (click)="showMenuUser()">
+                                <img [src]="'assets/img/icons/dashboard/Arrow.svg'" alt="" class="imgArrowDown">
+                            </button>
+                        </div>
+                        <div class="infoPerfil" *ngIf="menuUser">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a [routerLink]="'/perfil-usuario'" (click) = "showMenuUser()">
+                                        <span>
+                                            <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                        </span> 
+                                        <span>
+                                            Mi perfil 
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a [routerLink]="'/'">
+                                        <span>
+                                            <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+                                        </span> 
+                                        <span>
+                                            Cerrar sesión
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

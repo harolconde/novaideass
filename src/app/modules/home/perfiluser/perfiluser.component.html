@@ -1,0 +1,367 @@
+<section class="sectionWriteIdeas">
+    <div class="containerIdeas"> 
+          <div class="row">
+              <div class="col">
+                  <div class="containerWriteIdeas">
+                      <div class="containerIdeaGeneral row">
+                          <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 containerWriteIdeaBoard">
+                              <label class="sr-only" for="inlineFormInputGroup"></label>
+                              <div class="input-group groupMessageSend mb-2">
+                                  <form action="" class="formNewMessage">
+                                      <input name="idea" id="" cols="30" rows="10" class="spaceWriteIdea" placeholder="Cual es tu idea?" required>
+                                      <div class="input-group-prepend">
+                                          <div class="input-group-text">
+                                              <button class="btn btnPlusIdea" type="submit" value="Enviar Comentario" >
+                                                  <img [src]="'assets/img/icons/dashboard/browser.svg'" alt="">
+                                              </button>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 notificationDashboard">
+                              <div class="notification">
+                                  <span class="titleNotification">Notificaciones</span>
+                                  <div class="imgAlertNotification">
+                                      <img [src]="'assets/img/icons/dashboard/notification.svg'" alt="">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 menuHamburgerDashboard">
+                              <div class="menuHamburguer">
+                                  <span class="titleMenu">Menu</span>
+                                  <button class="navbar-toggler" (click)="showMenuNav()">
+                                      <img [src]="'assets/img/icons/dashboard/hamburguer.svg'" alt="">
+                                  </button>
+                              </div>
+                              <div class="menuNav" *ngIf="menuComponents">
+                                  <ul class="list-group list-group-flush"> 
+                                      <li class="list-group-item">
+                                          <a [routerLink]="'/dashboard'">
+                                              <span>
+                                                  <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                              </span> 
+                                              <span>
+                                                  Dashboard
+                                              </span>
+                                          </a>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <a [routerLink]="'/postuladas'">
+                                              <span>
+                                                  <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                              </span> 
+                                              <span>
+                                                  Ideas postuladas
+                                              </span>
+                                          </a>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <a [routerLink]="'/login'">
+                                              <span>
+                                                  <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+                                              </span> 
+                                              <span>
+                                                  Ideas aprobadas
+                                              </span>
+                                          </a>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <a [routerLink]="'/login'">
+                                              <span>
+                                                  <img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
+                                              </span> 
+                                              <span>
+                                                  Ideas en debate
+                                              </span>
+                                          </a>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <a [routerLink]="'/finalizadas'">
+                                              <span>
+                                                  <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+                                              </span> 
+                                              <span>
+                                                  Ideas finalizadas
+                                              </span>
+                                          </a>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <a [routerLink]="'/muertas'">
+                                              <span>
+                                                  <img [src]="'assets/img/icons/dates/ovalBlack.svg'" alt="">
+                                              </span> 
+                                              <span>
+                                                  Ideas muertas
+                                              </span>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    </div>
+</section>
+<section class="sectionPerfilUser">
+    <div class="containerPerfilUser">
+        <div class="row">
+            <div class="col-12">
+                <div class="titleDashboard">
+                    <h3>Mi perfil</h3>
+                </div>
+                <hr>
+            </div>
+            <div class="containerCardPerfilUser">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 containerDatesPerfilUser containerCardPerfil">
+                        <div class="card datesPerfilUser">
+                            <div class="cardheader" data-toggle="tooltip" data-placement="bottom" title="Editar">
+                                <img class="imgPerfilUser" src="assets/img/users/ideas-avatar-hombre.svg" alt="">
+                                <button class="btnImgPerfilUser" data-toggle="modal" data-target="#exampleModalCenter">
+                                    <img src="assets/img/icons/perfilUser/pencil-edit-buttons.svg" alt="" class="imgEditPerfil">
+                                </button>
+                            </div>
+                            <div class="namePerfilUser"> <span>Harol Conde</span></div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Nickname</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="HConde">
+                                    </div>
+                                </form>
+                                <label for="formGroupExampleInput2">Correo</label>
+                                <span class="emailPerfilUser">harol.conde@novatec.com.co</span>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btnEditPerfilUser">Guardar cambios</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="card ideasPostuladas">
+                                    <div class="card-title"> <span>Mis ideas postuladas</span> </div>
+                                    <div class="card-content">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="containerUserTop imgUserIdeaTop">
+                                                    <div class="imgUserTop">
+                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="">
+                                                    </div>
+                                                    <div class="topParticipation topIdeaPercentage">
+                                                        <div class="topParticipationNamePercentage topParticipationIdeaPercentage">
+                                                            <span class="nameUserTop contentIdeaTop">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam recusandae eum error quaerat aliquid beatae eligendi ex sunt inventore voluptates.</span>
+                                                            <span class="percentage percentagetIdeaTop">85%</span>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="containerUserTop">
+                                                    <div class="imgUserTop imgUserIdeaTop">
+                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="">
+                                                    </div>
+                                                    <div class="topParticipation">
+                                                        <div class="topParticipationNamePercentage">
+                                                                    <span class="nameUserTop contentIdeaTop">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa a pariatur iusto repudiandae. Ipsum, sequi? Quia tempore nostrum nulla omnis rem quis voluptates alias enim.</span>
+                                                                    <span class="percentage percentagetIdeaTop">75%</span>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="containerUserTop">
+                                                    <div class="imgUserTop imgUserIdeaTop">
+                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="">
+                                                    </div>
+                                                    <div class="topParticipation">
+                                                        <div class="topParticipationNamePercentage">
+                                                            <span class="nameUserTop contentIdeaTop">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ducimus perspiciatis voluptatibus reprehenderit, corporis numquam ex laudantium aut doloremque exercitationem amet explicabo quidem hic corrupti reiciendis atque, vitae magni obcaecati?</span>
+                                                                <span class="percentage percentagetIdeaTop">70%</span>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="containerUserTop">
+                                                    <div class="imgUserTop imgUserIdeaTop">
+                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="">
+                                                    </div>
+                                                    <div class="topParticipation">
+                                                        <div class="topParticipationNamePercentage">
+                                                            <span class="nameUserTop contentIdeaTop">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, corporis.</span>
+                                                            <span class="percentage percentagetIdeaTop">60%</span>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 containerCardTodas containerCardPerfil">
+                                <div class="card todasMisIdeas">
+                                    <div class="card-title"> <span>Todas</span> </div>
+                                    <div class="card-body">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <span class="spinnerIdea">.</span>
+                                                <span class="contenIdeaText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, est!</span>
+                                                <div class="contentIconIdeaText">
+                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="spinnerIdea">.</span>
+                                                <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, vel rerum cum tempore inventore vitae.</span>
+                                                <div class="contentIconIdeaText">
+                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="spinnerIdea">.</span>
+                                                <span class="contenIdeaText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem dolore consequuntur provident fuga eos, magni aliquid. Minima rem iure provident saepe vero mollitia autem voluptate.</span>
+                                                <div class="contentIconIdeaText">
+                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="spinnerIdea">.</span>
+                                                <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias beatae provident illum eveniet voluptates rerum tempora odio? Quam, exercitationem voluptate?</span>
+                                                <div class="contentIconIdeaText">
+                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn btn-block btnSeeMore">Ver más</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="card misOpiniones">
+                                    <div class="card-title"> <span>Mis opiniones</span> </div>
+                                    <div class="card-body">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <span class="spinnerIdea">.</span>
+                                                <span class="contenIdeaText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, est!</span>
+                                                <div class="contentIconIdeaText">
+                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="spinnerIdea">.</span>
+                                                <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, vel rerum cum tempore inventore vitae.</span>
+                                                <div class="contentIconIdeaText">
+                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="spinnerIdea">.</span>
+                                                <span class="contenIdeaText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem dolore consequuntur provident fuga eos, magni aliquid. Minima rem iure provident saepe vero mollitia autem voluptate.</span>
+                                                <div class="contentIconIdeaText">
+                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="spinnerIdea">.</span>
+                                                <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias beatae provident illum eveniet voluptates rerum tempora odio? Quam, exercitationem voluptate?</span>
+                                                <div class="contentIconIdeaText">
+                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn btn-block btnSeeMore">Ver más</button>
+                                    </div>        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecciona un nuevo avatar o sube una foto.</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="containerImgsUserSelection">
+                    <div class="titleModalBody">
+                        <span>- Selecciona alguno de los avatares que tenemos disponibles.</span>
+                    </div>
+                    <div class="imgPerfilSelected">
+                        <div class="imgSelected">
+                            <img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
+                            <input type="radio" aria-label="Radio button for following text input">
+                        </div>
+                        <div class="imgSelected">
+                            <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="">
+                            <input type="radio" aria-label="Radio button for following text input">
+                        </div>
+                        <div class="imgSelected">
+                            <img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
+                            <input type="radio" aria-label="Radio button for following text input">
+                        </div>
+                        <div class="imgSelected">
+                            <img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="">
+                            <input type="radio" aria-label="Radio button for following text input">
+                        </div>
+                        <div class="imgSelected">
+                            <img [src]="'assets/img/users/ideas-avatar-hombre-gafas.svg'" alt="">
+                            <input type="radio" aria-label="Radio button for following text input">
+                        </div>
+                    </div>
+                    <div class="titleModalBody">
+                        <span>- Sube una imagen.</span>
+                    </div>
+                    <div class="imgUpload">
+                        <div class="containerImgUpload" id="containerImgUpload">
+                            <img id="upload" [src]="imgSrc"  alt="">
+                        </div>
+                        <div class="containerBtnUpload">
+                            <input type="file"  id="imgUpload" class="inputUpload"  accept="image/*" (change)="selectImg($event.target.files);">
+                            <label for="imgUpload">
+                                <!-- <button class="btn btn-secondary btn-lg btnUpload">
+                                    <span>Subir archivo</span>
+                                </button> -->
+                                <span class="btn btn-secondary btn-lg btnUpload">Subir archivo</span>
+                            </label> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btnModal btnCancel" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary btnModal btnSave">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

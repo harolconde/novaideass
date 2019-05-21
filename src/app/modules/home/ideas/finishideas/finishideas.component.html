@@ -1,0 +1,337 @@
+<section class="sectionIdeasFinish">
+    <div class="containerIdeas">
+        <div class="row">
+            <div class="col">
+                <div class="containerWriteIdeas">
+                    <div class="containerIdeaGeneral row">
+                        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 containerWriteIdeaBoard">
+                            <label class="sr-only" for="inlineFormInputGroup"></label>
+                            <div class="input-group groupMessageSend mb-2">
+                                <form action="" class="formNewMessage">
+                                    <input name="idea" id="" cols="30" rows="10" class="spaceWriteIdea" placeholder="Cual es tu idea?" required>
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <button class="btn btnPlusIdea" type="submit" value="Enviar Comentario" >
+                                                <img [src]="'assets/img/icons/dashboard/browser.svg'" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 notificationDashboard">
+                            <div class="notification">
+                                <span class="titleNotification">Notificaciones</span>
+                                <div class="imgAlertNotification">
+                                    <img [src]="'assets/img/icons/dashboard/notification.svg'" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 menuHamburgerDashboard">
+                            <div class="menuHamburguer">
+                                <span class="titleMenu">Menu</span>
+                                <button class="navbar-toggler" (click)="showMenuUser()">
+                                    <img [src]="'assets/img/icons/dashboard/hamburguer.svg'" alt="">
+                                </button>
+                            </div>
+                            <div class="menuNav" *ngIf="menuComponents">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/dashboard'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Dashboard
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/postuladas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas postuladas
+                                            </span>
+                                            </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/aprobadas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas aprobadas
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/debate'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas en debate
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/finalizadas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas finalizadas
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/muertas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalBlack.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas muertas
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sectionFishedIdeas">
+    <div class="containerFinishedIdeas">
+        <div class="row">
+            <div class="col-12 titleFinished">
+                <h3>Ideas Finalizadas</h3>
+                <hr>
+            </div>
+            
+            <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 containerCardFinished">
+                <div class="card cardLastFinished">
+                    <div class="card-title">
+                        <span>Ultima idea finalizada</span>
+                        <span class="dateIdeaFinish">15/05/2019</span>
+                    </div>
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img [src]="'https://image.freepik.com/vector-gratis/gente-llena-formulario_41910-319.jpg'" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img [src]="'https://image.freepik.com/vector-gratis/ilustracion-pasatiempos-actividades-humanas_53876-44088.jpg'" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img [src]="'https://image.freepik.com/vector-gratis/ninos-aprendiendo-jugando-ilustracion_53876-40285.jpg'" class="d-block w-100" alt="...">
+                            </div>
+                                </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-title-idea">
+                        <h5> Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque saepe modi optio dignissimos deleniti necessitatibus repellendus dolor incidunt aspernatur. Saepe a adipisci magnam expedita eaque doloribus odio praesentium, in vitae?</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="imgUserIdeaFinish">
+                            <img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
+                        </div>
+                        <div class="nameUserIdeaFinish">
+                            <span>Luisa Rodriguez</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 containerCardFinished">
+                <div class="card cardAllfinished">
+                    <div class="card-title">
+                        <span>Todas las ideas finalizadas</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="finishAll">
+                            <ul class="list-group list-group-flush">
+                                <li class="idea list-group-item">
+                                    <div class="img">
+                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgFinalizada">
+                                    </div>
+                                    <div class="descIdea">
+                                        <p class="ideaFinalizada">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                        </p>
+                                    </div>
+                                    <div class="date">
+                                        <span>20/05/2019</span>
+                                    </div>
+                                    <div class="see">
+                                        <button class="btn btnEyeFinalizada">
+                                                <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="idea list-group-item">
+                                    <div class="img">
+                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgFinalizada">
+                                    </div>
+                                    <div class="descIdea">
+                                        <p class="ideaFinalizada">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                        </p>
+                                    </div>
+                                    <div class="date">
+                                        <span>20/05/2019</span>
+                                    </div>
+                                    <div class="see">
+                                        <button class="btn btnEyeFinalizada">
+                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="idea list-group-item">
+                                    <div class="img">
+                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPFinalizada">
+                                    </div>
+                                    <div class="descIdea">
+                                        <p class="ideaFinalizada">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                        </p>
+                                    </div>
+                                    <div class="date">
+                                        <span>20/05/2019</span>
+                                    </div>
+                                    <div class="see">
+                                        <button class="btn btnEyeFinalizada">
+                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="idea list-group-item">
+                                    <div class="img">
+                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgFinalizada">
+                                    </div>
+                                    <div class="descIdea">
+                                        <p class="ideaFinalizada">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                        </p>
+                                    </div>
+                                    <div class="date">
+                                        <span>20/05/2019</span>
+                                    </div>
+                                    <div class="see">
+                                        <button class="btn btnEyeFinalizada">
+                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="idea list-group-item">
+                                    <div class="img">
+                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
+                                    </div>
+                                    <div class="descIdea">
+                                        <p class="ideaPostulada">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                        </p>
+                                    </div>
+                                    <div class="date">
+                                        <span>20/05/2019</span>
+                                    </div>
+                                    <div class="see">
+                                        <button class="btn btnEyePostulate">
+                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="idea list-group-item">
+                                    <div class="img">
+                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
+                                    </div>
+                                    <div class="descIdea">
+                                        <p class="ideaPostulada">
+                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                        </p>
+                                    </div>
+                                    <div class="date">
+                                        <span>20/05/2019</span>
+                                    </div>
+                                    <div class="see">
+                                        <button class="btn btnEyePostulate">
+                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="idea list-group-item">
+                                    <div class="img">
+                                                <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
+                                    </div>
+                                    <div class="descIdea">
+                                        <p class="ideaPostulada">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                        </p>
+                                    </div>
+                                    <div class="date">
+                                        <span>20/05/2019</span>
+                                    </div>
+                                    <div class="see">
+                                        <button class="btn btnEyePostulate">
+                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="idea list-group-item">
+                                    <div class="img">
+                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
+                                    </div>
+                                    <div class="descIdea">
+                                        <p class="ideaPostulada">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                        </p>
+                                    </div>
+                                    <div class="date">
+                                        <span>20/05/2019</span>
+                                    </div>
+                                    <div class="see">
+                                        <button class="btn btnEyePostulate">
+                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                        <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt="">
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
