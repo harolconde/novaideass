@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdministratorComponent } from './administrator.component'
 import { PerfiladministratorComponent } from './perfiladministrator/perfiladministrator.component'
 
 const routes: Routes = [
   {
     path: '',
-    component: PerfiladministratorComponent,
+    component: AdministratorComponent,
     children: [
       {
-        path: 'administrador',
+        path: 'perfil-administrador',
         component: PerfiladministratorComponent
       }
     ]
