@@ -27,6 +27,8 @@ export class ChatComponent implements OnInit {
   layoutReply:any = document.getElementById('replyMessage')
   textReplyMessage:any = document.getElementById('input-reply-idea')
   replyButton:boolean = false;
+  
+  // Service Ideas
 
   ideas:any[] = []
   constructor(private _service:IdeasService) {
@@ -69,12 +71,22 @@ export class ChatComponent implements OnInit {
 
   //Add comments
   addComments(i){
-    this.replyButton = ! this.replyButton
+    this.replyButton[i] = ! this.replyButton[i]
   }
 
   //Popover
-  popLikes(i){
-    this.popovers = ! this.popovers
+  popLikes(i:any){
+    const votes: any = document.getElementsByClassName('votos')
+    let myId: any = votes[i].id
+    const element: any = document.getElementById(myId)
+    if(this.popovers == false){
+      element.style.display = 'flex'
+      this.popovers = ! this.popovers
+    }
+    else{
+      element.style.display = 'none'
+      this.popovers = ! this.popovers
+    }
   }
   
   //Responder a idea

@@ -24,7 +24,18 @@ export class DebateComponent implements OnInit {
   }
 
   // Boton ver mas
-  showDescriptionAdd(){
-    this.btnSeeMore = ! this.btnSeeMore
+  showDescriptionAdd(id:any){
+    const list: any = document.getElementsByClassName('listGroupHidden')
+    let myId : any = list.id = id
+    const elementHidden: any = document.getElementById(myId)
+    console.log(elementHidden)
+    if(elementHidden.style.display == 'none'){
+      elementHidden.style.display = 'flex'
+      this.btnSeeMore = ! this.btnSeeMore 
+    }
+    else{
+      elementHidden.style.display = 'none'
+      this.btnSeeMore = ! this.btnSeeMore 
+    }
   }
 }
