@@ -1,3 +1,37 @@
-<h1>
-    Administrador works!!
-</h1>
+<section class="sectionAdministratorMenu">
+    <div class="barNav administrator">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 barNavDates">
+          <div class="row">
+            <div class="col-6 barNavDatesLogo">
+              <img [src]="'assets/img/logos/logo_novaideasChat.png'" alt="">
+            </div>
+            <div class="col-6 barNavDatesUser">
+              <div class="container">
+                <div class="imgBarNav">
+                  <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="mgUserInChat">
+                </div>
+                <div class="nameBarNav"></div>
+                <div class="arrowBarNav">
+                    <button class="btnDatesUser" data-toggle="tooltip" data-placement="top" title="Datos de perfil" > 
+                            <!-- (click)="showMenuUser()" -->
+                        <img [src]="'assets/img/icons/dashboard/Arrow.svg'" alt="" class="imgArrowDown">
+                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 barNavMenu">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sectionContainerPageAdministrator">
+      <div class="section">
+          <div class="row">
+            <router-outlet></router-outlet>
+          </div>
+      </div>
+  </section>

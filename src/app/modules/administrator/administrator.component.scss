@@ -1,0 +1,43 @@
+// Variables
+$backgroundDates: #E7B843;
+$backgroundNavBar: #fff;
+.sectionAdministratorMenu{
+    width: 100%;
+    height: 91px;
+}
+.sectionAdministratorMenu .barNav{
+    width: 100%;
+    height: 100%;
+    background-color: $backgroundNavBar;
+}
+.sectionAdministratorMenu .barNav .barNavDates{
+    width: 100%;
+    height: 100%;
+    background-color: $backgroundDates;
+}
+.sectionAdministratorMenu .barNav .barNavDates::before,.sectionAdministratorMenu .barNav .barNavDates::after{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 13px 0px 13px 18px;
+    border-style: solid;
+    border-color: transparent $backgroundDates;
+    right: -17px;
+    z-index: 1000;
+    top: 21px;
+}
+.sectionAdministratorMenu .barNav .barNavDates::before{
+   
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesLogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesLogo img{
+    width: 250px;
+    height: 61px;
+}
