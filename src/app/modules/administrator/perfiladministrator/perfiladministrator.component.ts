@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
+declare var $:any;
 
 @Component({
   selector: 'app-perfiladministrator',
@@ -13,3 +15,6 @@ export class PerfiladministratorComponent implements OnInit {
   }
 
 }
+$(() => {
+  $('[data-toggle="tooltip"]').tooltip();
+})

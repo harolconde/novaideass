@@ -1,14 +1,30 @@
 // Variables
 $backgroundDates: #E7B843;
 $backgroundNavBar: #fff;
+$colorText: #5A5858;
+
+$fontFamilyRegular: "Aristotelica Display Regular";
+
+h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
+    font-family: $fontFamilyRegular;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
 .sectionAdministratorMenu{
     width: 100%;
     height: 91px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
 }
 .sectionAdministratorMenu .barNav{
     width: 100%;
     height: 100%;
     background-color: $backgroundNavBar;
+}
+.sectionAdministratorMenu .barNav .rowHeigh{
+    height: 91px;
 }
 .sectionAdministratorMenu .barNav .barNavDates{
     width: 100%;
@@ -29,7 +45,19 @@ $backgroundNavBar: #fff;
     top: 21px;
 }
 .sectionAdministratorMenu .barNav .barNavDates::before{
-   
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.12);
+    right: 7px;
+    z-index: 1000;
+    top: -10px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
 }
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesLogo{
     display: flex;
@@ -40,4 +68,265 @@ $backgroundNavBar: #fff;
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesLogo img{
     width: 250px;
     height: 61px;
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1rem 0rem;
+    border-left: 1.5px solid #fff;
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .imgBarNav img{
+    width: 50px;
+    height: 50px;
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .nameBarNav span{
+    font-size: .9rem;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1.03px;
+    line-height: 19px;
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .btnDatesUser{
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .btnDatesUser img{
+    width: 12.95px;
+    height: 8px;
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil{
+    position: absolute;
+    width: 178.91px;
+    height: calc(91.14px - 10px);
+    right: 75px;
+    bottom: -60px;
+    z-index: 1005;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil::before,.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil::after{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent #fff;
+    right: 7px;
+    z-index: 1000;
+    top: -8px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil::before{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.12);
+    right: 7px;
+    z-index: 1000;
+    top: -10px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil .list-group .list-group-item{
+    border: 0;
+    padding: 0.2rem 1.5rem;
+}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil .list-group .list-group-item a{
+    color: #6E707B;
+}
+
+.barNavMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 36px;
+}
+.barNavMenu .containerIdeas{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    padding-left: 28px;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral{
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: left;
+    margin: 0;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard{
+    width: 100%;
+    padding: 0;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard  .groupMessageSend{
+    flex-wrap: nowrap;
+    //margin-bottom: 0;
+    border-radius: 3px;
+    height: 32px;
+    width: 90%;
+    margin-bottom: 0 !important;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard  .groupMessageSend .formNewMessage{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+    border-radius: 50px;
+    padding: 0;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard  .groupMessageSend .formNewMessage .spaceWriteIdea{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    border-radius: 50px 0px 0px 50px;
+    padding: .7rem .5rem .5rem 1rem;
+    border: none;
+    background-color: $backgroundNavBar;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard  .groupMessageSend .formNewMessage .input-group-text{
+    padding: 0 14px 0px 0px;
+    background-color: $backgroundNavBar;
+    border: none;
+    border-radius: 0px 50px 50px 0px;
+    
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard  .groupMessageSend .formNewMessage .input-group-text .btnPlusIdea{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    color: $backgroundNavBar;
+    align-items: center;
+    padding: .5rem;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard  .groupMessageSend .formNewMessage .input-group-text .btnPlusIdea img{
+    width: 16px;
+    height: 16px;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard{
+    display: flex;
+    justify-content: flex-end;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification .titleNotification{
+    color: $colorText;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 1.18px;
+    display: block;
+    width: auto;
+    height: 15px;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification .imgAlertNotification{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .titleMenu{
+    color: $colorText;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 1.18px;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav{
+    position: absolute;
+    width: 178.91px;
+    height: calc(190px);
+    right: -4px;
+    top: 40px;
+    z-index: 1005;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::before,.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::after{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent #fff;
+    right: 7px;
+    z-index: 1001;
+    top: -8px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::before{
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    border-width: 10px 0px 5px 14px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.12);
+    right: 7px;
+    z-index: 1000;
+    top: -10px;
+    -webkit-transform: rotate(0.4turn);
+    transform: rotate(0.4turn);
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item{
+    padding: 0.1rem 1.25rem;
+    border: 0;
+}
+.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item a{
+    color: #6E707B;
+    font-size: .9rem;
+}
+
+// Mediaqueries
+@media (min-width: 1px) and (max-width: 991px) { 
+    .sectionAdministratorMenu{
+        height: auto;
+        overflow-x: hidden;
+    }
+    .sectionAdministratorMenu .barNav .rowHeigh{
+        height: auto;
+    }
+    .sectionAdministratorMenu .barNav .barNavMenu{
+        padding: 1rem;
+
+    }
 }

@@ -1,37 +1,163 @@
 <section class="sectionAdministratorMenu">
     <div class="barNav administrator">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 barNavDates">
-          <div class="row">
-            <div class="col-6 barNavDatesLogo">
-              <img [src]="'assets/img/logos/logo_novaideasChat.png'" alt="">
-            </div>
-            <div class="col-6 barNavDatesUser">
-              <div class="container">
-                <div class="imgBarNav">
-                  <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="mgUserInChat">
+        <div class="row rowHeigh rowHeighGeneral">
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 barNavDates">
+            <div class="row">
+                <div class="col-6 barNavDatesLogo">
+                <img [src]="'assets/img/logos/logo_novaideasChat.png'" alt="">
                 </div>
-                <div class="nameBarNav"></div>
-                <div class="arrowBarNav">
-                    <button class="btnDatesUser" data-toggle="tooltip" data-placement="top" title="Datos de perfil" > 
-                            <!-- (click)="showMenuUser()" -->
-                        <img [src]="'assets/img/icons/dashboard/Arrow.svg'" alt="" class="imgArrowDown">
-                    </button>
+                <div class="col-6 barNavDatesUser">
+                <div class="container">
+                    <div class="imgBarNav">
+                    <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="mgUserInChat">
+                    </div>
+                    <div class="nameBarNav">
+                        <span>Harol Conde</span>
+                    </div>
+                    <div class="arrowBarNav">
+                        <button class="btnDatesUser" data-toggle="tooltip" data-placement="top" title="Datos de perfil" (click)="showMenuUser()"> 
+                                <!-- (click)="showMenuUser()" -->
+                            <img [src]="'assets/img/icons/dashboard/Arrow.svg'" alt="" class="imgArrowDown">
+                        </button>
+                        <div class="infoPerfil" *ngIf="menuUser">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a [routerLink]="'/perfil-usuario'" (click) = "showMenuUser()">
+                                        <span>
+                                            <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                        </span> 
+                                        <span>
+                                                Mi perfil 
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a [routerLink]="'/'">
+                                        <span>
+                                            <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+                                        </span> 
+                                        <span>
+                                            Cerrar sesión
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                </div>
             </div>
-          </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 barNavMenu">
+                <div class="containerIdeas">
+                    <div class="row ">
+                        <div class="col">
+                            <div class="containerWriteIdeas">
+                                <div class="containerIdeaGeneral row ">
+                                    <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7 containerWriteIdeaBoard">
+                                        <label class="sr-only" for="inlineFormInputGroup"></label>
+                                        <div class="input-group groupMessageSend mb-2">
+                                            <form action="" class="formNewMessage">
+                                                <input name="idea" id="" cols="30" rows="10" class="spaceWriteIdea" placeholder="Cual es tu idea?" required>
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <button class="btn btnPlusIdea" type="submit" value="Enviar Comentario" >
+                                                            <img [src]="'assets/img/icons/dashboard/browser.svg'" alt="">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 notificationDashboard">
+                                        <div class="notification">
+                                            <span class="titleNotification">Notificaciones</span>
+                                            <div class="imgAlertNotification">
+                                                <img [src]="'assets/img/icons/dashboard/notification.svg'" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 menuHamburgerDashboard">
+                                        <div class="menuHamburguer">
+                                            <span class="titleMenu">Menu</span>
+                                            <button class="navbar-toggler" (click)="showMenuNavBar()">
+                                                <img [src]="'assets/img/icons/dashboard/hamburguer.svg'" alt="">
+                                            </button>
+                                        </div>
+                                        <div class="menuNav" *ngIf="menuNavBar">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    <a [routerLink]="'/dashboard'">
+                                                        <span>
+                                                            <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                                        </span> 
+                                                        <span>
+                                                            Dashboard
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a [routerLink]="'/postuladas'">
+                                                        <span>
+                                                            <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                                        </span> 
+                                                        <span>
+                                                            Ideas postuladas
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a [routerLink]="'/aprobadas'">
+                                                        <span>
+                                                            <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+                                                        </span> 
+                                                        <span>
+                                                            Ideas aprobadas
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a [routerLink]="'/debate'">
+                                                        <span>
+                                                            <img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
+                                                        </span> 
+                                                        <span>
+                                                            Ideas en debate
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a [routerLink]="'/finalizadas'">
+                                                        <span>
+                                                            <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+                                                        </span> 
+                                                        <span>
+                                                            Ideas finalizadas
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a [routerLink]="'/muertas'">
+                                                        <span>
+                                                            <img [src]="'assets/img/icons/dates/ovalBlack.svg'" alt="">
+                                                        </span> 
+                                                        <span>
+                                                            Ideas muertas
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 barNavMenu">
-          
-        </div>
-      </div>
     </div>
-  </section>
-  <section class="sectionContainerPageAdministrator">
-      <div class="section">
-          <div class="row">
-            <router-outlet></router-outlet>
-          </div>
-      </div>
-  </section>
+</section>
+<section class="sectionContainerPageAdministrator">
+    <router-outlet></router-outlet>
+</section>

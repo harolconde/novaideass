@@ -4,11 +4,11 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-datesuser',
   templateUrl: './datesuser.component.html',
   styleUrls: ['./datesuser.component.scss']
-})
+}) 
 export class DatesuserComponent implements OnInit {
 
   menuUser:boolean = false;
-
+ 
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,222 @@
+// Variables
+$backgroundDates: #E7B843;
+$colorTitle: #E7B843;
+$backgroundNavBar: #fff;
+$colorText: #5A5858;
+$buttonsRadius: 50px;
+
+// Fuentes
+$fontFamilyRegular: "Aristotelica Display Regular";
+
+h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
+    font-family: $fontFamilyRegular;
+}
+.sectionPerfilAdmon{
+    padding-left: 36px;
+    padding-right: 36px;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .containerTitleAdmon{
+    padding-top: 26px;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .containerTitleAdmon h3{
+    color: $colorTitle;
+    font-size: 1.5rem;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .col-12 hr{
+    height: 1px;
+    background-color: $colorTitle;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon{
+    margin-top: .8rem;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon .cardAll{
+    padding-left: 0;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .card{
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+    background-color: $backgroundNavBar;
+    margin-bottom: 1rem;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader{
+    position: relative;
+    margin-top: 31px;
+    width: 50px;
+    height: 50px;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader img{
+    width: 100%;
+    height: auto;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader .btnImgPerfilUser{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: transparent;
+  
+    display: none;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader:hover .btnImgPerfilUser{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader .btnImgPerfilUser .imgEditPerfil{
+    width: 20px;
+    height: auto;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .namePerfilUser{
+    margin-top: 19px;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .namePerfilUser span{
+    font-size: 1rem;
+    color: #3B3D4D;
+    line-height: 17px;
+    font-weight: 500;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .card-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 0;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .card-body .form-group{
+    margin-bottom: .3rem;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .card-body .form-group label:first-child{
+    font-size: 0.625rem;
+    color: #666666;
+    line-height: 17px;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .card-body label{
+    font-size: 0.625rem;
+    line-height: 17px;
+    margin-bottom: 0;
+    color: #666666;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .card-body .emailPerfilUser{
+    color: #3B3D4D;
+    font-size: 0.6875rem;
+    line-height: 17px;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .card-body form{
+    width: 100%;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .card-body .form-group .form-control{
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid #E7B843;
+    border-radius: 0;
+    height: 22px;
+    font-size: 1rem;
+    line-height: 17px;
+    box-sizing: border-box;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .card-footer{
+    padding-top: 29px;
+    padding-bottom: 31px;
+    border: 0;
+    background: transparent;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .btnSavePerfilAdmon{
+    background-color: $backgroundDates;
+    border-radius: $buttonsRadius;
+    width: 150px;
+    height: 30px;
+    padding: .5rem;
+    color: $backgroundNavBar;
+    font-size: .8125rem;
+    font-weight: bold;
+    line-height: 21px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon{
+    height: 210px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-title{
+    padding-left: 14px;
+    margin-bottom: 0;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-title span{
+    font-size: .9rem;
+    font-weight: 600;
+    color: #5A5858;
+    letter-spacing: 1.18px;
+    line-height: 19px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body{
+    padding: 0px 20px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item{
+    border-top: 0;
+    padding: 0.4rem 1.25rem;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop{
+    display: flex;
+    align-items: center;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .imgUserTop{
+    width: 5%;
+    margin-right: 10px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .imgUserTop img{
+    width: 30px;
+    height: 30px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .topParticipation{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .topParticipation .topParticipationNamePercentage{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .topParticipation .topParticipationNamePercentage .contentIdeaTop{
+    font-size: .9rem;
+    color: #3B3D4D;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .topParticipation .topParticipationNamePercentage .nameUserTop{
+    // font-size: .625rem;
+    line-height: 17px;
+    width: 73%;
+    overflow: hidden;
+    height: 14px;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .topParticipation .topParticipationNamePercentage .percentagetIdeaTop{
+    font-size: .9rem;
+    position: absolute;
+    right: 0
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .topParticipation .progress{
+    height: 6px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .topParticipation .progress .progress-bar{
+    background-color: #63C533;
+}
+
+// Cards todas las ideas mis opiniones
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon{
+    background-color: #fff;
+    height: 189px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-title{
+    padding-left: 14px;
+    margin-bottom: 0;
+}
