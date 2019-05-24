@@ -22,7 +22,7 @@
                         <div class="infoPerfil" *ngIf="menuUser">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <a [routerLink]="'/perfil-usuario'" (click) = "showMenuUser()">
+                                    <a [routerLink]="'/perfil-administrador'" (click) = "showMenuUser()">
                                         <span>
                                             <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
                                         </span> 
@@ -160,4 +160,21 @@
 </section>
 <section class="sectionContainerPageAdministrator">
     <router-outlet></router-outlet>
+</section>
+<section class="sectionFooterAdministrator">
+    <footer>
+        <div class="containerFooterAdmin">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <span class="spanFooter">@ Novatec Solution</span>
+                    <span class="spanFooter">Todos los derechos reservados</span>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <div class="containerImgFooter">
+                        <img [src]="'assets/img/logos/logo_Novatec.png'" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </section>

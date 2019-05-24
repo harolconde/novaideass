@@ -316,6 +316,21 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     font-size: .9rem;
 }
 
+// Section Footer
+.sectionFooterAdministrator{
+    padding: 50px 36px;
+}
+.sectionFooterAdministrator .containerFooterAdmin .spanFooter{
+    display: flex;
+    flex-direction: column;
+    color: $colorText;
+    font-size: 0.625rem;
+}
+.sectionFooterAdministrator .containerFooterAdmin .containerImgFooter{
+    display: flex;
+    justify-content: flex-end;
+}
+
 // Mediaqueries
 @media (min-width: 1px) and (max-width: 991px) { 
     .sectionAdministratorMenu{
@@ -327,6 +342,5 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     }
     .sectionAdministratorMenu .barNav .barNavMenu{
         padding: 1rem;
-
     }
 }

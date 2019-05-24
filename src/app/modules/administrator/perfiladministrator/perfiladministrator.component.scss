@@ -14,6 +14,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionPerfilAdmon{
     padding-left: 36px;
     padding-right: 36px;
+    margin-bottom: 4rem;
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .containerTitleAdmon{
     padding-top: 26px;
@@ -29,6 +30,12 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon{
     margin-top: .8rem;
 }
+.sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon .containerCardMisIdeasPostuladas{
+    padding-right: 0;
+}
+.sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon .containerCardsAmininAll{
+    padding-left: 0;
+}
 .sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon .cardAll{
     padding-left: 0;
 }
@@ -36,6 +43,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
     background-color: $backgroundNavBar;
     margin-bottom: 1rem;
+    height: 210px;
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil{
     display: flex;
@@ -214,9 +222,186 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 // Cards todas las ideas mis opiniones
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon{
     background-color: #fff;
-    height: 189px;
+    height: 210px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon{
+    padding-right: 0;
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-title{
     padding-left: 14px;
     margin-bottom: 0;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-body{
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-body .list-group-flush .list-group-item{
+    padding: 0rem 1.25rem;
+    display: flex;
+    align-items: center;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-body .list-group-flush .list-group-item .spinnerIdea{
+    font-size: 3rem;
+    display: flex;
+    width: 7px;
+    height: 7px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin-top: -10px;
+    color: #63C533;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-body .list-group-flush .list-group-item .contenIdeaText{
+    margin-left: 10px;
+    font-size: .9rem;
+    font-weight: 300;
+    line-height: 30px;
+    width: 73%;
+    height: 29px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-body .list-group-flush .list-group-item .contentIconIdeaText{
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-body .list-group-flush .list-group-item .contentIconIdeaText button{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    border: none;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    width: 100%;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-footer .btnSeeMore{
+    background-color: $backgroundDates;
+    border-radius: $buttonsRadius;
+    width: 50%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: .5rem;
+    line-height: 17px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-title{
+    padding-left: 14px;
+    margin-bottom: 0;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-title span{
+    font-size: .9rem;
+    font-weight: 600;
+    color: $colorText;
+    letter-spacing: 1.18px;
+    line-height: 19px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body{
+    padding-top: 10px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group{
+    width: 100%;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item{
+    border: 0;
+    width: 100%;
+    position: relative;
+    padding: 5px 20px;
+    width: 100%;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:first-child{
+ 
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:first-child .containerCantUsers{
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:first-child .titleCant{
+    font-size: .9rem;
+    font-weight: 300;
+    color: $colorText;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:first-child .cant{
+    font-size: 1rem;
+    font-weight: 300;
+    color: $colorText;
+    position: absolute;
+    right: 20px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:last-child{
+    padding: 10px 20px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:last-child .iconsUsersAdmin{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:last-child .iconsUsersAdmin .imgUserIcon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:last-child .iconsUsersAdmin img{
+    width: 45px;
+    height: 45px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-footer button{
+    background-color: $backgroundDates;
+    border-radius: $buttonsRadius;
+    width: 50%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: .5rem;
+    line-height: 17px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas {
+    // height: auto;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body{
+    padding: 0rem 1.25rem;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body .list-group .list-group-item {
+    padding: 0rem 1.25rem;
+    height: 30px;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body .list-group .list-group-item:last-child {
+    padding: 0rem 1.25rem;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body .list-group .list-group-item .cant{
+    position: absolute;
+    right: 20px;
+    font-size: 1rem;
+    color: $colorText;
+}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body .list-group .list-group-item .idea{
+    margin-left: 10px;
+    font-size: .9rem;
+    font-weight: 300;
+    color: $colorText;
 }

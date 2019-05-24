@@ -112,10 +112,10 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+						<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 containerCardMisIdeasPostuladas">
 							<div class="card cardTodasPostuladasAdmon cardAdmon">
 								<div class="card-title">
-									<span>Mis ideas</span>
+									<span>Todas mis ideas postuladas</span>
 								</div>
 								<div class="card-body">
 									<div class="card-body">
@@ -197,6 +197,96 @@
                                     <div class="card-footer">
                                         <button class="btn btn-block btnSeeMore">Ver más</button>
                                     </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 containerCardsAmininAll">
+					<div class="row">
+						<div class="col-12">
+							<div class="card cardAdmin">
+								<div class="card-title">
+									<span>Todos los usuarios</span>
+								</div>
+								<div class="card-body">
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">
+											<div class="containerCantUsers">
+												<span class="titleCant">Cantidad de usuarios registrados</span>
+												<span class="cant">80</span>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="iconsUsersAdmin">
+												<div class="imgUserIcon">
+													<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="">
+													<span>Juan</span>
+												</div>
+												<div class="imgUserIcon">
+													<img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
+													<span>Luisa</span>
+												</div>
+												<div class="imgUserIcon">
+													<img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="">
+													<span>Harol</span>
+												</div>
+												<div class="imgUserIcon">
+													<img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
+													<span>Manuela</span>
+												</div>
+												<div class="imgUserIcon">
+													<img [src]="'assets/img/users/ideas-avatar-hombre-gafas.svg'" alt="">
+													<span>Pedro</span>
+												</div>
+											</div>
+										</li>
+									  </ul>
+								</div>
+								<div class="card-footer">
+									<button class="btn btn-block" [routerLink]="'/administracion-usuarios'">Adiministrar</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="card cardAdmin cardAdminIdeas">
+								<div class="card-title">
+									<span>Todas las ideas</span>
+								</div>
+								<div class="card-body">
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">
+											<div class="ideasAllType">
+												<img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgIdeaAdmin">
+												<span class="idea">Ideas postuladas</span>
+												<span class="cant">20</span>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="ideasAllType">
+												<img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgIdeaAdmin">
+												<span class="idea">Ideas aprobadas</span>
+												<span class="cant">6</span>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="ideasAllType">
+												<img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgIdeaAdmin">
+												<span class="idea">Ideas finalizadas</span>
+												<span class="cant">3</span>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="ideasAllType">
+												<img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgIdeaAdmin">
+												<span class="idea">Ideas muertas</span>
+												<span class="cant">15</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="card-footer">
+									<button class="btn btn-block">Adiministrar</button>
 								</div>
 							</div>
 						</div>
