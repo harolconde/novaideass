@@ -1,0 +1,40 @@
+$backgroundButtons: #E7B843;
+
+//Columnas a mostrar del estilo masonry
+@mixin count-cards($grid-columns){
+    column-count: $grid-columns;
+};
+
+.sectionAllIdeasAdmin{
+    padding-left: 36px;
+    padding-right: 36px;
+}
+.sectionAllIdeasAdmin .containerAllIdeasAdmin .titleAdminAllIdeas{
+    padding-top: 26px;
+    h3{
+        color: $backgroundButtons;
+    }
+    hr{
+        background-color: $backgroundButtons;
+        height: 1px;
+    }
+}
+.sectionAllIdeasAdmin .containerAllIdeasAdmin .containerCardsAdminAllIdeas{
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    .card-columns{
+        width: 100%;
+        @media screen and (min-width: 0px) and  (max-width: 576px){
+            @include count-cards(1);
+        }
+        @media screen and (min-width: 577px) and (max-width: 991px) {
+            @include count-cards(2);
+        }
+        @media screen and (min-width: 992px) and (max-width: 1440px) {
+            @include count-cards(3);
+        }
+        @media screen and (min-width: 1441px){
+            @include count-cards(5);
+        }   
+    } 
+}

@@ -17,4 +17,4 @@ export class PerfiladministratorComponent implements OnInit {
 }
 $(() => {
   $('[data-toggle="tooltip"]').tooltip();
-})
+});

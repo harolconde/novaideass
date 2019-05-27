@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+// Variables
+$backgroundDates: #E7B843;
+$colorTitle: #E7B843;
+$backgroundNavBar: #fff;
+$colorText: #5A5858;
+$buttonsRadius: 50px;
+
+
+// Fuentes
+$fontFamilyRegular: "Aristotelica Display Regular";
+
+h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
+    font-family: $fontFamilyRegular;
+}

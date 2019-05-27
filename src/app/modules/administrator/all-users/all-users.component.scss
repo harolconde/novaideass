@@ -5,13 +5,6 @@ $backgroundNavBar: #fff;
 $colorText: #5A5858;
 $buttonsRadius: 50px;
 
-// Fuentes
-$fontFamilyRegular: "Aristotelica Display Regular";
-
-h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
-    font-family: $fontFamilyRegular;
-}
-
 .sectionAllUsersAdmin{
     padding-left: 36px;
     padding-right: 36px;
@@ -23,50 +16,98 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 }
 .sectionAllUsersAdmin .containerSectonAllUserAdmin .titleAdminAllUser{
     padding-top: 26px;
+    h3{
+        color: $backgroundDates;
+        font-size: 1.5rem;
+    }
+    hr{
+        background-color: $backgroundDates;
+        height: 1px;
+    }
 }
-.sectionAllUsersAdmin .containerSectonAllUserAdmin .titleAdminAllUser h3{
-    color: $backgroundDates;
-    font-size: 1.5rem;
-}
-.sectionAllUsersAdmin .containerSectonAllUserAdmin .titleAdminAllUser hr{
-    background-color: $backgroundDates;
-    height: 1px;
-}
-
 // Cards
 .sectionAllUsersAdmin .containerSectonAllUserAdmin .containerCardsAdminAllUsers .card{
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
     background-color: $backgroundNavBar;
     border: 1px solid #DDDDDD;
-}
-.sectionAllUsersAdmin .containerSectonAllUserAdmin .containerCardsAdminAllUsers .card .card-title{
-    padding-bottom: 1.4rem;
-    padding-top: 2rem;
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.sectionAllUsersAdmin .containerSectonAllUserAdmin .containerCardsAdminAllUsers .card .card-title .containerTitleUser{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.sectionAllUsersAdmin .containerSectonAllUserAdmin .containerCardsAdminAllUsers .card .card-title .containerTitleUser img{
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1rem;
-}
-.sectionAllUsersAdmin .containerSectonAllUserAdmin .containerCardsAdminAllUsers .card .card-title .containerTitleUser span{
-    font-size: 1.2rem;
-    color: $colorText;
-    font-weight: 600;
-}
-.sectionAllUsersAdmin .containerSectonAllUserAdmin .containerCardsAdminAllUsers .card .card-body{
-    padding-top: 0;
-}
-.sectionAllUsersAdmin .containerSectonAllUserAdmin .containerCardsAdminAllUsers .card .card-body .list-group .list-group-item{
-
+    .card-title{
+        padding-bottom: 1.4rem;
+        padding-top: 2rem;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .containerTitleUser{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 80px;
+                height: 80px;
+                margin-bottom: 1rem;
+            }
+            span{
+                font-size: 1.2rem;
+                color: $colorText;
+                font-weight: 600;
+            }
+        }
+    }
+    .card-body{
+        padding-top: 0;
+        .list-group .list-group-item{
+            border: 0;
+            padding: 5px 5px;
+            .nickname,.fullName,.email{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+            }
+            .nickname,.fullName,.email, label{
+                font-size: 1rem;
+                font-weight: 500;
+                color: $colorText;
+                margin-bottom: 0;
+            }
+            .nickname,.fullName,.email, span{
+                font-size: .8rem;
+                font-weight: 300;
+                color: $colorText;   
+            }
+            .ideas span{
+                font-size: .9rem;
+                font-weight: 600;
+                color: $colorText;
+            }
+            .ideas span:last-child{
+                position: absolute;
+                right: 10px;
+            }
+        }
+    }
+    .card-footer{
+        background-color: $backgroundNavBar;
+        .editUserAdmin,.deletetUserAdmin,.btn{
+            display: flex;
+            align-items: center;
+            height: auto;
+            color: $colorText;
+        }
+        .deletetUserAdmin{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            .btn:hover i{
+                color: #d32f2f;
+                transition: 500ms;
+            }
+        }
+        .editUserAdmin .btn:hover i{
+            color: #63C533;
+            transition: 500ms;
+        }
+    }
 }
