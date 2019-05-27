@@ -1,5 +1,8 @@
 $backgroundButtons: #E7B843;
-
+$backgroundCards: #fff;
+$colorBorder: #dddddd;
+$colorText: #5A5858;
+$radiusButton: 50px;
 //Columnas a mostrar del estilo masonry
 @mixin count-cards($grid-columns){
     column-count: $grid-columns;
@@ -24,6 +27,7 @@ $backgroundButtons: #E7B843;
     padding-right: 1.8rem;
     .card-columns{
         width: 100%;
+        margin-top: 1rem;
         @media screen and (min-width: 0px) and  (max-width: 576px){
             @include count-cards(1);
         }
@@ -35,6 +39,298 @@ $backgroundButtons: #E7B843;
         }
         @media screen and (min-width: 1441px){
             @include count-cards(5);
+        }
+        .card{
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+            background-color: $backgroundCards;
+            border: 1px solid $colorBorder;
+            margin-bottom: 1.1rem;
+            .card-title{
+                margin-bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 20px;
+                color: $colorText;
+                .contentNameDateIdeasAdmin{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    margin-left: 10px;
+                    span:first-child{
+                        font-weight: 600;
+                    }
+                }
+            }
+            .card-body{
+                padding: 0;
+                padding-bottom: 1rem;
+                .list-group .list-group-item{
+                    border: 0;
+                    padding: 0px 20px;
+                    color: $colorText;
+                }
+                .list-group-item:first-child{
+                    font-weight: 600;
+                    font-size: 1rem;
+                }
+                .list-group-item:last-child{
+                    font-weight: 500;
+                    font-size: .9rem;
+                }
+            }
+            .card-footer{
+                background-color: $backgroundCards;
+                .btFinalizarIdeas{
+                    background-color: $backgroundButtons;
+                    border-radius: $radiusButton;
+                    color: $backgroundCards;
+                    width: 100%;
+                }
+                .btnEditFinish{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                }
+                .btnUploading{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    .btnUploadImgAdminIdeas{
+                        width: auto;
+                        height: auto;
+                        display: flex;
+                        i{
+                            font-size: 1.7rem;
+                            color: $colorText;
+                        }
+                    }
+                }
+            }
         }   
+    }
+    .navigation{
+        width: 100%;
+        padding-top: 1rem;
+        .pagination{
+            margin-bottom: 0;
+            .page-item .page-link{
+                border: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+                color: #444;
+                padding-left: 0;
+                padding-right: 0;
+                margin-left: .7rem;
+                margin-right: .7rem;
+                .arrowPrevius{
+                    -webkit-transform: rotate(0.25turn);
+                    transform: rotate(0.25turn);
+                }
+                .arrowNext{
+                    -webkit-transform: rotate(0.75turn);
+                    transform: rotate(0.75turn);
+                }            
+            }
+        }
     } 
 }
+// Modal
+.sectionModalAdminIdeas{
+    width: 100%;
+    .exampleModalCenter{
+        display: none;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        padding-right: 17px;
+        .modal-dialog{
+            z-index: 2000;
+            .modal-content {
+                .modal-header{
+                    display: flex;
+                    justify-content: flex-start;
+                    padding: 22px 17px 5px 17px;
+                    .modal-title{
+                        font-size: 1.125rem;
+                        color: rgba(0, 0, 0, 0.87);
+                        line-height: 28px;
+                        color: $colorText;
+                        font-weight: 500;
+                    }
+                    .close{
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50px;
+                        background-color: #9E9E9E;
+                        right: 24px;
+                        top: 23px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: .81rem .5rem .5rem .5rem;
+                        position: absolute;
+                    }
+                }
+                .modal-body{
+                    .form-check{
+                        display: flex;
+                        align-items: baseline;
+                        justify-content: flex-start;
+                        color: $colorText;
+                    }
+                    .form-check:first-child{
+                        margin-top: 15px;
+                    }
+                }
+                .modal-footer{
+                    display: flex;
+                    justify-content: flex-end;
+                    .btn{
+                        border-radius: $radiusButton;
+                        background-color: $backgroundButtons;
+                        color: $backgroundCards;
+                        width: 153px;
+                        height: 39px;
+                        border: 1px solid $backgroundButtons;
+                        font-size: .9rem;
+                        letter-spacing: 1.03px;
+                        line-height: 8px;
+                        padding-top: .65rem;
+                    }
+                    .btn:first-child{
+                        background-color: $backgroundCards;
+                        color: $backgroundButtons;
+                    }
+                    .btn:first-child:hover{
+                        background-color: $backgroundButtons;
+                        color: $backgroundCards;
+                        transition: 500ms;
+                    }
+                    .btn:last-child:hover{
+                        background-color: $backgroundCards;
+                        color: $backgroundButtons;
+                        transition: 500ms;
+                    }
+                }
+            }
+        }
+    }
+    .exampleModalCenter2{
+        display: none;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+        z-index: 2000;
+        .modal-dialog{
+            z-index: 2000;
+            .modal-content {
+                .modal-header{
+                    display: flex;
+                    justify-content: flex-start;
+                    padding: 22px 17px 5px 17px;
+                    .modal-title{
+                        font-size: 1.125rem;
+                        color: rgba(0, 0, 0, 0.87);
+                        line-height: 28px;
+                        color: $colorText;
+                        font-weight: 500;
+                    }
+                    .close{
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50px;
+                        background-color: #9E9E9E;
+                        right: 24px;
+                        top: 23px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: .81rem .5rem .5rem .5rem;
+                        position: absolute;
+                    }
+                }
+                .modal-body{
+                    .imgUpload{
+                        .containerImgUpload{
+                            width: 100%;
+                            height: auto;
+                            img{
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                        .containerBtnUpload{
+                            width: 100%;
+                            height: auto;
+                            padding-top: 1rem;
+                            input[type=file]{
+                                display: none;
+                            }
+                            .imgUpload{
+                                width: 0.1px;
+                                height: 0.1px;
+                                opacity: 0;
+                                overflow: hidden;
+                                position: absolute;
+                                z-index: 1;
+                            }
+                            label{
+                                .btnUpload{
+                                    border-radius: $radiusButton;
+                                    width: 153px;
+                                    height: 30px;
+                                    border: 1px solid $backgroundButtons;
+                                    background-color: $backgroundCards;
+                                    color: $backgroundButtons;
+                                    font-size: .9rem;
+                                    line-height: 19px;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+                .modal-footer{
+                    display: flex;
+                    justify-content: flex-end;
+                    .btn{
+                        border-radius: $radiusButton;
+                        background-color: $backgroundButtons;
+                        color: $backgroundCards;
+                        width: 153px;
+                        height: 39px;
+                        border: 1px solid $backgroundButtons;
+                        font-size: .9rem;
+                        letter-spacing: 1.03px;
+                        line-height: 8px;
+                        padding-top: .65rem;
+                    }
+                    .btn:first-child{
+                        background-color: $backgroundCards;
+                        color: $backgroundButtons;
+                    }
+                    .btn:first-child:hover{
+                        background-color: $backgroundButtons;
+                        color: $backgroundCards;
+                        transition: 500ms;
+                    }
+                    .btn:last-child:hover{
+                        background-color: $backgroundCards;
+                        color: $backgroundButtons;
+                        transition: 500ms;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
