@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IdeasService } from './services/ideas.service';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -35,6 +36,9 @@ import { DebateComponent } from './ideas/debate/debate.component';
   imports: [
     CommonModule,
     HomeRoutingModule
+  ],
+  providers: [
+    IdeasService
   ]
 })
 export class HomeModule { }

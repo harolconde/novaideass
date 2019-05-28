@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../services/ideas.service';
+
 import * as $ from 'jquery';
 
 declare var $:any
+
+export interface myIdea{
+  obj: Object
+}
 
 @Component({
   selector: 'app-chat',
@@ -30,13 +35,24 @@ export class ChatComponent implements OnInit {
   
   // Service Ideas
 
-  ideas:any[] = []
-  constructor(private _service:IdeasService) {
-    this.ideas = _service.getDataIdeas();
+  //ideas:any[] = []
+  ideas:any[]
+
+  constructor(private _service : IdeasService) {
+
    }
 
-  ngOnInit() {
+  getListIdeas(): void{
+    this._service.getIdeas().subscribe((data) => {
+      this.ideas = data;
+      console.log("Vamos !!", data);
+    })
   }
+
+  ngOnInit() {
+    this.getListIdeas();
+  }
+  
   
   collapseIdea(i){
     if(this.stateCollapseIdea == false){

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { IdeasService } from './modules/home/services/ideas.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,13 +19,16 @@ import { AdministratorModule } from './modules/administrator/administrator.modul
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     LoginModule,
     HomeModule,
     UserModule,
     AdministratorModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    IdeasService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

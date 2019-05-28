@@ -262,8 +262,14 @@ $radiusButton: 50px;
                         .containerImgUpload{
                             width: 100%;
                             height: auto;
+                            width: 100%;
+                            height: auto;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding-top: 1rem;
                             img{
-                                width: 100%;
+                                width: 90%;
                                 height: auto;
                             }
                         }
@@ -271,6 +277,8 @@ $radiusButton: 50px;
                             width: 100%;
                             height: auto;
                             padding-top: 1rem;
+                            display: flex;
+                            justify-content: center;
                             input[type=file]{
                                 display: none;
                             }
@@ -300,7 +308,7 @@ $radiusButton: 50px;
                 }
                 .modal-footer{
                     display: flex;
-                    justify-content: flex-end;
+                    justify-content: space-around;
                     .btn{
                         border-radius: $radiusButton;
                         background-color: $backgroundButtons;
