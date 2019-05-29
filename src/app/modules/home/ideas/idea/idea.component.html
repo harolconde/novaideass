@@ -1,3 +1,301 @@
-<p>
-  idea works!
-</p>
+<section class="sectionIdeaMenu">
+	<div class="barNav idea">
+		<div class="row rowHeigh rowHeighGeneral">
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 barNavMenu">
+				<div class="containerIdeas">
+					<div class="row ">
+						<div class="col">
+							<div class="containerWriteIdeas">
+								<div class="containerIdeaGeneral row ">
+									<div class="col-sm-12 col-md-12 col-lg-7 col-xl-7 containerWriteIdeaBoard">
+										<label class="sr-only" for="inlineFormInputGroup"></label>
+										<div class="input-group groupMessageSend mb-2">
+											<form action="" class="formNewMessage">
+												<input name="idea" id="" cols="30" rows="10" class="spaceWriteIdea" placeholder="Cual es tu idea?" required>
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														<button class="btn btnPlusIdea" type="submit" value="Enviar Comentario" >
+															<img [src]="'assets/img/icons/dashboard/browser.svg'" alt="">
+														</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 notificationDashboard">
+										<div class="notification">
+											<span class="titleNotification">Notificaciones</span>
+											<div class="imgAlertNotification">
+												<img [src]="'assets/img/icons/dashboard/notification.svg'" alt="">
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 menuHamburgerDashboard">
+										<div class="menuHamburguer">
+											<span class="titleMenu">Menu</span>
+											<button class="navbar-toggler" (click)="showMenuNavBar()">
+												<img [src]="'assets/img/icons/dashboard/hamburguer.svg'" alt="">
+											</button>
+										</div>
+										<div class="menuNav" *ngIf="menuNavBar">
+											<ul class="list-group list-group-flush">
+												<li class="list-group-item">
+													<a [routerLink]="'/dashboard'">
+														<span>
+															<img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+														</span> 
+														<span>
+															Dashboard
+														</span>
+													</a>
+												</li>
+												<li class="list-group-item">
+													<a [routerLink]="'/postuladas'">
+														<span>
+															<img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+														</span> 
+														<span>
+															Ideas postuladas
+														</span>
+													</a>
+												</li>
+												<li class="list-group-item">
+													<a [routerLink]="'/aprobadas'">
+														<span>
+															<img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+														</span> 
+														<span>
+															Ideas aprobadas
+														</span>
+													</a>
+												</li>
+												<li class="list-group-item">
+													<a [routerLink]="'/debate'">
+														<span>
+															<img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
+														</span> 
+														<span>
+															Ideas en debate
+														</span>
+													</a>
+												</li>
+												<li class="list-group-item">
+													<a [routerLink]="'/finalizadas'">
+														<span>
+															<img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+														</span> 
+														<span>
+															Ideas finalizadas
+														</span>
+													</a>
+												</li>
+												<li class="list-group-item">
+													<a [routerLink]="'/muertas'">
+														<span>
+															<img [src]="'assets/img/icons/dates/ovalBlack.svg'" alt="">
+														</span> 
+														<span>
+															Ideas muertas
+														</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="sectionIdeaDetalle">
+	<div class="containerIdeaDetalle">
+		<div class="row">
+			<div class="col-12 containerTitleIdeaDetalle">
+				<h3>Detalle de idea</h3>
+				<hr>
+			</div>
+			<div class="col-12 containerDetalleIdeas">
+				<div class="row">
+					<div class="col-sm-12 col-md-12-col-lg-5 col-lg-5 containerCardsDetalle">
+						<div class="card cardIdeaDetalle">
+							<div class="card-title">
+								<div class="imgUserDetalleIdea">
+									<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="">
+								</div>
+								<span class="nameUserIdeaDetalle">
+									NickName
+								</span>
+							</div>
+							<div class="card-body">
+								<p class="pIdea">
+									Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus esse explicabo dolorum temporibus architecto debitis possimus. Consectetur aliquid velit, debitis quis praesentium doloribus tenetur repellendus facilis soluta ipsum amet, quia aperiam! Iure, velit? Dolorem adipisci fugit quisquam modi cupiditate saepe!
+								</p>
+							</div>
+							<div class="card-footer">
+								<span class="dateTitle">
+									Fecha de publicacion
+								</span>
+								<span class="dateTime">
+									20/05/2019
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-12-col-lg-7 col-lg-7 containerCardsInfoStatistic">
+						<div class="row">
+							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 ">
+								<div class="card cardDateStatistic">
+									<div class="card-title">
+										<span class="titleCant">Total Votos</span>
+									</div>
+									<div class="card-body">
+										<span>12</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 containerVotesCant">
+								<div class="card cardDateStatistic">
+									<div class="card-title">
+										<span class="titleCant">Votos positivos</span> 
+									</div>
+									<div class="card-body">
+										<span>6</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 containerVotesCant">
+								<div class="card cardDateStatistic">
+									<div class="card-title">
+										<span class="titleCant">Votos negativos</span>
+									</div>
+									<div class="card-body">
+										<span>3</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 containerVotesCant">
+								<div class="card cardDateStatistic">
+									<div class="card-title">
+										<span class="titleCant">Votos nulos</span>
+									</div>
+									<div class="card-body">
+										<span>3</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="card cardStatistic">
+									<div class="card-title">
+										<span class="titleCant">Estadisticas de la idea</span>
+									</div>
+									<div class="card-body">
+										<div class="statistic">
+											<canvas id="myChart" width="500px" height="170px">
+	
+											</canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 containerCardsComment">
+						<div class="card commentIdeaDetalle">
+							<div class="card-title">
+								<span class="titleCant">
+									Comentarios
+								</span>
+							</div>
+							<div class="card-body">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
+												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
+											</div>
+											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
+												<span class="nameUserCommit">
+													NickName
+												</span>
+												<p class="ideaCommitDetail">
+													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
+												</p>												
+											</div>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
+												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
+											</div>
+											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
+												<span class="nameUserCommit">
+													NickName
+												</span>
+												<p class="ideaCommitDetail">
+													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
+												</p>												
+											</div>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
+												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
+											</div>
+											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
+												<span class="nameUserCommit">
+													NickName
+												</span>
+												<p class="ideaCommitDetail">
+													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
+												</p>												
+											</div>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
+												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
+											</div>
+											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
+												<span class="nameUserCommit">
+													NickName
+												</span>
+												<p class="ideaCommitDetail">
+													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
+												</p>												
+											</div>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
+												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
+											</div>
+											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
+												<span class="nameUserCommit">
+													NickName
+												</span>
+												<p class="ideaCommitDetail">
+													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
+												</p>												
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="card-footer">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

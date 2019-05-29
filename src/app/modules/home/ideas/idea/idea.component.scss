@@ -1,0 +1,350 @@
+$backgroundDates: #E7B843;
+$backgroundNavBar: #fff;
+$colorText: #5A5858;
+
+.sectionIdeaMenu{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $backgroundNavBar;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.barNavMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 36px;
+    .containerIdeas{
+        width: 100%;
+        height: auto;
+        padding: 0;
+        padding-left: 28px;
+        .containerWriteIdeas .containerIdeaGeneral{
+            width: 100%;
+            display: flex;
+            position: relative;
+            justify-content: left;
+            margin: 0;
+            .containerWriteIdeaBoard{
+                width: 100%;
+                padding: 0;
+            }
+            .containerWriteIdeaBoard  .groupMessageSend{
+                flex-wrap: nowrap;
+                //margin-bottom: 0;
+                border-radius: 3px;
+                height: 32px;
+                width: 90%;
+                margin-bottom: 0 !important;
+            }
+            .containerWriteIdeaBoard  .groupMessageSend .formNewMessage{
+                width: 100%;
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+                border-radius: 50px;
+                padding: 0;
+            }
+            .containerWriteIdeaBoard  .groupMessageSend .formNewMessage .spaceWriteIdea{
+                margin-top: 0px;
+                margin-bottom: 0px;
+                width: 100%;
+                border-radius: 50px 0px 0px 50px;
+                padding: .7rem .5rem .5rem 1rem;
+                border: none;
+                background-color: $backgroundNavBar;
+            }
+            .containerWriteIdeaBoard  .groupMessageSend .formNewMessage .input-group-text{
+                padding: 0 14px 0px 0px;
+                background-color: $backgroundNavBar;
+                border: none;
+                border-radius: 0px 50px 50px 0px;
+                
+            }
+            .containerWriteIdeaBoard  .groupMessageSend .formNewMessage .input-group-text .btnPlusIdea{
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                color: $backgroundNavBar;
+                align-items: center;
+                padding: .5rem;
+                img{
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+            .notificationDashboard{
+                display: flex;
+                justify-content: flex-end;
+                .notification{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .titleNotification{
+                        color: $colorText;
+                        font-size: .9rem;
+                        font-weight: 600;
+                        line-height: 19px;
+                        letter-spacing: 1.18px;
+                        display: block;
+                        width: auto;
+                        height: 15px;
+                    }
+                    .imgAlertNotification{
+                        margin-left: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                }
+
+            }
+            .menuHamburgerDashboard{
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 0;
+                .titleMenu{
+                    color: $colorText;
+                    font-size: .9rem;
+                    font-weight: 600;
+                    line-height: 19px;
+                    letter-spacing: 1.18px;
+                }
+                .menuNav{
+                    position: absolute;
+                    width: 178.91px;
+                    height: calc(190px);
+                    right: -4px;
+                    top: 40px;
+                    z-index: 1005;
+                    border: 1px solid #DDDDDD;
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+                    border-radius: 2px;
+                    background-color: #fff;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .list-group .list-group-item{
+                        padding: 0.1rem 1.25rem;
+                        border: 0;
+                        a{
+                            color: #6E707B;
+                            font-size: .9rem;
+                        }
+                    }
+                }
+                .menuNav::before,.menuNav::after{
+                    content: '';
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    display: block;
+                    border-width: 10px 0px 5px 14px;
+                    border-style: solid;
+                    border-color: transparent #fff;
+                    right: 7px;
+                    z-index: 1001;
+                    top: -8px;
+                    -webkit-transform: rotate(0.4turn);
+                    transform: rotate(0.4turn);
+                }
+                .menuNav::before{
+                    content: '';
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    display: block;
+                    border-width: 10px 0px 5px 14px;
+                    border-style: solid;
+                    border-color: transparent rgba(0, 0, 0, 0.12);
+                    right: 7px;
+                    z-index: 1000;
+                    top: -10px;
+                    -webkit-transform: rotate(0.4turn);
+                    transform: rotate(0.4turn);
+                }
+            }
+        }
+    }
+}
+.sectionIdeaDetalle{
+    .containerIdeaDetalle{
+        padding: 26px 36px;
+        .containerTitleIdeaDetalle{
+            h3{
+                color: $backgroundDates;
+                font-size: 1.5rem;
+                letter-spacing: 1.76px;
+                line-height: 32px;
+            }
+            hr{
+                height: 1px;
+                background-color: $backgroundDates;
+            }
+        }
+        .containerDetalleIdeas{
+            .containerCardsDetalle{
+                padding-right: 0;
+            }
+            .containerVotesCant{
+                padding-left: 0;
+            }
+            .card{
+                background-color: $backgroundNavBar;
+                border: 1px solid #DDDDDD;
+                box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+                margin-bottom: 1rem;
+                &.cardIdeaDetalle{
+                    height: 350px;
+                    .card-title{
+                        display: flex;
+                        align-items: center;
+                        padding: 20px;
+                        justify-content: flex-start;
+                        margin-bottom: 0;
+                        .imgUserDetalleIdea{
+                            width: 50px;
+                            height: 50px;
+                            img{
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                        .nameUserIdeaDetalle{
+                            margin-left: 20px;
+                        }
+                    }
+                    .card-body{
+                        padding: 0px 20px;
+                        p{
+                            margin-bottom: 0px;
+                        }
+                    }
+                    .card-footer{
+                        background-color: $backgroundNavBar;
+                        padding: 0px 20px 40px 20px;
+                        border: 0;
+                        display: flex;
+                        align-items: center;
+                        .dateTime{
+                            position: absolute;
+                            right: 20px;
+                        }
+                    }
+                }
+                &.cardDateStatistic{
+                    height: 120px;
+                    .card-title{
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        margin-bottom: 0;
+                        text-align: center;
+                        .titleCant{
+                            font-size: .9rem;
+                            font-weight: 600;
+                            color: $colorText;
+                            letter-spacing: 1.18px;
+                            line-height: 19px;
+                        }  
+                    }
+                    .card-body{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        span{
+                            font-size: 2rem;
+                            font-weight: 300;
+                            color: #555;
+                        }
+                    }
+                }
+                &.cardStatistic{
+                    height: 214px;
+                    .card-title{
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        margin-bottom: 0;
+                        .titleCant{
+                            font-size: .9rem;
+                            font-weight: 600;
+                            color: #5A5858;
+                            letter-spacing: 1.18px;
+                            line-height: 19px;
+                        } 
+                    }
+                    .card-body{
+                        padding: .5rem 20px;
+                        .statistic{
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .chartjs-size-monitor{
+                                width: 100%;
+                                height: 100%;
+                            }
+                            .chartjs-render-monitor{
+                                width: 100%;
+                                height: 170px;
+                            }
+                            canvas{
+                                // width: 100%;
+                                // height: 170px;
+                            }
+                        }
+
+                    }
+                }
+                &.commentIdeaDetalle{
+                    height: auto;
+                    .card-title{
+                        padding-left: 20px;
+                        padding-right: 20px; 
+                        margin-bottom: 0;
+                        .titleCant{
+                            font-size: .9rem;
+                            font-weight: 600;
+                            color: #5A5858;
+                            letter-spacing: 1.18px;
+                            line-height: 19px;
+                        } 
+                    }
+                    .card-body{
+                        .list-group{
+                            .list-group-item{
+                                .containerImgUserCommit{
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+                                .nameUserCommit{
+                                    font-weight: 600;
+                                    color: $colorText;
+                                }
+                                p{
+                                    color: $colorText;
+                                }
+                            }
+                        }
+                    }
+                    .card-footer{
+                        background-color: $backgroundNavBar;
+                        border: 0;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
