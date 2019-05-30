@@ -1,0 +1,313 @@
+$bacgroundComponent: #fff;
+$colorSectionWrite : #fff;
+$colorSections : #eee;
+$colorBtnIdeas: #263238;
+$colorBrowser: #fafafa;
+$colorText: #5A5858;
+$fontFamilyRegular: "Aristotelica Display Regular";
+$colorTitle: #E7B843;
+$colorButtons: #E7B843;
+$radiusButtons: 50px;
+
+//Formulario donde se escriben las ideas
+.sectionAllIdeasUser{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $colorSectionWrite;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .containerIdeas{
+        width: 100%;
+        height: auto;
+        padding: 0;
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+    .containerWriteIdeas .containerIdeaGeneral{
+        width: 100%;
+        display: flex;
+        position: relative;
+        justify-content: left;
+        margin: 0;
+        .containerWriteIdeaBoard{
+            width: 100%;
+            padding: 0;
+            .groupMessageSend{
+                flex-wrap: nowrap;
+                //margin-bottom: 0;
+                border-radius: 3px;
+                height: 32px;
+                width: 90%;
+                margin-bottom: 0 !important;
+                .formNewMessage{
+                    width: 100%;
+                    display: flex;
+                    align-content: center;
+                    justify-content: center;
+                    box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+                    border-radius: 50px;
+                    padding: 0;
+                    .spaceWriteIdea{
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                        width: 100%;
+                        border-radius: 50px 0px 0px 50px;
+                        padding: .7rem .5rem .5rem 1rem;
+                        border: none;
+                        background-color: $colorBrowser;
+                    }
+                    .input-group-text{
+                        padding: 0 14px 0px 0px;
+                        background-color: $colorBrowser;
+                        border: none;
+                        border-radius: 0px 50px 50px 0px;
+                        .btnPlusIdea{
+                            width: 40px;
+                            height: 40px;
+                            display: flex;
+                            justify-content: center;
+                            color: $colorBrowser;
+                            align-items: center;
+                            padding: .5rem;
+                            img{
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+        .notificationDashboard{
+            display: flex;
+            justify-content: flex-end;
+            .notification{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .titleNotification{
+                    color: $colorText;
+                    font-size: .9rem;
+                    font-weight: 600;
+                    line-height: 19px;
+                    letter-spacing: 1.18px;
+                    display: block;
+                    width: auto;
+                    height: 15px;
+                }
+                .imgAlertNotification{
+                    margin-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+        .menuHamburgerDashboard{
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 0;
+            .titleMenu{
+                color: $colorText;
+                font-size: .9rem;
+                font-weight: 600;
+                line-height: 19px;
+                letter-spacing: 1.18px;
+            }
+            .menuNav{
+                position: absolute;
+                width: 178.91px;
+                height: calc(190px);
+                right: 7px;
+                top: 40px;
+                z-index: 1005;
+                border: 1px solid #DDDDDD;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+                border-radius: 2px;
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .menuNav::before,.menuNav::after{
+                    content: '';
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    display: block;
+                    border-width: 10px 0px 5px 14px;
+                    border-style: solid;
+                    border-color: transparent #fff;
+                    right: 7px;
+                    z-index: 1000;
+                    top: -8px;
+                    -webkit-transform: rotate(0.4turn);
+                    transform: rotate(0.4turn);
+                }
+                .menuNav::before{
+                    content: '';
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    display: block;
+                    border-width: 10px 0px 5px 14px;
+                    border-style: solid;
+                    border-color: transparent rgba(0, 0, 0, 0.12);
+                    right: 7px;
+                    z-index: 1000;
+                    top: -10px;
+                    -webkit-transform: rotate(0.4turn);
+                    transform: rotate(0.4turn);
+                }
+                .menuNav{
+                    .list-group .list-group-item{
+                        padding: 0.1rem 1.25rem;
+                        border: 0;
+                        a{
+                            color: #6E707B;
+                            font-size: .9rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// All ideas for user
+// Ideas debate
+.sectionDebateIdeas{
+    padding-left: 36px;
+    padding-right: 36px;
+    margin-bottom: 50px;
+    .containerSectionDebateIdeas{
+        .titleDebate{
+            padding-top: 26px;
+            padding-bottom: 28px;
+            h3{
+                color: $colorTitle;
+            }
+            hr{
+                height: 1px;
+                background-color: $colorTitle;
+            }
+        }
+    }
+    .card-columns{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        .card{
+            border: 1px solid #DDDDDD;
+            background-color: $colorSectionWrite;
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+            margin-bottom: 1.2rem;
+            padding: 20px;
+            .card-title{
+                display: flex;
+                margin-bottom: 0;
+                align-items: flex-end;
+                .name{
+                    margin-left: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    span:nth-child(1){
+                        font-weight: 600;
+                        color: $colorText;   
+                    }
+                    .nameUserPublication{
+                        font-weight: 600;
+                        color: $colorText;
+                    }
+                    .datePublication{
+                        color: $colorText;
+                        font-size: .9rem;
+                    }
+                }
+            } 
+            .card-body{
+                padding: 10px 0px 0px 0px;
+                .list-group{
+                    .list-group-item{
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        padding-left: 0;
+                        padding-right: 0;
+                        color: $colorText;
+                        font-size: .9rem;
+                        border: 0;
+                    }
+                    .list-group-item:first-child{
+                        padding-bottom: 0px;
+                        border: 0;
+                        span{
+                            font-size: 1rem;
+                            color: $colorText;
+                            font-weight: 500;
+                        }
+                    }
+                    .list-group-item:nth-child(2){
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        color: $colorText;
+                        font-size: .9rem;
+                        border: 0;
+                    }
+                    .list-group-item:nth-child(3){
+                        padding: 20px;
+                        color: $colorText;
+                        list-style: none;
+                        font-size: .9rem;
+                        border: 0;
+                        span{
+                            font-weight: 600;
+                        }
+                        p{
+                            margin-bottom: 0;
+                        }
+                    }
+                } 
+            }
+            .card-footer{
+                padding-bottom: 11px;
+                padding-top: 9px;
+                background-color: transparent;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 0px;
+                .btnMoreDebate{
+                    background-color: $colorButtons;
+                    color: $colorSectionWrite;
+                    border-radius: $radiusButtons;
+                    width: 50%;
+                }
+            }
+        }
+    } 
+}
+.visible{
+    display: block ;
+    animation: slide-down .3s ease-out;
+    -webkit-animation: slide-down .3s ease-out;
+    -moz-animation: slide-down .3s ease-out;
+}
+@keyframes slide-down {
+    0% { opacity: 0; transform: translateY(-100%); }   
+  100% { opacity: 1; transform: translateY(0); }
+}
+@-webkit-keyframes slide-down {
+    0% { opacity: 0; -webkit-transform: translateY(-100%); }   
+  100% { opacity: 1; -webkit-transform: translateY(0); }
+}
+@-moz-keyframes slide-down {
+    0% { opacity: 0; -moz-transform: translateY(-100%); }   
+  100% { opacity: 1; -moz-transform: translateY(0); }
+}
+.hidden{
+    display: none;
+    transition: 500ms linear;
+}

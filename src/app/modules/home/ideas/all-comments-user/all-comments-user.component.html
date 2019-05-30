@@ -1,0 +1,108 @@
+<section class="sectionAllCommentUser">
+    <div class="containerIdeas">
+		<div class="row">
+			<div class="col">
+				<div class="containerWriteIdeas">
+					<div class="containerIdeaGeneral row">
+						<div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 containerWriteIdeaBoard">
+							<label class="sr-only" for="inlineFormInputGroup"></label>
+							<div class="input-group groupMessageSend mb-2">
+							<form action="" class="formNewMessage">
+								<input name="idea" id="" cols="30" rows="10" class="spaceWriteIdea" placeholder="Cual es tu idea?" required>
+								<div class="input-group-prepend">
+								<div class="input-group-text">
+									<button class="btn btnPlusIdea" type="submit" value="Enviar Comentario" >
+									<img [src]="'assets/img/icons/dashboard/browser.svg'" alt="">
+									</button>
+								</div>
+								</div>
+							</form>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 notificationDashboard">
+							<div class="notification">
+							<span class="titleNotification">Notificaciones</span>
+							<div class="imgAlertNotification">
+								<img [src]="'assets/img/icons/dashboard/notification.svg'" alt="">
+							</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-6 col-lg-2 col-xl-2 menuHamburgerDashboard">
+							<div class="menuHamburguer">
+								<span class="titleMenu">Menu</span>
+								<button class="navbar-toggler" (click)="showMenuUser()">
+									<img [src]="'assets/img/icons/dashboard/hamburguer.svg'" alt="">
+								</button>
+							</div>
+							<div class="menuNav" *ngIf="menuComponents">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+									<a [routerLink]="'/dashboard'">
+										<span>
+										<img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+										</span> 
+										<span>
+											Dashboard
+										</span>
+									</a>
+									</li>
+									<li class="list-group-item">
+									<a [routerLink]="'/postuladas'">
+										<span>
+										<img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+										</span> 
+										<span>
+											Ideas postuladas
+										</span>
+										</a>
+									</li>
+									<li class="list-group-item">
+									<a [routerLink]="'/aprobadas'">
+										<span>
+										<img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+										</span> 
+										<span>
+											Ideas aprobadas
+										</span>
+									</a>
+									</li>
+									<li class="list-group-item">
+									<a [routerLink]="'/debate'">
+										<span>
+										<img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
+										</span> 
+										<span>
+											Ideas en debate
+										</span>
+									</a>
+									</li>
+									<li class="list-group-item">
+									<a [routerLink]="'/finalizadas'">
+										<span>
+										<img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+										</span> 
+										<span>
+											Ideas finalizadas
+										</span>
+									</a>
+									</li>
+									<li class="list-group-item">
+									<a [routerLink]="'/muertas'">
+										<span>
+										<img [src]="'assets/img/icons/dates/ovalBlack.svg'" alt="">
+										</span> 
+										<span>
+											Ideas muertas
+										</span>
+									</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</section>
+  <!-- Ideas en debate -->

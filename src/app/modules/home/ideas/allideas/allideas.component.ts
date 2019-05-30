@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../../services/ideas.service';
 
+
+export interface myIdeaAll{
+  obj : Object;
+}
+
 @Component({
   selector: 'app-allideas',
   templateUrl: './allideas.component.html',
   styleUrls: ['./allideas.component.scss']
 })
+
 export class AllideasComponent implements OnInit {
 
   //Filtro de busqueda mostrar todas las ideas
@@ -22,12 +28,17 @@ export class AllideasComponent implements OnInit {
   //Menu navegacion
   menuComponents:boolean = false
 
-  ideas:any[] = []
+  ideas:any[]
   constructor(private _service:IdeasService) {
-    this.ideas = _service.getDataIdeas();
-   }
 
+   }
+   getDataAllIdeas():void{
+     this._service.getIdeas().subscribe((data)=>{
+      this.ideas = data;
+     })
+   }
   ngOnInit() {
+    this.getDataAllIdeas()
   }
   filterIdeas(){
     let texto = this.inputFilter.value.toLowerCase()

@@ -17,6 +17,8 @@ import { PerfiluserComponent } from './perfiluser/perfiluser.component';
 import { IdeaspostulateComponent } from './ideas/ideaspostulate/ideaspostulate.component';
 import { ApprovedComponent } from './ideas/approved/approved.component';
 import { DebateComponent } from './ideas/debate/debate.component';
+import { AllIdeasUserComponent } from './ideas/all-ideas-user/all-ideas-user.component';
+import { AllCommentsUserComponent } from './ideas/all-comments-user/all-comments-user.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,10 @@ import { DebateComponent } from './ideas/debate/debate.component';
     FinishideasComponent, 
     DashboardComponent, 
     PerfiluserComponent, 
-    IdeaspostulateComponent, ApprovedComponent, DebateComponent
+    IdeaspostulateComponent,
+    ApprovedComponent, 
+    DebateComponent, 
+    AllIdeasUserComponent, AllCommentsUserComponent
   ],
   imports: [
     CommonModule,

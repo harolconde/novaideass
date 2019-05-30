@@ -1,0 +1,177 @@
+$bacgroundComponent: #fff;
+$colorSectionWrite : #fff;
+$colorSections : #eee;
+$colorBtnIdeas: #263238;
+$colorBrowser: #fafafa;
+$colorText: #5A5858;
+$fontFamilyRegular: "Aristotelica Display Regular";
+$colorTitle: #E7B843;
+$colorButtons: #E7B843;
+$radiusButtons: 50px;
+
+//Formulario donde se escriben las ideas
+.sectionAllCommentUser{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $colorSectionWrite;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .containerIdeas{
+        width: 100%;
+        height: auto;
+        padding: 0;
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+    .containerWriteIdeas .containerIdeaGeneral{
+        width: 100%;
+        display: flex;
+        position: relative;
+        justify-content: left;
+        margin: 0;
+        .containerWriteIdeaBoard{
+            width: 100%;
+            padding: 0;
+            .groupMessageSend{
+                flex-wrap: nowrap;
+                //margin-bottom: 0;
+                border-radius: 3px;
+                height: 32px;
+                width: 90%;
+                margin-bottom: 0 !important;
+                .formNewMessage{
+                    width: 100%;
+                    display: flex;
+                    align-content: center;
+                    justify-content: center;
+                    box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+                    border-radius: 50px;
+                    padding: 0;
+                    .spaceWriteIdea{
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                        width: 100%;
+                        border-radius: 50px 0px 0px 50px;
+                        padding: .7rem .5rem .5rem 1rem;
+                        border: none;
+                        background-color: $colorBrowser;
+                    }
+                    .input-group-text{
+                        padding: 0 14px 0px 0px;
+                        background-color: $colorBrowser;
+                        border: none;
+                        border-radius: 0px 50px 50px 0px;
+                        .btnPlusIdea{
+                            width: 40px;
+                            height: 40px;
+                            display: flex;
+                            justify-content: center;
+                            color: $colorBrowser;
+                            align-items: center;
+                            padding: .5rem;
+                            img{
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+        .notificationDashboard{
+            display: flex;
+            justify-content: flex-end;
+            .notification{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .titleNotification{
+                    color: $colorText;
+                    font-size: .9rem;
+                    font-weight: 600;
+                    line-height: 19px;
+                    letter-spacing: 1.18px;
+                    display: block;
+                    width: auto;
+                    height: 15px;
+                }
+                .imgAlertNotification{
+                    margin-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+        .menuHamburgerDashboard{
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 0;
+            .titleMenu{
+                color: $colorText;
+                font-size: .9rem;
+                font-weight: 600;
+                line-height: 19px;
+                letter-spacing: 1.18px;
+            }
+            .menuNav{
+                position: absolute;
+                width: 178.91px;
+                height: calc(190px);
+                right: 7px;
+                top: 40px;
+                z-index: 1005;
+                border: 1px solid #DDDDDD;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+                border-radius: 2px;
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .menuNav::before,.menuNav::after{
+                    content: '';
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    display: block;
+                    border-width: 10px 0px 5px 14px;
+                    border-style: solid;
+                    border-color: transparent #fff;
+                    right: 7px;
+                    z-index: 1000;
+                    top: -8px;
+                    -webkit-transform: rotate(0.4turn);
+                    transform: rotate(0.4turn);
+                }
+                .menuNav::before{
+                    content: '';
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    display: block;
+                    border-width: 10px 0px 5px 14px;
+                    border-style: solid;
+                    border-color: transparent rgba(0, 0, 0, 0.12);
+                    right: 7px;
+                    z-index: 1000;
+                    top: -10px;
+                    -webkit-transform: rotate(0.4turn);
+                    transform: rotate(0.4turn);
+                }
+                .menuNav{
+                    .list-group .list-group-item{
+                        padding: 0.1rem 1.25rem;
+                        border: 0;
+                        a{
+                            color: #6E707B;
+                            font-size: .9rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

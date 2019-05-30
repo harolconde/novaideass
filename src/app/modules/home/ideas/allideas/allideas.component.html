@@ -110,30 +110,33 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-xl-12 filter">
                 <div class="allIdeasContent row card-columns" >
-                    <div class="containerIdeaCredentials col-sm-12 col-lg-3 col-xl-3 card" *ngFor="let idea of ideas; index as i" >
+                    <div class="containerIdeaCredentials col-sm-12 col-lg-3 col-xl-3 card" *ngFor="let idea of ideas.Ideas; index as i" >
                         <div class="imgUserInChat">
-                            <img src="{{idea.img}}" alt="">
+                            <img src="{{idea.userImg}}" alt="">
                         </div>
                         <div class="containerNameVotes">
-                            <h3 class="nameUserIdea">{{idea.user}}
+                            <h3 class="nameUserIdea">{{idea.NickName}}
                                 <ul class="containerBtnsLikesDslike">
                                     <li class="listIconsMessage">
                                         <div class="btnLikeMyHeark" >
                                             <ul class="contentBtnMyHeart" >
                                                 <li>
-                                                    <img [src]="'assets/img/icons/myHeart.svg'" alt="" data-toggle="tooltip" data-placement="top" title="Votos"  (click)="popLikes(i)"  class="imgHeart">
-                                                    <span> {{idea.votes}} </span>
+                                                    <img [src]="'assets/img/icons/chat/myHeart.svg'" alt="" data-toggle="tooltip" data-placement="top" title="Votos"  (click)="popLikes(i)"  class="imgHeart">
+                                                    <span> {{idea.Likes}} </span>
                                                 </li>
                                             </ul>
                                             <ul class="votos" *ngIf="btnPopovers"  [id]="idea.id">
                                                 <li class="upButton">
                                                     <img [src]="'assets/img/icons/hapy.svg'" alt="">
+                                                    <span>{{idea.Likes}}</span>
                                                 </li>
                                                 <li class="upButton">
                                                     <img [src]="'assets/img/icons/sad.svg'" alt="">
+                                                    <span>{{idea.DisLikes}}</span>
                                                 </li>
                                                 <li class="upButton">
                                                     <img [src]="'assets/img/icons/mee.svg'" alt="">
+                                                    <span>{{idea.Neutral}}</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -142,7 +145,7 @@
                             </h3>
                         </div>
                         <p class="ideaMessageChatUsers ideaMessageChatUsersAllIdeas">
-                            <a [routerLink]="['/idea', i]" class="paragraphIdea">{{idea.description}}</a>
+                            <a [routerLink]="['/idea', i]" class="paragraphIdea">{{idea.IdeaText}}</a>
                         </p>
                         <div class="containerDisplayReply containerDisplayReplyAllIdeas">
                             <h4 class="replyTitle">Comentarios
