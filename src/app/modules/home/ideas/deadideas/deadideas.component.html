@@ -111,18 +111,18 @@
                 <div class="col-sm-12 col-lg-12 col-xl-12">
                     <div class="row">
                         <div class="filter card-columns">
-                                <div class="cardContainerIdeadDead  card" *ngFor="let idea of ideas; index as i" >          
+                                <div class="cardContainerIdeadDead  card" *ngFor="let idea of ideas.Ideas; index as i" >          
                                         <div class="containerIdeaCredentials col-sm-12 col-lg-9 col-xl-9" > <!--Filter *ngIf -->
                                             <div class="imgUserInChat" >
-                                                <img class="imgPerfilChat" src="{{idea.img}}" alt="" >
+                                                <img class="imgPerfilChat" src="{{idea.UserImg}}" alt="" >
                                             </div>
                                             <div class="containerNameVotes" >  
-                                                <h3 class="nameUserIdea">{{idea.user}}
+                                                <h3 class="nameUserIdea">{{idea.NickName}}
                                                    
                                                 </h3>
                                             </div>
                                             <p class="ideaMessageChatUsers ideaMessageChatUsersIdeasDead">
-                                                <a [routerLink]="['/idea', i]" class="paragraphIdea">{{idea.description}}</a>
+                                                <a [routerLink]="['/idea', i]" class="paragraphIdea">{{idea.IdeaText}}</a>
                                             </p>
                                             <div class="containerDisplayReply containerDisplayReplyIdeasDead">
                                                 <h4 class="replyTitle">Comentarios

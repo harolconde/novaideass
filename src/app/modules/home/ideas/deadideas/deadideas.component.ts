@@ -17,13 +17,21 @@ export class DeadideasComponent implements OnInit {
   //Menu navegacion
   menuComponents:boolean = false
 
-  ideas:any[] = []
+  ideas:any[]
   constructor(private _service:IdeasService) {
     this.ideas = this._service.getDataIdeas()
    }
 
   ngOnInit() {
+    this.getIdeasDead()
   }
+
+  getIdeasDead(): void{
+    this._service.getIdeas().subscribe((data) => {
+      this.ideas = data;
+    })
+  }
+
   collapseIdea(i){
     if(this.stateCollapseAllIdea == false){
       this.panelReply[i].style.display = 'flex'
