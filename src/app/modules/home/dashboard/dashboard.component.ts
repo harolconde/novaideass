@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { IdeasService } from './../services/ideas.service';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,9 +12,38 @@ export class DashboardComponent implements OnInit {
 
   //Variable menu navegacion oculto.
   menuComponents:boolean = false
-  constructor() { }
+
+  // Arreglo contenedor ideas
+  // Ultimas cuatro ideas pustuladas
+  lastFourIdeas:any[]
+  // Ultimas cuatro ideas en debate
+  lastFourDebateIdeas:any[]
+  // Ultimas cuatro ideas aprovadas
+  lastFourApprovedIdeas:any[]
+  // Ultimas cuatro ideas finalizadas
+  lastFourFinishIdeas:any[]
+  //Ultimas cuatro ideas muertas
+  lastFourDeadIdeas:any[]
+
+  constructor(private _service:IdeasService) { }
 
   ngOnInit() {
+
+    //Ultimas cuatro ideas
+    this.getLastFourIdeas()
+
+    //Ultimas cuatro ideas en debate
+    this.getLastFourDebate()
+
+    //Ultimas cuatro ideas aprovadas
+    this.getLastFourIdeasApproved()
+
+    //Ultimas cuatro ideas Finalizadas
+    this.getLastFourIdeasFinish()
+
+    //Ultimas cuatro ideas muertas
+    this.getLastFourIdeasDead()
+
     const ctx = document.getElementById('myChart');
 
     let myChart = new Chart(ctx, {
@@ -133,6 +164,41 @@ export class DashboardComponent implements OnInit {
           }
         }
     });
+  }
+
+  // Fuuncion que retorna las ultimas cuatro ideas publicadas
+  getLastFourIdeas(){
+    this._service.getIdeasLast().subscribe((data) => {
+      this.lastFourIdeas = data;
+    })
+  }
+
+  // Funcion que trae las ultimas cuatro ideas en debate
+  getLastFourDebate(){
+    this._service.getIdeasLastDebate().subscribe((data)=>{
+      this.lastFourDebateIdeas = data;
+    })
+  }
+
+  // Funcion que trae las ultimas cuatro ideas aprovadas..
+  getLastFourIdeasApproved(){
+    this._service.getIdeasLastApproved().subscribe((data)=> {
+      this.lastFourApprovedIdeas = data;
+    })
+  }
+
+  // Funcion que trae las ultimas cuatro ideas finalizadas
+  getLastFourIdeasFinish(){
+    this._service.getIdeasLastFinish().subscribe((data) => {
+      this.lastFourFinishIdeas = data;
+    })
+  }
+
+  // Funcion que trae las ultimas cuatro ideas muertas
+  getLastFourIdeasDead(){
+    this._service.getIdeasLastDead().subscribe((data) => {
+      this.lastFourDeadIdeas = data;
+    })
   }
 
   //Function mostrar menu de navegacion.

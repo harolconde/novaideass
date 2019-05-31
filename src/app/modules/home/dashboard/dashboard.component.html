@@ -364,34 +364,10 @@
                                             <span>Últimas ideas postuladas</span>
                                         </div>
                                         <div class="card-body">
-                                            <ul class="list-group list-group-flush">
+                                            <ul class="list-group list-group-flush" *ngFor="let lfidea of lastFourIdeas.Ideas; index as i">
                                                 <li class="list-group-item">
                                                     <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Cras justo odio</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Dapibus ac facilisis in</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Morbi leo risus</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Porta ac consectetur ac</span>
+                                                    <span class="contenIdeaText"> {{lfidea.IdeaText}} </span>
                                                     <div class="contentIconIdeaText">
                                                         <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
                                                         <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
@@ -410,37 +386,10 @@
                                             <span>últimas ideas en debate</span>
                                         </div>
                                         <div class="card-body">
-                                            <ul class="list-group list-group-flush">
+                                            <ul class="list-group list-group-flush" *ngFor="let lfdIdeas of lastFourDebateIdeas.Ideas; index as i">
                                                 <li class="list-group-item">
                                                     <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Cras justo odio</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/message.svg'" alt=""></button>
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Dapibus ac facilisis in</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/message.svg'" alt=""></button>
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Morbi leo risus</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/message.svg'" alt=""></button>
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Porta ac consectetur ac</span>
+                                                    <span class="contenIdeaText">{{lfdIdeas.IdeaText}}</span>
                                                     <div class="contentIconIdeaText">
                                                         <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/message.svg'" alt=""></button>
                                                         <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
@@ -464,31 +413,10 @@
                                             <span>Últimas ideas Aprobadas</span>
                                         </div>
                                         <div class="card-body">
-                                            <ul class="list-group list-group-flush">
+                                            <ul class="list-group list-group-flush" *ngFor="let lfaIdeas of lastFourApprovedIdeas.Ideas; index as i">
                                                 <li class="list-group-item">
                                                     <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Cras justo odio</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Dapibus ac facilisis in</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Morbi leo risus</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Porta ac consectetur ac</span>
+                                                    <span class="contenIdeaText"> {{lfaIdeas.IdeaText}} </span>
                                                     <div class="contentIconIdeaText">
                                                         <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
                                                     </div>
@@ -506,31 +434,10 @@
                                             <span>Últimas ideas finalizadas</span>
                                         </div>
                                         <div class="card-body">
-                                            <ul class="list-group list-group-flush">
+                                            <ul class="list-group list-group-flush" *ngFor="let lffIdeas of lastFourFinishIdeas; index as i">
                                                 <li class="list-group-item">
                                                     <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Cras justo odio</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Dapibus ac facilisis in</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Morbi leo risus</span>
-                                                    <div class="contentIconIdeaText">
-                                                        <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <span class="spinnerIdea">.</span>
-                                                    <span class="contenIdeaText">Porta ac consectetur ac</span>
+                                                    <span class="contenIdeaText"> {{lffIdeas.IdeaText}} </span>
                                                     <div class="contentIconIdeaText">
                                                         <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
                                                     </div>
@@ -551,31 +458,10 @@
                                     <span>Últimas ideas Muertas</span>
                                 </div>
                                 <div class="card-body">
-                                    <ul class="list-group list-group-flush">
+                                    <ul class="list-group list-group-flush" *ngFor="let lfdeadIdeas of lastFourDeadIdeas.Ideas; index as i">
                                         <li class="list-group-item">
                                             <span class="spinnerIdea">.</span>
-                                            <span class="contenIdeaText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, est!</span>
-                                            <div class="contentIconIdeaText">
-                                                <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="spinnerIdea">.</span>
-                                            <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, vel rerum cum tempore inventore vitae.</span>
-                                            <div class="contentIconIdeaText">
-                                                <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="spinnerIdea">.</span>
-                                            <span class="contenIdeaText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem dolore consequuntur provident fuga eos, magni aliquid. Minima rem iure provident saepe vero mollitia autem voluptate.</span>
-                                            <div class="contentIconIdeaText">
-                                                <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="spinnerIdea">.</span>
-                                            <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias beatae provident illum eveniet voluptates rerum tempora odio? Quam, exercitationem voluptate?</span>
+                                            <span class="contenIdeaText"> {{lfdeadIdeas.IdeaText}} </span>
                                             <div class="contentIconIdeaText">
                                                 <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
                                             </div>
