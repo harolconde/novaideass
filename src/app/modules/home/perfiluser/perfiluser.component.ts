@@ -13,13 +13,14 @@ export class PerfiluserComponent implements OnInit {
   // Subir imagen de perfil del usuario
   imgSrc: string = '/assets/img/users/user.svg';
   fileUpload: File = null;
-
+  mimeType: string = null;
   // Menu de navegacion
   menuComponents: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   // Menu de navegacion
@@ -38,7 +39,18 @@ export class PerfiluserComponent implements OnInit {
     };
     reader.readAsDataURL(this.fileUpload);
 
+    // Obtener mime imagen
+    
   }
+
+  getMimeType(){
+    this.mimeType =  this.fileUpload.name.split('.').pop()
+    console.log(this.mimeType)
+  }
+  cancelSelectIdea(){
+    return this.imgSrc = '/assets/img/users/user.svg';
+  }
+
 }
 $( () => {
   $('[data-toggle="tooltip"]').tooltip();

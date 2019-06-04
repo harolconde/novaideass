@@ -308,7 +308,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Selecciona un nuevo avatar o sube una foto.</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelSelectIdea()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -317,30 +317,40 @@
                     <div class="titleModalBody">
                         <span>- Selecciona alguno de los avatares que tenemos disponibles.</span>
                     </div>
-                    <div class="imgPerfilSelected">
+                    <div class="imgPerfilSelected"> 
                         <div class="imgSelected">
-                            <img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
-                            <input type="radio" aria-label="Radio button for following text input">
+                            <img [src]="'/images/05.svg'" alt="">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                            </div>
                         </div>
                         <div class="imgSelected">
                             <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="">
-                            <input type="radio" aria-label="Radio button for following text input">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" >
+                            </div>
                         </div>
                         <div class="imgSelected">
                             <img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
-                            <input type="radio" aria-label="Radio button for following text input">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option3" >
+                            </div>
                         </div>
                         <div class="imgSelected">
                             <img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="">
-                            <input type="radio" aria-label="Radio button for following text input">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option4" >
+                            </div>
                         </div>
                         <div class="imgSelected">
                             <img [src]="'assets/img/users/ideas-avatar-hombre-gafas.svg'" alt="">
-                            <input type="radio" aria-label="Radio button for following text input">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option5" >
+                            </div>
                         </div>
                     </div>
                     <div class="titleModalBody">
-                        <span>- Sube una imagen.</span>
+                        <span>- Sube una imagen.</span> 
                     </div>
                     <div class="imgUpload">
                         <div class="containerImgUpload" id="containerImgUpload">
@@ -359,8 +369,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btnModal btnCancel" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary btnModal btnSave">Guardar</button>
+                <button type="button" class="btn btn-secondary btnModal btnCancel" data-dismiss="modal" (click)="cancelSelectIdea()">Cancelar</button>
+                <button type="button" class="btn btn-primary btnModal btnSave" (click)="getMimeType()">Guardar</button>
             </div>
         </div>
     </div>
