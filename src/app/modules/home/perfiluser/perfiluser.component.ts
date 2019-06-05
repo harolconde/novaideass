@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { isLContainer } from '@angular/core/src/render3/util';
 
 declare var $:any;
 
@@ -11,7 +12,7 @@ declare var $:any;
 export class PerfiluserComponent implements OnInit {
 
   // Subir imagen de perfil del usuario
-  imgSrc: string = '/assets/img/users/user.svg';
+  imgSrc: string = 'assets/img/users/user.svg';
   fileUpload: File = null;
   mimeType: string = null;
   // Menu de navegacion
@@ -48,7 +49,21 @@ export class PerfiluserComponent implements OnInit {
     console.log(this.mimeType)
   }
   cancelSelectIdea(){
-    return this.imgSrc = '/assets/img/users/user.svg';
+    return this.imgSrc = 'assets/img/users/user.svg';
+  }
+
+  containerRadioImg:any = document.getElementsByClassName('imgSelected')
+  img:any = document.getElementsByClassName('imgSelectChange')//document.getElementById(id)
+  btnChecked:any = document.getElementsByClassName('form-check-input');
+  getNameImg(id){
+    let itemImg:any = document.getElementById(id)
+    console.log(itemImg)
+    for(let i = 0; i < this.btnChecked.length; i++){
+      console.log(this.btnChecked[i])
+      
+      console.log(`${this.img[itemImg].id} : ${this.btnChecked[i].id}`)
+      console.log(itemImg)
+    } 
   }
 
 }

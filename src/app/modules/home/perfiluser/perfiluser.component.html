@@ -318,34 +318,34 @@
                         <span>- Selecciona alguno de los avatares que tenemos disponibles.</span>
                     </div>
                     <div class="imgPerfilSelected"> 
-                        <div class="imgSelected">
-                            <img [src]="'/images/05.svg'" alt="">
+                        <div class="imgSelected" (click)="getNameImg(id)" id="img1">
+                            <img [src]="'/images/05.svg'" alt="" class="imgSelectChange" id="05">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
                             </div>
                         </div>
-                        <div class="imgSelected">
-                            <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="">
+                        <div class="imgSelected" (click)="getNameImg(id)" id="img2">
+                            <img [src]="'/images/03.svg'" alt="" class="imgSelectChange" id="03">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" >
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                             </div>
                         </div>
-                        <div class="imgSelected">
-                            <img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
+                        <div class="imgSelected" (click)="getNameImg(id)" id="img03">
+                            <img [src]="'/images/04.svg'" alt="" class="imgSelectChange" id="04">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option3" >
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
                             </div>
                         </div>
-                        <div class="imgSelected">
-                            <img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="">
+                        <div class="imgSelected" (click)="getNameImg(id)" id="img04">
+                            <img [src]="'/images/01.svg'" alt="" class="imgSelectChange" id="01">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option4" >
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
                             </div>
                         </div>
-                        <div class="imgSelected">
-                            <img [src]="'assets/img/users/ideas-avatar-hombre-gafas.svg'" alt="">
+                        <div class="imgSelected" (click)="getNameImg(id)" id="img05">
+                            <img [src]="'/images/02.svg'" alt="" class="imgSelectChange" id="02">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option5" >
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
                             </div>
                         </div>
                     </div>
