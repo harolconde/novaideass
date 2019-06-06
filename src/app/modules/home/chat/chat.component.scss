@@ -26,13 +26,59 @@ $colorText : #5A5858;
     .formNewIdea{
         position: absolute;
         z-index: 1003;
-        padding: .5rem;
-        bottom: 0;
+        padding: 1rem;
+        top: 0;
         background-color: #fff;
         box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.45);
-        input-group{
+        display: none;
+        .input-group{
+            margin-bottom: 0 !important;
             textarea{
-                
+                height: 50px;
+                border-radius: 50px;
+                resize: none;
+                width: 100%;
+            }
+            .input-group-append{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding-top: 1rem;
+                .btnIdeaChat{
+                    background-color: $backgroundColorReply;
+                    border: 2px solid $colorBtn;
+                    border-radius: 50px;
+                    width: 40%;
+                    height: 35px;
+                    padding: .2rem 3rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .input-group-text{
+                        background-color: $backgroundColorReply;
+                        height: auto;
+                        width: auto;
+                        padding: 0;
+                        border: 0;
+                        height: 20px;
+                        color: $colorBtn;
+                        display: block;
+                        margin-right: 11px;
+                    }
+                    &.btnSendIdea{
+                        background-color: $colorBtn;
+                        span,i{
+                            color: $backgroundColorReply;
+                            background-color: transparent;
+                        }
+                    }
+                    &.btnCancelIdea{
+                        span, i{
+                            color: $colorBtn;
+                            background-color: $backgroundColorReply;
+                        }
+                    }
+                }
             }
         }
     }
@@ -49,13 +95,14 @@ $colorText : #5A5858;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    padding: .2rem 30px;
     h6{
         padding-bottom: 0 !important;
         font-weight: 700;
     }
     .btnNewIdea{
         position: absolute;
-        right: 20px;
+        right: 30px;
         border-radius: 50px;
         border: 2px solid $colorBtn;
         padding: .2rem 2rem;

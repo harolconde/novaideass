@@ -52,18 +52,24 @@ export class PerfiluserComponent implements OnInit {
     return this.imgSrc = 'assets/img/users/user.svg';
   }
 
-  containerRadioImg:any = document.getElementsByClassName('imgSelected')
-  img:any = document.getElementsByClassName('imgSelectChange')//document.getElementById(id)
-  btnChecked:any = document.getElementsByClassName('form-check-input');
+  imgs:any= [
+    {id:'01', source:'assets/img/users/05.svg'},
+    {id:'02', source:'assets/img/users/03.svg'},
+    {id:'03', source:'assets/img/users/04.svg'},
+    {id:'04', source:'assets/img/users/01.svg'},
+    {id:'05', source:'assets/img/users/02.svg'}
+  ]
+
+
   getNameImg(id){
     let itemImg:any = document.getElementById(id)
     console.log(itemImg)
-    for(let i = 0; i < this.btnChecked.length; i++){
-      console.log(this.btnChecked[i])
+    // for(let i = 0; i < this.btnChecked.length; i++){
+    //   console.log(this.btnChecked[i])
       
-      console.log(`${this.img[itemImg].id} : ${this.btnChecked[i].id}`)
-      console.log(itemImg)
-    } 
+    //   console.log(`${this.img[itemImg].id} : ${this.btnChecked[i].id}`)
+    //   console.log(itemImg)
+    // } 
   }
 
 }

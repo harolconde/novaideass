@@ -317,14 +317,14 @@
                     <div class="titleModalBody">
                         <span>- Selecciona alguno de los avatares que tenemos disponibles.</span>
                     </div>
-                    <div class="imgPerfilSelected"> 
-                        <div class="imgSelected" (click)="getNameImg(id)" id="img1">
-                            <img [src]="'/images/05.svg'" alt="" class="imgSelectChange" id="05">
+                    <div class="imgPerfilSelected" > 
+                        <div class="imgSelected" (click)="getNameImg(id)" id="img1" *ngFor="let img of imgs; index as i">
+                            <img src="{{img.source}}" alt="" class="imgSelectChange" [id]="img.id">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                <input class="form-check-input" type="radio" name="exampleRadios" [id]="img.id" value="option1">
                             </div>
                         </div>
-                        <div class="imgSelected" (click)="getNameImg(id)" id="img2">
+                        <!-- <div class="imgSelected" (click)="getNameImg(id)" id="img2">
                             <img [src]="'/images/03.svg'" alt="" class="imgSelectChange" id="03">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
@@ -347,7 +347,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="titleModalBody">
                         <span>- Sube una imagen.</span> 

@@ -17,7 +17,7 @@ $radiusButtons: 50px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     height: 90px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: center;
     .containerIdeas{
         width: 100%;
@@ -131,43 +131,139 @@ $radiusButtons: 50px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                .menuNav::before,.menuNav::after{
-                    content: '';
-                    height: 0;
-                    width: 0;
-                    position: absolute;
-                    display: block;
-                    border-width: 10px 0px 5px 14px;
-                    border-style: solid;
-                    border-color: transparent #fff;
-                    right: 7px;
-                    z-index: 1000;
-                    top: -8px;
-                    -webkit-transform: rotate(0.4turn);
-                    transform: rotate(0.4turn);
+                .list-group .list-group-item{
+                    padding: 0.1rem 1.25rem;
+                    border: 0;
+                    a{
+                        color: #6E707B;
+                        font-size: .9rem;
+                    }
                 }
-                .menuNav::before{
-                    content: '';
-                    height: 0;
-                    width: 0;
-                    position: absolute;
-                    display: block;
-                    border-width: 10px 0px 5px 14px;
-                    border-style: solid;
-                    border-color: transparent rgba(0, 0, 0, 0.12);
-                    right: 7px;
-                    z-index: 1000;
-                    top: -10px;
-                    -webkit-transform: rotate(0.4turn);
-                    transform: rotate(0.4turn);
+            }
+            .menuNav::before,.menuNav::after{
+                content: '';
+                height: 0;
+                width: 0;
+                position: absolute;
+                display: block;
+                border-width: 10px 0px 5px 14px;
+                border-style: solid;
+                border-color: transparent #fff;
+                right: 7px;
+                z-index: 1000;
+                top: -8px;
+                -webkit-transform: rotate(0.4turn);
+                transform: rotate(0.4turn);
+            }
+            .menuNav::before{
+                content: '';
+                height: 0;
+                width: 0;
+                position: absolute;
+                display: block;
+                border-width: 10px 0px 5px 14px;
+                border-style: solid;
+                border-color: transparent rgba(0, 0, 0, 0.12);
+                right: 7px;
+                z-index: 1000;
+                top: -10px;
+                -webkit-transform: rotate(0.4turn);
+                transform: rotate(0.4turn);
+            }
+        }
+    }
+}
+
+// Seccion todos los comentarios por usuario
+.sectionCommentAllUser{
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-bottom: 1rem;
+    .containerCommentAllUser{
+        .row{
+            .title{
+                padding-bottom: 1rem;
+                h3{
+                    padding-top: 26px;
+                    color: $colorButtons;
+                    font-size: 1.5rem;
+                    letter-spacing: 1.76px;
+                    line-height: 32px;
                 }
-                .menuNav{
-                    .list-group .list-group-item{
-                        padding: 0.1rem 1.25rem;
-                        border: 0;
-                        a{
-                            color: #6E707B;
-                            font-size: .9rem;
+                hr{
+                    height: 1px;
+                    background-color: $colorButtons;
+                }
+            }
+            .cardAllComments{
+                background-color: $bacgroundComponent;
+                .card-body{
+                    .list-group{
+                        .list-group-item{
+                            padding: 1.5rem 1.25rem;
+                            .iconMessageAll{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: #63C533;
+                            }
+                            .commentParagraphAll{
+                                display: flex;
+                                align-items: center;
+                                .paragraphCommentAll{
+                                    line-height: 17px;
+                                    width: 95%;
+                                    overflow: hidden;
+                                    height: 14px;
+                                    white-space: pre-wrap;
+                                    text-overflow: ellipsis;
+                                    text-align: justify;
+                                    margin-bottom: 0;
+                                }
+                            }
+                            .iconEyeAll{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                .btnEyeAll{
+                                    border-radius: 50px;
+                                    border: none;
+                                    width: 16px;
+                                    height: 16px;
+                                    padding: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    background-color: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+                .card-footer{
+                    background-color: $bacgroundComponent;
+                    padding-top: 31px;
+                    padding-bottom: 35px;
+                    .pagination{
+                        margin-bottom: 0;
+                        .page-item{
+                            .page-link{
+                                border: 0;
+                                padding-top: 0;
+                                padding-bottom: 0;
+                                color: #444;
+                                padding-left: 0;
+                                padding-right: 0;
+                                margin-left: .7rem;
+                                margin-right: .7rem;
+                                .arrowPagination{
+                                    &.arrowPrevius{
+                                        transform: rotate(0.25turn);
+                                    }
+                                    &.arrowNext{
+                                        transform: rotate(0.75turn);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
