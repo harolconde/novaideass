@@ -9,6 +9,27 @@ $colorTitle: #E7B843;
 $colorButtons: #E7B843;
 $radiusButtons: 50px;
 
+// Grid
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
+
+// Mixins
+@mixin responsive-mobile {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "sm")){
+        @content;
+    }
+}
+
 h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     font-family: $fontFamilyRegular;
 }
@@ -49,6 +70,11 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     height: 32px;
     width: 90%;
     margin-bottom: 0 !important;
+    @include responsive-mobile{
+        width: 100%;
+        margin-top: .5rem;
+        margin-bottom: .5rem !important;
+    }
 }
 .sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage{
     width: 100%;
@@ -92,6 +118,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard{
     display: flex;
     justify-content: flex-end;
+    @include responsive-mobile{
+        justify-content: flex-start;
+    }
 }
 .sectionWriteIdeas .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification{
     display: flex;

@@ -9,6 +9,27 @@ $colorTitle: #E7B843;
 $colorButtons: #E7B843;
 $radiusButtons: 50px;
 
+// Grid
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
+
+// Mixins
+@mixin responsive-mobile {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "sm")){
+        @content;
+    }
+}
+
 h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     font-family: $fontFamilyRegular;
 }
@@ -49,6 +70,11 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     height: 32px;
     width: 90%;
     margin-bottom: 0 !important;
+    @include responsive-mobile{
+        width: 100%;
+        margin-top: .5rem;
+        margin-bottom: .5rem !important;
+    }
 }
 .sectionIdeasPostulate .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage{
     width: 100%;
@@ -92,6 +118,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionIdeasPostulate .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard{
     display: flex;
     justify-content: flex-end;
+    @include responsive-mobile{
+        justify-content: flex-start;
+    }
 }
 .sectionIdeasPostulate .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification{
     display: flex;
@@ -141,6 +170,13 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include responsive-mobile{
+        width: calc(85vw);
+        height: auto;
+        padding-top: .8rem;
+        padding-bottom: .8rem;
+        right: 0;
+    }
 }
 .sectionIdeasPostulate .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::before,.sectionIdeasPostulate .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::after{
     content: '';
@@ -156,6 +192,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     top: -8px;
     -webkit-transform: rotate(0.4turn);
     transform: rotate(0.4turn);
+    @include responsive-mobile(){
+        right: 14px;
+    }
 }
 .sectionIdeasPostulate .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::before{
     content: '';
@@ -171,14 +210,24 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     top: -10px;
     -webkit-transform: rotate(0.4turn);
     transform: rotate(0.4turn);
+    @include responsive-mobile(){
+        right: 14px;
+    }
 }
 .sectionIdeasPostulate .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item{
     padding: 0.1rem 1.25rem;
     border: 0;
+    @include responsive-mobile(){
+        padding: 0.7rem 1.25rem;
+    }
+    a:hover{
+        font-weight: 600;
+    }
 }
 .sectionIdeasPostulate .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item a{
     color: #6E707B;
     font-size: .9rem;
+    text-decoration: none;
 }
 
 // Section ideas postuladas
@@ -232,6 +281,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-body .postuladasMe .list-group .idea{
     display: flex;
     align-items: center;
+    @include responsive-mobile{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-body .postuladasMe .list-group .idea .img{
     width: 5%;
@@ -257,6 +310,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-body .postuladasMe .list-group .idea .date{
     width: 20%;
     height: 14px;
+    @include responsive-mobile{
+        font-size: .7rem;
+    }
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-body .postuladasMe .list-group .idea .see{
     width: 5%;

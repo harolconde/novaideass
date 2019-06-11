@@ -9,6 +9,26 @@ $colorTitle: #E7B843;
 $colorButtons: #E7B843;
 $radiusButtons: 50px;
 
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
+
+// Mixins
+@mixin responsive-mobile {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "sm")){
+        @content;
+    }
+}
+
 //Formulario donde se escriben las ideas
 .sectionAllCommentUser{
     padding-top: 20px;

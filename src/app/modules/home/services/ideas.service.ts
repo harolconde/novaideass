@@ -18,13 +18,13 @@ export class IdeasService {
         
     }
     getIdeas() : Observable<any>{
-        return this.http.get('http://172.65.10.170/IdeasService/api/ConsultaIdeas?opcion=1&estado=1&tipo=1&fechaIni=20190517&fechaFin=20190518&rownumber=0');
+        return this.http.get('http://172.65.10.170/IdeasService/api/ConsultaIdeas?opcion=1&estado=1&tipo=1&fechaIni=20190517&fechaFin=20190518&rownumber=0')
     }
     getIdeasLast() : Observable<any>{
-        return this.http.get('http://172.65.10.170/IdeasService//api/ConsultaIdeas?opcion=1&estado=1&tipo=1&fechaIni=20190517&fechaFin=20190518&rownumber=4');
+        return this.http.get('http://172.65.10.170/IdeasService//api/ConsultaIdeas?opcion=1&estado=1&tipo=1&fechaIni=20190517&fechaFin=20190518&rownumber=4')
     }
     getIdeasLastDebate() : Observable<any>{
-        return this.http.get('http://172.65.10.170/IdeasService//api/ConsultaIdeas?opcion=1&estado=3&tipo=1&fechaIni=20190517&fechaFin=20190518&rownumber=4');
+        return this.http.get('http://172.65.10.170/IdeasService//api/ConsultaIdeas?opcion=1&estado=3&tipo=1&fechaIni=20190517&fechaFin=20190518&rownumber=4')
     }
     getIdeasLastApproved() : Observable<any>{
         return this.http.get('http://172.65.10.170/IdeasService//api/ConsultaIdeas?opcion=1&estado=2&tipo=1&fechaIni=20190517&fechaFin=20190518&rownumber=4')

@@ -15,11 +15,11 @@
                             <span>Harol Conde</span>
                         </div>
                         <div class="arrow">
-                            <button class="btnDatesUser" data-toggle="tooltip" data-placement="top" title="Datos de perfil" (click)="showMenuUser()">
-                                <img [src]="'assets/img/icons/dashboard/Arrow.svg'" alt="" class="imgArrowDown">
+                            <button class="btnDatesUser" data-toggle="tooltip" data-placement="top" title="Datos de perfil"  >
+                                <img [src]="'assets/img/icons/dashboard/Arrow.svg'" alt="" class="imgArrowDown" >
                             </button>
                         </div>
-                        <div class="infoPerfil" *ngIf="menuUser">
+                        <div class="infoPerfil" >
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <a [routerLink]="'/perfil-usuario'" (click) = "showMenuUser()">
