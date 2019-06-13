@@ -296,22 +296,31 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-body .postuladasMe .list-group .idea .descIdea{
     width: 70%;
     height: 14px;
+    @include responsive-mobile{
+        width: 90%;
+    }
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-body .postuladasMe .list-group .idea .descIdea p{
     font-size: .9rem;
     line-height: 17px;
-    width: 73%;
+    width: 70%;
     overflow: hidden;
     height: 14px;
     white-space: pre-wrap;
     text-overflow: ellipsis;
     text-align: justify;
+    @include responsive-mobile{
+        width: 74%;
+        margin-left: 10px;
+    }
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-body .postuladasMe .list-group .idea .date{
-    width: 20%;
+    width: 23%;
     height: 14px;
     @include responsive-mobile{
         font-size: .7rem;
+        margin-right: 10px;
+        display: none;
     }
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-body .postuladasMe .list-group .idea .see{
@@ -401,6 +410,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardTodasPostuladas .card-body .postuladasMe .list-group .idea{
     display: flex;
     align-items: center;
+    @include responsive-mobile{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardTodasPostuladas .card-body .postuladasMe .list-group .idea .img{
     width: 5%;
@@ -412,6 +425,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardTodasPostuladas .card-body .postuladasMe .list-group .idea .descIdea{
     width: 70%;
     height: 14px;
+    @include responsive-mobile{
+        width: 90%;
+    }
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardTodasPostuladas .card-body .postuladasMe .list-group .idea .descIdea p{
     font-size: .9rem;
@@ -422,10 +438,19 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     white-space: pre-wrap;
     text-overflow: ellipsis;
     text-align: justify;
+    @include responsive-mobile{
+        width: 74%;
+        margin-left: 10px;
+    }
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardTodasPostuladas .card-body .postuladasMe .list-group .idea .date{
     width: 20%;
     height: 14px;
+    @include responsive-mobile{
+        font-size: .7rem;
+        margin-right: 10px;
+        display: none;
+    }
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardTodasPostuladas .card-body .postuladasMe .list-group .idea .see{
     width: 5%;

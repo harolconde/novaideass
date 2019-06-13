@@ -5,12 +5,35 @@ $backgroundNavBar: #fff;
 $colorText: #5A5858;
 $buttonsRadius: 50px;
 
-// Fuentes
-$fontFamilyRegular: "Aristotelica Display Regular";
+//Grid
+$extraSmallLimit : 450px;
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
 
-h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
-    font-family: $fontFamilyRegular;
+// Mixins
+@mixin responsive-mobile {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "sm")){
+        @content;
+    }
 }
+// Responsive Phone horizontal
+@mixin responsive-mobile-xs{
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: $extraSmallLimit){
+        @content;
+    }
+}
+
+
 .sectionPerfilAdmon{
     padding-left: 36px;
     padding-right: 36px;
@@ -32,12 +55,21 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon .containerCardMisIdeasPostuladas{
     padding-right: 0;
+    @include responsive-mobile{
+        padding-right: 15px;
+    }
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon .containerCardsAmininAll{
     padding-left: 0;
+    @include responsive-mobile{
+        padding-left: 15px;
+    }
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon .cardAll{
     padding-left: 0;
+    @include responsive-mobile{
+        padding-left: 15px;
+    }
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .card{
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
@@ -170,6 +202,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item{
     border-top: 0;
     padding: 0.4rem 1.25rem;
+    @include responsive-mobile{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop{
     display: flex;
@@ -223,6 +259,12 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon{
     background-color: #fff;
     height: 210px;
+    .list-group-item{
+        @include responsive-mobile{
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon{
     padding-right: 0;
@@ -239,6 +281,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     padding: 0rem 1.25rem;
     display: flex;
     align-items: center;
+    @include responsive-mobile{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-body .list-group-flush .list-group-item .spinnerIdea{
     font-size: 3rem;

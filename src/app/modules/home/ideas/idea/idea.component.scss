@@ -2,6 +2,27 @@ $backgroundDates: #E7B843;
 $backgroundNavBar: #fff;
 $colorText: #5A5858;
 
+// Grid
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
+
+// Mixins
+@mixin responsive-mobile {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "sm")){
+        @content;
+    }
+}
+
 .sectionIdeaMenu{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -41,6 +62,11 @@ $colorText: #5A5858;
                 height: 32px;
                 width: 90%;
                 margin-bottom: 0 !important;
+                @include responsive-mobile{
+                    width: 100%;
+                    margin-top: .5rem;
+                    margin-bottom: .5rem !important;
+                }
             }
             .containerWriteIdeaBoard  .groupMessageSend .formNewMessage{
                 width: 100%;
@@ -83,6 +109,9 @@ $colorText: #5A5858;
             .notificationDashboard{
                 display: flex;
                 justify-content: flex-end;
+                @include responsive-mobile{
+                    justify-content: flex-start;
+                }
                 .notification{
                     display: flex;
                     align-items: center;
@@ -192,17 +221,29 @@ $colorText: #5A5858;
         .containerDetalleIdeas{
             .containerCardsDetalle{
                 padding-right: 0;
+                @include responsive-mobile{
+                    padding-right: 15px;
+                }
             }
             .containerVotesCant{
                 padding-left: 0;
+                @include responsive-mobile{
+                    padding-left: 15px;
+                }
             }
             .card{
                 background-color: $backgroundNavBar;
                 border: 1px solid #DDDDDD;
                 box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
                 margin-bottom: 1rem;
+                @include responsive-mobile{
+                    padding-right: 15px;
+                }
                 &.cardIdeaDetalle{
                     height: 350px;
+                    @include responsive-mobile{
+                        height: auto;
+                    }
                     .card-title{
                         display: flex;
                         align-items: center;
@@ -236,11 +277,17 @@ $colorText: #5A5858;
                         .dateTime{
                             position: absolute;
                             right: 20px;
+                            @include responsive-mobile{
+                                font-size: .75rem;
+                            }
                         }
                     }
                 }
                 &.cardDateStatistic{
                     height: 120px;
+                    @include responsive-mobile{
+                        padding-right: 15px;
+                    }
                     .card-title{
                         padding-left: 20px;
                         padding-right: 20px;

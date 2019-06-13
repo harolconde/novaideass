@@ -5,6 +5,35 @@ $colorText: #5A5858;
 
 $fontFamilyRegular: "Aristotelica Display Regular";
 
+//Grid
+$extraSmallLimit : 450px;
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
+
+// Mixins
+@mixin responsive-mobile {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "sm")){
+        @content;
+    }
+}
+// Responsive Phone horizontal
+@mixin responsive-mobile-xs{
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: $extraSmallLimit){
+        @content;
+    }
+}
+
+
 h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     font-family: $fontFamilyRegular;
 }
@@ -68,6 +97,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesLogo img{
     width: 250px;
     height: 61px;
+    @include responsive-mobile{
+        width: 87%;
+        height: auto;
+    }
 }
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container{
     display: flex;
@@ -79,24 +112,40 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .imgBarNav img{
     width: 50px;
     height: 50px;
+    @include responsive-mobile{
+        width: 40px;
+        height: 40px;
+    }
 }
-.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .nameBarNav span{
-    font-size: .9rem;
-    color: #fff;
-    font-weight: 300;
-    letter-spacing: 1.03px;
-    line-height: 19px;
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .nameBarNav{
+    @include responsive-mobile-xs{
+        display: none;
+    }
+    span{
+        font-size: .9rem;
+        color: #fff;
+        font-weight: 300;
+        letter-spacing: 1.03px;
+        line-height: 19px;
+    }
 }
-.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .btnDatesUser{
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-}
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav{
+    @include responsive-mobile{
+        position: absolute;
+        right: 0;
+        width: 40px;
+    }
+    .btnDatesUser{
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+    }
+} 
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .btnDatesUser img{
     width: 12.95px;
     height: 8px;
@@ -115,6 +164,12 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include responsive-mobile{
+        width: 100vw;
+        height: 98px;
+        right: 0;
+        top: 40px;
+    }
 }
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil::before,.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil::after{
     content: '';
@@ -130,6 +185,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     top: -8px;
     -webkit-transform: rotate(0.4turn);
     transform: rotate(0.4turn);
+    @include responsive-mobile{
+        right: 27px;
+    }
 }
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil::before{
     content: '';
@@ -145,6 +203,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     top: -10px;
     -webkit-transform: rotate(0.4turn);
     transform: rotate(0.4turn);
+    @include responsive-mobile{
+        right: 27px;
+    }
 }
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil .list-group .list-group-item{
     border: 0;
@@ -166,6 +227,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     height: auto;
     padding: 0;
     padding-left: 28px;
+    @include responsive-mobile{
+        padding-left: 0px;
+    }
 }
 .barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral{
     width: 100%;
@@ -185,6 +249,11 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     height: 32px;
     width: 90%;
     margin-bottom: 0 !important;
+    @include responsive-mobile{
+        width: 100%;
+        //margin-top: .5rem;
+        margin-bottom: .5rem !important;
+    }
 }
 .barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard  .groupMessageSend .formNewMessage{
     width: 100%;
@@ -227,6 +296,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard{
     display: flex;
     justify-content: flex-end;
+    @include responsive-mobile{
+        justify-content: flex-start;
+    }
 }
 .barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification{
     display: flex;

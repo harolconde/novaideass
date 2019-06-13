@@ -9,6 +9,27 @@ $colorTitle: #E7B843;
 $colorButtons: #E7B843;
 $radiusButtons: 50px;
 
+// Grid
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
+
+// Mixins
+@mixin responsive-mobile {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "sm")){
+        @content;
+    }
+}
+
 h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     font-family: $fontFamilyRegular;
 }
@@ -49,6 +70,11 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     height: 32px;
     width: 90%;
     margin-bottom: 0 !important;
+    @include responsive-mobile{
+        width: 100%;
+        margin-top: .5rem;
+        margin-bottom: .5rem !important;
+    }
 }
 .sectionIdeasApproved .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage{
     width: 100%;
@@ -92,6 +118,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionIdeasApproved .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard{
     display: flex;
     justify-content: flex-end;
+    @include responsive-mobile{
+        justify-content: flex-start;
+    }
 }
 .sectionIdeasApproved .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification{
     display: flex;
@@ -215,12 +244,19 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardLastAproved .card-title{
     border-bottom: 1px solid rgba(0,0,0, 0.125);
     margin-bottom: 0;
+    @include responsive-mobile{
+        display: flex;
+        padding-top: .2rem; 
+    }
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardLastAproved .card-title .title{
     color: $colorText;
     letter-spacing: 1.18px;
     font-size: .9rem;
     font-weight: 600;
+    @include responsive-mobile{
+        font-size: .75rem;
+    }
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardLastAproved .card-title .dateApproved{
     position: absolute;
@@ -229,6 +265,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     color: $colorText;
     letter-spacing: 1.18px;
     font-size: .9rem;
+    @include responsive-mobile{
+        font-size: .6rem;
+    }
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardLastAproved .card-body{
     padding: 0;
@@ -258,10 +297,17 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApprovedAll{
     padding-left: 0;
+    @include responsive-mobile{
+        padding-left: 15px;
+    }
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-body .list-group .idea{
     display: flex;
     align-items: center;
+    @include responsive-mobile{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-body .list-group .idea .img{
     width: 5%;
@@ -273,6 +319,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-body .list-group .idea .descIdea{
     width: 70%;
     height: 14px;
+    @include responsive-mobile{
+        width: 90%;
+    }
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-body .list-group .idea .descIdea p{
     font-size: .9rem;
@@ -283,10 +332,14 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     white-space: pre-wrap;
     text-overflow: ellipsis;
     text-align: justify;
+    margin-left: 8px;
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-body .list-group .idea .date{
     width: 20%;
     height: 14px;
+    @include responsive-mobile{
+        display: none;
+    }
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-body .list-group .idea .see{
     width: 5%;

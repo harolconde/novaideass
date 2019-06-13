@@ -9,6 +9,27 @@ $colorTitle: #E7B843;
 $colorButtons: #E7B843;
 $radiusButtons: 50px;
 
+// Grid
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
+
+// Mixins
+@mixin responsive-mobile {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "sm")){
+        @content;
+    }
+}
+
 h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     font-family: $fontFamilyRegular;
 }
@@ -49,6 +70,11 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     height: 32px;
     width: 90%;
     margin-bottom: 0 !important;
+    @include responsive-mobile{
+        width: 100%;
+        margin-top: .5rem;
+        margin-bottom: .5rem !important;
+    }
 }
 .sectionIdeasFinish .containerIdeas .containerWriteIdeas .containerIdeaGeneral .containerWriteIdeaBoard .groupMessageSend .formNewMessage{
     width: 100%;
@@ -92,6 +118,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .sectionIdeasFinish .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard{
     display: flex;
     justify-content: flex-end;
+    @include responsive-mobile{
+        justify-content: flex-start;
+
+    }
 }
 .sectionIdeasFinish .containerIdeas .containerWriteIdeas .containerIdeaGeneral .notificationDashboard .notification{
     display: flex;
@@ -210,6 +240,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     }
     &.cardLastFinished .carousel{
         height: 310px;
+        @include responsive-mobile{
+            height: auto;
+        }
     }
 }
 .sectionFishedIdeas .containerFinishedIdeas .card .card-title{
@@ -259,6 +292,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    @include responsive-mobile{
+        padding-left: 10px;
+    }
 } 
 
 // Ideas finalizadas
@@ -269,9 +305,18 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     padding-bottom: 0;
     padding-top: 0;
 }
-.containerCardFinished .cardAllfinished .card-body .finishAll .list-group .idea{
-    display: flex;
-    align-items: center;
+.containerCardFinished .cardAllfinished .card-body .finishAll{
+    @include responsive-mobile{
+        width: 100%;
+    }
+    .list-group .idea{
+        display: flex;
+        align-items: center;
+        @include responsive-mobile{
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }
 .containerCardFinished .cardAllfinished .card-body .finishAll .list-group .idea .img{
     width: 5%;
@@ -283,6 +328,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .containerCardFinished .cardAllfinished .card-body .finishAll .list-group .idea .descIdea{
     width: 70%;
     height: 14px;
+    @include responsive-mobile{
+        width: 90%;
+    }
 }
 .containerCardFinished .cardAllfinished .card-body .finishAll .list-group .idea .descIdea p{
     font-size: .9rem;
@@ -293,10 +341,16 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     white-space: pre-wrap;
     text-overflow: ellipsis;
     text-align: justify;
+    @include responsive-mobile{
+        margin-left: 10px;
+    }
 }
 .containerCardFinished .cardAllfinished .card-body .finishAll .list-group .idea .date{
     width: 20%;
     height: 14px;
+    @include responsive-mobile{
+        display: none;
+    }
 }
 .containerCardFinished .cardAllfinished .card-body .finishAll .list-group .idea .see{
     width: 5%;

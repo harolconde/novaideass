@@ -6,6 +6,27 @@ $colorLabel: #8A8A8A;
 $fontFamilyRegular: "Aristotelica Display Regular";
 $borderColor: 1px solid #ACACAC;
 
+// Grid
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
+
+// Mixins
+@mixin responsive-mobile {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "sm")){
+        @content;
+    }
+}
+
 h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
     font-family: $fontFamilyRegular;
 }
@@ -17,10 +38,18 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
 .sectionLogin .containerSignUp{
     width: 50%;
     height: 100%;
+    @include responsive-mobile{
+        width: 100%;
+    }
 }
 .sectionLogin .containerLogin {
     display: flex;
     align-items: center;
+    @include responsive-mobile{
+        width: 100%;
+        z-index: 1;
+        background-color: rgba(255,255,255, 0.9);
+    }
 }
 .sectionLogin .containerLogin .container .row{
     display: flex;
@@ -28,6 +57,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
 }
 .sectionLogin .containerLogin .container-icon{
     margin-bottom: 96.65px;
+    @include responsive-mobile{
+        margin-bottom: 0;
+    }
 }
 .sectionLogin .containerLogin .container-icon img{
     width: 85%;
@@ -74,7 +106,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
 }
 .sectionLogin .containerLogin .formLogin .form-group .formGroupLogin .inputGropPrependLogin span{
     border-radius: $borderRadius 0px 0px $borderRadius;
-    background-color: transparent;
+    background-color: #fff;
     border: $borderColor;
     border-right: 0;
 }
@@ -96,6 +128,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
 }
 .sectionLogin .containerLogin .formLogin .containerButtons .buttonsLogin{
     margin: 9px 0px 9px 0px;
+    width: 50%;
     &.buttonCancel{
         padding-left: 0px;
     }
@@ -139,7 +172,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
 .sectionLogin .containerLoginImg{
     overflow-x: hidden;
     position: relative;
-}
+    @include responsive-mobile{
+        position: absolute;
+    }
+}    
 .sectionLogin .containerLoginImg .backgroundLoginImg{
     height: 100%;
     position: absolute;
