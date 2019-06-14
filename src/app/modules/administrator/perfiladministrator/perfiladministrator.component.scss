@@ -218,6 +218,10 @@ $grid-breakpoints: (
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .imgUserTop img{
     width: 30px;
     height: 30px;
+    @include responsive-mobile{
+        width: 20px;
+        height: 20px;
+    }
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item .containerUserTop .topParticipation{
     width: 95%;
@@ -369,6 +373,9 @@ $grid-breakpoints: (
     position: relative;
     padding: 5px 20px;
     width: 100%;
+    @include responsive-mobile{
+        padding: 5px 1px
+    }
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:first-child{
  
@@ -392,6 +399,9 @@ $grid-breakpoints: (
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:last-child{
     padding: 10px 20px;
+    @include responsive-mobile{
+        padding: 6px 1px;
+    }
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:last-child .iconsUsersAdmin{
     display: flex;
@@ -404,10 +414,21 @@ $grid-breakpoints: (
     justify-content: center;
     align-items: center;
 }
-.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:last-child .iconsUsersAdmin img{
-    width: 45px;
-    height: 45px;
-}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group .list-group-item:last-child .iconsUsersAdmin{
+    img{
+        width: 45px;
+        height: 45px;
+        @include responsive-mobile{
+            width: 35px;
+            height: 35px;
+        }
+    }
+    span{
+        @include responsive-mobile{
+            font-size: .8rem;
+        }
+    }
+} 
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-footer{
     display: flex;
     align-items: center;
@@ -435,9 +456,15 @@ $grid-breakpoints: (
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body .list-group .list-group-item {
     padding: 0rem 1.25rem;
     height: 30px;
+    @include responsive-mobile{
+        padding: .1rem 0rem;
+    }
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body .list-group .list-group-item:last-child {
     padding: 0rem 1.25rem;
+    @include responsive-mobile{
+        padding: .1rem 0rem;
+    }
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body .list-group .list-group-item .cant{
     position: absolute;

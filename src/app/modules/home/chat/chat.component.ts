@@ -27,6 +27,9 @@ export class ChatComponent implements OnInit {
   btnPopober:any = document.getElementsByClassName('imgHeart')
   popovers:boolean = false;
 
+  // Agregar nueva idea
+  generateIdea:boolean = false;
+
   //Replicar idea
   btnReply:any = document.getElementsByClassName('btnAddNewReply')
   layoutReply:any = document.getElementById('replyMessage')
@@ -46,7 +49,7 @@ export class ChatComponent implements OnInit {
     this._service.getIdeas().subscribe((data) => {
       this.ideas = data;
       console.log("Vamos !!", data);
-    })
+    }) 
   }
 
   ngOnInit() {
@@ -105,6 +108,12 @@ export class ChatComponent implements OnInit {
     }
   }
   
+  // Nuevo comentario
+  newIdea(){
+    this.generateIdea = ! this.generateIdea
+  }
+
+
   //Responder a idea
   // replyIdea(i){
   //   this.commentAdd.push(this.textReplyMessage)

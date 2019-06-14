@@ -11,7 +11,7 @@ import { tick } from '@angular/core/testing';
 export class DashboardComponent implements OnInit {
 
   //Variable menu navegacion oculto.
-  menuComponents:boolean = false
+  menuComponents:boolean = false 
 
   // Arreglo contenedor ideas
   // Ultimas cuatro ideas pustuladas

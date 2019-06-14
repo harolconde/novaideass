@@ -166,9 +166,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     justify-content: center;
     @include responsive-mobile{
         width: 100vw;
-        height: 98px;
         right: 0;
         top: 40px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 }
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil::before,.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .arrowBarNav .infoPerfil::after{
@@ -348,6 +349,13 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include responsive-mobile{
+        width: calc(100vw);
+        margin-right: -12px;
+        height: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 }
 .barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::before,.barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav::after{
     content: '';
@@ -358,7 +366,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     border-width: 10px 0px 5px 14px;
     border-style: solid;
     border-color: transparent #fff;
-    right: 7px;
+    right: 18px;
     z-index: 1001;
     top: -8px;
     -webkit-transform: rotate(0.4turn);
@@ -373,7 +381,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     border-width: 10px 0px 5px 14px;
     border-style: solid;
     border-color: transparent rgba(0, 0, 0, 0.12);
-    right: 7px;
+    right: 18px;
     z-index: 1000;
     top: -10px;
     -webkit-transform: rotate(0.4turn);
@@ -382,6 +390,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item{
     padding: 0.1rem 1.25rem;
     border: 0;
+    @include responsive-mobile{
+        padding: 0.5rem 1.25rem;
+    }
 }
 .barNavMenu .containerIdeas .containerWriteIdeas .containerIdeaGeneral .menuHamburgerDashboard .menuNav .list-group .list-group-item a{
     color: #6E707B;
@@ -407,7 +418,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 @media (min-width: 1px) and (max-width: 991px) { 
     .sectionAdministratorMenu{
         height: auto;
-        overflow-x: hidden;
+        overflow-x: initial;
     }
     .sectionAdministratorMenu .barNav .rowHeigh{
         height: auto;
