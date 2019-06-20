@@ -111,13 +111,13 @@
                 <div class="col-sm-12 col-lg-12 col-xl-12">
                     <div class="row">
                         <div class="filter card-columns">
-                                <div class="cardContainerIdeadDead  card" *ngFor="let idea of ideas.Ideas; index as i" >          
+                                <div class="cardContainerIdeadDead  card" *ngFor="let idea of ideas; index as i" >          
                                         <div class="containerIdeaCredentials col-sm-12 col-lg-9 col-xl-9" > <!--Filter *ngIf -->
                                             <div class="imgUserInChat" >
                                                 <img class="imgPerfilChat" src="{{idea.UserImg}}" alt="" >
                                             </div>
                                             <div class="containerNameVotes" >  
-                                                <h3 class="nameUserIdea">{{idea.NickName}}
+                                                <h3 class="nameUserIdea">{{idea.Nick_name}}
                                                    
                                                 </h3>
                                             </div>

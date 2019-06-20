@@ -11,30 +11,30 @@
     <div class="col-12 containerChat">
       <div class="containerMessageIdeas">
          <div class="contenedor" *ngIf="ideas">
-           <ng-container *ngFor="let idea of ideas.Ideas; index as i">
-				<div class="containerIdeaCredentials">
+           <ng-container *ngFor="let idea of ideas; index as i">
+				<div class="containerIdeaCredentials" id="{{idea.Id}}" >
 						<div class="imgUserInChat">
-						  <img src="{{idea.userImg}}" alt="">
+						  <img src="{{idea.Blob_data}}" alt="">
 						</div>
 						<div class="containerNameVotes">
-						  <h3 class="nameUserIdea"> {{idea.NickName}}
+						  <h3 class="nameUserIdea"> {{idea.Nick_name}}
 							<ul class="containerBtnsLikesDslike">
 							  <li class="listIconsMessage">
 								<div class="btnLikeMyHeark" >
 								  <ul class="contentBtnMyHeart" >
 									<li>
 										<img [src]="'assets/img/icons/chat/myHeart.svg'" alt="" data-toggle="tooltip" data-placement="top" title="Votos"    class="imgHeart" (click)="popLikes(i)" >
-										<span> {{idea.Likes}} </span>
+										<span> {{idea.Total}} </span>
 									</li>
 								  </ul>
-								  <ul class="votos"  [id]="idea.Id" > <!-- [ngClass]="popovers ? 'visible' : 'hidden'" -->
+								  <ul class="votos" [id]="idea.Id"> <!-- [ngClass]="popovers ? 'visible' : 'hidden'" -->
 									<li class="upButton">
 									  <img [src]="'assets/img/icons/chat/hapy.svg'" data-toggle="tooltip" data-placement="top" title="Me gusta" alt="">
 									  <span>{{idea.Likes}}</span>
 									</li>
 									<li class="upButton">
 									  <img [src]="'assets/img/icons/chat/sad.svg'" data-toggle="tooltip" data-placement="top" title="No me gusta" alt="">
-									  <span> {{idea.DisLikes}} </span>
+									  <span> {{idea.Dislikes}} </span>
 									</li>
 									<li class="upButton">
 									  <img [src]="'assets/img/icons/chat/mee.svg'" data-toggle="tooltip" data-placement="top" title="Neutro" alt="">
@@ -51,15 +51,18 @@
 						</p>
 						<div class="containerDisplayReply">
 						  <h4 class="replyTitle">Comentarios
-							<span class="btnAddNewReply" (click)="addComments(i)" > 
+							<span class="btnAddNewReply" (click)="addComments(i)"> 
 								<i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="left" title="Agregar respuesta"></i>
 							</span>
 						  </h4>
 						  <ul class="elementReply list-group list-group-flush">
-			
+							<li class="list-group-item" *ngFor="let comment of comments; index as c" >
+								<p class="commentBody"> {{comment.Comments}} </p>
+								<img class="imgComment" src="{{comment.Blob_data}}" alt="">
+							</li>
 						  </ul>
 						</div>
-						<button class="btn btn-block btnSeeMoreMessage" id="btnSeeMoreMessage" (click)="collapseIdea(i)">
+						<button class="btn btn-block btnSeeMoreMessage" id="btnSeeMoreMessage" (click)="getId(i); collapseIdea(i)" (load)="getId(i)"> <!-- (click)="getId(i)" -->
 						  Ver
 						  <i class="fas fa-comment-alt answerMessage" id="answerMessage"></i>
 						  <i class="fas fa-plus iconMoreMinus"></i>

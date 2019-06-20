@@ -364,7 +364,7 @@
                                             <span>Últimas ideas postuladas</span>
                                         </div>
                                         <div class="card-body">
-                                            <ul class="list-group list-group-flush" *ngFor="let lfidea of lastFourIdeas.Ideas; index as i">
+                                            <ul class="list-group list-group-flush" *ngFor="let lfidea of lastFourIdeas; index as i">
                                                 <li class="list-group-item">
                                                     <span class="spinnerIdea">.</span>
                                                     <span class="contenIdeaText"> {{lfidea.IdeaText}} </span>
@@ -386,7 +386,7 @@
                                             <span>últimas ideas en debate</span>
                                         </div>
                                         <div class="card-body">
-                                            <ul class="list-group list-group-flush" *ngFor="let lfdIdeas of lastFourDebateIdeas.Ideas; index as i">
+                                            <ul class="list-group list-group-flush" *ngFor="let lfdIdeas of lastFourDebateIdeas; index as i">
                                                 <li class="list-group-item">
                                                     <span class="spinnerIdea">.</span>
                                                     <span class="contenIdeaText">{{lfdIdeas.IdeaText}}</span>
@@ -413,7 +413,7 @@
                                             <span>Últimas ideas Aprobadas</span>
                                         </div>
                                         <div class="card-body">
-                                            <ul class="list-group list-group-flush" *ngFor="let lfaIdeas of lastFourApprovedIdeas.Ideas; index as i">
+                                            <ul class="list-group list-group-flush" *ngFor="let lfaIdeas of lastFourApprovedIdeas; index as i">
                                                 <li class="list-group-item">
                                                     <span class="spinnerIdea">.</span>
                                                     <span class="contenIdeaText"> {{lfaIdeas.IdeaText}} </span>
@@ -458,7 +458,7 @@
                                     <span>Últimas ideas Muertas</span>
                                 </div>
                                 <div class="card-body">
-                                    <ul class="list-group list-group-flush" *ngFor="let lfdeadIdeas of lastFourDeadIdeas.Ideas; index as i">
+                                    <ul class="list-group list-group-flush" *ngFor="let lfdeadIdeas of lastFourDeadIdeas; index as i">
                                         <li class="list-group-item">
                                             <span class="spinnerIdea">.</span>
                                             <span class="contenIdeaText"> {{lfdeadIdeas.IdeaText}} </span>

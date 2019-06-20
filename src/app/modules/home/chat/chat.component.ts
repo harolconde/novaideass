@@ -40,6 +40,7 @@ export class ChatComponent implements OnInit {
 
   //ideas:any[] = []
   ideas:any[]
+  comments:any[]
 
   constructor(private _service : IdeasService) {
 
@@ -51,6 +52,18 @@ export class ChatComponent implements OnInit {
       console.log("Vamos !!", data);
     }) 
   }
+  getId(i){
+    let idIdeas = document.getElementsByClassName('containerIdeaCredentials')
+    let ideaId = idIdeas[i].id
+    console.log(ideaId)
+    this._service.idIdeas = ideaId
+  }
+  getComments(): void{
+    this._service.getAllComents().subscribe((data) =>{
+      this.comments = data;
+      console.log(data)
+    })
+  }
 
   ngOnInit() {
     this.getListIdeas();
@@ -58,6 +71,7 @@ export class ChatComponent implements OnInit {
   
   
   collapseIdea(i){
+    this.getComments();
     if(this.stateCollapseIdea == false){
       this.textCollapse[i].style.whiteSpace = "normal"
       this.textCollapse[i].style.transitionDuration = "0.5s"

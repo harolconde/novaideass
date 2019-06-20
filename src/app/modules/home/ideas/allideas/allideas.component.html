@@ -110,12 +110,12 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-xl-12 filter">
                 <div class="allIdeasContent row card-columns" >
-                    <div class="containerIdeaCredentials col-sm-12 col-lg-3 col-xl-3 card" *ngFor="let idea of ideas.Ideas; index as i" >
+                    <div class="containerIdeaCredentials col-sm-12 col-lg-3 col-xl-3 card" *ngFor="let idea of ideas; index as i" >
                         <div class="imgUserInChat">
                             <img src="{{idea.userImg}}" alt="">
                         </div>
                         <div class="containerNameVotes">
-                            <h3 class="nameUserIdea">{{idea.NickName}}
+                            <h3 class="nameUserIdea">{{idea.Nick_name}}
                                 <ul class="containerBtnsLikesDslike">
                                     <li class="listIconsMessage">
                                         <div class="btnLikeMyHeark" >
