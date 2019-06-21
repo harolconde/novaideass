@@ -104,9 +104,9 @@ export class ChatComponent implements OnInit {
         this.btnMinus[i].classList.add('fa-minus')
         this.stateCollapseIdea = false
       }
-      this.stateCollapseIdea = true;
+      
     }
-    
+    this.stateCollapseIdea = true;
     console.log(this.stateCollapseIdea)
     // if(this.stateCollapseIdea == false){
     //   this.textCollapse[i].style.whiteSpace = "normal"
