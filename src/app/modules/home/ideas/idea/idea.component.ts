@@ -9,9 +9,11 @@ import { Chart } from 'chart.js'
 export class IdeaComponent implements OnInit {
 
   constructor() { }
-
+  pos: number = 7
+  neg: number = 3
+  neu: number = 8
   ngOnInit() {
-
+    
     const ctx = document.getElementById('myChart');
     let myChart = new Chart(ctx, {
         type: 'line',
@@ -20,7 +22,7 @@ export class IdeaComponent implements OnInit {
             datasets: [
             {
               label: '',
-                data: [7,3,2],
+                data: [this.pos,this.neg,this.neu],
                 backgroundColor: [
                     'rgba(138,221,45,1)',
                     'rgba(54, 162, 235, 0.2)',

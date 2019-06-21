@@ -27,7 +27,7 @@
 										<span> {{idea.Total}} </span>
 									</li>
 								  </ul>
-								  <ul class="votos" [id]="idea.Id"> <!-- [ngClass]="popovers ? 'visible' : 'hidden'" -->
+								  <ul class="votos" id="idea.Id"> <!-- [ngClass]="popovers ? 'visible' : 'hidden'" -->
 									<li class="upButton">
 									  <img [src]="'assets/img/icons/chat/hapy.svg'" data-toggle="tooltip" data-placement="top" title="Me gusta" alt="">
 									  <span>{{idea.Likes}}</span>
@@ -46,10 +46,10 @@
 							</ul>
 						  </h3>
 						</div>
-						<p class="ideaMessageChatUsers">
+						<p class="ideaMessageChatUsers" id="i-{{idea.Id}}">
 						  <a [routerLink]="['/idea', i]" class="paragraphIdea"> {{idea.IdeaText}} </a>
 						</p>
-						<div class="containerDisplayReply">
+						<div class="containerDisplayReply" id="p-{{idea.Id}}">
 						  <h4 class="replyTitle">Comentarios
 							<span class="btnAddNewReply" (click)="addComments(i)"> 
 								<i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="left" title="Agregar respuesta"></i>

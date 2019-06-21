@@ -20,9 +20,15 @@ export class IdeasService {
 
     // Peticiones Get
     idIdeas : any 
-    fecharFin: string = "20190620"
+    // fechas
+    date: any = new Date()
+    year: any = this.date.getFullYear()
+    month: any = this.date.getMonth()+1
+    day: any = this.date.getDate()
+    fechatFin: any = this.year+this.month+this.day
+
     getIdeas() : Observable<any>{
-        return this.http.get(`http://172.65.10.170:8050/api/Dbop1?opcionc=1&estadoc=1&tipoc=1&fechaInic=20190517&fechaFinc=${this.fecharFin}&rownumberc=0`)
+        return this.http.get(`http://172.65.10.170:8050/api/Dbop1?opcionc=1&estadoc=1&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
     }
     getIdeasLast() : Observable<any>{
         return this.http.get('http://172.65.10.170:8050/api/Dbop1?opcionc=1&estadoc=1&tipoc=1&fechaInic=20190517&fechaFinc=20190518&rownumberc=4')

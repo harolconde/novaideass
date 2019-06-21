@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../services/ideas.service';
 
 import * as $ from 'jquery';
+import { and } from '@angular/router/src/utils/collection';
 
 declare var $:any
 
@@ -17,6 +18,7 @@ export interface myIdea{
 export class ChatComponent implements OnInit {
 
   //Variables mostrar idea completa
+  //messageIdea:any =document.getElementsByClassName('ideaMessageChatUsers')
   btnShowIdea:any = document.getElementsByClassName('btnSeeMoreMessage')
   textCollapse:any = document.getElementsByClassName('ideaMessageChatUsers')
   panelReply:any = document.getElementsByClassName('containerDisplayReply')
@@ -69,37 +71,71 @@ export class ChatComponent implements OnInit {
     this.getListIdeas();
   }
   
-  
   collapseIdea(i){
     this.getComments();
-    if(this.stateCollapseIdea == false){
-      this.textCollapse[i].style.whiteSpace = "normal"
-      this.textCollapse[i].style.transitionDuration = "0.5s"
-      this.panelReply[i].style.display = 'flex'
-      this.panelReply[i].style.transition = 'all 500ms linear'
-      this.btnShowIdea[i].style.backgroundColor = '#f1f1f1'
-      this.btnShowIdea[i].style.fontWeight = '600'
-      this.btnShowIdea[i].style.border = '1px solid #ddd'
-      this.btnShowIdea[i].style.borderRadius = '22px'
-      this.btnShowIdea[i].style.transition = 'all 700ms linear'
-      this.btnMinus[i].classList.remove('fa-plus')
-      this.btnMinus[i].classList.add('fa-minus')
-      this.stateCollapseIdea = true
+    const idIdeaCollapse:any = document.getElementById(this.textCollapse[i].id)
+    const idPanel:any = document.getElementById(this.panelReply[i].id)
+    const idBtn:any = document.getElementById(this.btnShowIdea[i].id)
+    
+    for(let j = 0; j < this.textCollapse.length; j++){
+      this.textCollapse[j].style.whiteSpace = "nowrap"
+      this.panelReply[j].style.display = "none"
+      this.btnShowIdea[j].style.backgroundColor = '#fafafa'
+      this.stateCollapseIdea = false;
+      if(this.stateCollapseIdea == false)
+      {
+        idIdeaCollapse.style.whiteSpace = "normal"
+        idIdeaCollapse.style.transitionDuration = "0.5s"
+        idPanel.style.display = 'flex'
+        idPanel.style.transition = 'all 500ms linear'
+        idBtn.style.backgroundColor = '#f1f1f1'
+        this.btnMinus[i].classList.remove('fa-minus')
+        this.btnMinus[i].classList.add('fa-plus')
+        console.log(`Idea ${this.btnShowIdea[i]}`)
+        this.stateCollapseIdea = true
+      }
+      else{
+        idIdeaCollapse.style.whiteSpace = "nowrap"
+        idIdeaCollapse.style.transitionDuration = "0.5s"
+        idPanel.style.display = 'none'
+        idPanel.style.transition = 'all 500ms linear'
+        idBtn.style.backgroundColor = '#fafafa'
+        this.btnMinus[i].classList.remove('fa-plus')
+        this.btnMinus[i].classList.add('fa-minus')
+        this.stateCollapseIdea = false
+      }
+      this.stateCollapseIdea = true;
     }
-    else{
-      this.textCollapse[i].style.whiteSpace = "nowrap"
-      this.textCollapse[i].style.transitionDuration = "0.5s"
-      this.panelReply[i].style.display = 'none'
-      this.panelReply[i].style.transition = 'all 500ms linear'
-      this.btnShowIdea[i].style.backgroundColor = '#fafafa'
-      this.btnShowIdea[i].style.fontWeight = '400'
-      this.btnShowIdea[i].style.border= '1px solid transparent'
-      this.btnShowIdea[i].style.borderRadius = '5px'
-      this.btnShowIdea[i].style.transition = 'all 700ms linear'
-      this.btnMinus[i].classList.remove('fa-minus')
-      this.btnMinus[i].classList.add('fa-plus')
-      this.stateCollapseIdea = false
-    }
+    
+    console.log(this.stateCollapseIdea)
+    // if(this.stateCollapseIdea == false){
+    //   this.textCollapse[i].style.whiteSpace = "normal"
+    //   this.textCollapse[i].style.transitionDuration = "0.5s"
+    //   this.panelReply[i].style.display = 'flex'
+    //   this.panelReply[i].style.transition = 'all 500ms linear'
+    //   this.btnShowIdea[i].style.backgroundColor = '#f1f1f1'
+    //   this.btnShowIdea[i].style.fontWeight = '600'
+    //   this.btnShowIdea[i].style.border = '1px solid #ddd'
+    //   this.btnShowIdea[i].style.borderRadius = '22px'
+    //   this.btnShowIdea[i].style.transition = 'all 700ms linear'
+    //   this.btnMinus[i].classList.remove('fa-plus')
+    //   this.btnMinus[i].classList.add('fa-minus')
+    //   this.stateCollapseIdea = true
+    // }
+    // else{
+    //   this.textCollapse[i].style.whiteSpace = "nowrap"
+    //   this.textCollapse[i].style.transitionDuration = "0.5s"
+    //   this.panelReply[i].style.display = 'none'
+    //   this.panelReply[i].style.transition = 'all 500ms linear'
+    //   this.btnShowIdea[i].style.backgroundColor = '#fafafa'
+    //   this.btnShowIdea[i].style.fontWeight = '400'
+    //   this.btnShowIdea[i].style.border= '1px solid transparent'
+    //   this.btnShowIdea[i].style.borderRadius = '5px'
+    //   this.btnShowIdea[i].style.transition = 'all 700ms linear'
+    //   this.btnMinus[i].classList.remove('fa-minus')
+    //   this.btnMinus[i].classList.add('fa-plus')
+    //   this.stateCollapseIdea = false
+    // }
   }
 
   //Add comments
