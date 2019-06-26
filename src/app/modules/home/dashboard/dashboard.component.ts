@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
   lastFourFinishIdeas:any[]
   //Ultimas cuatro ideas muertas
   lastFourDeadIdeas:any[]
+  // Cuatro ideas mas votadas;
+  lastFourIdeasVotes:any[]
 
   constructor(private _service:IdeasService) { }
 
@@ -43,6 +45,9 @@ export class DashboardComponent implements OnInit {
 
     //Ultimas cuatro ideas muertas
     this.getLastFourIdeasDead()
+
+    // Cuatro ideas mas votadas
+    this.getIdeasVotes()
 
     const ctx = document.getElementById('myChart');
 
@@ -205,5 +210,10 @@ export class DashboardComponent implements OnInit {
   showMenuNav(){
     this.menuComponents =! this.menuComponents
   }
-  
+  getIdeasVotes(): void{
+    this._service.getIdeasMoreVotes().subscribe(data => {
+      this.lastFourIdeasVotes = data
+      console.log(data)
+    })
+  }
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../services/ideas.service';
-
+import { IdeasModel } from '../models/modelIdea'
 import * as $ from 'jquery';
 import { and } from '@angular/router/src/utils/collection';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 declare var $:any
 
@@ -68,7 +69,18 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+    const ideap = new IdeasModel()
+    ideap.opcion = 1
+    ideap.idUsuario = 18
+    ideap.id = 141
+    ideap.ideaText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consectetur atque est aliquid, obcaecati sapiente.'
+    ideap.ideaType = 1
+    ideap.status = 1
+    
+    console.log(ideap)
+
     this.getListIdeas();
+    this._service.postSendIdea(ideap);
   }
   
   collapseIdea(i){
@@ -163,12 +175,6 @@ export class ChatComponent implements OnInit {
     this.generateIdea = ! this.generateIdea
   }
 
-
-  //Responder a idea
-  // replyIdea(i){
-  //   this.commentAdd.push(this.textReplyMessage)
-  //   console.log(this.commentAdd)
-  // }
 
 }
 $(function(){

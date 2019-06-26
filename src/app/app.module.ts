@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import { IdeasService } from './modules/home/services/ideas.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,12 +15,13 @@ import { AdministratorModule } from './modules/administrator/administrator.modul
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AngularSvgIconModule,
     LoginModule,
     HomeModule,
     UserModule,

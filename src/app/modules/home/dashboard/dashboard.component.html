@@ -287,71 +287,27 @@
                                                         </div>
                                                     </div>
                                                     <div class="card-content">
-                                                        <ul class="list-group list-group-flush">
-                                                            <li class="list-group-item">
-                                                                <div class="containerUserTop imgUserIdeaTop">
-                                                                    <div class="imgUserTop">
-                                                                        <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
-                                                                    </div>
-                                                                    <div class="topParticipation topIdeaPercentage">
-                                                                        <div class="topParticipationNamePercentage topParticipationIdeaPercentage">
-                                                                            <span class="nameUserTop contentIdeaTop">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam recusandae eum error quaerat aliquid beatae eligendi ex sunt inventore voluptates.</span>
-                                                                            <span class="percentage percentagetIdeaTop">85%</span>
+                                                        <ul class="list-group list-group-flush" *ngFor="let ideaVote of lastFourIdeasVotes; index as i">
+                                                            <ng-container *ngIf="i<4">
+                                                                <li class="list-group-item" >
+                                                                    <div class="containerUserTop imgUserIdeaTop">
+                                                                        <ng-container>
+                                                                            <div class="imgUserTop" >
+                                                                                <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+                                                                            </div>
+                                                                        </ng-container>
+                                                                        <div class="topParticipation topIdeaPercentage">
+                                                                            <div class="topParticipationNamePercentage topParticipationIdeaPercentage">
+                                                                                <span class="nameUserTop contentIdeaTop" > {{ ideaVote.Id_text }} </span>
+                                                                                <span class="percentage percentagetIdeaTop" > {{ ideaVote.Votos }} </span>
+                                                                            </div>
+                                                                                    <!-- <div class="progress">
+                                                                                        <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                                    </div> -->
                                                                         </div>
-                                                                        <!-- <div class="progress">
-                                                                            <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                        </div> -->
-                                                                    </div>
-                                                                </div> 
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <div class="containerUserTop">
-                                                                    <div class="imgUserTop imgUserIdeaTop">
-                                                                        <img [src]="'assets/img/icons/dates/ovalGreenLight.svg'" alt="">
-                                                                    </div>
-                                                                    <div class="topParticipation">
-                                                                        <div class="topParticipationNamePercentage">
-                                                                            <span class="nameUserTop contentIdeaTop">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa a pariatur iusto repudiandae. Ipsum, sequi? Quia tempore nostrum nulla omnis rem quis voluptates alias enim.</span>
-                                                                            <span class="percentage percentagetIdeaTop">75%</span>
-                                                                        </div>
-                                                                        <!-- <div class="progress">
-                                                                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                        </div> -->
-                                                                    </div>
-                                                                </div> 
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <div class="containerUserTop">
-                                                                    <div class="imgUserTop imgUserIdeaTop">
-                                                                        <img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
-                                                                    </div>
-                                                                    <div class="topParticipation">
-                                                                        <div class="topParticipationNamePercentage">
-                                                                            <span class="nameUserTop contentIdeaTop">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ducimus perspiciatis voluptatibus reprehenderit, corporis numquam ex laudantium aut doloremque exercitationem amet explicabo quidem hic corrupti reiciendis atque, vitae magni obcaecati?</span>
-                                                                                <span class="percentage percentagetIdeaTop">70%</span>
-                                                                        </div>
-                                                                        <!-- <div class="progress">
-                                                                            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                        </div> -->
-                                                                    </div>
-                                                                </div> 
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <div class="containerUserTop">
-                                                                    <div class="imgUserTop imgUserIdeaTop">
-                                                                        <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
-                                                                    </div>
-                                                                    <div class="topParticipation">
-                                                                        <div class="topParticipationNamePercentage">
-                                                                            <span class="nameUserTop contentIdeaTop">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, corporis.</span>
-                                                                            <span class="percentage percentagetIdeaTop">60%</span>
-                                                                        </div>
-                                                                        <!-- <div class="progress">
-                                                                            <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                        </div> -->
-                                                                    </div>
-                                                                </div> 
-                                                            </li>
+                                                                    </div> 
+                                                                </li>
+                                                            </ng-container>
                                                         </ul>
                                                     </div>
                                         </div>
