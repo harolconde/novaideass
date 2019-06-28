@@ -109,17 +109,27 @@
         <div class="container"> 
             <div class="row">
                 <div class="col-sm-12 col-lg-12 col-xl-12">
+                    <div class="iconCementery row">
+                        <div class="col-1">
+                            <i class="fas fa-skull-crossbones"></i>
+                        </div>
+                        <div class="title col-11">
+                            <h3>Ideas muertas</h3>
+                            <hr>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="filter card-columns">
                                 <div class="cardContainerIdeadDead  card" *ngFor="let idea of ideas; index as i" >          
                                         <div class="containerIdeaCredentials col-sm-12 col-lg-9 col-xl-9" > <!--Filter *ngIf -->
                                             <div class="imgUserInChat" >
-                                                <img class="imgPerfilChat" src="{{idea.UserImg}}" alt="" >
+                                                <img class="imgPerfilChat" [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="" >
                                             </div>
                                             <div class="containerNameVotes" >  
-                                                <h3 class="nameUserIdea">{{idea.Nick_name}}
-                                                   
+                                                <h3 class="nameUserIdea">
+                                                    {{idea.Nick_name}}
                                                 </h3>
+                                                <i class="fas fa-cross"></i>
                                             </div>
                                             <p class="ideaMessageChatUsers ideaMessageChatUsersIdeasDead">
                                                 <a [routerLink]="['/idea', i]" class="paragraphIdea">{{idea.IdeaText}}</a>

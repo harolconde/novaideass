@@ -211,12 +211,47 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     font-size: .9rem;
 }
 //Ideas
-.filterAddIdeasDead .filter{
-    padding-top: 1rem;
-    padding-left: 36px;
-    padding-right: 36px;
-    max-width: 100%;
-}
+.filterAddIdeasDead{
+    position: relative;
+    .iconCementery{
+        width: 100%;
+        margin-top: 1rem;
+        .col-1{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            i{
+                font-size: 3rem;
+                color: $colorButtons;
+            }
+        }
+        .title{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            
+            hr{
+                height: 1px;
+                background-color: $colorButtons;
+                width: 100%;
+                margin-top: .8rem;
+                margin-bottom: .5rem;
+            }
+            h3{
+                margin-top: .5rem;
+                font-size: 1.5rem;
+                color: $colorButtons;
+            }
+        }
+    }
+    .filter{
+        padding-top: 1rem;
+        padding-left: 36px;
+        padding-right: 36px;
+        max-width: 100%;
+    }
+} 
 
 .filterAddIdeasDead .cardContainerIdeadDead{
     width: 100%;
@@ -289,6 +324,8 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 }
 .filterAddIdeasDead  .containerIdeaCredentials .containerNameVotes{
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 .filterAddIdeasDead  .containerIdeaCredentials .containerNameVotes .nameUserIdea{
     font-size: 0.85rem;
@@ -354,3 +391,4 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     right: 10px;
     color: #444;
 }
+

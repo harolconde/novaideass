@@ -244,6 +244,15 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
             height: auto;
         }
     }
+    &.cardLastFinished{
+        .card-body{
+            text-align: justify;
+            p{
+               width: 100%;
+               padding: 0 1rem;
+            }
+        }
+    } 
 }
 .sectionFishedIdeas .containerFinishedIdeas .card .card-title{
     padding-left: 20px;
@@ -306,6 +315,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     padding-top: 0;
 }
 .containerCardFinished .cardAllfinished .card-body .finishAll{
+    width: 100%;
     @include responsive-mobile{
         width: 100%;
     }

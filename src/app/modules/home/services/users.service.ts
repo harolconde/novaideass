@@ -8,5 +8,11 @@ import { of } from 'rxjs';
 })
 export class UsersService {
 
+  user:any[]
+
   constructor(private http: HttpClient) { }
+
+  getTopParticipationUsers(): Observable<any>{
+    return this.http.get('http://172.65.10.170:8050/api/Dbop1?fechaInic=20190517&fechaFinc=20190518')
+  }
 }

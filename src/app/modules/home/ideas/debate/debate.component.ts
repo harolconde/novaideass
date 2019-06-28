@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IdeasService } from '../../services/ideas.service'
 
 @Component({
   selector: 'app-debate',
@@ -13,14 +14,22 @@ export class DebateComponent implements OnInit {
   public btnSeeMore:boolean = false
 
   ideas:any[] = []
-  constructor() { }
+  constructor(private _service: IdeasService) { }
 
   ngOnInit() {
+    this.getAllIdeasDebate()
   }
 
   // Menú navegacion
   showMenuUser(){
     this.menuComponents =! this.menuComponents
+  }
+
+  // Traer todas las ideas en debate
+  getAllIdeasDebate():void{
+    this._service.getIdeasAllDebate().subscribe((data)=>{
+      this.ideas = data
+    })
   }
 
   // Boton ver mas

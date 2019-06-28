@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IdeasService } from '../../services/ideas.service'
 
 @Component({
   selector: 'app-approved',
@@ -12,9 +13,10 @@ export class ApprovedComponent implements OnInit {
 
   ideas:any[] = []
 
-  constructor() { }
+  constructor(private _service: IdeasService) { }
 
   ngOnInit() {
+    this.getAllIdeasAproved()
   }
 
   //Menú navegacion
@@ -22,4 +24,11 @@ export class ApprovedComponent implements OnInit {
     this.menuComponents =! this.menuComponents
   }
 
+  // Todas las ideas en estado aprovado
+  getAllIdeasAproved():void{
+    this._service.getIdeasAllApproved().subscribe((data) =>{
+      this.ideas = data
+      console.log(data)
+    })
+  }
 }

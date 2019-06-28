@@ -116,23 +116,25 @@
 			<div class="col-12">
 				<div class="row">
 					<div class="card-columns">
-						<div class="card">
+						<div class="card" *ngFor="let idea of ideas; index as i">
 							<div class="cardContainer">
 								<div class="card-title">
 									<div class="img">
 										<img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
 									</div>
 									<div class="name">
-										<span>Luisa Rodriguez</span>
+										<span>{{idea.Nick_name}}</span>
 									</div>
 								</div>
 								<div class="card-body">
 									<ul class="list-group list-group-flush">
 										<li class="list-group-item">
-											<span class="title">Lorem ipsum dolor sit amet.</span>
+											<span class="title">Descripcion de la idea</span>
 										</li>
 										<li class="list-group-item">
-											<P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi tempora molestiae, minus animi officiis eveniet. Quam, optio odit odio voluptatibus alias totam eius autem ipsum ullam laborum recusandae doloribus voluptatem?</P>
+											<P>
+												{{idea.IdeaText}}
+											</P>
                                         </li>
                                         <li class="list-group-item listGroupHidden" id="1" [ngClass]="btnSeeMore ? 'visible' : 'hidden'">
                                             <span>Lorem ipsum dolor sit.</span>
@@ -144,149 +146,6 @@
 								</div>
 								<div class="card-footer">
 									<button class="btn btn-block btnMoreDebate" (click)="showDescriptionAdd(1)">
-										Ver mas
-									</button>
-								</div>
-							</div>		
-						</div>
-						<div class="card">
-								<div class="cardContainer">
-									<div class="card-title">
-									<div class="img">
-										<img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="">
-									</div>
-									<div class="name">
-										<span>Harol Conde</span>
-									</div>
-								</div>
-								<div class="card-body">
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item">
-											<span class="title">Lorem ipsum dolor sit amet.</span>
-										</li>
-										<li class="list-group-item">
-											<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
-                                        </li>
-                                        <li class="list-group-item listGroupHidden" id="2" [ngClass]="btnSeeMore ? 'visible' : 'hidden'">
-                                            <span>Lorem ipsum dolor sit.</span>
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, exercitationem modi? Ipsa blanditiis et libero aperiam, vel repellat nihil eius earum soluta. Totam labore unde enim minima nisi voluptate ducimus eveniet animi est, ab delectus qui distinctio ipsum magni deserunt ullam rerum culpa, vero, aspernatur earum veniam dignissimos deleniti doloribus?
-                                            </p>
-                                        </li>
-									</ul>
-								</div>
-								<div class="card-footer">
-									<button class="btn btn-block btnMoreDebate" (click)="showDescriptionAdd(2)">
-										Ver mas
-									</button>
-								</div>
-								</div>
-										
-						</div>
-						<div class="card">
-								<div class="cardContainer">
-									<div class="card-title">
-									<div class="img">
-										<img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
-									</div>
-									<div class="name">
-										<span>Luisa con coletas</span>
-									</div>
-								</div>
-								<div class="card-body">
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item">
-											<span class="title">Lorem ipsum dolor sit amet.</span>
-										</li>
-										<li class="list-group-item">
-											<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
-										</li>
-									</ul>
-								</div>
-								<div class="card-footer">
-									<button class="btn btn-block btnMoreDebate">
-										Ver mas
-									</button>
-								</div>
-							</div>		
-                        </div>
-                        <div class="card">
-							<div class="cardContainer">
-								<div class="card-title">
-									<div class="img">
-										<img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
-									</div>
-									<div class="name">
-										<span>Luisa Rodriguez</span>
-									</div>
-								</div>
-								<div class="card-body">
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item">
-											<span class="title">Lorem ipsum dolor sit amet.</span>
-										</li>
-										<li class="list-group-item">
-											<P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi tempora molestiae, minus animi officiis eveniet. Quam, optio odit odio voluptatibus alias totam eius autem ipsum ullam laborum recusandae doloribus voluptatem?</P>
-										</li>
-									</ul>
-								</div>
-								<div class="card-footer">
-									<button class="btn btn-block btnMoreDebate">
-										Ver mas
-									</button>
-								</div>
-							</div>		
-						</div>
-						<div class="card">
-								<div class="cardContainer">
-									<div class="card-title">
-									<div class="img">
-										<img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="">
-									</div>
-									<div class="name">
-										<span>Harol Conde</span>
-									</div>
-								</div>
-								<div class="card-body">
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item">
-											<span class="title">Lorem ipsum dolor sit amet.</span>
-										</li>
-										<li class="list-group-item">
-											<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
-										</li>
-									</ul>
-								</div>
-								<div class="card-footer">
-									<button class="btn btn-block btnMoreDebate">
-										Ver mas
-									</button>
-								</div>
-								</div>
-										
-						</div>
-						<div class="card">
-								<div class="cardContainer">
-									<div class="card-title">
-									<div class="img">
-										<img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
-									</div>
-									<div class="name">
-										<span>Luisa con coletas</span>
-									</div>
-								</div>
-								<div class="card-body">
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item">
-											<span class="title">Lorem ipsum dolor sit amet.</span>
-										</li>
-										<li class="list-group-item">
-											<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
-										</li>
-									</ul>
-								</div>
-								<div class="card-footer">
-									<button class="btn btn-block btnMoreDebate">
 										Ver mas
 									</button>
 								</div>

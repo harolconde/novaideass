@@ -1,4 +1,4 @@
-export class IdeasModel{
+export class IdeasResponseModel{
     public Opcion: number;
     public IdUsuario: number;
     public Id: number;

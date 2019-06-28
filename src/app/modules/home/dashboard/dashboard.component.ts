@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { IdeasService } from './../services/ideas.service';
+import { UsersService } from './../services/users.service';
 import { tick } from '@angular/core/testing';
 
 @Component({
@@ -27,7 +28,11 @@ export class DashboardComponent implements OnInit {
   // Cuatro ideas mas votadas;
   lastFourIdeasVotes:any[]
 
-  constructor(private _service:IdeasService) { }
+  // Usuario servicio
+  topUserParticipation:any[]
+
+
+  constructor(private _service:IdeasService, private _userService:UsersService) { }
 
   ngOnInit() {
 
@@ -48,6 +53,9 @@ export class DashboardComponent implements OnInit {
 
     // Cuatro ideas mas votadas
     this.getIdeasVotes()
+
+    // Top participacion de usuarios
+    this.getTopParticipation()
 
     const ctx = document.getElementById('myChart');
 
@@ -210,10 +218,23 @@ export class DashboardComponent implements OnInit {
   showMenuNav(){
     this.menuComponents =! this.menuComponents
   }
+
+  //Funcion que trae los votos por la cantidad de ideas.
   getIdeasVotes(): void{
     this._service.getIdeasMoreVotes().subscribe(data => {
       this.lastFourIdeasVotes = data
       console.log(data)
     })
   }
+
+  //****************************//
+  // Funciones servicio usuario //
+  //****************************//
+  getTopParticipation():void{
+    this._userService.getTopParticipationUsers().subscribe(data => {
+      this.topUserParticipation = data
+      console.log(data)
+    })
+  }
+
 }

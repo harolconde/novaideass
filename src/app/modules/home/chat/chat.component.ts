@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../services/ideas.service';
 import { IdeasModel } from '../models/modelIdea'
+import { IdeasResponseModel } from '../models/modelResponseIdea'
 import * as $ from 'jquery';
 import { and } from '@angular/router/src/utils/collection';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { from } from 'rxjs';
 
 declare var $:any
 
@@ -44,6 +46,7 @@ export class ChatComponent implements OnInit {
   //ideas:any[] = []
   ideas:any[]
   comments:any[]
+  resultado: Array<IdeasResponseModel>
 
   constructor(private _service : IdeasService) {
 
@@ -67,22 +70,34 @@ export class ChatComponent implements OnInit {
       console.log(data)
     })
   }
-
+  
   ngOnInit() {
-    const ideap = new IdeasModel()
-    ideap.opcion = 1
-    ideap.idUsuario = 18
-    ideap.id = 141
-    ideap.ideaText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consectetur atque est aliquid, obcaecati sapiente.'
-    ideap.ideaType = 1
-    ideap.status = 1
+    //onst ideasPost = new IdeasModel()
     
-    console.log(ideap)
+    //console.log(ideap)
 
     this.getListIdeas();
-    this._service.postSendIdea(ideap);
   }
-  
+  postIdeas(ideap: IdeasModel){
+    ideap.Opcion = 1
+    ideap.IdUsuario = 18
+    ideap.Id = 141
+    ideap.IdeaText = 'Maldita idea sube Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consectetur atque est aliquid, obcaecati sapiente.'
+    ideap.IdeaType = 1
+    ideap.Status = 1
+
+    this._service.postSendIdea(ideap).subscribe(data => {
+      //this.resultado = []
+      this.resultado.push(data)
+      console.log(data)
+    },
+    error =>{
+      console.log(error)
+    }
+    )
+    
+    this.generateIdea = ! this.generateIdea
+  }
   collapseIdea(i){
     this.getComments();
     const idIdeaCollapse:any = document.getElementById(this.textCollapse[i].id)

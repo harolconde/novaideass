@@ -115,34 +115,36 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 containerCardApproved containerCardApprovedLast">
-                        <div class="card cardLastAproved">
-                            <div class="card-title">
-                                <span class="title">
-                                    Ultima idea aprobada
-                                </span>
-                                <span class="dateApproved ">
-                                    20/05/2019
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="img">
-                                            <img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
-                                        </div>
-                                        <div class="name">
-                                            <span>Luisa Rodriguez</span>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <span>Lorem ipsum dolor sit.</span>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <p class="ideaApprovded">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta illo rerum beatae voluptatem modi! Et recusandae nisi hic natus repudiandae labore aperiam architecto cupiditate, eaque aliquam. Dolore nulla laboriosam molestias?
-                                        </p>
-                                    </li>
-                                </ul>
+                        <div *ngFor="let ideaFirst of ideas; index as i;let ultimo = first" >
+                            <div class="card cardLastAproved" *ngIf="ultimo" id="{{ideaFirst.Id}}"> 
+                                <div class="card-title">
+                                    <span class="title">
+                                        Ultima idea aprobada
+                                    </span>
+                                    <span class="dateApproved ">
+                                        {{ideaFirst.CreateDt}}
+                                    </span>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div class="img">
+                                                <img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
+                                            </div>
+                                            <div class="name">
+                                                <span>{{ideaFirst.Nick_name}}</span>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="font-weight-normal">Descripcion de la idea:</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <p class="ideaApprovded">
+                                                {{ideaFirst.IdeaText}}
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -155,149 +157,23 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-group list-group-flush">
-                                        <li class="idea list-group-item">
+                                        <li class="idea list-group-item" *ngFor="let idea of ideas; index as i">
                                             <div class="img">
                                                 <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgFinalizada">
                                             </div>
                                             <div class="descIdea">
                                                 <p class="ideaFinalizada">
-                                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                                    {{ idea.IdeaText }}
                                                 </p>
                                             </div>
                                             <div class="date">
-                                                <span>20/05/2019</span>
+                                                <span> {{idea.CreateDt}} </span>
                                             </div>
                                             <div class="see">
                                                 <button class="btn btnEyePostulate">
                                                         <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
                                                 </button>
                                             </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                                    <div class="img">
-                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgFinalizada">
-                                                    </div>
-                                                    <div class="descIdea">
-                                                        <p class="ideaFinalizada">
-                                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                        </p>
-                                                    </div>
-                                                    <div class="date">
-                                                        <span>20/05/2019</span>
-                                                    </div>
-                                                    <div class="see">
-                                                        <button class="btn btnEyePostulate">
-                                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                        </button>
-                                                    </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                                    <div class="img">
-                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPFinalizada">
-                                                    </div>
-                                                    <div class="descIdea">
-                                                        <p class="ideaFinalizada">
-                                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                        </p>
-                                                    </div>
-                                                    <div class="date">
-                                                        <span>20/05/2019</span>
-                                                    </div>
-                                                    <div class="see">
-                                                        <button class="btn btnEyePostulate">
-                                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                        </button>
-                                                    </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                                    <div class="img">
-                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgFinalizada">
-                                                    </div>
-                                                    <div class="descIdea">
-                                                        <p class="ideaFinalizada">
-                                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                        </p>
-                                                    </div>
-                                                    <div class="date">
-                                                        <span>20/05/2019</span>
-                                                    </div>
-                                                    <div class="see">
-                                                        <button class="btn btnEyePostulate">
-                                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                        </button>
-                                                    </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                                    <div class="img">
-                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                                    </div>
-                                                    <div class="descIdea">
-                                                        <p class="ideaPostulada">
-                                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                        </p>
-                                                    </div>
-                                                    <div class="date">
-                                                        <span>20/05/2019</span>
-                                                    </div>
-                                                    <div class="see">
-                                                        <button class="btn btnEyePostulate">
-                                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                        </button>
-                                                    </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                                    <div class="img">
-                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                                    </div>
-                                                    <div class="descIdea">
-                                                        <p class="ideaPostulada">
-                                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                        </p>
-                                                    </div>
-                                                    <div class="date">
-                                                        <span>20/05/2019</span>
-                                                    </div>
-                                                    <div class="see">
-                                                        <button class="btn btnEyePostulate">
-                                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                        </button>
-                                                    </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                                    <div class="img">
-                                                                <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                                    </div>
-                                                    <div class="descIdea">
-                                                        <p class="ideaPostulada">
-                                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                        </p>
-                                                    </div>
-                                                    <div class="date">
-                                                        <span>20/05/2019</span>
-                                                    </div>
-                                                    <div class="see">
-                                                        <button class="btn btnEyePostulate">
-                                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                        </button>
-                                                    </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                                    <div class="img">
-                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                                    </div>
-                                                    <div class="descIdea">
-                                                        <p class="ideaPostulada">
-                                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                        </p>
-                                                    </div>
-                                                    <div class="date">
-                                                        <span>20/05/2019</span>
-                                                    </div>
-                                                    <div class="see">
-                                                        <button class="btn btnEyePostulate">
-                                                            <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                        </button>
-                                                    </div>
                                         </li>
                                     </ul>
                                 </div>
