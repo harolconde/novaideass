@@ -1,10 +1,13 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
       "@datorama/utils/*": ["app/utils/*"],
-      "@datorama/pipes/*": ["app/pipes/*"]
+      "@datorama/pipes/*": ["app/pipes/*"],
+      "@angular/*": [
+        "../node_modules/@angular/*"
+      ]
     },
     "outDir": "../out-tsc/app",
     "types": []

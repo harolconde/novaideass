@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [
+export const routes: Routes = [
     {
         path: '',
         redirectTo: 'login',
@@ -22,6 +22,10 @@ const routes: Routes = [
     {
         path: 'administrator',
         loadChildren: './modules/administrator/administrator.module.ts#AdministratorModule'
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
 ];
 
