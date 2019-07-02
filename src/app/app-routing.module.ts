@@ -22,10 +22,6 @@ export const routes: Routes = [
     {
         path: 'administrator',
         loadChildren: './modules/administrator/administrator.module.ts#AdministratorModule'
-    },
-    {
-        path: '**',
-        redirectTo: ''
     }
 ];
 

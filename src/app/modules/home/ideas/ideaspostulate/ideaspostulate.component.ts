@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { IdeasService } from '../../services/ideas.service'
+import { from } from 'rxjs';
 @Component({
   selector: 'app-ideaspostulate',
   templateUrl: './ideaspostulate.component.html',
@@ -12,9 +13,16 @@ export class IdeaspostulateComponent implements OnInit {
 
   ideas:any[] = []
 
-  constructor() { }
+  constructor(private _service:IdeasService ) { }
 
   ngOnInit() {
+    this.getAllIdeas()
+  }
+
+  getAllIdeas(){
+    this._service.getIdeas().subscribe((data)=>{
+      this.ideas = data
+    })
   }
 
   //Menú navegacion

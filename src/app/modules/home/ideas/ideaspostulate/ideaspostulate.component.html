@@ -131,7 +131,7 @@
                                             </div>
                                             <div class="descIdea">
                                                 <p class="ideaPostulada">
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, eveniet sequi nihil possimus similique delectus enim sint vero ea doloremque?
                                                 </p>
                                             </div>
                                             <div class="date">
@@ -230,77 +230,24 @@
                             <div class="card-body">
                                 <div class="postuladasMe">
                                     <ul class="list-group list-group-flush">
-                                        <li class="idea list-group-item">
+                                        <li class="idea list-group-item" *ngFor="let ideaItem of ideas; index as i">
                                             <div class="img">
                                                 <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
                                             </div>
                                             <div class="descIdea">
                                                 <p class="ideaPostulada">
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
+                                                   {{ideaItem.IdeaText}}
                                                 </p>
                                             </div>
                                             <div class="date">
-                                                <span>20/05/2019</span>
+                                                <span>
+                                                    {{ideaItem.CreateDt}}
+                                                </span>
                                             </div>
                                             <div class="see">
                                                 <button class="btn btnEyePostulate">
                                                     <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
                                                 </button>
-                                            </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                            <div class="img">
-                                                <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                            </div>
-                                            <div class="descIdea">
-                                                <p class="ideaPostulada">
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                </p>
-                                            </div>
-                                            <div class="date">
-                                                <span>20/05/2019</span>
-                                            </div>
-                                            <div class="see">
-                                                <button class="btn btnEyePostulate">
-                                                    <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                </button>
-                                            </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                            <div class="img">
-                                                <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                            </div>
-                                            <div class="descIdea">
-                                                <p class="ideaPostulada">
-                                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                </p>
-                                            </div>
-                                            <div class="date">
-                                                <span>20/05/2019</span>
-                                            </div>
-                                            <div class="see">
-                                                <button class="btn btnEyePostulate">
-                                                    <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                </button>
-                                            </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                            <div class="img">
-                                                        <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                            </div>
-                                            <div class="descIdea">
-                                                <p class="ideaPostulada">
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                </p>
-                                            </div>
-                                            <div class="date">
-                                                <span>20/05/2019</span>
-                                            </div>
-                                            <div class="see">
-                                                <button class="btn btnEyePostulate">
-                                                    <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                </button>
-        
                                             </div>
                                         </li>
                                     </ul>

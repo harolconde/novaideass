@@ -14,6 +14,7 @@
 							<div class="containerTitleUser">
 								<img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
 								<span class="name">Angela Zarate</span>
+								<small>Usuario Basico</small>
 							</div>
 						</div>
 						<div class="card-body">
@@ -47,12 +48,12 @@
 						<div class="card-footer">
 							<div class="row">
 								<div class="col-6 editUserAdmin">
-									<button class="btn">
+									<button class="btn" data-toggle="modal" data-target="#modalEditUser">
 										<i class="fas fa-pen" data-toggle="tooltip" data-placement="top" title="Editar"></i>
 									</button>
 								</div>
 								<div class="col-6 deletetUserAdmin">
-									<button class="btn">
+									<button class="btn" data-toggle="modal" data-target="#modalDeleteUser">
 										<i class="fas fa-trash" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
 									</button>
 								</div>
@@ -64,3 +65,74 @@
 		</div>
 	</div>
 </section>
+
+<!-- Modal eliminacion de usuarios -->
+<section class="sectionModalDelete">
+	<div class="modal fade" id="modalDeleteUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Eliminación de usuarios</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p class="paragraphModalDelete">
+						Seguro que quieres eliminar este usuario?
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn cancel" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn success">Aceptar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Modal edicion de usuarios -->
+<section class="sectionModalEditUser">
+	<div class="modal fade" id="modalEditUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Edicion de usuarios</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Nickname</label>
+							<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nickname">
+							<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlSelect1">Seleccione Rol</label>
+							<select class="form-control" id="exampleFormControlSelect1">
+								<option>Administrador</option>
+								<option>Comité</option>
+								<option>Usuario Basico</option>
+							</select>
+						</div>
+						<!-- <div class="form-group form-check">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">Check me out</label>
+						</div> -->
+						<div class="contentBtnModal">
+							<button type="button" class="btn cancel" data-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn success">Aceptar</button>
+						</div>
+					</form>
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary">Aceptar</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</section>
+

@@ -71,10 +71,10 @@
 						  </span>
 						  </h4>
 						  <ul class="elementReply list-group list-group-flush">
-						  <li class="list-group-item" *ngFor="let comment of comments; index as c" >
-							  <p class="commentBody"> {{comment.Comments}} </p>
-							  <img class="imgComment" src="{{comment.Blob_data}}" alt="">
-						  </li>
+							<li class="list-group-item" *ngFor="let comment of comments; index as c" >
+								<p class="commentBody"> {{comment.Comments}} </p>
+								<img class="imgComment" src="{{comment.Blob_data}}" alt="">
+							</li>
 						  </ul>
 					  </div>
 					  <button class="btn btn-block btnSeeMoreMessage" id="btnSeeMoreMessage" (click)="getId(i); collapseIdea(i)" (load)="getId(i)"> <!-- (click)="getId(i)" -->

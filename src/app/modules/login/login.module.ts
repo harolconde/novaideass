@@ -9,6 +9,6 @@ import { LoginuserComponent } from './loginuser/loginuser.component';
   imports: [
     CommonModule,
     LoginRoutingModule 
-  ]
+  ] 
 })
 export class LoginModule { }

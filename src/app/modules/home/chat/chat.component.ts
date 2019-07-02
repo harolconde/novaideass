@@ -49,8 +49,17 @@ export class ChatComponent implements OnInit {
   resultado: Array<IdeasResponseModel>
 
   constructor(private _service : IdeasService) {
+    const ideap = new IdeasModel()
+    ideap.opcion = 1
+    ideap.idUsuario = 18
+    ideap.id = 141
+    ideap.ideaText = 'Esta es otra idea desde el post quemado.'
+    ideap.ideaType = 1
+    ideap.status = 1
 
-   }
+    //this._service.postSendIdea(ideap)
+
+  }
 
   getListIdeas(): void{
     this._service.getIdeas().subscribe((data) => {
@@ -72,32 +81,30 @@ export class ChatComponent implements OnInit {
   }
   
   ngOnInit() {
-    //onst ideasPost = new IdeasModel()
     
-    //console.log(ideap)
 
     this.getListIdeas();
   }
-  postIdeas(ideap: IdeasModel){
-    ideap.Opcion = 1
-    ideap.IdUsuario = 18
-    ideap.Id = 141
-    ideap.IdeaText = 'Maldita idea sube Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consectetur atque est aliquid, obcaecati sapiente.'
-    ideap.IdeaType = 1
-    ideap.Status = 1
+  // postIdeas(ideap: IdeasModel){
+  //   ideap.Opcion = 1
+  //   ideap.IdUsuario = 18
+  //   ideap.Id = 141
+  //   ideap.IdeaText = 'Maldita idea sube Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consectetur atque est aliquid, obcaecati sapiente.'
+  //   ideap.IdeaType = 1
+  //   ideap.Status = 1
 
-    this._service.postSendIdea(ideap).subscribe(data => {
-      //this.resultado = []
-      this.resultado.push(data)
-      console.log(data)
-    },
-    error =>{
-      console.log(error)
-    }
-    )
+  //   this._service.postSendIdea(ideap).subscribe(data => {
+  //     //this.resultado = []
+  //     this.resultado.push(data)
+  //     console.log(data)
+  //   },
+  //   error =>{
+  //     console.log(error)
+  //   }
+  //   )
     
-    this.generateIdea = ! this.generateIdea
-  }
+  //   this.generateIdea = ! this.generateIdea
+  // }
   collapseIdea(i){
     this.getComments();
     const idIdeaCollapse:any = document.getElementById(this.textCollapse[i].id)

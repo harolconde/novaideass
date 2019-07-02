@@ -111,3 +111,123 @@ $buttonsRadius: 50px;
         }
     }
 }
+.sectionModalDelete{
+    .modal{
+        .modal-dialog-centered{
+            .modal-content{
+                .modal-header{
+                    display: flex;
+                    justify-content: flex-start;
+                    padding: 22px 17px 5px 17px;
+                    .modal-title{
+                        font-size: 1.125rem;
+                        line-height: 28px;
+                        color: $colorText;
+                        font-weight: 500;
+                    }
+                    .close{
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50px;
+                        background-color: #9E9E9E;
+                        right: 24px;
+                        top: 23px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: .81rem .5rem .5rem .5rem;
+                        position: absolute;
+                    }
+                }
+                .modal-body{
+                    text-align: center;
+                    padding: 2.5rem 1rem;
+                    .paragraphModalDelete{
+                        color: $colorText;
+                    }
+                }
+                .modal-footer{
+                    justify-content: space-around;
+                    button{
+                        border-radius: 50px;
+                        width: 153px;
+                        height: 39px;
+                        border: 1px solid $backgroundDates;
+                        font-size: .9rem;
+                        letter-spacing: 1.03px;
+                        line-height: 8px;
+                        padding-top: .65rem;
+                        &.cancel{
+                            background-color: $backgroundNavBar;
+                            color: $backgroundDates;
+                        }
+                        &.success{
+                            background-color: $backgroundDates;
+                            color: $backgroundNavBar;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.sectionModalEditUser{
+    .modal{
+        .modal-dialog-centered{
+            .modal-content{
+                .modal-header{
+                    display: flex;
+                    justify-content: flex-start;
+                    padding: 22px 17px 5px 17px;
+                    .modal-title{
+                        font-size: 1.125rem;
+                        line-height: 28px;
+                        color: $colorText;
+                        font-weight: 500;
+                    }
+                    .close{
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50px;
+                        background-color: #9E9E9E;
+                        right: 24px;
+                        top: 23px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: .81rem .5rem .5rem .5rem;
+                        position: absolute;
+                    }
+                }
+                .modal-body{
+                    padding: 2.5rem 1rem;
+                    .contentBtnModal{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        button{
+                            border-radius: 50px;
+                            width: 153px;
+                            height: 39px;
+                            border: 1px solid $backgroundDates;
+                            font-size: .9rem;
+                            letter-spacing: 1.03px;
+                            line-height: 8px;
+                            padding-top: .65rem;
+                            &.cancel{
+                                background-color: $backgroundNavBar;
+                                color: $backgroundDates;
+                            }
+                            &.success{
+                                background-color: $backgroundDates;
+                                color: $backgroundNavBar;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -116,7 +116,7 @@
 			<div class="col-12">
 				<div class="row">
 					<div class="card-columns">
-						<div class="card" *ngFor="let idea of ideas; index as i">
+						<div class="card cardDebate" *ngFor="let idea of ideas; index as i" id="{{idea.Id}}">
 							<div class="cardContainer">
 								<div class="card-title">
 									<div class="img">
@@ -136,16 +136,24 @@
 												{{idea.IdeaText}}
 											</P>
                                         </li>
-                                        <li class="list-group-item listGroupHidden" id="1" [ngClass]="btnSeeMore ? 'visible' : 'hidden'">
-                                            <span>Lorem ipsum dolor sit.</span>
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, exercitationem modi? Ipsa blanditiis et libero aperiam, vel repellat nihil eius earum soluta. Totam labore unde enim minima nisi voluptate ducimus eveniet animi est, ab delectus qui distinctio ipsum magni deserunt ullam rerum culpa, vero, aspernatur earum veniam dignissimos deleniti doloribus?
-                                            </p>
+                                        <li class="list-group-item listGroupHidden" id="c-{{idea.Id}}">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item" *ngFor="let comment of comments; index as c">
+                                                    <div class="itemComments commentsParagraph">
+                                                        <p>
+                                                            {{comment.Comments}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="itemComments imgComments">
+                                                        <img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="">
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </li>
                                     </ul>
 								</div>
 								<div class="card-footer">
-									<button class="btn btn-block btnMoreDebate" (click)="showDescriptionAdd(1)">
+									<button class="btn btn-block btnMoreDebate" (click)="getIdComment(i);showDescriptionAdd(i)">
 										Ver mas
 									</button>
 								</div>

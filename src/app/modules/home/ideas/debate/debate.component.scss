@@ -274,11 +274,29 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     border: 0;
 }
 .sectionDebateIdeas .containerSectionDebateIdeas .card-columns .card .card-body .list-group .list-group-item:nth-child(3){
-    padding: 20px;
+    padding: 0;
     color: $colorText;
     list-style: none;
     font-size: .9rem;
     border: 0;
+    display: none;
+    .list-group{
+        .list-group-item{
+            padding: .9rem .5rem;
+            display: flex;
+            align-items: center;
+            height: auto;
+            .commentsParagraph{
+                width: 90%;
+            }
+            .imgComments{
+                width: 10%;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
 .sectionDebateIdeas .containerSectionDebateIdeas .card-columns .card .card-body .list-group .list-group-item:nth-child(3) span{
     font-weight: 600;

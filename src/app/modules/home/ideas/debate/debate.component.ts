@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from '../../services/ideas.service'
+import * as $ from 'jquery'
+declare var $:any 
 
 @Component({
   selector: 'app-debate',
@@ -14,6 +16,7 @@ export class DebateComponent implements OnInit {
   public btnSeeMore:boolean = false
 
   ideas:any[] = []
+  comments:any[] = []
   constructor(private _service: IdeasService) { }
 
   ngOnInit() {
@@ -32,19 +35,42 @@ export class DebateComponent implements OnInit {
     })
   }
 
+  // Get comments
+
+  getIdComment(i){
+    let commentClass = document.getElementsByClassName('cardDebate')
+    let id = commentClass[i].id
+    for(let c = 0; c < commentClass.length; c++){
+      console.log(commentClass[c].id)
+    }
+  
+    console.log(id)
+    this._service.idIdeas = id
+    
+  }
+
+  getCommentsDebate(): void{
+    this._service.getAllComents().subscribe((data) =>{
+      this.comments = data;
+      console.log(data)
+    })
+  }
+
   // Boton ver mas
-  showDescriptionAdd(id:any){
-    const list: any = document.getElementsByClassName('listGroupHidden')
-    let myId : any = list.id = id
-    const elementHidden: any = document.getElementById(myId)
-    console.log(elementHidden)
-    if(elementHidden.style.display == 'none'){
-      elementHidden.style.display = 'flex'
-      this.btnSeeMore = ! this.btnSeeMore 
+  showDescriptionAdd(i){
+    this.getCommentsDebate()
+    let panelComments = document.getElementsByClassName('listGroupHidden')
+    let commentForIdea = panelComments[i].id
+    if($('#'+commentForIdea).is(":visible")){
+      $('#'+commentForIdea).toggle(500,function(){
+        $(this).hide(500)
+      })
     }
     else{
-      elementHidden.style.display = 'none'
-      this.btnSeeMore = ! this.btnSeeMore 
+      $(panelComments).hide()
+      $('#'+commentForIdea).toggle(500,function(){
+        $(this).show(500)
+      })
     }
   }
 }

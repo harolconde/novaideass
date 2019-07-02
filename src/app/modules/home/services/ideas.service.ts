@@ -89,23 +89,23 @@ export class IdeasService {
     // ***************************************************************** //
     // ********************** Peticiones Post ************************** //
     // ***************************************************************** //
-    postSendIdea(ideam: IdeasModel) : Observable<any> {
-        console.log(this.ArrayG)
+    postSendIdea(ideam: IdeasModel) {
         const dataIdea = new IdeasModel()
-        dataIdea.Opcion = ideam.Opcion
-        dataIdea.IdUsuario = ideam.IdUsuario       
-        dataIdea.Id = ideam.Id
-        dataIdea.IdeaText = ideam.IdeaText
-        dataIdea.IdeaType = ideam.IdeaType
-        dataIdea.Status = ideam.Status
+        dataIdea.opcion = ideam.opcion
+        dataIdea.idUsuario = ideam.idUsuario       
+        dataIdea.id = ideam.id
+        dataIdea.ideaText = ideam.ideaText
+        dataIdea.ideaType = ideam.ideaType
+        dataIdea.status = ideam.status
 
-        let json = JSON.stringify(dataIdea)
-        let params = "json="+json
-        let headersHttp = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')
+        
+        let headersHttp = new HttpHeaders().set('Content-Type','application/json')
         console.log(dataIdea)
-        return this.http.post<any>(`http://172.65.10.170:8050/api/tallerIdeas`, params,{
+        this.http.post(`http://172.65.10.170:8050/api/tallerIdeas`, dataIdea,{
             headers : headersHttp,
             observe : 'response'
+        }).subscribe(resp => {
+            console.log(resp)
         })
         
         
