@@ -93,7 +93,12 @@
 											  
 									  <div class="input-group-prepend">
 										  <div class="input-group-text group-btn-reply-message">
-											  <button type="button" class="btn btn-reply-message" id="btn-reply-message" (click)="replyIdea(i)">
+												<button type="button" class="btn btnCancelComment" (click)="addComments(i)">
+													<span>Cancelar</span>
+													<i class="fas fa-times"></i>
+												</button>
+											  <button type="submit" class="btn btn-reply-message" id="btn-reply-message" (click)="addComments(i)">
+												  <span>Publicar</span>
 												  <i class="fas fa-paper-plane"></i>
 											  </button>
 										  </div>
@@ -108,15 +113,15 @@
 	  </div>
 	  </div>
 	  <div class="col-12 formNewIdea" *ngIf="generateIdea">
-		  <form action="" (ngSubmint)="postIdeas();">
+		  <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value);">
 			  <div class="input-group mb-3">
-				  <textarea type="text" class="form-control" placeholder="Tu idea aquí" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
+				  <textarea type="text" formControlName="idea" class="form-control" placeholder="Tu idea aquí" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
 				  <div class="input-group-append">
-					  <button class="btn btnIdeaChat btnCancelIdea" (click)="newIdea()">
+					  <button type="button" class="btn btnIdeaChat btnCancelIdea" (click)="newIdea()">
 						  <span class="input-group-text" id="basic-addon2">Cancelar</span>
 						  <i class="fas fa-times"></i>
 					  </button>
-					  <button type="button" class="btn btnIdeaChat btnSendIdea" (click)="postIdeas()">
+					  <button type="submit" class="btn btnIdeaChat btnSendIdea">
 						  <span class="input-group-text" id="basic-addon2">Publicar</span>
 						  <i class="fas fa-paper-plane"></i>
 					  </button>

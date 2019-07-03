@@ -8,15 +8,15 @@ import { AllUsersComponent } from './all-users/all-users.component';
 import { AllIdeasComponent } from './all-ideas/all-ideas.component';
 
 @NgModule({
+  imports: [
+    CommonModule,
+    AdministratorRoutingModule
+  ],
   declarations: [
     AdministratorComponent,
     PerfiladministratorComponent,
     AllUsersComponent,
     AllIdeasComponent
-  ],
-  imports: [
-    CommonModule,
-    AdministratorRoutingModule
   ]
 })
 export class AdministratorModule { }

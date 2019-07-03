@@ -9,19 +9,19 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        loadChildren: './modules/login/login.module.ts#LoginModule'
+        loadChildren: './modules/login/login.module#LoginModule'
     },
     {
         path: 'home',
-        loadChildren: './modules/home/home.module.ts#HomeModule'
+        loadChildren: './modules/home/home.module#HomeModule'
     },
     {
         path: 'user',
-        loadChildren: './modules/user/user.module.ts#UserModule'
+        loadChildren: './modules/user/user.module#UserModule'
     },
     {
         path: 'administrator',
-        loadChildren: './modules/administrator/administrator.module.ts#AdministratorModule'
+        loadChildren: './modules/administrator/administrator.module#AdministratorModule'
     }
 ];
 

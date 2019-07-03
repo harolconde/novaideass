@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { IdeasService } from './services/ideas.service';
 
 import { HomeRoutingModule } from './home-routing.module';
@@ -21,6 +23,12 @@ import { AllIdeasUserComponent } from './ideas/all-ideas-user/all-ideas-user.com
 import { AllCommentsUserComponent } from './ideas/all-comments-user/all-comments-user.component';
 
 @NgModule({
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   declarations: [
     HomeComponent,
     ChatComponent, 
@@ -37,10 +45,6 @@ import { AllCommentsUserComponent } from './ideas/all-comments-user/all-comments
     ApprovedComponent, 
     DebateComponent, 
     AllIdeasUserComponent, AllCommentsUserComponent
-  ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule
   ],
   providers: [
     IdeasService

@@ -5,10 +5,10 @@ import { UserRoutingModule } from './user-routing.module';
 import { PerfiluserComponent } from './perfiluser/perfiluser.component';
 
 @NgModule({
-  declarations: [PerfiluserComponent],
   imports: [
     CommonModule,
     UserRoutingModule
-  ]
+  ],
+  declarations: [PerfiluserComponent]
 })
 export class UserModule { }

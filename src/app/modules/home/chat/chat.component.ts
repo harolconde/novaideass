@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../services/ideas.service';
 import { IdeasModel } from '../models/modelIdea'
 import { IdeasResponseModel } from '../models/modelResponseIdea'
+import { FormControl, FormGroup, FormBuilder, FormArray} from '@angular/forms'
 import * as $ from 'jquery';
 import { and } from '@angular/router/src/utils/collection';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { from } from 'rxjs';
+import { modelComments } from '../models/modelComments';
 
 declare var $:any
 
@@ -48,14 +50,19 @@ export class ChatComponent implements OnInit {
   comments:any[]
   resultado: Array<IdeasResponseModel>
 
-  constructor(private _service : IdeasService) {
-    const ideap = new IdeasModel()
-    ideap.opcion = 1
-    ideap.idUsuario = 18
-    ideap.id = 141
-    ideap.ideaText = 'Esta es otra idea desde el post quemado.'
-    ideap.ideaType = 1
-    ideap.status = 1
+  // Formulario
+  formulario: FormGroup
+  // Formulario comentarios
+  fcomentarios: FormGroup
+
+  constructor(private _service : IdeasService, private fidea: FormBuilder) {
+    // const ideap = new IdeasModel()
+    // ideap.opcion = 1
+    // ideap.idUsuario = 18
+    // ideap.id = 141
+    // ideap.ideaText = 'Esta es otra idea desde el post quemado.'
+    // ideap.ideaType = 1
+    // ideap.status = 1
 
     //this._service.postSendIdea(ideap)
 
@@ -82,29 +89,41 @@ export class ChatComponent implements OnInit {
   
   ngOnInit() {
     
+    this.formulario = this.fidea.group({
+      idea: ['']
+    })
+
+    this.fcomentarios = this.fidea.group({
+      comment: ['']
+    })
 
     this.getListIdeas();
   }
-  // postIdeas(ideap: IdeasModel){
-  //   ideap.Opcion = 1
-  //   ideap.IdUsuario = 18
-  //   ideap.Id = 141
-  //   ideap.IdeaText = 'Maldita idea sube Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consectetur atque est aliquid, obcaecati sapiente.'
-  //   ideap.IdeaType = 1
-  //   ideap.Status = 1
 
-  //   this._service.postSendIdea(ideap).subscribe(data => {
-  //     //this.resultado = []
-  //     this.resultado.push(data)
-  //     console.log(data)
-  //   },
-  //   error =>{
-  //     console.log(error)
-  //   }
-  //   )
-    
-  //   this.generateIdea = ! this.generateIdea
-  // }
+  // Evento submit nueva idea
+  onSubmit(formValue:any){
+    const ideap = new IdeasModel()
+    ideap.opcion = 1
+    ideap.idUsuario = 18
+    ideap.id = 141
+    ideap.ideaText = formValue.idea
+    ideap.ideaType = 1
+    ideap.status = 1
+
+    this._service.postSendIdea(ideap)
+  }
+  // Evento submit nuevo comentario
+  onSubmiComment(formValueComment:any){
+    const commentp = new modelComments()
+    commentp.opcion = 1
+    commentp.idIdea = 152
+    commentp.idUser = 18
+    commentp.comentsText = formValueComment.comment
+    commentp.idComents = 0
+
+    this._service.postSendComment(commentp)
+  }
+
   collapseIdea(i){
     this.getComments();
     const idIdeaCollapse:any = document.getElementById(this.textCollapse[i].id)
