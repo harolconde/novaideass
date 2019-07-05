@@ -3,11 +3,11 @@ import { IdeasService } from './../services/ideas.service';
 import { IdeasModel } from '../models/modelIdea'
 import { IdeasResponseModel } from '../models/modelResponseIdea'
 import { FormControl, FormGroup, FormBuilder, FormArray} from '@angular/forms'
-import * as $ from 'jquery';
 import { and } from '@angular/router/src/utils/collection';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { from } from 'rxjs';
 import { modelComments } from '../models/modelComments';
+import * as $ from 'jquery';
 
 declare var $:any
 
@@ -78,7 +78,7 @@ export class ChatComponent implements OnInit {
     let idIdeas = document.getElementsByClassName('containerIdeaCredentials')
     let ideaId = idIdeas[i].id
     console.log(ideaId)
-    this._service.idIdeas = ideaId
+    return this._service.idIdeas = ideaId
   }
   getComments(): void{
     this._service.getAllComents().subscribe((data) =>{
@@ -98,10 +98,16 @@ export class ChatComponent implements OnInit {
     })
 
     this.getListIdeas();
+
+    $(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    })
+
   }
 
   // Evento submit nueva idea
   onSubmit(formValue:any){
+
     const ideap = new IdeasModel()
     ideap.opcion = 1
     ideap.idUsuario = 18
@@ -113,102 +119,66 @@ export class ChatComponent implements OnInit {
     this._service.postSendIdea(ideap)
   }
   // Evento submit nuevo comentario
-  onSubmiComment(formValueComment:any){
+  onSubmiComment(formValueComment:any, i){
+    let idIdea = this.getId(i)
+    let iddea = parseInt(idIdea)
+    console.log(iddea)
+    
     const commentp = new modelComments()
     commentp.opcion = 1
-    commentp.idIdea = 152
+    commentp.idIdea = iddea
     commentp.idUser = 18
     commentp.comentsText = formValueComment.comment
     commentp.idComents = 0
 
-    this._service.postSendComment(commentp)
+    //this._service.postSendComment(commentp)
+    
   }
 
   collapseIdea(i){
     this.getComments();
+    const panelReply:any = document.getElementsByClassName('containerDisplayReply')
     const idIdeaCollapse:any = document.getElementById(this.textCollapse[i].id)
-    const idPanel:any = document.getElementById(this.panelReply[i].id)
-    const idBtn:any = document.getElementById(this.btnShowIdea[i].id)
+    const idPanel:any = panelReply[i].id
+    let but = document.getElementsByClassName('btnSeeMoreMessage')
+    let idbutton = but[i].id
+    let plus = document.getElementsByClassName('iconMoreMinus')
+    let iPlus = `${plus[i].id}`
     
-    for(let j = 0; j < this.textCollapse.length; j++){
-      this.textCollapse[j].style.whiteSpace = "nowrap"
-      this.panelReply[j].style.display = "none"
-      this.btnShowIdea[j].style.backgroundColor = '#fafafa'
-      this.stateCollapseIdea = false;
-      if(this.stateCollapseIdea == false)
-      {
-        idIdeaCollapse.style.whiteSpace = "normal"
-        idIdeaCollapse.style.transitionDuration = "0.5s"
-        idPanel.style.display = 'flex'
-        idPanel.style.transition = 'all 500ms linear'
-        idBtn.style.backgroundColor = '#f1f1f1'
-        this.btnMinus[i].classList.remove('fa-minus')
-        this.btnMinus[i].classList.add('fa-plus')
-        console.log(`Idea ${this.btnShowIdea[i]}`)
-        this.stateCollapseIdea = true
-      }
-      else{
-        idIdeaCollapse.style.whiteSpace = "nowrap"
-        idIdeaCollapse.style.transitionDuration = "0.5s"
-        idPanel.style.display = 'none'
-        idPanel.style.transition = 'all 500ms linear'
-        idBtn.style.backgroundColor = '#fafafa'
-        this.btnMinus[i].classList.remove('fa-plus')
-        this.btnMinus[i].classList.add('fa-minus')
-        this.stateCollapseIdea = false
-      }
+    if($('#'+idPanel).is(":visible")){
       
+      $('#'+idPanel).toggle("swing",function(){
+        $(this).hide(500)
+        $('#'+iPlus).removeClass("fa-minus")
+        $('#'+iPlus).addClass("fa-plus")
+      })
     }
-    this.stateCollapseIdea = true;
-    console.log(this.stateCollapseIdea)
-    // if(this.stateCollapseIdea == false){
-    //   this.textCollapse[i].style.whiteSpace = "normal"
-    //   this.textCollapse[i].style.transitionDuration = "0.5s"
-    //   this.panelReply[i].style.display = 'flex'
-    //   this.panelReply[i].style.transition = 'all 500ms linear'
-    //   this.btnShowIdea[i].style.backgroundColor = '#f1f1f1'
-    //   this.btnShowIdea[i].style.fontWeight = '600'
-    //   this.btnShowIdea[i].style.border = '1px solid #ddd'
-    //   this.btnShowIdea[i].style.borderRadius = '22px'
-    //   this.btnShowIdea[i].style.transition = 'all 700ms linear'
-    //   this.btnMinus[i].classList.remove('fa-plus')
-    //   this.btnMinus[i].classList.add('fa-minus')
-    //   this.stateCollapseIdea = true
-    // }
-    // else{
-    //   this.textCollapse[i].style.whiteSpace = "nowrap"
-    //   this.textCollapse[i].style.transitionDuration = "0.5s"
-    //   this.panelReply[i].style.display = 'none'
-    //   this.panelReply[i].style.transition = 'all 500ms linear'
-    //   this.btnShowIdea[i].style.backgroundColor = '#fafafa'
-    //   this.btnShowIdea[i].style.fontWeight = '400'
-    //   this.btnShowIdea[i].style.border= '1px solid transparent'
-    //   this.btnShowIdea[i].style.borderRadius = '5px'
-    //   this.btnShowIdea[i].style.transition = 'all 700ms linear'
-    //   this.btnMinus[i].classList.remove('fa-minus')
-    //   this.btnMinus[i].classList.add('fa-plus')
-    //   this.stateCollapseIdea = false
-    // }
+    else{
+      $(panelReply).hide()
+      $('#'+iPlus).removeClass("fa-minus")
+      $(plus).addClass("fa-plus")
+      $('#'+idPanel).toggle("swing",function(){
+        $(this).show(500)
+        $('#'+iPlus).removeClass("fa-plus")
+        $('#'+iPlus).addClass("fa-minus")
+      })
+    }
   }
 
   //Add comments
   addComments(i){
-    this.replyButton = ! this.replyButton
+    let idPanel = document.getElementsByClassName('replyMessage')
+    let id = idPanel[i].id
+    let textareaInfo = document.getElementById(id)
+    $('#'+id).toggle()
   }
 
   //Popover
-  popLikes(i:any){
+  popLikes(i){
     const votes: any = document.getElementsByClassName('votos')
     let myId: any = votes[i].id
-    const element: any = document.getElementById(myId)
-    if(this.popovers == false){
-      element.style.display = 'flex'
-      this.popovers = ! this.popovers
-    }
-    else{
-      element.style.display = 'none'
-      this.popovers = ! this.popovers
-    }
+    console.log(myId)
+    $('#'+myId).toggle(500)
   }
   
   // Nuevo comentario
@@ -218,6 +188,4 @@ export class ChatComponent implements OnInit {
 
 
 }
-$(function(){
-  $('[data-toggle="tooltip"]').tooltip();
-})
+

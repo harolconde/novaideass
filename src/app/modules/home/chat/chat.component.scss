@@ -153,16 +153,16 @@ $colorText : #5A5858;
 .containerChatIdeas .row .containerMessageIdeas .contenedor{
     width: 100%;
     margin-right: auto;
-    margin-left: 65px;
+    margin-left: 30px;
     font-size: 0.9rem;
     line-height: 135%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials{
     position: relative;
-    width: 75%;
+    width: 77%;
     margin: 10px;
     padding: 5px;
     background-color: $backgroundContChat;
@@ -204,6 +204,13 @@ $colorText : #5A5858;
     display: flex;
     align-content: center;
     align-items: center;
+    figure{
+        margin-bottom: 0;
+        svg{
+            width: 95%;
+            height: auto;
+        } 
+    }
 }
 .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .imgUserInChat img{
     width: 98%;
@@ -239,6 +246,7 @@ $colorText : #5A5858;
 }
 .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .contentBtnMyHeart li img{
     width: 1.8rem;
+    cursor: pointer;
 }
 .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .votos{
     position: absolute;
@@ -258,6 +266,11 @@ $colorText : #5A5858;
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    .containerVotos{
+        display: flex;
+        width: 100%;
+        padding: 0;
+    }
 }
 .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .votos .upButton{
     height: auto;
@@ -302,10 +315,20 @@ $colorText : #5A5858;
         height: auto;
         .list-group-item{
             display: flex;
-            align-items: center;
-            p{
+            align-items: flex-start;
+            .credentialsComments{
                 width: 85%;
-                height: auto;
+                display: flex;
+                flex-direction: column;
+                span{
+                    font-weight: 600;
+                    text-align: left;
+                    padding-right: 7px;
+                }
+                p{   
+                    height: auto;
+                    padding-right: 7px;
+                }
             }
             img{
                 width: 15%;
@@ -346,7 +369,7 @@ $colorText : #5A5858;
     font-size: .8rem;
     cursor: pointer;
     position: absolute;
-    right: 30px;
+    left: 40px;
 }
 .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .btnSeeMoreMessage .iconMoreMinus{
     position: absolute;
@@ -406,8 +429,8 @@ $colorText : #5A5858;
 
 //Responder mensajes
 .containerChatIdeas .replyMessage{
-    display: flex;
-    position: absolute;
+    display: none;
+    position: relative;
     bottom: calc(0vh);
     left: 0;
     z-index: 1003;
@@ -416,17 +439,23 @@ $colorText : #5A5858;
 }
 .containerChatIdeas .replyMessage .rowReply{
     width: 100%;
+    .my-1{
+        padding: 0;
+    }
 }
 .containerChatIdeas .replyMessage .rowReply .input-group-reply-message .formReply{
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 1rem .5rem 1rem .5rem;
 }
 .containerChatIdeas .replyMessage .rowReply .input-group-reply-message .formReply .input-reply-idea{
     border-radius: 50px;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    resize: none;
+    line-height: 100%;
+    height: 50px;
 }
 .containerChatIdeas .replyMessage .rowReply .input-group-reply-message .formReply .input-group-prepend{
     width: auto;
@@ -451,7 +480,7 @@ $colorText : #5A5858;
             color: $colorBtn;
             border: 2px solid $colorBtn;
             border-radius: 50px;
-            width: 40%;
+            width: 45%;
             span{
                 height: 20px;
             }
@@ -468,7 +497,7 @@ $colorText : #5A5858;
             color: $backgroundColorReply;
             border: 2px solid $colorBtn;
             border-radius: 50px;
-            width: 40%;
+            width: 45%;
             span{
                 height: 20px;
             }
@@ -497,5 +526,9 @@ $colorText : #5A5858;
 }
 .hidden{
     display: none !important;
+    transition: 500ms linear;
+}
+.btnActive{
+    background-color: #f1f1f1;
     transition: 500ms linear;
 }

@@ -62,7 +62,7 @@ export class DebateComponent implements OnInit {
     let panelComments = document.getElementsByClassName('listGroupHidden')
     let commentForIdea = panelComments[i].id
     if($('#'+commentForIdea).is(":visible")){
-      $('#'+commentForIdea).toggle(500,function(){
+      $('#'+commentForIdea).toggle(500,function(){ 
         $(this).hide(500)
       })
     }
