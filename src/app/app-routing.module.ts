@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { AuthguardComponent as AuthGuard} from './modules/login/authGuard/authguard/authguard.component'
+import { from } from 'rxjs';
 export const routes: Routes = [
     {
         path: '',
         redirectTo: 'login',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [AuthGuard]
     },
     {
         path: 'login',
@@ -22,7 +24,8 @@ export const routes: Routes = [
     {
         path: 'administrator',
         loadChildren: './modules/administrator/administrator.module#AdministratorModule'
-    }
+    },
+    { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

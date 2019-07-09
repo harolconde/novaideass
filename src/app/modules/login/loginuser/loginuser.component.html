@@ -14,19 +14,23 @@
                             <p>Ingresa con tu usuario y tu contraseña para que puedas compartirnos tus ideas.</p>
                         </div>
                     </div>
-                    <!-- <form class="formSingUp"> -->
+                    <form class="formSingUp" [formGroup]="authenticateUserAll" (ngSubmit)="authenticateUser(authenticateUserAll.value)">
                         <div class="form-group">
-                            <label class="labels" for="exampleInputEmail1">Usuario</label>
+                            <label class="labels" for="exampleInputEmail1">Usuario</label> 
                             <div class="input-group mb-3 formGroupLogin">
                                 <div class="input-group-prepend inputGropPrependLogin">
                                     <span class="input-group-text" id="basic-addon1">
                                         <img [src]="'assets/img/icons/login/User.svg'" alt="">
                                     </span>
                                 </div>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario">
+                                <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Usuario" formControlName="username" [ngClass]="{ 'is-invalid': submitted && name.username.errors }" >
                                 
                             </div>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> 
+                            <div *ngIf="submitted && !!name.username.errors" class="text-danger">
+                                <div *ngIf="!!name.username.errors.required">
+                                    <span class="obligatoryField">El nombre de usuario es obligatorio</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="labels" for="exampleInputPassword1">Contraseña</label>
@@ -36,22 +40,27 @@
                                         <img [src]="'assets/img/icons/login/key.svg'" alt="">
                                     </span>
                                 </div>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" formControlName="password" [ngClass]="{ 'is-invalid': submitted && name.password.errors }">
+                            </div>
+                            <div *ngIf="submitted && !!name.password.errors" class="text-danger">
+                                <div *ngIf="!!name.password.errors.required">
+                                    <span class="obligatoryField">La contraseña es obligatoria</span>
+                                </div>
                             </div> 
                         </div>
                         <div class="row containerButtons">
                             <div class="col-sm-12  col-md-6 col-lg-6 col-xl-6 buttonsLogin buttonCancel">
-                                <button type="submit" class="btn btn-primary btn-block btnLogin btnCancel">Cancelar</button>
+                                <button type="button" (click)="reset()" class="btn btn-primary btn-block btnLogin btnCancel">Cancelar</button>
                             </div>
                             <div class="col-sm-12 col-6 col-md-6 col-lg-6 col-xl-6 buttonsLogin buttonsAcept">
-                                <button [routerLink] = "'./dashboard'" type="submit" class="btn btn-primary btn-block btnLogin">Ingresar</button>
+                                <button  type="submit" class="btn btn-primary btn-block btnLogin" >Ingresar</button>
                             </div>
                         </div>
                         <div class="form-group form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label checkLogin" for="exampleCheck1">Recordar</label>
                         </div>   
-                    <!-- </form> -->
+                    </form>
                 </div>
             </div>
         </div>

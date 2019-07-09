@@ -33,7 +33,7 @@ import { AllCommentsUserComponent } from './ideas/all-comments-user/all-comments
     HomeComponent,
     ChatComponent, 
     DatesuserComponent, 
-    BarlateralComponent, 
+    BarlateralComponent,  
     FooterComponent, 
     IdeaComponent, 
     AllideasComponent, 

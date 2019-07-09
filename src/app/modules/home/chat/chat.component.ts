@@ -49,6 +49,7 @@ export class ChatComponent implements OnInit {
   ideas:any[]
   comments:any[]
   resultado: Array<IdeasResponseModel>
+  addTaskValue: string = ""
 
   // Formulario
   formulario: FormGroup
@@ -56,15 +57,7 @@ export class ChatComponent implements OnInit {
   fcomentarios: FormGroup
 
   constructor(private _service : IdeasService, private fidea: FormBuilder) {
-    // const ideap = new IdeasModel()
-    // ideap.opcion = 1
-    // ideap.idUsuario = 18
-    // ideap.id = 141
-    // ideap.ideaText = 'Esta es otra idea desde el post quemado.'
-    // ideap.ideaType = 1
-    // ideap.status = 1
 
-    //this._service.postSendIdea(ideap)
 
   }
 
@@ -97,7 +90,7 @@ export class ChatComponent implements OnInit {
       comment: ['']
     })
 
-    this.getListIdeas();
+    this.getListIdeas()
 
     $(function(){
       $('[data-toggle="tooltip"]').tooltip();
@@ -109,14 +102,16 @@ export class ChatComponent implements OnInit {
   onSubmit(formValue:any){
 
     const ideap = new IdeasModel()
-    ideap.opcion = 1
-    ideap.idUsuario = 18
+    ideap.opcion = 1 
+    ideap.idUsuario = 19
     ideap.id = 141
     ideap.ideaText = formValue.idea
     ideap.ideaType = 1
     ideap.status = 1
 
     this._service.postSendIdea(ideap)
+    this.newIdea()
+    this.reset()
   }
   // Evento submit nuevo comentario
   onSubmiComment(formValueComment:any, i){
@@ -131,10 +126,14 @@ export class ChatComponent implements OnInit {
     commentp.comentsText = formValueComment.comment
     commentp.idComents = 0
 
-    //this._service.postSendComment(commentp)
-    
+    this._service.postSendComment(commentp)
+    this.addComments(i)
+    this.resetAddMessage(i)
   }
 
+  reset(){
+    this.formulario.reset()
+  }
   collapseIdea(i){
     this.getComments();
     const panelReply:any = document.getElementsByClassName('containerDisplayReply')
@@ -173,6 +172,23 @@ export class ChatComponent implements OnInit {
     $('#'+id).toggle()
   }
 
+  // Reset comments submit
+  resetAddMessage(i){
+    const textareaReset = document.getElementsByClassName('textareaFormulario')
+    let resetElement = textareaReset[i].id
+    return $('#'+resetElement).val("")
+  }
+  // Reset Ideas submit
+  resetAddIdea(){
+    const textareaReset = document.getElementsByClassName('postNIdea')
+    for(let i = 0; i < textareaReset.length; i++){
+      let id = textareaReset[i].id
+      console.log(id)
+      $("#"+id).val("")
+    }
+    
+  }
+
   //Popover
   popLikes(i){
     const votes: any = document.getElementsByClassName('votos')
@@ -184,6 +200,9 @@ export class ChatComponent implements OnInit {
   // Nuevo comentario
   newIdea(){
     this.generateIdea = ! this.generateIdea
+    //this.formGroup.reset()
+    let textarea = document.getElementById('postNIdea')
+    let cont = $(textarea).val("")
   }
 
 

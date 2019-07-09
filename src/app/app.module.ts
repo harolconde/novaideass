@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { IdeasService } from './modules/home/services/ideas.service';
 import { UsersService } from './modules/home/services/users.service';
+import { AuthenticationService } from './modules/login/services/authentication.service'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,8 @@ import { AdministratorModule } from './modules/administrator/administrator.modul
   ],
   providers: [
     IdeasService,
-    UsersService
+    UsersService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

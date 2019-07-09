@@ -68,22 +68,23 @@
 							<a [routerLink]="['/idea', i]" class="paragraphIdea"> {{idea.IdeaText}} </a>
 						</p>
 						<div class="containerDisplayReply" id="p-{{idea.Id}}">
-							<h4 class="replyTitle">Comentarios
-							<span class="btnAddNewReply" (click)="addComments(i)"> 
-								<i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="left" title="Nuevo comentario"></i>
-							</span>
+							<h4 class="replyTitle" > <span class="titleComment" (click)="collapseIdea(i)"> Comentarios</span>
+							<button class="btn btnAddNewReply" (click)="addComments(i)">
+								<span>Nuevo Comentario</span> 
+								<i class="fas fa-comment-alt" data-toggle="tooltip" data-placement="left" title="Nuevo comentario"></i>
+							</button>
 							</h4>
 							<div class="replyMessage" id="r-{{idea.Id}}">
 									<div class="row rowReply">
-										<div class="col-12 col-sm-12 my-1">
+										<div class="col-12 col-sm-12 my-1"> 
 											<label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
 											<div class="input-group input-group-reply-message">
-												<form [formGroup]="fcomentarios" (ngSubmit)="onSubmiComment(fcomentarios.value, i)" class="formReply">
-													<textarea type="text" class="form-control input-reply-idea" id=" input-reply-idea" placeholder="Responde esta idea" name="reply_ideas" formControlName="comment" required></textarea><!-- [(ngModel)]="commentAdd.idea" -->
+												<form [formGroup]="fcomentarios" (ngSubmit)="onSubmiComment(fcomentarios.value, i)"  class="formReply">
+													<textarea type="text" class="form-control input-reply-idea textareaFormulario" id="text-{{idea.Id}}" placeholder="Responde esta idea" name="reply_ideas" formControlName="comment" [(ngModel)]="addTaskValue" required></textarea>
 																
 													<div class="input-group-prepend">
 														<div class="input-group-text group-btn-reply-message">
-																<button type="button" class="btn btnCancelComment" (click)="addComments(i)">
+																<button type="reset" class="btn btnCancelComment" (click)="addComments(i)">
 																	<span>Cancelar</span>
 																	<i class="fas fa-times"></i>
 																</button>
@@ -121,13 +122,13 @@
 	  <div class="col-12 formNewIdea" *ngIf="generateIdea">
 		  <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value);">
 			  <div class="input-group mb-3">
-				  <textarea type="text" formControlName="idea" class="form-control" placeholder="Tu idea aquí" aria-label="Recipient's username" aria-describedby="basic-addon2"></textarea>
+				  <textarea type="text" formControlName="idea" class="form-control postNIdea" placeholder="Tu idea aquí" aria-label="Recipient's username" aria-describedby="basic-addon2" id="postNIdea"></textarea>
 				  <div class="input-group-append">
 					  <button type="button" class="btn btnIdeaChat btnCancelIdea" (click)="newIdea()">
 						  <span class="input-group-text" id="basic-addon2">Cancelar</span>
 						  <i class="fas fa-times"></i>
 					  </button>
-					  <button type="submit" class="btn btnIdeaChat btnSendIdea">
+					  <button type="submit" class="btn btnIdeaChat btnSendIdea" >
 						  <span class="input-group-text" id="basic-addon2">Publicar</span>
 						  <i class="fas fa-paper-plane"></i>
 					  </button>

@@ -5,6 +5,7 @@ import { of, from } from 'rxjs';
 import { IdeasModel } from '../models/modelIdea';
 import { IdeasResponseModel } from '../models/modelResponseIdea'
 import { modelComments } from '../models/modelComments'
+import { votesModel } from '../models/modelVotes'
 
 // interface myIdea{
 //   obj: Object
@@ -106,7 +107,7 @@ export class IdeasService {
         console.log(dataIdea)
         this.http.post(`http://172.65.10.170:8050/IdeasGeneralAPI/api/tallerIdeas`, dataIdea,{
             headers : headersHttp,
-            observe : 'response'
+            observe : 'response' 
         }).subscribe(resp => {
             console.log(resp)
         })  
@@ -126,6 +127,24 @@ export class IdeasService {
             headers : headersHttp,
             observe : 'response'
         }).subscribe(resp => {
+            console.log(resp)
+        })
+    }
+
+    // Peticion post votos
+    postSendVote(voting: votesModel){
+        const vote = new votesModel()
+        vote.opcion = voting.opcion
+        vote.idVote = voting.idVote
+        vote.idIdea = voting.idIdea
+        vote.idUser = voting.idUser
+        vote.voteType = voting.voteType
+
+        let headersHttp = new HttpHeaders().set('Content-Type','application/json')
+        return this.http.post<any>(`http://172.65.10.170:8050/api/tallerVotes`, vote, {
+            headers : headersHttp,
+            observe : 'response'
+        }).subscribe((resp) => {
             console.log(resp)
         })
     }

@@ -88,15 +88,27 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
     padding-right: 1.4rem;
 }
 
-.sectionLogin .containerLogin .formLogin .form-group .labels{
-    font-size: .9rem;
-    color: $colorLabel;
-    font-weight: 600;
-    letter-spacing: 1.03px;
-    line-height: 19px;
-    display: block;
-    padding-left: 13px;
-}
+.sectionLogin .containerLogin .formLogin .form-group{
+    .labels{
+        font-size: .9rem;
+        color: $colorLabel;
+        font-weight: 600;
+        letter-spacing: 1.03px;
+        line-height: 19px;
+        display: block;
+        padding-left: 13px;
+    }
+    .formGroupLogin{
+        margin-bottom: 0 !important;
+    }
+    .text-danger{
+        .obligatoryField{
+            font-size: 0.625rem;
+            font-weight: 600;
+        }
+    }
+
+} 
 .sectionLogin .containerLogin .formLogin .form-group .formGroupLogin{
     height: 40px;
 }
