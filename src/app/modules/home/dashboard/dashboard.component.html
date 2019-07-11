@@ -199,8 +199,8 @@
                                                       <span class="spinnerIdea">.</span>
                                                       <span class="contenIdeaText"> {{lfidea.IdeaText}} </span>
                                                       <div class="contentIconIdeaText">
-                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
+                                                          <button class="btnIconIdeaText" type="button" ><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lfidea.Id]"></button>
+                                                          <button class="btnIconIdeaText btnLikeIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
                                                       </div>
                                                   </li>
                                               </ul>
@@ -221,9 +221,9 @@
                                                       <span class="spinnerIdea">.</span>
                                                       <span class="contenIdeaText">{{lfdIdeas.IdeaText}}</span>
                                                       <div class="contentIconIdeaText">
-                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/message.svg'" alt=""></button>
-                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
+                                                          <button class="btnIconIdeaText btnMessageIdeaText"><img [src]="'assets/img/icons/dashboard/message.svg'" alt=""></button>
+                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lfdIdeas.Id]"></button>
+                                                          <button class="btnIconIdeaText btnLikeIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
                                                       </div>
                                                   </li>
                                               </ul>
@@ -248,7 +248,7 @@
                                                       <span class="spinnerIdea">.</span>
                                                       <span class="contenIdeaText"> {{lfaIdeas.IdeaText}} </span>
                                                       <div class="contentIconIdeaText">
-                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lfaIdeas.Id]"></button>
                                                       </div>
                                                   </li>
                                               </ul>
@@ -269,7 +269,7 @@
                                                       <span class="spinnerIdea">.</span>
                                                       <span class="contenIdeaText"> {{lffIdeas.IdeaText}} </span>
                                                       <div class="contentIconIdeaText">
-                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                          <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lffIdeas.Id]"></button>
                                                       </div>
                                                   </li>
                                               </ul>
@@ -293,7 +293,7 @@
                                               <span class="spinnerIdea">.</span>
                                               <span class="contenIdeaText"> {{lfdeadIdeas.IdeaText}} </span>
                                               <div class="contentIconIdeaText">
-                                                  <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                  <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lfdeadIdeas.Id]"></button>
                                               </div>
                                           </li>
                                       </ul>

@@ -6,6 +6,7 @@ import { IdeasModel } from '../models/modelIdea';
 import { IdeasResponseModel } from '../models/modelResponseIdea'
 import { modelComments } from '../models/modelComments'
 import { votesModel } from '../models/modelVotes'
+//import { environment } from 'src/environments/environment';
 
 // interface myIdea{
 //   obj: Object
@@ -33,7 +34,7 @@ export class IdeasService {
 
     // Todas las ideas
     getIdeas() : Observable<any>{
-        return this.http.get(`http://172.65.10.170:8050/IdeasGeneralAPI/api/dashboard1?opcionc=1&estadoc=1&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
+        return this.http.get(` api/dashboard1?opcionc=1&estadoc=1&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
     }
     // Ultimas cuatro ideas
     getIdeasLast() : Observable<any>{
@@ -77,8 +78,8 @@ export class IdeasService {
     getDataIdeas(){
         return this.ideas
     }
-    getOneIdea(i){
-        return this.ideas[i]
+    getOneIdea(id: number): Observable<IdeasModel>{
+        return 
     }
     getIdIdeas(id){
         return this.idIdeas[id]

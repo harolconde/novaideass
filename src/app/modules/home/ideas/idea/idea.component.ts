@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js'
+import { ActivatedRoute } from '@angular/router'
+import { IdeasService } from '../../services/ideas.service'
 
 @Component({
   selector: 'app-idea',
@@ -8,12 +10,23 @@ import { Chart } from 'chart.js'
 })
 export class IdeaComponent implements OnInit {
 
-  constructor() { }
+  ideas:any = []
+
+  constructor(
+    private ruta:ActivatedRoute,
+    private _service:IdeasService
+  ) { 
+
+    
+  }
+  id:string 
   pos: number = 7
   neg: number = 3
   neu: number = 8
   ngOnInit() {
-    
+    this.ruta.paramMap.subscribe(param => {this.id = param.get('id')
+      console.log(this.id)}
+    )
     const ctx = document.getElementById('myChart');
     let myChart = new Chart(ctx, {
         type: 'line',
@@ -90,4 +103,5 @@ export class IdeaComponent implements OnInit {
     });
   }
 
+  
 }

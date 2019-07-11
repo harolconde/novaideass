@@ -131,9 +131,16 @@ export class ChatComponent implements OnInit {
     this.resetAddMessage(i)
   }
 
+  // Reset inputs and textareas
   reset(){
     this.formulario.reset()
   }
+
+  // Post votes
+  addVote(){
+    
+  }
+
   collapseIdea(i){
     this.getComments();
     const panelReply:any = document.getElementsByClassName('containerDisplayReply')
@@ -163,6 +170,12 @@ export class ChatComponent implements OnInit {
       })
     }
   }
+
+  // Get one idea
+
+  // getOneIdeaDetail(): void{
+  //   this._service.getOneIdea(id).subscribe( ideas => this.ideas = ideas)
+  // }
 
   //Add comments
   addComments(i){
@@ -204,7 +217,5 @@ export class ChatComponent implements OnInit {
     let textarea = document.getElementById('postNIdea')
     let cont = $(textarea).val("")
   }
-
-
 }
 

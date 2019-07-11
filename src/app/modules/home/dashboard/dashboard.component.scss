@@ -411,6 +411,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     display: flex;
     position: absolute;
     right: 0;
+    
 }
 .sectionDashboard .containerDashboard .postuladas .card-body .list-group-flush .list-group-item .contentIconIdeaText button{
     width: 20px;
@@ -423,6 +424,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     flex-direction: column;
     justify-content: center;
     background-color: transparent;
+    &.btnLikeIdeaText{
+        display: none;
+    }
 }
 
 .sectionDashboard .containerDashboard .postuladas .card-footer{
@@ -493,6 +497,12 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     flex-direction: column;
     justify-content: center;
     background-color: transparent;
+    &.btnMessageIdeaText{
+        display: none;
+    }
+    &.btnLikeIdeaText{
+        display: none;
+    }
 }
 
 .sectionDashboard .containerDashboard .debate .card-footer{

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IdeasService } from './services/ideas.service';
 
+
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { ChatComponent } from './chat/chat.component'; 
@@ -47,7 +48,8 @@ import { AllCommentsUserComponent } from './ideas/all-comments-user/all-comments
     AllIdeasUserComponent, AllCommentsUserComponent
   ],
   providers: [
-    IdeasService
+    IdeasService,
+    
   ]
 })
 export class HomeModule { }

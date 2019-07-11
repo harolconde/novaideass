@@ -112,7 +112,7 @@
                 <div class="allIdeasContent row card-columns" >
                     <div class="containerIdeaCredentials col-sm-12 col-lg-3 col-xl-3 card" *ngFor="let idea of ideas; index as i" >
                         <div class="imgUserInChat">
-                            <img src="{{idea.userImg}}" alt="">
+                            <img src="http://172.65.10.170:8050/IdeasGeneralAPI/api/Image?idUsers={{idea.IdUsers}}" alt="">
                         </div>
                         <div class="containerNameVotes">
                             <h3 class="nameUserIdea">{{idea.Nick_name}}

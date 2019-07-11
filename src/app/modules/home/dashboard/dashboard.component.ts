@@ -3,6 +3,7 @@ import { Chart } from 'chart.js';
 import { IdeasService } from './../services/ideas.service';
 import { UsersService } from './../services/users.service';
 import { tick } from '@angular/core/testing';
+import {ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'app-dashboard',
@@ -31,10 +32,16 @@ export class DashboardComponent implements OnInit {
   // Usuario servicio
   topUserParticipation:any[]
 
+  // Id por idea redireccionar
+  idRedir: any
 
-  constructor(private _service:IdeasService, private _userService:UsersService) { }
+  constructor(private _service:IdeasService, private _userService:UsersService, private _route:ActivatedRoute) { }
 
   ngOnInit() {
+    
+    this._route.paramMap.subscribe(param => {this.idRedir = param.get('id')
+      console.log(this.idRedir)
+    })
 
     //Ultimas cuatro ideas
     this.getLastFourIdeas()
@@ -56,6 +63,9 @@ export class DashboardComponent implements OnInit {
 
     // Top participacion de usuarios
     this.getTopParticipation()
+
+    // Idea por Id
+
 
     const ctx = document.getElementById('myChart');
 
@@ -204,6 +214,7 @@ export class DashboardComponent implements OnInit {
   getLastFourIdeasFinish(){
     this._service.getIdeasLastFinish().subscribe((data) => {
       this.lastFourFinishIdeas = data;
+      console.log(data)
     })
   }
 
