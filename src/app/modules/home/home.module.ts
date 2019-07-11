@@ -6,6 +6,7 @@ import { IdeasService } from './services/ideas.service';
 
 
 import { HomeRoutingModule } from './home-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination'
 import { HomeComponent } from './home.component';
 import { ChatComponent } from './chat/chat.component'; 
 import { DatesuserComponent } from './datesuser/datesuser.component';
@@ -28,7 +29,8 @@ import { AllCommentsUserComponent } from './ideas/all-comments-user/all-comments
     CommonModule,
     HomeRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   declarations: [
     HomeComponent,

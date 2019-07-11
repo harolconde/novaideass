@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IdeasService } from '../../services/ideas.service'
   import { from } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-finishideas',
@@ -13,11 +14,23 @@ export class FinishideasComponent implements OnInit {
   menuComponents:boolean = false
 
   ideas:any[] = []
+  idRedir:any
 
-  constructor(private _service: IdeasService) { }
+  constructor(private _service: IdeasService, private _route:ActivatedRoute) { }
+
+  @Input() id: string;
+  @Input() maxSize: number = 7
+  @Output() pageChange: EventEmitter<number>;
 
   ngOnInit() {
     this.getAllFinishIdeas()
+    // Inicializar Pagination
+    this.pageChange = new EventEmitter(true);
+
+    // Obtner detalle de la idea
+    this._route.paramMap.subscribe(param => {this.idRedir = param.get('id')
+      console.log(this.idRedir)
+    })
   }
   
   //Menú navegacion

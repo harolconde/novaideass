@@ -271,26 +271,36 @@ $grid-breakpoints: (
                     background-color: $bacgroundComponent;
                     padding-top: 31px;
                     padding-bottom: 35px;
-                    .pagination{
-                        margin-bottom: 0;
-                        .page-item{
-                            .page-link{
-                                border: 0;
-                                padding-top: 0;
-                                padding-bottom: 0;
-                                color: #444;
-                                padding-left: 0;
-                                padding-right: 0;
-                                margin-left: .7rem;
-                                margin-right: .7rem;
-                                .arrowPagination{
-                                    &.arrowPrevius{
-                                        transform: rotate(0.25turn);
-                                    }
-                                    &.arrowNext{
-                                        transform: rotate(0.75turn);
-                                    }
+                    .paginationNgx{
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        .pagination-previous{
+                            width: 25px;
+                            height: auto;
+                            margin-right: 5px;
+                            .arrowPrevius{
+                                transform: rotate(0.25turn);
+                                cursor: pointer;
+                            }
+                        }
+                        .current{
+                            div{
+                                width: 25px;
+                                text-align: center;
+                                span{
+                                    font-weight: 600;
+                                    color: #111;
                                 }
+                            }
+                        }
+                        .pagination-next{
+                            width: 25px;
+                            height: auto;
+                            margin-left: 5px;
+                            .arrowNext{
+                                transform: rotate(0.75turn);
+                                cursor: pointer;
                             }
                         }
                     }

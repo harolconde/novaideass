@@ -457,7 +457,7 @@ $grid-breakpoints: (
     width: 73%;
     height: 29px;
     overflow: hidden;
-    white-space: pre-wrap;
+    white-space: nowrap;
     text-overflow: ellipsis;
     text-align: justify;
 }

@@ -119,137 +119,18 @@
 				<div class="card cardAllComments">
 					<div class="card-body">
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
+							<li class="list-group-item" *ngFor="let commentU of comments | paginate: {itemsPerPage: 6, currentPage: p }; index as i">
 								<div class="row">
 									<div class="col-1 iconMessageAll">
 										<i class="fas fa-comment-alt"></i>
 									</div>
 									<div class="col-10 commentParagraphAll">
 										<p class="paragraphCommentAll">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, aspernatur voluptates dignissimos amet repellendus nulla esse nam et iusto fugiat quasi, reiciendis temporibus voluptatibus inventore perferendis ullam eveniet deleniti eaque ratione aliquam ea, atque quo similique! Ut mollitia magni officiis rem omnis, culpa earum quasi temporibus totam dignissimos nostrum nisi.
+											{{commentU.CommentsDTO.Comment}}
 										</p>
 									</div>
 									<div class="col-1 iconEyeAll">
-										<button class="btnEyeAll" data-toggle="tooltip" data-placement="top" title="Ver mas">
-											<img src="assets/img/icons/dashboard/eye.svg" alt="">
-										</button>
-									</div>
-								</div>
-							</li>
-							<li class="list-group-item">
-								<div class="row">
-									<div class="col-1 iconMessageAll">
-										<i class="fas fa-comment-alt"></i>
-									</div>
-									<div class="col-10 commentParagraphAll">
-										<p class="paragraphCommentAll">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, aspernatur voluptates dignissimos amet repellendus nulla esse nam et iusto fugiat quasi, reiciendis temporibus voluptatibus inventore perferendis ullam eveniet deleniti eaque ratione aliquam ea, atque quo similique! Ut mollitia magni officiis rem omnis, culpa earum quasi temporibus totam dignissimos nostrum nisi.
-										</p>
-									</div>
-									<div class="col-1 iconEyeAll">
-										<button class="btnEyeAll" data-toggle="tooltip" data-placement="top" title="Ver mas">
-											<img src="assets/img/icons/dashboard/eye.svg" alt="">
-										</button>
-									</div>
-								</div>
-							</li>
-							<li class="list-group-item">
-								<div class="row">
-									<div class="col-1 iconMessageAll">
-										<i class="fas fa-comment-alt"></i>
-									</div>
-									<div class="col-10 commentParagraphAll">
-										<p class="paragraphCommentAll">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, aspernatur voluptates dignissimos amet repellendus nulla esse nam et iusto fugiat quasi, reiciendis temporibus voluptatibus inventore perferendis ullam eveniet deleniti eaque ratione aliquam ea, atque quo similique! Ut mollitia magni officiis rem omnis, culpa earum quasi temporibus totam dignissimos nostrum nisi.
-										</p>
-									</div>
-									<div class="col-1 iconEyeAll">
-										<button class="btnEyeAll" data-toggle="tooltip" data-placement="top" title="Ver mas">
-											<img src="assets/img/icons/dashboard/eye.svg" alt="">
-										</button>
-									</div>
-								</div>
-							</li>
-							<li class="list-group-item">
-								<div class="row">
-									<div class="col-1 iconMessageAll">
-										<i class="fas fa-comment-alt"></i>
-									</div>
-									<div class="col-10 commentParagraphAll">
-										<p class="paragraphCommentAll">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, aspernatur voluptates dignissimos amet repellendus nulla esse nam et iusto fugiat quasi, reiciendis temporibus voluptatibus inventore perferendis ullam eveniet deleniti eaque ratione aliquam ea, atque quo similique! Ut mollitia magni officiis rem omnis, culpa earum quasi temporibus totam dignissimos nostrum nisi.
-										</p>
-									</div>
-									<div class="col-1 iconEyeAll">
-										<button class="btnEyeAll" data-toggle="tooltip" data-placement="top" title="Ver mas">
-											<img src="assets/img/icons/dashboard/eye.svg" alt="">
-										</button>
-									</div>
-								</div>
-							</li>
-							<li class="list-group-item">
-								<div class="row">
-									<div class="col-1 iconMessageAll">
-										<i class="fas fa-comment-alt"></i>
-									</div>
-									<div class="col-10 commentParagraphAll">
-										<p class="paragraphCommentAll">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, aspernatur voluptates dignissimos amet repellendus nulla esse nam et iusto fugiat quasi, reiciendis temporibus voluptatibus inventore perferendis ullam eveniet deleniti eaque ratione aliquam ea, atque quo similique! Ut mollitia magni officiis rem omnis, culpa earum quasi temporibus totam dignissimos nostrum nisi.
-										</p>
-									</div>
-									<div class="col-1 iconEyeAll">
-										<button class="btnEyeAll" data-toggle="tooltip" data-placement="top" title="Ver mas">
-											<img src="assets/img/icons/dashboard/eye.svg" alt="">
-										</button>
-									</div>
-								</div>
-							</li>
-							<li class="list-group-item">
-								<div class="row">
-									<div class="col-1 iconMessageAll">
-										<i class="fas fa-comment-alt"></i>
-									</div>
-									<div class="col-10 commentParagraphAll">
-										<p class="paragraphCommentAll">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, aspernatur voluptates dignissimos amet repellendus nulla esse nam et iusto fugiat quasi, reiciendis temporibus voluptatibus inventore perferendis ullam eveniet deleniti eaque ratione aliquam ea, atque quo similique! Ut mollitia magni officiis rem omnis, culpa earum quasi temporibus totam dignissimos nostrum nisi.
-										</p>
-									</div>
-									<div class="col-1 iconEyeAll">
-										<button class="btnEyeAll" data-toggle="tooltip" data-placement="top" title="Ver mas">
-											<img src="assets/img/icons/dashboard/eye.svg" alt="">
-										</button>
-									</div>
-								</div>
-							</li>
-							<li class="list-group-item">
-								<div class="row">
-									<div class="col-1 iconMessageAll">
-										<i class="fas fa-comment-alt"></i>
-									</div>
-									<div class="col-10 commentParagraphAll">
-										<p class="paragraphCommentAll">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, aspernatur voluptates dignissimos amet repellendus nulla esse nam et iusto fugiat quasi, reiciendis temporibus voluptatibus inventore perferendis ullam eveniet deleniti eaque ratione aliquam ea, atque quo similique! Ut mollitia magni officiis rem omnis, culpa earum quasi temporibus totam dignissimos nostrum nisi.
-										</p>
-									</div>
-									<div class="col-1 iconEyeAll">
-										<button class="btnEyeAll" data-toggle="tooltip" data-placement="top" title="Ver mas">
-											<img src="assets/img/icons/dashboard/eye.svg" alt="">
-										</button>
-									</div>
-								</div>
-							</li>
-							<li class="list-group-item">
-								<div class="row">
-									<div class="col-1 iconMessageAll">
-										<i class="fas fa-comment-alt"></i>
-									</div>
-									<div class="col-10 commentParagraphAll">
-										<p class="paragraphCommentAll">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, aspernatur voluptates dignissimos amet repellendus nulla esse nam et iusto fugiat quasi, reiciendis temporibus voluptatibus inventore perferendis ullam eveniet deleniti eaque ratione aliquam ea, atque quo similique! Ut mollitia magni officiis rem omnis, culpa earum quasi temporibus totam dignissimos nostrum nisi.
-										</p>
-									</div>
-									<div class="col-1 iconEyeAll">
-										<button class="btnEyeAll" data-toggle="tooltip" data-placement="top" title="Ver mas">
+										<button class="btnEyeAll" data-toggle="tooltip" data-placement="top" title="Ver mas" [routerLink]="['/idea', commentU.IdeasDTO.IdIdeas]">
 											<img src="assets/img/icons/dashboard/eye.svg" alt="">
 										</button>
 									</div>
@@ -258,7 +139,7 @@
 						</ul>
 					</div>
 					<div class="card-footer">
-						<nav aria-label="Page navigation example">
+						<!-- <nav aria-label="Page navigation example">
 							<ul class="pagination justify-content-center">
 								<li class="page-item disabled">
 									<a class="page-link" href="#" tabindex="-1" aria-disabled="true">
@@ -274,7 +155,25 @@
 									</a>
 								</li>
 							</ul>
-						</nav>
+						</nav> -->
+						<pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event" class="paginationNgx">
+							<div class="pagination-previous" [class.disabled]="p1.isFirstPage()">
+								<a *ngIf="!p1.isFirstPage()" (click)="p1.previous()" class="arrowPagination arrowPrevius"> <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt=""> </a>
+							</div>
+					
+							<div *ngFor="let page of p1.pages" [class.current]="p1.getCurrent() === page.value">
+								<a (click)="p1.setCurrent(page.value)" *ngIf="p1.getCurrent() !== page.value">
+									<span>{{ page.label }}</span>
+								</a>
+								<div *ngIf="p1.getCurrent() === page.value">
+									<span>{{ page.label }}</span>
+								</div>
+							</div>
+					
+							<div class="pagination-next" [class.disabled]="p1.isLastPage()">
+								<a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext">  <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt=""></a>
+							</div>
+						</pagination-template>
 					</div>
 				</div>
 			</div>

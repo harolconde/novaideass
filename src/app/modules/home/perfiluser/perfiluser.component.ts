@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { isLContainer } from '@angular/core/src/render3/util';
+import { IdeasService } from '../services/ideas.service'
+import { ActivatedRoute } from '@angular/router';
 
 declare var $:any;
 
@@ -18,10 +20,25 @@ export class PerfiluserComponent implements OnInit {
   // Menu de navegacion
   menuComponents: boolean = false;
 
-  constructor() { }
+  ideasForUser:any[] = []
+  ideasMoreVotes:any[] = []
+  commentsForUser:any[] = []
+  idRedir:any
+  constructor(private _service:IdeasService, private _route:ActivatedRoute) { }
 
   ngOnInit() {
+    // Todas mis ideas
+    this.getUserIdeas()
+
+    // Mis ideas mas votadas
+    this.getUserIdeasMoreVotes()
     
+    // Ultimos cuatro comentarios
+    this.getCommentUser()
+    // Obtner detalle de la idea
+    this._route.paramMap.subscribe(param => {this.idRedir = param.get('id')
+      console.log(this.idRedir)
+    })
   }
 
   // Menu de navegacion
@@ -44,6 +61,31 @@ export class PerfiluserComponent implements OnInit {
     
   }
 
+  // ********************* //
+  // Get ideas por usuario //
+  // ********************* //
+
+  // Mas votadas
+  getUserIdeasMoreVotes():void{
+    this._service.getIdeasUserMoreVotes().subscribe((data) => {
+      this.ideasMoreVotes = data
+      
+    })
+  }
+  // Cuatro mas recientes
+  getUserIdeas():void{
+    this._service.getIdeasUser().subscribe((data) => {
+      this.ideasForUser = data
+      console.log(data)
+    })
+  }
+  // Ultimos comentarios por usuario
+  getCommentUser():void{
+    this._service.getCommentsForUser().subscribe((data) => {
+      this.commentsForUser = data
+      console.log(data) 
+    })
+  }
   getMimeType(){
     this.mimeType =  this.fileUpload.name.split('.').pop()
     console.log(this.mimeType)

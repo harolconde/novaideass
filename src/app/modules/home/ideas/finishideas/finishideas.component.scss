@@ -287,6 +287,39 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     display: flex;
     align-items: center;
     background-color: transparent;
+    .paginationNgx{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .pagination-previous{
+            width: 25px;
+            height: auto;
+            margin-right: 5px;
+            .arrowPrevius{
+                transform: rotate(0.25turn);
+                cursor: pointer;
+            }
+        }
+        .current{
+            div{
+                width: 25px;
+                text-align: center;
+                span{
+                    font-weight: 600;
+                    color: #111;
+                }
+            }
+        }
+        .pagination-next{
+            width: 25px;
+            height: auto;
+            margin-left: 5px;
+            .arrowNext{
+                transform: rotate(0.75turn);
+                cursor: pointer;
+            }
+        }
+    }
 }
 .sectionFishedIdeas .containerFinishedIdeas .card .card-footer .imgUserIdeaFinish{
     width: 20%;

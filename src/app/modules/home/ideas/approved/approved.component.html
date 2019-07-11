@@ -157,7 +157,7 @@
                                 </div>
                                 <div class="card-body">
                                     <ul class="list-group list-group-flush">
-                                        <li class="idea list-group-item" *ngFor="let idea of ideas; index as i">
+                                        <li class="idea list-group-item" *ngFor="let idea of ideas | paginate: {itemsPerPage: 6, currentPage: p }; index as i">
                                             <div class="img">
                                                 <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgFinalizada">
                                             </div>
@@ -170,7 +170,7 @@
                                                 <span> {{idea.CreateDt}} </span>
                                             </div>
                                             <div class="see">
-                                                <button class="btn btnEyePostulate">
+                                                <button class="btn btnEyePostulate" [routerLink]="['/idea', idea.Id]">
                                                         <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
                                                 </button>
                                             </div>
@@ -178,23 +178,24 @@
                                     </ul>
                                 </div>
                                 <div class="card-footer">
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination justify-content-center">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                                    <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt="">
+                                    <pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event" class="paginationNgx">
+                                            <div class="pagination-previous" [class.disabled]="p1.isFirstPage()">
+                                                <a *ngIf="!p1.isFirstPage()" (click)="p1.previous()" class="arrowPagination arrowPrevius"> <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt=""> </a>
+                                            </div>
+                                    
+                                            <div *ngFor="let page of p1.pages" [class.current]="p1.getCurrent() === page.value">
+                                                <a (click)="p1.setCurrent(page.value)" *ngIf="p1.getCurrent() !== page.value">
+                                                    <span>{{ page.label }}</span>
                                                 </a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">
-                                                    <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt="">
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                                                <div *ngIf="p1.getCurrent() === page.value">
+                                                    <span>{{ page.label }}</span>
+                                                </div>
+                                            </div>
+                                    
+                                            <div class="pagination-next" [class.disabled]="p1.isLastPage()">
+                                                <a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext">  <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt=""></a>
+                                            </div>
+                                    </pagination-template>
                                 </div>
                             </div>
                         </div>
