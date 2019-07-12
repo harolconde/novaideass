@@ -120,7 +120,7 @@
 							<div class="cardContainer">
 								<div class="card-title">
 									<div class="img">
-										<img src="http://172.65.10.170:8050/IdeasGeneralAPI/api/Image?idUsers={{idea.IdUsers}}" alt="">
+										<img src="{{getImgUser(idea.IdUsers)}}" alt="">
 									</div>
 									<div class="name">
 										<span>{{idea.Nick_name}}</span>
@@ -145,7 +145,7 @@
                                                         </p>
                                                     </div>
                                                     <div class="itemComments imgComments">
-                                                        <img src="http://172.65.10.170:8050/IdeasGeneralAPI/api/Image?idUsers={{comment.Id_user}}" alt="">
+                                                        <img src="{{getImgUser(comment.Id_user)}}" alt="">
                                                     </div>
                                                 </li>
                                             </ul>

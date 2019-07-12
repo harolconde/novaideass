@@ -209,6 +209,17 @@ $grid-breakpoints: (
     padding-bottom: 1rem;
     .containerCommentAllUser{
         .row{
+            .cardOptions{
+                margin-bottom: 1rem;
+                padding: 20px;
+                .options{
+                    display: flex;
+                    justify-content: flex-end;
+                    .form-check{
+                        margin-right: 23px;
+                    }
+                }
+            }
             .title{
                 padding-bottom: 1rem;
                 h3{

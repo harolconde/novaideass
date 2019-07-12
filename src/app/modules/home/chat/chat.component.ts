@@ -8,6 +8,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { from } from 'rxjs';
 import { modelComments } from '../models/modelComments';
 import * as $ from 'jquery';
+import { environment } from '../../../../environments/environment'
 
 declare var $:any
 
@@ -134,6 +135,11 @@ export class ChatComponent implements OnInit {
   // Reset inputs and textareas
   reset(){
     this.formulario.reset()
+  }
+
+  // Imagen de usuario
+  getImgUser(id){
+    return environment.endpoint + `/Image?idUsers=${id}`
   }
 
   // Post votes

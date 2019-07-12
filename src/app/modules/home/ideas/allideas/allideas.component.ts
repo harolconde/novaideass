@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../../services/ideas.service';
+import { environment } from '../../../../../environments/environment'
 
 
 export interface myIdeaAll{
@@ -82,4 +83,8 @@ export class AllideasComponent implements OnInit {
     this.menuComponents =! this.menuComponents
   }
 
+  // Get imagen de usuario
+  getImgUser(id){
+    return environment.endpoint + `/Image?idUsers=${id}`
+  }
 }

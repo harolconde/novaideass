@@ -116,10 +116,26 @@
 				</div>
 			</div>
 			<div class="col-12">
+				<div class="card cardOptions">
+					<div class="options">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+							<label class="form-check-label" for="defaultCheck1">
+								Mis comentarios
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+							<label class="form-check-label" for="defaultCheck2">
+								Todos los comentarios
+							</label>
+						</div>
+					</div>
+				</div>
 				<div class="card cardAllComments">
 					<div class="card-body">
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item" *ngFor="let commentU of comments | paginate: {itemsPerPage: 6, currentPage: p }; index as i">
+							<li class="list-group-item" *ngFor="let commentU of comments | paginate: {itemsPerPage: 7, currentPage: p }; index as i">
 								<div class="row">
 									<div class="col-1 iconMessageAll">
 										<i class="fas fa-comment-alt"></i>
@@ -180,3 +196,4 @@
 		</div>
 	</div>
 </section>
+

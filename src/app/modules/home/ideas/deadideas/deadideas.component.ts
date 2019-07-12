@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../../services/ideas.service';
+import { environment } from '../../../../../environments/environment'
 
 @Component({
   selector: 'app-deadideas',
@@ -62,5 +63,10 @@ export class DeadideasComponent implements OnInit {
    //Menú navegacion
    showMenuNav(){
     this.menuComponents =! this.menuComponents
+  }
+
+  // Get imagen usuario
+  getImgUser(id){
+    return environment.endpoint + `/Image?idUsers=${id}`
   }
 }

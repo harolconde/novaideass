@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IdeasService } from '../../services/ideas.service'
   import { from } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../../../environments/environment'
 
 @Component({
   selector: 'app-finishideas',
@@ -43,6 +44,11 @@ export class FinishideasComponent implements OnInit {
     this._service.getIdeasAllFinish().subscribe((data) => {
       this.ideas = data
     })
+  }
+
+  // Get imagenes Usuario
+  getImgUser(id){
+    return environment.endpoint + `/Image?idUsers=${id}`
   }
 
 }

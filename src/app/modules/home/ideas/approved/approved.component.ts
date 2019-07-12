@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { IdeasService } from '../../services/ideas.service'
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../../../environments/environment'
 
 @Component({
   selector: 'app-approved',
@@ -40,5 +41,9 @@ export class ApprovedComponent implements OnInit {
       this.ideas = data
       console.log(data)
     })
+  }
+  // Get imagen de usuario
+  getImgUser(id){
+    return environment.endpoint + `/Image?idUsers=${id}`
   }
 }
