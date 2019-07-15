@@ -119,20 +119,20 @@
 				<hr>
 			</div>
 			<div class="col-12 containerDetalleIdeas">
-				<div class="row">
+				<div class="row" >
 					<div class="col-sm-12 col-md-12-col-lg-5 col-lg-5 containerCardsDetalle">
-						<div class="card cardIdeaDetalle">
+						<div class="card cardIdeaDetalle" *ngFor="let ideaD of ideas">
 							<div class="card-title">
 								<div class="imgUserDetalleIdea">
-									<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="">
+									<img src="{{getImgUser(ideaD.Id_user)}}" alt="">
 								</div>
 								<span class="nameUserIdeaDetalle">
-									{{ideas.Nick_name}}
+									{{ideaD.Nick_name}}
 								</span>
 							</div>
 							<div class="card-body">
 								<p class="pIdea">
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus esse explicabo dolorum temporibus architecto debitis possimus. Consectetur aliquid velit, debitis quis praesentium doloribus tenetur repellendus facilis soluta ipsum amet, quia aperiam! Iure, velit? Dolorem adipisci fugit quisquam modi cupiditate saepe!
+									{{ideaD.Idea_text}}
 								</p>
 							</div>
 							<div class="card-footer">
@@ -140,50 +140,50 @@
 									Fecha de publicacion
 								</span>
 								<span class="dateTime">
-									20/05/2019
+									{{ideaD.Create_dt}}
 								</span>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-12-col-lg-7 col-lg-7 containerCardsInfoStatistic">
 						<div class="row">
-							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 ">
-								<div class="card cardDateStatistic">
+							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 " *ngFor="let vote of ideas">
+								<div class="card cardDateStatistic" >
 									<div class="card-title">
 										<span class="titleCant">Total Votos</span>
 									</div>
 									<div class="card-body">
-										<span>12</span>
+										<span>{{total}}</span>
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 containerVotesCant">
+							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 containerVotesCant" *ngFor="let voteP of ideas">
 								<div class="card cardDateStatistic">
 									<div class="card-title">
 										<span class="titleCant">Votos positivos</span> 
 									</div>
-									<div class="card-body">
-										<span>6</span>
+									<div class="card-body" id="vLikes">
+										<span > {{voteP.Likes}} </span>
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 containerVotesCant">
+							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 containerVotesCant" *ngFor="let voteN of ideas">
 								<div class="card cardDateStatistic">
 									<div class="card-title">
 										<span class="titleCant">Votos negativos</span>
 									</div>
 									<div class="card-body">
-										<span>3</span>
+										<span id="vDislikes">{{voteN.Dislikes}}</span>
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 containerVotesCant">
+							<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 containerVotesCant" *ngFor="let vote of ideas">
 								<div class="card cardDateStatistic">
 									<div class="card-title">
 										<span class="titleCant">Votos nulos</span>
 									</div>
 									<div class="card-body">
-										<span>3</span>
+										<span id="vNeutral">{{vote.Neutral}}</span>
 									</div>
 								</div>
 							</div>

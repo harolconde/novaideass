@@ -6,6 +6,7 @@ import { IdeasModel } from '../models/modelIdea';
 import { IdeasResponseModel } from '../models/modelResponseIdea'
 import { modelComments } from '../models/modelComments'
 import { votesModel } from '../models/modelVotes'
+import { internalIdea } from'../models/ideaInterna'
 import { environment } from '../../../../environments/environment'
 
 // interface myIdea{
@@ -16,7 +17,9 @@ import { environment } from '../../../../environments/environment'
     providedIn: 'root'
 })
 export class IdeasService {
-    ideas:any[] 
+    ideas:any[]
+    public id:any
+
     private ArrayG: Array<IdeasResponseModel>
 
     constructor(private http: HttpClient) {
@@ -75,6 +78,12 @@ export class IdeasService {
         return this.http.get(`${environment.endpoint}/dashboard4?opcionc=4&estadoc=0&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
     }
     
+    // Idea en detalle
+    getIdeaDetalle(): Observable<any>{
+        console.log(this.id)
+        return this.http.get(`${environment.endpoint}/dashboard5?opcionc=5&estadoc=0&tipoc=0&fechaInic=20190720&fechaFinc=20190720&rownumberc=${this.id}`)
+    }
+
     // ************************************** //
     // Todas las ideas postuladas por usuario //
     // ************************************** //
@@ -103,15 +112,36 @@ export class IdeasService {
     getDataIdeas(){
         return this.ideas
     }
-    getOneIdea(id: number): Observable<IdeasModel>{
-        return 
-    }
+
     getIdIdeas(id){
         return this.idIdeas[id]
     }
     // Todos los comentarios por idea
     getAllComents() : Observable<any>{
         return this.http.get(`${environment.endpoint}/dashboard3?opcionc=3&estadoc=0&tipoc=0&fechaInic=20180101&fechaFinc=20180101&rownumberc=${this.idIdeas}`)
+    }
+
+    // ***************************************************************** //
+    // **************************  Ideas internas ********************** //
+    // ***************************************************************** //
+
+    postIdeasInternal(internal:internalIdea){
+        const dataInterna = new internalIdea()
+        dataInterna.emisor = internal.emisor
+        dataInterna.password = internal.password
+        dataInterna.mensaje = internal.mensaje
+        dataInterna.asunto = internal.asunto
+        dataInterna.destinatario = internal.destinatario
+        dataInterna.rutaAdjunto = internal.rutaAdjunto
+        dataInterna.idUser = internal.idUser
+        console.log(dataInterna)
+        let headersHTTP = new HttpHeaders().set('Content-Type','application/json')
+        this.http.post(`${environment.endpoint}/POST-api-SendMail`,dataInterna,{
+            headers : headersHTTP,
+            observe: 'response'
+        }).subscribe(resp => {
+            console.log(resp)
+        })
     }
 
     // ***************************************************************** //

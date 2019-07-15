@@ -140,7 +140,12 @@
                             </div>
                         </div>
                         <div class="card cardPqr">
-                            
+                            <div class="card-title">
+                                <h4>PQR</h4>
+                            </div>
+                            <div class="car-body">
+                                <button class="btn btn-block" data-toggle="modal" data-target=".bd-example-modal-xl">Nuevo mensaje interno</button>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
@@ -290,3 +295,51 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Mensaje interno o PQR -->
+<div class="modal fade bd-example-modal-xl modalPQR" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <form [formGroup] = "formInternal" (ngSubmit) = "postInternalIdeas(formInternal.value)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Escribenos tus sugerencias</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card cardAffair">
+                        <div class="selectAffair">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Peticion</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Queja</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                <label class="form-check-label" for="inlineRadio3">Reclamo</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                                <label class="form-check-label" for="inlineRadio4">Sugerencia</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pqrText">
+                        <textarea name="" id="textSendPQR" cols="30" rows="10" formControlName="mensaje">
+
+                        </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btnCancelPQR" data-dismiss="modal" (click)="reset()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btnSubmitPQR">Enviar</button>
+                </div>
+            </form>    
+        </div>
+    </div>
+</div>
+

@@ -28,7 +28,7 @@ export class FinishideasComponent implements OnInit {
     // Inicializar Pagination
     this.pageChange = new EventEmitter(true);
 
-    // Obtner detalle de la idea
+    // Obtener detalle de la idea
     this._route.paramMap.subscribe(param => {this.idRedir = param.get('id')
       console.log(this.idRedir)
     })

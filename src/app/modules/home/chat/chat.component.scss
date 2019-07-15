@@ -207,13 +207,15 @@ $colorText : #5A5858;
     left: -65px;
     width: 45px;
     height: 45px;
-    background: #111;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background-color: #333;
     border-radius: 50%;
     overflow: hidden;
-    justify-content: center;
-    
     figure{
         margin-bottom: 0;
+        border-radius: 50%;
         svg{
             width: 95%;
             height: auto;

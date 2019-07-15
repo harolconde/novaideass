@@ -49,7 +49,7 @@ export class ChatComponent implements OnInit {
   //ideas:any[] = []
   ideas:any[]
   comments:any[]
-  resultado: Array<IdeasResponseModel>
+  resultado: Array<IdeasResponseModel> 
   addTaskValue: string = ""
 
   // Formulario

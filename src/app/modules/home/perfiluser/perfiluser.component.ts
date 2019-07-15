@@ -3,6 +3,8 @@ import * as $ from 'jquery';
 import { isLContainer } from '@angular/core/src/render3/util';
 import { IdeasService } from '../services/ideas.service'
 import { ActivatedRoute } from '@angular/router';
+import { internalIdea } from '../models/ideaInterna'
+import { FormControl, FormGroup, FormBuilder, FormArray} from '@angular/forms'
 
 declare var $:any;
 
@@ -24,7 +26,10 @@ export class PerfiluserComponent implements OnInit {
   ideasMoreVotes:any[] = []
   commentsForUser:any[] = []
   idRedir:any
-  constructor(private _service:IdeasService, private _route:ActivatedRoute) { }
+  constructor(private _service:IdeasService, private _route:ActivatedRoute, private _idInternal:FormBuilder) { }
+
+  // Formulario
+  formInternal: FormGroup
 
   ngOnInit() {
     // Todas mis ideas
@@ -38,6 +43,12 @@ export class PerfiluserComponent implements OnInit {
     // Obtner detalle de la idea
     this._route.paramMap.subscribe(param => {this.idRedir = param.get('id')
       console.log(this.idRedir)
+    })
+
+    // Captura de elementos del formulario
+    this.formInternal = this._idInternal.group({
+      mensaje: ['']
+      //asunto: ['']
     })
   }
 
@@ -106,13 +117,31 @@ export class PerfiluserComponent implements OnInit {
   getNameImg(id){
     let itemImg:any = document.getElementById(id)
     console.log(itemImg)
-    // for(let i = 0; i < this.btnChecked.length; i++){
-    //   console.log(this.btnChecked[i])
-      
-    //   console.log(`${this.img[itemImg].id} : ${this.btnChecked[i].id}`)
-    //   console.log(itemImg)
-    // } 
   }
+
+  // ******************************************* //
+  // *********** Post ideas internas *********** //
+  // ******************************************* //
+
+  postInternalIdeas(formValueInternal:any){
+    let internaIdea = new internalIdea()
+    internaIdea.emisor = ""
+    internaIdea.password = ""
+    internaIdea.mensaje = formValueInternal.mensaje
+    internaIdea.asunto = "Prueba Envio Correo NovaIdeas"
+    internaIdea.destinatario = ""
+    internaIdea.rutaAdjunto = ""
+    internaIdea.idUser = 19
+
+    this._service.postIdeasInternal(internaIdea)
+    this.reset()
+  }
+
+  // Reset post
+  reset(){
+    this.formInternal.reset()
+  }
+
 
 }
 $( () => {

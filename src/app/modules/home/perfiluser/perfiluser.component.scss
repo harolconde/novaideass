@@ -221,6 +221,38 @@ $grid-breakpoints: (
     padding-left: .9rem;
     padding-right: .9rem;
     padding-top: 29px;
+    .row{
+        .containerCardPerfil{
+            .cardPqr{
+                height: 91px;
+                .card-title{
+                    padding: .33rem 1.25rem;
+                    border-bottom: 1px solid rgba(0,0,0,0.125);
+                    h4{
+                        margin-bottom: 0;
+                        font-size: .9rem;
+                        font-weight: 600;
+                        color: $colorText;
+                        letter-spacing: 1.18px;
+                        line-height: 19px;
+                    }
+                }
+                .car-body{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0 20px;
+                    button{
+                        background-color: $colorButtons;
+                        border-radius: 50px;
+                        color: $colorBrowser;
+                    }
+                }
+            }
+        }
+    }
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .containerCardPerfil{
     padding-right: 0;
@@ -722,7 +754,90 @@ $grid-breakpoints: (
         transition: 500ms;
     }
 }
+.modalPQR{
+    .modal-xl{
+        .modal-content{
+            form{
+                .modal-header{
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                    padding-right: 2rem;
+                    padding-left: 2rem;
+                    .modal-title{
+                        h5{
 
+                        }
+                        .close{
+
+                        }
+                    }
+                }
+                .modal-body{
+                    padding-right: 2rem;
+                    padding-left: 2rem;
+                    .cardAffair{
+                        margin-bottom: 1rem;
+                        display: flex;
+                        align-items: center;
+                        .selectAffair{
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-evenly;
+                            padding: 1rem .5rem;
+                            @include responsive-mobile{
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
+                            .form-check{
+                                display: flex;
+                                align-items: center;
+                                label{
+                                    height: 19px;
+                                }
+                            }
+                        }
+                    }
+                    .pqrText{
+                        width: 100%;
+                        textarea{
+                            width: 100%;
+                            margin-top: 0px;
+                            margin-bottom: 0px;
+                            height: 315px;
+                            border: 1px solid rgba(0,0,0,0.125);
+                            border-radius: 5px;
+                            padding: 1rem;
+                            resize: none;
+                        }
+                    }
+                }
+                .modal-footer{
+                    padding-right: 2rem;
+                    padding-left: 2rem;
+                    display: flex;
+                    justify-content: space-between;
+                    .btn{
+                        width: 35%;
+                        border-radius: 50px;
+                        &.btnCancelPQR{
+                            border: 2px solid $colorButtons;
+                            background-color: $colorBrowser;
+                            color: $colorButtons;
+                            font-weight: 600;
+                        }
+                        &.btnSubmitPQR{
+                            border: 2px solid $colorButtons;
+                            background-color: $colorButtons;
+                            color: $colorBrowser;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 //Media queries
 @media (min-width: 1px) and (max-width: 991px) { 
