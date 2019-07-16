@@ -7,5 +7,5 @@ export class internalIdea{
     public asunto:string
     public destinatario:string
     public rutaAdjunto:string
-    public idUser:number
+    public idUser:any
 }

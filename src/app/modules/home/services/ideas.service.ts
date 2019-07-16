@@ -19,7 +19,12 @@ import { environment } from '../../../../environments/environment'
 export class IdeasService {
     ideas:any[]
     public id:any
-
+    
+    // Nombre de controladores
+    public nameController:string = 'dashboard1'
+    public nameController2:string = 'dashboard2'
+    public nameController3:string = 'dashboard3'
+    public nameController4:string = 'dashboard4'
     private ArrayG: Array<IdeasResponseModel>
 
     constructor(private http: HttpClient) {
@@ -28,6 +33,7 @@ export class IdeasService {
 
     // Peticiones Get
     public idIdeas : any 
+    public opcionComments:number = 1
     // fechas
     date: any = new Date()
     year: any = this.date.getFullYear()
@@ -37,45 +43,45 @@ export class IdeasService {
 
     // Todas las ideas
     getIdeas() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard1?opcionc=1&estadoc=1&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=1&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
     }
     // Ultimas cuatro ideas
     getIdeasLast() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard1?opcionc=1&estadoc=1&tipoc=1&fechaInic=20190517&fechaFinc=${this.fechatFin}&rownumberc=4`)
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=1&tipoc=1&fechaInic=20190517&fechaFinc=${this.fechatFin}&rownumberc=4`)
     }
     // Ultimas catro ideas en debate
     getIdeasLastDebate() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard1?opcionc=1&estadoc=3&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=3&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
     }
     getIdeasAllDebate() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard1?opcionc=1&estadoc=3&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=3&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
     }
     // Ultimas cuatro ideas aprovadas
     getIdeasLastApproved() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard1?opcionc=1&estadoc=2&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=2&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
     }
 
     // Todas las ideas aprovadas
     getIdeasAllApproved() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard1?opcionc=1&estadoc=2&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=2&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
     }
     // Ultimas cuatro ideas finalizadas
     getIdeasLastFinish() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard1?opcionc=1&estadoc=7&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=7&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
     }
 
     // Todas las ideas finalizadas
     getIdeasAllFinish() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard1?opcionc=1&estadoc=7&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=7&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
     }
 
     // Ultimas cuatro ideas muertas
     getIdeasLastDead(): Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard1?opcionc=1&estadoc=5&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=5&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
     }
     // Ultimas cuatro ideas mas votadas
     getIdeasMoreVotes(): Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard4?opcionc=4&estadoc=0&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
+        return this.http.get(`${environment.endpoint}/${this.nameController4}?opcionc=4&estadoc=0&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
     }
     
     // Idea en detalle
@@ -88,9 +94,13 @@ export class IdeasService {
     // Todas las ideas postuladas por usuario //
     // ************************************** //
 
-    // todas
+    // Ultimas cuatro
     getIdeasUser():Observable<any>{
         return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=19&rowNumber=4`)
+    }
+    // Todas
+    getIdeasUserAll():Observable<any>{
+        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=19&rowNumber=0`)
     }
     // Las cuatro mas votadas
     getIdeasUserMoreVotes():Observable<any>{
@@ -102,7 +112,8 @@ export class IdeasService {
     }
     // Todos los comentarios por usuario
     getCommentsAllForUser():Observable<any>{
-        return this.http.get(`${environment.endpoint}/CommentsUsersIdeas?opcion=1&commentsIdUser=19&rowNumber=0`)
+        console.log(this.opcionComments)
+        return this.http.get(`${environment.endpoint}/CommentsUsersIdeas?opcion=${this.opcionComments}&commentsIdUser=19&rowNumber=0`)
     }
     // Todos los comentarios generales
     getCommentsAllForUserAll():Observable<any>{
@@ -118,7 +129,7 @@ export class IdeasService {
     }
     // Todos los comentarios por idea
     getAllComents() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/dashboard3?opcionc=3&estadoc=0&tipoc=0&fechaInic=20180101&fechaFinc=20180101&rownumberc=${this.idIdeas}`)
+        return this.http.get(`${environment.endpoint}/${this.nameController3}?opcionc=3&estadoc=0&tipoc=0&fechaInic=20180101&fechaFinc=20180101&rownumberc=${this.idIdeas}`)
     }
 
     // ***************************************************************** //
@@ -136,7 +147,7 @@ export class IdeasService {
         dataInterna.idUser = internal.idUser
         console.log(dataInterna)
         let headersHTTP = new HttpHeaders().set('Content-Type','application/json')
-        this.http.post(`${environment.endpoint}/POST-api-SendMail`,dataInterna,{
+        this.http.post(`http://172.65.10.170:8050/Help/Api/POST-api-SendMail`,dataInterna,{
             headers : headersHTTP,
             observe: 'response'
         }).subscribe(resp => {

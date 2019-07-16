@@ -10,10 +10,12 @@ import { environment } from '../../../../environments/environment'
 export class UsersService {
 
   user:any[]
+  // Nombre controlador en el servicio
+  public nameController:string = 'dashboard1'
 
   constructor(private http: HttpClient) { }
 
   getTopParticipationUsers(): Observable<any>{
-    return this.http.get(`${environment.endpoint}/dashboard1?fechaInic=20190517&fechaFinc=20190518`)
+    return this.http.get(`${environment.endpoint}/${this.nameController}?fechaInic=20190517&fechaFinc=20190518`)
   }
 }

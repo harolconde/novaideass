@@ -116,185 +116,36 @@
 				<div class="col-12">
 					<div class="row">
 						<div class="card-columns">
-							<div class="card">
+							<div class="card" *ngFor="let ideaUser of ideasUser | paginate: {itemsPerPage: 6, currentPage: p }; index as i">
 								<div class="cardContainer">
 									<div class="card-title">
 										<div class="img">
-											<img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
+											<img src="{{getImgUser(ideaUser.UsersDTO.IdUsers)}}" alt="">
 										</div>
 										<div class="name">
-											<span class="nameUserPublication">Luisa Rodriguez</span>
-											<span class="datePublication">20/05/2019</span>
+											<span class="nameUserPublication"> {{ideaUser.UsersDTO.UserNickName}} </span>
+											<span class="datePublication">{{ideaUser.IdeasDTO.IdeaCreateDt}}</span>
 										</div>
 									</div>
 									<div class="card-body">
 										<ul class="list-group list-group-flush">
 											<li class="list-group-item">
-												<span class="title">Lorem ipsum dolor sit amet.</span>
+												<span class="title">Estado:</span>
 											</li>
 											<li class="list-group-item">
-												<P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi tempora molestiae, minus animi officiis eveniet. Quam, optio odit odio voluptatibus alias totam eius autem ipsum ullam laborum recusandae doloribus voluptatem?</P>
+												<P>{{ideaUser.IdeasDTO.IdeaText}}</P>
 											</li>
-											<li class="list-group-item listGroupHidden" id="1" [ngClass]="btnSeeMore ? 'visible' : 'hidden'">
+											<!-- <li class="list-group-item listGroupHidden" id="1" >
 												<span>Lorem ipsum dolor sit.</span>
 												<p>
 													Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, exercitationem modi? Ipsa blanditiis et libero aperiam, vel repellat nihil eius earum soluta. Totam labore unde enim minima nisi voluptate ducimus eveniet animi est, ab delectus qui distinctio ipsum magni deserunt ullam rerum culpa, vero, aspernatur earum veniam dignissimos deleniti doloribus?
 												</p>
-											</li>
+											</li> -->
 										</ul>
 									</div>
 									<div class="card-footer">
-										<button class="btn btn-block btnMoreDebate" >
+										<button class="btn btn-block btnMoreDebate" [routerLink]="['/idea', ideaUser.IdeasDTO.IdIdeas]">
 												<!-- (click)="showDescriptionAdd(1)" -->
-											Ver mas
-										</button>
-									</div>
-								</div>		
-							</div>
-							<div class="card">
-									<div class="cardContainer">
-										<div class="card-title">
-										<div class="img">
-											<img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="">
-										</div>
-										<div class="name">
-											<span classs="nameUserPublication">Harol Conde</span>
-											<span class="datePublication">20/05/2019</span>
-										</div>
-									</div>
-									<div class="card-body">
-										<ul class="list-group list-group-flush">
-											<li class="list-group-item">
-												<span class="title">Lorem ipsum dolor sit amet.</span>
-											</li>
-											<li class="list-group-item">
-												<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
-											</li>
-											<li class="list-group-item listGroupHidden" id="2" [ngClass]="btnSeeMore ? 'visible' : 'hidden'">
-												<span>Lorem ipsum dolor sit.</span>
-												<p>
-													Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, exercitationem modi? Ipsa blanditiis et libero aperiam, vel repellat nihil eius earum soluta. Totam labore unde enim minima nisi voluptate ducimus eveniet animi est, ab delectus qui distinctio ipsum magni deserunt ullam rerum culpa, vero, aspernatur earum veniam dignissimos deleniti doloribus?
-												</p>
-											</li>
-										</ul>
-									</div>
-									<div class="card-footer">
-										<button class="btn btn-block btnMoreDebate" >
-												<!-- (click)="showDescriptionAdd(2)" -->
-											Ver mas
-										</button>
-									</div>
-									</div>
-											
-							</div>
-							<div class="card">
-									<div class="cardContainer">
-										<div class="card-title">
-										<div class="img">
-											<img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
-										</div>
-										<div class="name">
-											<span class="nameUserPublication">Luisa con coletas</span>
-											<span class="datePublication">20/05/2019</span>
-										</div>
-									</div>
-									<div class="card-body">
-										<ul class="list-group list-group-flush">
-											<li class="list-group-item">
-												<span class="title">Lorem ipsum dolor sit amet.</span>
-											</li>
-											<li class="list-group-item">
-												<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
-											</li>
-										</ul>
-									</div>
-									<div class="card-footer">
-										<button class="btn btn-block btnMoreDebate">
-											Ver mas
-										</button>
-									</div>
-								</div>		
-							</div>
-							<div class="card">
-								<div class="cardContainer">
-									<div class="card-title">
-										<div class="img">
-											<img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
-										</div>
-										<div class="name">
-											<span classs="nameUserPublication">Luisa Rodriguez</span>
-											<span class="datePublication">20/05/2019</span>
-										</div>
-									</div>
-									<div class="card-body">
-										<ul class="list-group list-group-flush">
-											<li class="list-group-item">
-												<span class="title">Lorem ipsum dolor sit amet.</span>
-											</li>
-											<li class="list-group-item">
-												<P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi tempora molestiae, minus animi officiis eveniet. Quam, optio odit odio voluptatibus alias totam eius autem ipsum ullam laborum recusandae doloribus voluptatem?</P>
-											</li>
-										</ul>
-									</div>
-									<div class="card-footer">
-										<button class="btn btn-block btnMoreDebate">
-											Ver mas
-										</button>
-									</div>
-								</div>		
-							</div>
-							<div class="card">
-									<div class="cardContainer">
-										<div class="card-title">
-										<div class="img">
-											<img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="">
-										</div>
-										<div class="name">
-											<span class="nameUserPublication">Harol Conde</span>
-											<span class="datePublication">20/05/2019</span>
-										</div>
-									</div>
-									<div class="card-body">
-										<ul class="list-group list-group-flush">
-											<li class="list-group-item">
-												<span class="title">Lorem ipsum dolor sit amet.</span>
-											</li>
-											<li class="list-group-item">
-												<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
-											</li>
-										</ul>
-									</div>
-									<div class="card-footer">
-										<button class="btn btn-block btnMoreDebate">
-											Ver mas
-										</button>
-									</div>
-									</div>
-											
-							</div>
-							<div class="card">
-									<div class="cardContainer">
-										<div class="card-title">
-										<div class="img">
-											<img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
-										</div>
-										<div class="name">
-											<span classs="nameUserPublication">Luisa con coletas</span>
-											<span class="datePublication">20/05/2019</span>
-										</div>
-									</div>
-									<div class="card-body">
-										<ul class="list-group list-group-flush">
-											<li class="list-group-item">
-												<span class="title">Lorem ipsum dolor sit amet.</span>
-											</li>
-											<li class="list-group-item">
-												<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate explicabo praesentium veniam, laborum omnis numquam fugiat nihil sit natus earum!</P>
-											</li>
-										</ul>
-									</div>
-									<div class="card-footer">
-										<button class="btn btn-block btnMoreDebate">
 											Ver mas
 										</button>
 									</div>
@@ -303,6 +154,24 @@
 						</div>
 					</div>
 				</div>
+				<pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event" class="paginationNgx">
+					<div class="pagination-previous" [class.disabled]="p1.isFirstPage()">
+						<a *ngIf="!p1.isFirstPage()" (click)="p1.previous()" class="arrowPagination arrowPrevius"> <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt=""> </a>
+					</div>
+				
+					<div *ngFor="let page of p1.pages" [class.current]="p1.getCurrent() === page.value">
+						<a (click)="p1.setCurrent(page.value)" *ngIf="p1.getCurrent() !== page.value">
+							<span>{{ page.label }}</span>
+						</a>
+						<div *ngIf="p1.getCurrent() === page.value">
+							<span>{{ page.label }}</span>
+						</div>
+					</div>
+				
+					<div class="pagination-next" [class.disabled]="p1.isLastPage()">
+						<a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext">  <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt=""></a>
+					</div>
+				</pagination-template> 
 			</div>
 		</div>
 	</section>

@@ -217,6 +217,15 @@ $grid-breakpoints: (
                     justify-content: flex-end;
                     .form-check{
                         margin-right: 23px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        input{
+                            margin-top: 0;
+                        }
+                        label{
+                            height: 16px;
+                        }
                     }
                 }
             }

@@ -19,6 +19,11 @@ export class AllCommentsUserComponent implements OnInit {
   commentsAll:any[] =[]
   idRedir:any
 
+  // Input check
+  isCheckedValue:any = 1
+  marcked:boolean = false
+  checked:boolean = false
+
   menuComponents:boolean = false;
   constructor(private _service:IdeasService, private _route:ActivatedRoute) { }
 
@@ -26,10 +31,9 @@ export class AllCommentsUserComponent implements OnInit {
     // Comentarios por usuario
     this.getCommentUserAll()
     // Todos los comentarios de los usuarios
-    this.getCommentAllUserAll()
+    //this.getCommentAllUserAll()
     // Inicializacion de eventEmiter paginatio
     this.pageChange = new EventEmitter(true);
-    this.pageChange2 = new EventEmitter(true);
 
     // Trael detalle de idea
     this._route.paramMap.subscribe(param => {this.idRedir = param.get('id')
@@ -52,6 +56,21 @@ export class AllCommentsUserComponent implements OnInit {
       this.commentsAll = data
       console.log(data)
     })
+  }
+
+  //Validacion checkeo
+  getSuperuser2(e){
+    this.marcked = e.target.checked
+    if(this.checked == true){
+      this.isCheckedValue = 2
+      this._service.opcionComments = this.isCheckedValue 
+    }
+    else{
+      this.isCheckedValue = 1
+      this._service.opcionComments = this.isCheckedValue 
+    }
+    // Volver a llamar la api comentarios
+    this.getCommentUserAll()
   }
 }
 $(()=>{

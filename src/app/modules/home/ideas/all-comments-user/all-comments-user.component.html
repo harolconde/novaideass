@@ -118,14 +118,14 @@
 			<div class="col-12">
 				<div class="card cardOptions">
 					<div class="options">
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+						<!-- <div class="form-check">
+							<input class="form-check-input" type="checkbox" [(ngModel)]="checked" value="" id="defaultCheck1" (change)="getSuperuser($event)">
 							<label class="form-check-label" for="defaultCheck1">
 								Mis comentarios
 							</label>
-						</div>
+						</div> -->
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+							<input class="form-check-input" type="checkbox" [(ngModel)]="checked" (change)="getSuperuser2($event)" value="" id="defaultCheck2">
 							<label class="form-check-label" for="defaultCheck2">
 								Todos los comentarios
 							</label>
@@ -189,7 +189,7 @@
 							<div class="pagination-next" [class.disabled]="p1.isLastPage()">
 								<a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext">  <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt=""></a>
 							</div>
-						</pagination-template>
+						</pagination-template> 
 					</div>
 				</div>
 			</div>

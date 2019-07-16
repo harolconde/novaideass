@@ -212,77 +212,19 @@
 							</div>
 							<div class="card-body">
 								<ul class="list-group list-group-flush">
-									<li class="list-group-item">
+									<li class="list-group-item" *ngFor="let comment of comments; index as c">
 										<div class="row">
 											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
-												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
+												<figure>
+													<img src="{{getImgUser(comment.Id_user)}}" alt="" class="imgUserCommentDetail">
+												</figure>
 											</div>
 											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
 												<span class="nameUserCommit">
-													NickName
+													{{comment.Nick_name}}
 												</span>
 												<p class="ideaCommitDetail">
-													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
-												</p>												
-											</div>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="row">
-											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
-												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
-											</div>
-											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
-												<span class="nameUserCommit">
-													NickName
-												</span>
-												<p class="ideaCommitDetail">
-													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
-												</p>												
-											</div>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="row">
-											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
-												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
-											</div>
-											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
-												<span class="nameUserCommit">
-													NickName
-												</span>
-												<p class="ideaCommitDetail">
-													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
-												</p>												
-											</div>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="row">
-											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
-												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
-											</div>
-											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
-												<span class="nameUserCommit">
-													NickName
-												</span>
-												<p class="ideaCommitDetail">
-													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
-												</p>												
-											</div>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="row">
-											<div class="col-sm-4 col-md-2 col-lg-1 col-xl-1 containerImgUserCommit">
-												<img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="imgUserCommentDetail">
-											</div>
-											<div class="col-sm-8 col-md-10 col-lg-11 col-xl-11">
-												<span class="nameUserCommit">
-													NickName
-												</span>
-												<p class="ideaCommitDetail">
-													Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium vitae inventore, iusto ipsa cumque laborum. Aperiam eveniet obcaecati itaque porro.
+													{{comment.Comments}}
 												</p>												
 											</div>
 										</div>

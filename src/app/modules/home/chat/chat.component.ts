@@ -65,7 +65,7 @@ export class ChatComponent implements OnInit {
   getListIdeas(): void{
     this._service.getIdeas().subscribe((data) => {
       this.ideas = data;
-      console.log("Vamos !!", data);
+      //console.log("Vamos !!", data);
     }) 
   }
   getId(i){
@@ -77,7 +77,7 @@ export class ChatComponent implements OnInit {
   getComments(): void{
     this._service.getAllComents().subscribe((data) =>{
       this.comments = data;
-      console.log(data)
+      //console.log(data)
     })
   }
   
@@ -118,7 +118,7 @@ export class ChatComponent implements OnInit {
   onSubmiComment(formValueComment:any, i){
     let idIdea = this.getId(i)
     let iddea = parseInt(idIdea)
-    console.log(iddea)
+    //console.log(iddea)
     
     const commentp = new modelComments()
     commentp.opcion = 1
@@ -202,7 +202,7 @@ export class ChatComponent implements OnInit {
     const textareaReset = document.getElementsByClassName('postNIdea')
     for(let i = 0; i < textareaReset.length; i++){
       let id = textareaReset[i].id
-      console.log(id)
+      //console.log(id)
       $("#"+id).val("")
     }
     
@@ -212,7 +212,7 @@ export class ChatComponent implements OnInit {
   popLikes(i){
     const votes: any = document.getElementsByClassName('votos')
     let myId: any = votes[i].id
-    console.log(myId)
+    //console.log(myId)
     $('#'+myId).toggle(500)
   }
   

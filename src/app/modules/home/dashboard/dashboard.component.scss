@@ -248,6 +248,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
     &.topParticipacion{
         height: 437px;
+        
     }
     &.votadas{
         height: 210px;
@@ -319,7 +320,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 }
 .sectionDashboard .containerDashboard .card .card-content .list-group-flush .list-group-item{
     border-top: 0;
-    padding: 0.4rem 1.25rem;
+    padding: 0.3rem 1.25rem;
 }
 .sectionDashboard .containerDashboard .card .card-content .containerUserTop{
     display: flex;

@@ -194,10 +194,46 @@ $radiusButtons: 50px;
                 background-color: $colorTitle;
             }
         }
+        .paginationNgx{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .pagination-previous{
+                width: 25px;
+                height: auto;
+                margin-right: 5px;
+                .arrowPrevius{
+                    transform: rotate(0.25turn);
+                    cursor: pointer;
+                    margin-bottom: 4px;
+                }
+            }
+            .current{
+                div{
+                    width: 25px;
+                    text-align: center;
+                    span{
+                        font-weight: 600;
+                        color: #111;
+                    }
+                }
+            }
+            .pagination-next{
+                width: 25px;
+                height: auto;
+                margin-left: 5px;
+                .arrowNext{
+                    transform: rotate(0.75turn);
+                    cursor: pointer;
+                    margin-bottom: 4px;
+                }
+            }
+        }
     }
     .card-columns{
         padding-left: 1rem;
-        padding-right: 1rem;
+        padding-right: 1rem; 
         .card{
             border: 1px solid #DDDDDD;
             background-color: $colorSectionWrite;

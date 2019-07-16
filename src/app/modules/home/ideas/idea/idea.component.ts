@@ -12,7 +12,7 @@ import { environment } from '../../../../../environments/environment'
 export class IdeaComponent implements OnInit {
 
     ideas:any = []
-
+    comments:any = []
     constructor(
         private ruta:ActivatedRoute,
         private _service:IdeasService
@@ -26,12 +26,15 @@ export class IdeaComponent implements OnInit {
     neu:any
     total: any  
     ngOnInit() {
+        this.getRouteId()
+        this.getIdeaDetail()  
+        this.getCommentDetail()  
+    }
+    getRouteId(){
         this.ruta.paramMap.subscribe(param => {this.id = param.get('id')
             console.log(this.id)}
         )
-        this.getIdeaDetail()  
     }
-
     getIdeaDetail(){
         this._service.id = this.id
         this._service.getIdeaDetalle().subscribe((data) => {
@@ -41,8 +44,7 @@ export class IdeaComponent implements OnInit {
             this.neg = this.ideas[0].Dislikes
             this.neu = this.ideas[0].Neutral
             this.total = (this.pos) + (this.neg) + (this.neu) 
-            //console.log(`${this.pos} ${this.neg} ${this.neu}`)
-            console.log(this.total)
+           // this.getCommentDetail()
             // Estadisticas
             const ctx = document.getElementById('myChart');
             let myChart = new Chart(ctx, {
@@ -118,9 +120,19 @@ export class IdeaComponent implements OnInit {
                     }
                 }
             });
-        })  
+            
+        })
+         
     }
-
+    getCommentDetail(){
+        this._service.getAllComents().subscribe((datac) => {
+            this.comments = datac
+            this._service.idIdeas = this.ideas[0].Id
+            console.log(datac)
+            console.log(`Comentario ${this.ideas[0].Id}`)
+            
+        })
+    }
     // Mostrar imagen de usuario
     getImgUser(id){
         return environment.endpoint + `/Image?idUsers=${id}`
