@@ -8,7 +8,7 @@ import { modelComments } from '../models/modelComments'
 import { votesModel } from '../models/modelVotes'
 import { internalIdea } from'../models/ideaInterna'
 import { environment } from '../../../../environments/environment'
-
+import { modelVotes } from '../models/votesModel'
 // interface myIdea{
 //   obj: Object
 // }
@@ -100,7 +100,7 @@ export class IdeasService {
     }
     // Todas
     getIdeasUserAll():Observable<any>{
-        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=19&rowNumber=0`)
+        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=19&rowNumber=0`) 
     }
     // Las cuatro mas votadas
     getIdeasUserMoreVotes():Observable<any>{
@@ -199,6 +199,13 @@ export class IdeasService {
     }
 
     // Peticion post votos
+    
+
+    // ********************************************************************* //
+    // ************************* Peticiones Votos ************************** //
+    // ********************************************************************* //
+
+    // Votar
     postSendVote(voting: votesModel){
         const vote = new votesModel()
         vote.opcion = voting.opcion
@@ -206,7 +213,8 @@ export class IdeasService {
         vote.idIdea = voting.idIdea
         vote.idUser = voting.idUser
         vote.voteType = voting.voteType
-
+        
+        console.log(vote)
         let headersHttp = new HttpHeaders().set('Content-Type','application/json')
         return this.http.post<any>(`${environment.endpoint}/tallerVotes`, vote, {
             headers : headersHttp,

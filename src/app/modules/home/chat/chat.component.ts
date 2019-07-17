@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { IdeasService } from './../services/ideas.service';
+import { Component, OnInit } from '@angular/core'
+import { IdeasService } from './../services/ideas.service'
 import { IdeasModel } from '../models/modelIdea'
 import { IdeasResponseModel } from '../models/modelResponseIdea'
 import { FormControl, FormGroup, FormBuilder, FormArray} from '@angular/forms'
-import { and } from '@angular/router/src/utils/collection';
-import { AngularSvgIconModule } from 'angular-svg-icon';
-import { from } from 'rxjs';
-import { modelComments } from '../models/modelComments';
-import * as $ from 'jquery';
+import { and } from '@angular/router/src/utils/collection'
+import { AngularSvgIconModule } from 'angular-svg-icon'
+import { from } from 'rxjs'
+import { modelComments } from '../models/modelComments'
+import * as $ from 'jquery'
 import { environment } from '../../../../environments/environment'
+import { modelVotes } from '../models/votesModel';
 
 declare var $:any
 
@@ -57,30 +58,17 @@ export class ChatComponent implements OnInit {
   // Formulario comentarios
   fcomentarios: FormGroup
 
+  // Variables votos
+  votePos:number
+  voteNeg:number
+  voteNeu:number
+
   constructor(private _service : IdeasService, private fidea: FormBuilder) {
 
 
   }
 
-  getListIdeas(): void{
-    this._service.getIdeas().subscribe((data) => {
-      this.ideas = data;
-      //console.log("Vamos !!", data);
-    }) 
-  }
-  getId(i){
-    let idIdeas = document.getElementsByClassName('containerIdeaCredentials')
-    let ideaId = idIdeas[i].id
-    console.log(ideaId)
-    return this._service.idIdeas = ideaId
-  }
-  getComments(): void{
-    this._service.getAllComents().subscribe((data) =>{
-      this.comments = data;
-      //console.log(data)
-    })
-  }
-  
+
   ngOnInit() {
     
     this.formulario = this.fidea.group({
@@ -92,11 +80,42 @@ export class ChatComponent implements OnInit {
     })
 
     this.getListIdeas()
-
+    
     $(function(){
-      $('[data-toggle="tooltip"]').tooltip();
+      $('[data-toggle="tooltip"]').tooltip()
     })
+    
 
+  }
+
+  // Traer todas las ideas
+  getListIdeas(){
+    this._service.getIdeas().subscribe((data) => {
+      this.ideas = data;
+      // console.log("Vamos !!", data)
+      // for(let i = 0; i < this.ideas.length; i++){
+      //   this.votePos = this.ideas[i].Likes
+      //   console.log(this.votePos)
+      // }
+    }) 
+  }
+
+  
+
+  // Asignar id de idea a parametro del servicio
+  getId(i){
+    let idIdeas = document.getElementsByClassName('containerIdeaCredentials')
+    let ideaId = idIdeas[i].id
+    console.log(ideaId)
+    return this._service.idIdeas = ideaId 
+    
+  }
+  // Traer todos los comentarios
+  getComments(): void{
+    this._service.getAllComents().subscribe((data) =>{
+      this.comments = data;
+      //console.log(data)
+    })
   }
 
   // Evento submit nueva idea
@@ -147,6 +166,7 @@ export class ChatComponent implements OnInit {
     
   }
 
+  // Animacion evntos chat de ideas 
   collapseIdea(i){
     this.getComments();
     const panelReply:any = document.getElementsByClassName('containerDisplayReply')
@@ -177,11 +197,6 @@ export class ChatComponent implements OnInit {
     }
   }
 
-  // Get one idea
-
-  // getOneIdeaDetail(): void{
-  //   this._service.getOneIdea(id).subscribe( ideas => this.ideas = ideas)
-  // }
 
   //Add comments
   addComments(i){
@@ -223,5 +238,25 @@ export class ChatComponent implements OnInit {
     let textarea = document.getElementById('postNIdea')
     let cont = $(textarea).val("")
   }
+
+  // **************************************************** //
+  // ***************** Peticiones votos ***************** //
+  // **************************************************** //
+
+  // Votar
+  addVotes(id){
+    const vote = new modelVotes()
+    vote.opcion = 1
+    vote.idVote = 0
+    vote.idIdea = id
+    vote.idUser = 19
+    vote.voteType = 1
+    
+
+    this._service.postSendVote(vote)
+    
+  }
+
 }
+
 

@@ -340,9 +340,24 @@ $colorText : #5A5858;
                     padding-right: 7px;
                 }
             }
-            img{
+            .imgUserCommentChat{
                 width: 15%;
-                height: auto;
+                display: flex;
+                justify-content: flex-start;
+                figure{
+                    height: 45px;
+                    width: 45px;
+                    background-color: #111;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
             }
         }
     }

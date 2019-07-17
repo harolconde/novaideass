@@ -120,39 +120,47 @@
                     </div>
                     <div class="row">
                         <div class="filter card-columns">
-                                <div class="cardContainerIdeadDead  card" *ngFor="let idea of ideas; index as i" >          
-                                        <div class="containerIdeaCredentials col-sm-12 col-lg-9 col-xl-9" > <!--Filter *ngIf -->
-                                            <div class="imgUserInChat" >
-                                                <img class="imgPerfilChat" src="{{getImgUser(idea.IdUsers)}}" alt="" >
-                                            </div>
-                                            <div class="containerNameVotes" >  
-                                                <h3 class="nameUserIdea">
-                                                    {{idea.Nick_name}}
-                                                </h3>
-                                                <i class="fas fa-cross"></i>
-                                            </div>
-                                            <p class="ideaMessageChatUsers ideaMessageChatUsersIdeasDead">
-                                                <a [routerLink]="['/idea', i]" class="paragraphIdea">{{idea.IdeaText}}</a>
-                                            </p>
-                                            <div class="containerDisplayReply containerDisplayReplyIdeasDead">
-                                                <h4 class="replyTitle">Comentarios
-                                                </h4>
-                                                <ul class="elementReply list-group list-group-flush">
-                                                    
-                                                </ul>
-                                            </div>
-                                            <hr>
-                                            <button class="btn btn-block btnSeeMoreMessage btnSeeMoreMessageIdeasDead" id="btnSeeMoreMessage" (click)="collapseIdea(i)">
-                                                Ver
-                                                <i class="fas fa-comment-alt answerMessage" id="answerMessage"></i>
-                                                <i class="fas fa-plus iconMoreMinus iconMoreMinusIdeasDead"></i>
-                                            </button>
-                                        </div>
+                            <div class="cardContainerIdeadDead  card" *ngFor="let idea of ideas; index as i" >          
+                                <div class="containerIdeaCredentials col-sm-12 col-lg-9 col-xl-9" id="{{idea.Id}}"> <!--Filter *ngIf -->
+                                    <div class="imgUserInChat" >
+                                            <img class="imgPerfilChat" src="{{getImgUser(idea.IdUsers)}}" alt="" >
                                     </div>
+                                    <div class="containerNameVotes" >  
+                                        <h3 class="nameUserIdea">
+                                            {{idea.Nick_name}}
+                                        </h3>
+                                        <i class="fas fa-cross"></i>
+                                    </div>
+                                    <p class="ideaMessageChatUsers ideaMessageChatUsersIdeasDead">
+                                        <a [routerLink]="['/idea', i]" class="paragraphIdea">{{idea.IdeaText}}</a>
+                                    </p>
+                                    <div class="containerDisplayReply containerDisplayReplyIdeasDead listGroupHidden" id="cd-{{idea.Id}}">
+                                        <h4 class="replyTitle">Comentarios
+                                        </h4>
+                                        <ul class="elementReply list-group list-group-flush">
+                                            <li class="list-group-item" *ngFor="let comment of comments; index as c" >
+                                                <div class="credentialsComments">
+                                                    <span class="nameUserComment"> {{comment.Nick_name}} </span>
+                                                    <p class="commentBody"> {{comment.Comments}} </p>
+                                                </div>
+                                                <div class="imgUserCommentChat">
+                                                    <figure>
+                                                        <img class="imgComment" src="{{getImgUser(comment.Id_user)}}" alt="">
+                                                    </figure>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <hr>
+                                    <button class="btn btn-block btnSeeMoreMessage btnSeeMoreMessageIdeasDead" id="btnD-{{idea.Id}}" (click)="getIdIdea(i); collapseIdea(i)">
+                                        Ver
+                                        <i class="fas fa-comment-alt answerMessage" id="answerMessage"></i>
+                                        <i class="fas fa-plus iconMoreMinus  iconMoreMinusIdeasDead" id="iDead-{{idea.Id}}"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-    
                     </div>
-                    
                 </div>
             </div>
         </div>

@@ -66,9 +66,13 @@ export class DebateComponent implements OnInit {
   showDescriptionAdd(i){
     this.getCommentsDebate()
     let panelComments = document.getElementsByClassName('listGroupHidden')
+    let btnSeeMore = document.getElementsByClassName('btnMoreDebate')
+    let btnForIdea = btnSeeMore[i].id
+    console.log(btnForIdea)
     let commentForIdea = panelComments[i].id
     if($('#'+commentForIdea).is(":visible")){
       $('#'+commentForIdea).toggle(500,function(){ 
+        document.getElementById(btnForIdea).innerText = "Ver mas "
         $(this).hide(500)
       })
     }
@@ -76,6 +80,7 @@ export class DebateComponent implements OnInit {
       $(panelComments).hide()
       $('#'+commentForIdea).toggle(500,function(){
         $(this).show(500)
+        document.getElementById(btnForIdea).innerText = "Ver menos "
       })
     }
   }

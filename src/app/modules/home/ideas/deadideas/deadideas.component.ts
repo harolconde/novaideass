@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../../services/ideas.service';
 import { environment } from '../../../../../environments/environment'
+import * as $ from 'jquery'
+declare var $:any 
 
 @Component({
   selector: 'app-deadideas',
@@ -11,7 +13,7 @@ export class DeadideasComponent implements OnInit {
 
   //Variables mostrar idea completa
   btnShowIdea:any = document.getElementsByClassName('btnSeeMoreMessageIdeasDead')
-  panelReply:any = document.getElementsByClassName('containerDisplayReplyIdeasDead')
+  
   btnMinus:any = document.getElementsByClassName('iconMoreMinusIdeasDead')
   stateCollapseAllIdea:boolean = false;
 
@@ -19,8 +21,9 @@ export class DeadideasComponent implements OnInit {
   menuComponents:boolean = false
 
   ideas:any[]
+  comments:any[]
+
   constructor(private _service:IdeasService) {
-    this.ideas = this._service.getDataIdeas()
    }
 
   ngOnInit() {
@@ -33,30 +36,38 @@ export class DeadideasComponent implements OnInit {
     })
   }
 
+  getCommentsDead(){
+    this._service.getAllComents().subscribe((data) => {
+      this.comments = data
+      console.log(data)
+    })
+  }
+
+  // Colapsar idea y mostrar comentario
   collapseIdea(i){
-    if(this.stateCollapseAllIdea == false){
-      this.panelReply[i].style.display = 'flex'
-      this.panelReply[i].style.transition = 'display 500ms ease-in'
-      this.btnShowIdea[i].style.backgroundColor = '#f1f1f1'
-      this.btnShowIdea[i].style.fontWeight = '600'
-      this.btnShowIdea[i].style.border = '1px solid #ddd'
-      this.btnShowIdea[i].style.borderRadius = '22px'
-      this.btnShowIdea[i].style.transition = 'all 700ms linear'
-      this.btnMinus[i].classList.remove('fa-plus')
-      this.btnMinus[i].classList.add('fa-minus')
-      this.stateCollapseAllIdea = true
+    this.getCommentsDead()
+    //let panelCommentsList = document.getElementsByClassName('listGroupHidden')
+    let panelReplyDead = document.getElementsByClassName('containerDisplayReplyIdeasDead')
+    let btnSeeMoreDead = document.getElementsByClassName('btnSeeMoreMessageIdeasDead')
+    let btnForIdea = btnSeeMoreDead[i].id
+    let panelComments = panelReplyDead[i].id
+    let plusDead = document.getElementsByClassName('iconMoreMinusIdeasDead')
+    let iPlusDead = `${plusDead[i].id}`
+    console.log(btnForIdea)
+    if($('#'+panelComments).is(":visible")){
+      $('#'+panelComments).toggle(500,function(){ 
+        $(this).hide(500)
+        $('#'+iPlusDead).removeClass("fa-minus")
+        $('#'+iPlusDead).addClass("fa-plus")
+      })
     }
     else{
-      this.panelReply[i].style.display = 'none'
-      this.panelReply[i].style.transition = 'display 500ms ease-in-out'
-      this.btnShowIdea[i].style.backgroundColor = '#fafafa'
-      this.btnShowIdea[i].style.fontWeight = '400'
-      this.btnShowIdea[i].style.border= '1px solid transparent'
-      this.btnShowIdea[i].style.borderRadius = '5px'
-      this.btnShowIdea[i].style.transition = 'all 700ms linear'
-      this.btnMinus[i].classList.remove('fa-minus')
-      this.btnMinus[i].classList.add('fa-plus')
-      this.stateCollapseAllIdea = false
+      $(panelReplyDead).hide()
+      $('#'+panelComments).toggle(500,function(){
+        $(this).show(500)
+        $('#'+iPlusDead).removeClass("fa-plus")
+        $('#'+iPlusDead).addClass("fa-minus")
+      })
     }
   }
 
@@ -65,8 +76,17 @@ export class DeadideasComponent implements OnInit {
     this.menuComponents =! this.menuComponents
   }
 
-  // Get imagen usuario
+  // Obtener imagen usuario
   getImgUser(id){
     return environment.endpoint + `/Image?idUsers=${id}`
   }
+
+  // Obtener id de la idea
+  getIdIdea(i){
+    const idIdea = document.getElementsByClassName('containerIdeaCredentials')
+    let id = idIdea[i].id
+    return this._service.idIdeas = id
+  }
+
+
 }

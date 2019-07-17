@@ -318,6 +318,12 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     display: flex;
     align-content: center;
     align-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #111;
+    img{
+        width: 100%;
+    }
 }
 .filterAddIdeasDead .filter .containerIdeaCredentials .imgUserInChatt img{
     width: 98% !important;
@@ -359,6 +365,32 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     height: auto;
     padding: 10px 0px 10px 0px;
     border-top: 1px dotted #ddd;
+    .elementReply{
+        .list-group-item{
+            display: flex;
+            padding-left: 0;
+            padding-right: 0;
+            .credentialsComments{
+                width: 80%;
+            }
+            .imgUserCommentChat{
+                width: 20%;
+                figure{
+                    width: 45px;
+                    height: 45px;
+                    background-color: #111;
+                    border-radius: 50px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }
 .filterAddIdeasDead .containerIdeaCredentials .containerDisplayReply .replyTitle{
     font-size: .8rem;
