@@ -62,6 +62,7 @@ export class ChatComponent implements OnInit {
   votePos:number
   voteNeg:number
   voteNeu:number
+  response:any
 
   constructor(private _service : IdeasService, private fidea: FormBuilder) {
 
@@ -81,18 +82,15 @@ export class ChatComponent implements OnInit {
 
     this.getListIdeas()
     
-    $(function(){
-      $('[data-toggle="tooltip"]').tooltip()
-    })
     
-
+    
   }
 
   // Traer todas las ideas
   getListIdeas(){
     this._service.getIdeas().subscribe((data) => {
       this.ideas = data;
-      // console.log("Vamos !!", data)
+      console.log("Vamos !!", data)
       // for(let i = 0; i < this.ideas.length; i++){
       //   this.votePos = this.ideas[i].Likes
       //   console.log(this.votePos)
@@ -230,7 +228,21 @@ export class ChatComponent implements OnInit {
     //console.log(myId)
     $('#'+myId).toggle(500)
   }
-  
+
+  // Toast
+  hideToast(i){
+    let toasts = document.getElementsByClassName('containerToast')
+    let idToast = toasts[i].id
+    $('#'+idToast).fadeToggle()
+    // $('#'+idToast).animate({
+    //   top: "80",
+    //   height: "toggle"
+      
+    // },{
+    //   queue: true,
+    //   duration: 500
+    // }) 
+  }
   // Nuevo comentario
   newIdea(){
     this.generateIdea = ! this.generateIdea
@@ -244,19 +256,60 @@ export class ChatComponent implements OnInit {
   // **************************************************** //
 
   // Votar
-  addVotes(id){
+  // Postivos
+  addVotesPos(id, i){
+    let toasts = document.getElementsByClassName('toast')
     const vote = new modelVotes()
     vote.opcion = 1
     vote.idVote = 0
     vote.idIdea = id
     vote.idUser = 19
     vote.voteType = 1
-    
 
     this._service.postSendVote(vote)
-    
+    this.response = this._service.resp
+    console.log(this.response)
+    if(this.response = 1){
+      this.hideToast(i)
+    }
+  }
+
+  // Negativos
+  addVotesNeg(id, i){
+    const vote = new modelVotes()
+    vote.opcion = 1
+    vote.idVote = 0
+    vote.idIdea = id
+    vote.idUser = 19
+    vote.voteType = 2 
+
+    this._service.postSendVote(vote)
+    this.response = this._service.resp
+    console.log(this.response)
+    if(this.response = 1){
+      this.hideToast(i)
+    }
+  }
+
+  // Neutrales
+  addVotesNeu(id, i){
+    const vote = new modelVotes()
+    vote.opcion = 1
+    vote.idVote = 0
+    vote.idIdea = id
+    vote.idUser = 19
+    vote.voteType = 3
+
+    this._service.postSendVote(vote)
+    this.response = this._service.resp
+    console.log(this.response)
+    if(this.response = 1){
+      this.hideToast(i)
+    }
   }
 
 }
-
-
+$(function(){
+  
+  $('[data-toggle="tooltip"]').tooltip()
+})

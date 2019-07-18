@@ -158,31 +158,31 @@ export class DashboardComponent implements OnInit {
                 label: '',
                     data: [this.lastFourIdeasVotes[2].Votos,4,0],
                     backgroundColor: [
-                        'rgba(138,221,45,1)',
+                        'rgba(138,221,45,0.5)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(255, 206, 86, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(138,221,45,0.6)',
+                        'rgba(138,221,45,1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 2
                 },
                 {
                 label: '',
                     data: [this.lastFourIdeasVotes[3].Votos,4,7],
                     backgroundColor: [
-                        'rgba(178,255,89,0.8)',
+                        'rgba(198, 255, 0, 0.7)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(255, 206, 86, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(178,255,89,1)',
+                        'rgba(198, 255, 0, 1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 2
                 }
             ]
             },

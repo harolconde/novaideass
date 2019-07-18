@@ -185,7 +185,7 @@ $colorText : #5A5858;
     border-style: solid;
     border-color: transparent #fafafa;
     left: -14px;
-    z-index: 1000;
+    z-index: 999;
     top: 8px;
 }
 .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials::before{
@@ -198,7 +198,7 @@ $colorText : #5A5858;
     border-style: solid;
     border-color: transparent rgba(0, 0, 0, 0.3);
     left: -15px;
-    z-index: 1000;
+    z-index: 999;
     top: 8px;
 }
 .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .imgUserInChat{
@@ -281,6 +281,71 @@ $colorText : #5A5858;
         width: 100%;
         padding: 0;
     }
+    .response{
+        display: none;
+    }
+    .containerToast{
+        position: absolute;
+        min-height: auto;
+        z-index: 1001;
+        top: 107%;
+        min-height: auto;
+        width: 100%;
+        right: 0;
+        display: none;
+        .toast{
+            position: relative;
+            opacity: 1;
+            .toast-header{
+                padding: 0.5rem 0.75rem;
+                display: flex;
+                align-items: center;
+                .imgToast{
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color:$colorBtn;
+                    border-radius: 50%;
+                    border: 1px solid rgba(0,0,0,0.125);
+                    img{
+                        width: 75%;
+                        margin-right: 0 !important;
+                    }
+                }
+                strong{
+                    margin-left: 5px;
+                    height: 11px;
+                }
+            }
+            .toast-body{
+                p{
+                    font-weight: 500;
+                    color: $colorText;
+                }
+            }
+            .toast-footer{
+                display: flex;
+                justify-content: space-between;
+                padding: .2rem 0.8rem;
+                .btn{
+                    background-color: transparent;
+                    border: none;
+                    &.btnEdit{
+                        i{
+                            color: #63C533;
+                        }
+                    }
+                    &.btnDelete{
+                        i{
+                            color: #d32f2f;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 .containerChatIdeas .row .containerMessageIdeas .contenedor .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .votos .upButton{
     height: auto;
@@ -345,8 +410,8 @@ $colorText : #5A5858;
                 display: flex;
                 justify-content: flex-start;
                 figure{
-                    height: 45px;
-                    width: 45px;
+                    height: 30px;
+                    width: 30px;
                     background-color: #111;
                     border-radius: 50%;
                     overflow: hidden;

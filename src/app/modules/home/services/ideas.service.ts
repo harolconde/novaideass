@@ -19,6 +19,7 @@ import { modelVotes } from '../models/votesModel'
 export class IdeasService {
     ideas:any[]
     public id:any
+    resp:any
     
     // Nombre de controladores
     public nameController:string = 'dashboard1'
@@ -150,8 +151,8 @@ export class IdeasService {
         this.http.post(`http://172.65.10.170:8050/Help/Api/POST-api-SendMail`,dataInterna,{
             headers : headersHTTP,
             observe: 'response'
-        }).subscribe(resp => {
-            console.log(resp)
+        }).subscribe( resp => {
+            console.log(resp) 
         })
     }
 
@@ -221,6 +222,22 @@ export class IdeasService {
             observe : 'response'
         }).subscribe((resp) => {
             console.log(resp)
+            return this.resp = resp.body
+        })
+    }
+    // Update Voto
+    putSendVote(votingUpd: votesModel){
+        const voteUpd = new votesModel()
+        voteUpd.opcion = votingUpd.opcion
+        voteUpd.idVote = votingUpd.idVote
+        voteUpd.idIdea = votingUpd.idIdea
+        voteUpd.idUser = votingUpd.idUser
+        voteUpd.voteType = votingUpd.voteType
+
+        let headersHTTP = new HttpHeaders().set('Content-Type','application/json')
+        return this.http.put(`${environment.endpoint}/tallerVotes`, voteUpd,{
+            headers : headersHTTP,
+            observe : 'response' 
         })
     }
 }
