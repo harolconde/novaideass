@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from './../../services/ideas.service';
 import { environment } from '../../../../../environments/environment'
-
+import * as $ from 'jquery'
+declare var $:any
 
 export interface myIdeaAll{
   obj : Object;
@@ -30,6 +31,7 @@ export class AllideasComponent implements OnInit {
   menuComponents:boolean = false
 
   ideas:any[]
+  comments:any[]
   constructor(private _service:IdeasService) {
 
    }
@@ -47,34 +49,44 @@ export class AllideasComponent implements OnInit {
     console.log(texto)
   }
 
-  collapseIdea(i){
-    if(this.stateCollapseAllIdea == false){
-      this.textCollapse[i].style.whiteSpace = "normal"
-      this.textCollapse[i].style.transitionDuration = "0.5s"
-      this.panelReply[i].style.display = 'flex'
-      this.panelReply[i].style.transition = 'all 500ms linear'
-      this.btnShowIdea[i].style.backgroundColor = '#f1f1f1'
-      this.btnShowIdea[i].style.fontWeight = '600'
-      this.btnShowIdea[i].style.border = '1px solid #ddd'
-      this.btnShowIdea[i].style.borderRadius = '22px'
-      this.btnShowIdea[i].style.transition = 'all 700ms linear'
-      this.btnMinus[i].classList.remove('fa-plus')
-      this.btnMinus[i].classList.add('fa-minus')
-      this.stateCollapseAllIdea = true
+  // Asignar id de idea a parametro del servicio
+  getId(i){
+    let idIdeas = document.getElementsByClassName('containerIdeaCredentials')
+    let ideaId = idIdeas[i].id
+    console.log(ideaId)
+    return this._service.idIdeas = ideaId 
+    
+  }
+
+
+  // Animacion evntos chat de ideas 
+  collapseIdeaAll(i){
+    this.getComments();
+    const panelReplyAll:any = document.getElementsByClassName('containerDisplayReplyAllIdeas')
+    const idIdeaCollapseAll:any = document.getElementById(this.textCollapse[i].id)
+    const idPanelAll:any = panelReplyAll[i].id
+    let butAll = document.getElementsByClassName('btnSeeMoreMessageAllIdeas')
+    let idbutton = butAll[i].id
+    let plusAll = document.getElementsByClassName('iconMoreMinusAllIdeas')
+    let iPlusAll = `${plusAll[i].id}`
+    
+    if($('#'+idPanelAll).is(":visible")){
+      
+      $('#'+idPanelAll).toggle("swing",function(){
+        $(this).hide(500)
+        $('#'+iPlusAll).removeClass("fa-minus")
+        $('#'+iPlusAll).addClass("fa-plus")
+      })
     }
     else{
-      this.textCollapse[i].style.whiteSpace = "nowrap"
-      this.textCollapse[i].style.transitionDuration = "0.5s"
-      this.panelReply[i].style.display = 'none'
-      this.panelReply[i].style.transition = 'all 500ms linear'
-      this.btnShowIdea[i].style.backgroundColor = '#fafafa'
-      this.btnShowIdea[i].style.fontWeight = '400'
-      this.btnShowIdea[i].style.border= '1px solid transparent'
-      this.btnShowIdea[i].style.borderRadius = '5px'
-      this.btnShowIdea[i].style.transition = 'all 700ms linear'
-      this.btnMinus[i].classList.remove('fa-minus')
-      this.btnMinus[i].classList.add('fa-plus')
-      this.stateCollapseAllIdea = false
+      $(panelReplyAll).hide()
+      $('#'+iPlusAll).removeClass("fa-minus")
+      $(plusAll).addClass("fa-plus")
+      $('#'+idPanelAll).toggle("swing",function(){
+        $(this).show(500)
+        $('#'+iPlusAll).removeClass("fa-plus")
+        $('#'+iPlusAll).addClass("fa-minus")
+      })
     }
   }
 
@@ -86,5 +98,20 @@ export class AllideasComponent implements OnInit {
   // Get imagen de usuario
   getImgUser(id){
     return environment.endpoint + `/Image?idUsers=${id}`
+  }
+
+  // Get comentarios ideas
+  getComments():void{
+    this._service.getAllComents().subscribe((data) =>{
+      this.comments = data;
+      //console.log(data)
+    })
+  }
+  // Popover votos
+  popLikesAll(i){
+    const votes: any = document.getElementsByClassName('votosAll')
+    let myId: any = votes[i].id
+    //console.log(myId)
+    $('#'+myId).toggle(500)
   }
 }

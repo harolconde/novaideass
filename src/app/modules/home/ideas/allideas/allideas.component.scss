@@ -266,9 +266,13 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     display: flex;
     align-content: center;
     align-items: center;
+    border-radius: 50px;
+    background-color: rgba(0,0,0,0.125);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.125)
 }
 .filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .imgUserInChat img{
-    width: 98%;
+    width: 100%;
 } 
 .filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes{
     width: 100%;
@@ -297,11 +301,33 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 .filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark{
     width: auto;
     height: auto;
+    .votos{
+        width: auto;
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 30px;
+        background-color: #fff;
+        border: 1px solid rgba(0,0,0,0.125);
+        border-radius: 5px;
+        padding: .4rem .9rem .4rem .4rem;
+        z-index: 1000;
+        .upButton{
+            display: flex;
+            align-items: center;
+            list-style: none;
+            img{
+                width: 65px;
+                height: 65px;
+            }
+        }
+    }
 }
 .filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .contentBtnMyHeart{
     display: flex;
     align-items: center;
     list-style: none;
+    justify-content: flex-end;
 }
 .filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerNameVotes .nameUserIdea .containerBtnsLikesDslike .listIconsMessage .btnLikeMyHeark .contentBtnMyHeart li{
 
