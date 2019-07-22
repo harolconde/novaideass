@@ -13,6 +13,8 @@ export class IdeaComponent implements OnInit {
 
     ideas:any = []
     comments:any = []
+    menu:boolean = false
+
     constructor(
         private ruta:ActivatedRoute,
         private _service:IdeasService
@@ -138,6 +140,10 @@ export class IdeaComponent implements OnInit {
         return environment.endpoint + `/Image?idUsers=${id}`
     }
 
+    // Menu mostrar ocultar
+    showMenu(){
+        this.menu =! this.menu
+    }
     
   
 }

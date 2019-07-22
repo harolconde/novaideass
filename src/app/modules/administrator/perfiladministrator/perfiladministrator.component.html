@@ -42,68 +42,20 @@
 								</div>
 								<div class="card-body">
 									<ul class="list-group list-group-flush">
-										<li class="list-group-item">
+										<li class="list-group-item" *ngFor="let ideaVote of ideasMoreVotes; index as i">
 											<div class="containerUserTop imgUserIdeaTop">
 												<div class="imgUserTop">
 													<img [src]="'assets/img/icons/dashboard/idea.svg'" alt="">
 												</div>
 												<div class="topParticipation topIdeaPercentage">
 													<div class="topParticipationNamePercentage topParticipationIdeaPercentage">
-														<span class="nameUserTop contentIdeaTop">
-															Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam recusandae eum error quaerat aliquid beatae eligendi ex sunt inventore voluptates.
-														</span>
-														<span class="percentage percentagetIdeaTop">85%</span>
+														<p class="nameUserTop contentIdeaTop">
+															{{ideaVote.IdeasDTO.IdeaText}}
+														</p>
+														<span class="percentage percentagetIdeaTop">{{ideaVote.CountIdeasVotadas}}</span>
 													</div>
 													<div class="progress">
-														<div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</div>
-											</div> 
-										</li>
-										<li class="list-group-item">
-											<div class="containerUserTop">
-												<div class="imgUserTop imgUserIdeaTop">
-													<img [src]="'assets/img/icons/dashboard/idea.svg'" alt="">
-												</div>
-												<div class="topParticipation">
-													<div class="topParticipationNamePercentage">
-																<span class="nameUserTop contentIdeaTop">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa a pariatur iusto repudiandae. Ipsum, sequi? Quia tempore nostrum nulla omnis rem quis voluptates alias enim.</span>
-																<span class="percentage percentagetIdeaTop">75%</span>
-													</div>
-													<div class="progress">
-														<div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</div>
-											</div> 
-										</li>
-										<li class="list-group-item">
-											<div class="containerUserTop">
-												<div class="imgUserTop imgUserIdeaTop">
-													<img [src]="'assets/img/icons/dashboard/idea.svg'" alt="">
-												</div>
-												<div class="topParticipation">
-													<div class="topParticipationNamePercentage">
-														<span class="nameUserTop contentIdeaTop">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ducimus perspiciatis voluptatibus reprehenderit, corporis numquam ex laudantium aut doloremque exercitationem amet explicabo quidem hic corrupti reiciendis atque, vitae magni obcaecati?</span>
-															<span class="percentage percentagetIdeaTop">70%</span>
-													</div>
-													<div class="progress">
-														<div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-													</div>
-												</div>
-											</div> 
-										</li>
-										<li class="list-group-item">
-											<div class="containerUserTop">
-												<div class="imgUserTop imgUserIdeaTop">
-													<img [src]="'assets/img/icons/dashboard/idea.svg'" alt="">
-												</div>
-												<div class="topParticipation">
-													<div class="topParticipationNamePercentage">
-														<span class="nameUserTop contentIdeaTop">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, corporis.</span>
-														<span class="percentage percentagetIdeaTop">60%</span>
-													</div>
-													<div class="progress">
-														<div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+														<div class="progress-bar" role="progressbar" [ngStyle]="{'width': ideaVote.CountIdeasVotadas +'%'}" aria-valuenow="20" aria-valuemin="0" aria-valuemax="20"></div>
 													</div>
 												</div>
 											</div> 
@@ -120,32 +72,11 @@
 								<div class="card-body">
 									<div class="">
                                         <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
+                                            <li class="list-group-item" *ngFor="let myIdeaFour of ideasLastFourUser; index as i">
                                                 <span class="spinnerIdea">.</span>
-                                                <span class="contenIdeaText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, est!</span>
+                                                <span class="contenIdeaText">{{myIdeaFour.IdeasDTO.IdeaText}}</span>
                                                 <div class="contentIconIdeaText">
-                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <span class="spinnerIdea">.</span>
-                                                <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, vel rerum cum tempore inventore vitae.</span>
-                                                <div class="contentIconIdeaText">
-                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <span class="spinnerIdea">.</span>
-                                                <span class="contenIdeaText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem dolore consequuntur provident fuga eos, magni aliquid. Minima rem iure provident saepe vero mollitia autem voluptate.</span>
-                                                <div class="contentIconIdeaText">
-                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <span class="spinnerIdea">.</span>
-                                                <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias beatae provident illum eveniet voluptates rerum tempora odio? Quam, exercitationem voluptate?</span>
-                                                <div class="contentIconIdeaText">
-                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                    <button class="btnIconIdeaText" [routerLink]="['/idea', myIdeaFour.IdeasDTO.IdIdeas]"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
                                                 </div>
                                             </li>
                                         </ul>
@@ -164,32 +95,11 @@
 								<div class="card-body">
 									<div class="">
                                         <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
+                                            <li class="list-group-item" *ngFor="let commentUser of commentsLastFourUser; index as c">
                                                 <span class="spinnerIdea">.</span>
-                                                <span class="contenIdeaText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, est!</span>
+                                                <span class="contenIdeaText">{{commentUser.CommentsDTO.Comment}}</span>
                                                 <div class="contentIconIdeaText">
-                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <span class="spinnerIdea">.</span>
-                                                <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, vel rerum cum tempore inventore vitae.</span>
-                                                <div class="contentIconIdeaText">
-                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <span class="spinnerIdea">.</span>
-                                                <span class="contenIdeaText">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem dolore consequuntur provident fuga eos, magni aliquid. Minima rem iure provident saepe vero mollitia autem voluptate.</span>
-                                                <div class="contentIconIdeaText">
-                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <span class="spinnerIdea">.</span>
-                                                <span class="contenIdeaText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias beatae provident illum eveniet voluptates rerum tempora odio? Quam, exercitationem voluptate?</span>
-                                                <div class="contentIconIdeaText">
-                                                    <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
+                                                    <button class="btnIconIdeaText" [routerLink]="['/idea', commentUser.IdeasDTO.IdIdeas]"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt=""></button>
                                                 </div>
                                             </li>
                                         </ul>
@@ -297,3 +207,77 @@
 		</div>
 	</div>
 </section>
+
+ <!-- Modal cambio imagen -->
+ <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Selecciona un nuevo avatar o sube una foto.</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelSelectIdea()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="containerImgsUserSelection">
+						<div class="titleModalBody">
+							<span>- Selecciona alguno de los avatares que tenemos disponibles.</span>
+						</div>
+						<div class="imgPerfilSelected" > 
+							<div class="imgSelected" (click)="getNameImg(id)" id="img1" *ngFor="let img of imgs; index as i">
+								<img src="{{img.source}}" alt="" class="imgSelectChange" [id]="img.id">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="exampleRadios" [id]="img.id" value="option1">
+								</div>
+							</div>
+							<!-- <div class="imgSelected" (click)="getNameImg(id)" id="img2">
+								<img [src]="'/images/03.svg'" alt="" class="imgSelectChange" id="03">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+								</div>
+							</div>
+							<div class="imgSelected" (click)="getNameImg(id)" id="img03">
+								<img [src]="'/images/04.svg'" alt="" class="imgSelectChange" id="04">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+								</div>
+							</div>
+							<div class="imgSelected" (click)="getNameImg(id)" id="img04">
+								<img [src]="'/images/01.svg'" alt="" class="imgSelectChange" id="01">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+								</div>
+							</div>
+							<div class="imgSelected" (click)="getNameImg(id)" id="img05">
+								<img [src]="'/images/02.svg'" alt="" class="imgSelectChange" id="02">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+								</div>
+							</div> -->
+						</div>
+						<div class="titleModalBody">
+							<span>- Sube una imagen.</span> 
+						</div>
+						<div class="imgUpload">
+							<div class="containerImgUpload" id="containerImgUpload">
+								<img id="upload" [src]="imgSrc"  alt="">
+							</div>
+							<div class="containerBtnUpload">
+								<input type="file"  id="imgUpload" class="inputUpload"  accept="image/*" (change)="selectImg($event.target.files);">
+								<label for="imgUpload">
+									<!-- <button class="btn btn-secondary btn-lg btnUpload">
+										<span>Subir archivo</span>
+									</button> -->
+									<span class="btn btn-secondary btn-lg btnUpload">Subir archivo</span>
+								</label> 
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary btnModal btnCancel" data-dismiss="modal" (click)="cancelSelectIdea()">Cancelar</button>
+					<button type="button" class="btn btn-primary btnModal btnSave" (click)="getMimeType()">Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>

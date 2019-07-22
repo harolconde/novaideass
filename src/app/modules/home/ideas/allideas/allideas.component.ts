@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IdeasService } from './../../services/ideas.service';
 import { environment } from '../../../../../environments/environment'
 import * as $ from 'jquery'
@@ -32,6 +32,12 @@ export class AllideasComponent implements OnInit {
 
   ideas:any[]
   comments:any[]
+
+  // Paginaction
+  @Input() id: string;
+  @Input() maxSize: number;
+  @Output() pageChange: EventEmitter<number>;
+
   constructor(private _service:IdeasService) {
 
    }
@@ -42,6 +48,7 @@ export class AllideasComponent implements OnInit {
    }
   ngOnInit() {
     this.getDataAllIdeas()
+    this.pageChange = new EventEmitter(true)
   }
   filterIdeas(){
     let texto = this.inputFilter.value.toLowerCase()
@@ -51,10 +58,10 @@ export class AllideasComponent implements OnInit {
 
   // Asignar id de idea a parametro del servicio
   getId(i){
-    let idIdeas = document.getElementsByClassName('containerIdeaCredentials')
+    const idIdeas = document.getElementsByClassName('containerIdeaCredentialsAll')
     let ideaId = idIdeas[i].id
     console.log(ideaId)
-    return this._service.idIdeas = ideaId 
+    this._service.idIdeas = ideaId 
     
   }
 
@@ -70,22 +77,23 @@ export class AllideasComponent implements OnInit {
     let plusAll = document.getElementsByClassName('iconMoreMinusAllIdeas')
     let iPlusAll = `${plusAll[i].id}`
     
-    if($('#'+idPanelAll).is(":visible")){
-      
+    if($(idPanelAll).is(":visible")){
       $('#'+idPanelAll).toggle("swing",function(){
         $(this).hide(500)
         $('#'+iPlusAll).removeClass("fa-minus")
         $('#'+iPlusAll).addClass("fa-plus")
+        //console.log('inviisible')
       })
     }
     else{
       $(panelReplyAll).hide()
-      $('#'+iPlusAll).removeClass("fa-minus")
+      $(plusAll).removeClass("fa-minus")
       $(plusAll).addClass("fa-plus")
-      $('#'+idPanelAll).toggle("swing",function(){
+      $('#'+idPanelAll).toggle("swing",function(){  
         $(this).show(500)
         $('#'+iPlusAll).removeClass("fa-plus")
         $('#'+iPlusAll).addClass("fa-minus")
+        //console.log('viisible')
       })
     }
   }
@@ -104,7 +112,7 @@ export class AllideasComponent implements OnInit {
   getComments():void{
     this._service.getAllComents().subscribe((data) =>{
       this.comments = data;
-      //console.log(data)
+      console.log(data)
     })
   }
   // Popover votos

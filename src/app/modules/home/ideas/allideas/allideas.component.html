@@ -108,62 +108,97 @@
 <section class="filterAddIdeas">
     <div class="container"> 
         <div class="row">
-            <div class="col-sm-12 col-lg-12 col-xl-12 filter">
-                <div class="allIdeasContent row card-columns" >
-                    <div class="containerIdeaCredentials col-sm-12 col-lg-3 col-xl-3 card" *ngFor="let idea of ideas; index as i" id="{{idea.Id}}">
-                        <div class="imgUserInChat">
-                            <img src="{{getImgUser(idea.IdUsers)}}" alt="">
-                        </div>
-                        <div class="containerNameVotes">
-                            <h3 class="nameUserIdea">{{idea.Nick_name}}
-                                <ul class="containerBtnsLikesDslike">
-                                    <li class="listIconsMessage">
-                                        <div class="btnLikeMyHeark" >
-                                            <ul class="contentBtnMyHeart" >
-                                                <li>
-                                                    <img [src]="'assets/img/icons/chat/myHeart.svg'" alt="" data-toggle="tooltip" data-placement="top" title="Votos"  (click)="popLikesAll(i)"  class="imgHeart">
-                                                    <span> {{idea.Total}} </span>
-                                                </li>
-                                            </ul>
-                                            <ul class="votos votosAll"   id="vAll-{{idea.Id}}">
-                                                <li class="upButton">
-                                                    <img [src]="'assets/img/icons/chat/hapy.svg'" alt="">
-                                                    <span>{{idea.Likes}}</span>
-                                                </li>
-                                                <li class="upButton">
-                                                    <img [src]="'assets/img/icons/chat/sad.svg'" alt="">
-                                                    <span>{{idea.Dislikes}}</span>
-                                                </li>
-                                                <li class="upButton">
-                                                    <img [src]="'assets/img/icons/chat/mee.svg'" alt="">
-                                                    <span>{{idea.Neutral}}</span>
-                                                </li>
-                                            </ul>
+            <div class="filter card-columns">
+                <div class="allIdeasContent " >
+                    <div class="card" *ngFor="let idea of ideas |  paginate: { itemsPerPage: 12, currentPage: p }; index as i">
+                        <div class="containerIdeaCredentials containerIdeaCredentialsAll col-sm-22 col-lg-9 col-xl-9" id="{{idea.Id}}">
+                            <div class="imgUserInChat">
+                                <img src="{{getImgUser(idea.IdUsers)}}" alt="">
+                            </div>
+                            <div class="containerNameVotes">
+                                <h3 class="nameUserIdea">{{idea.Nick_name}}
+                                    <ul class="containerBtnsLikesDslike">
+                                        <li class="listIconsMessage">
+                                            <div class="btnLikeMyHeark" >
+                                                <ul class="contentBtnMyHeart" >
+                                                    <li>
+                                                        <img [src]="'assets/img/icons/chat/myHeart.svg'" alt="" data-toggle="tooltip" data-placement="top" title="Votos"  (click)="popLikesAll(i)"  class="imgHeart">
+                                                        <span> {{idea.Total}} </span>
+                                                    </li>
+                                                </ul>
+                                                <div class="votos votosAll"   id="vAll-{{idea.Id}}">
+                                                    <ul class="containerNameVotos">
+                                                        <li class="upButton">
+                                                            <img [src]="'assets/img/icons/chat/hapy.svg'" alt="">
+                                                            <span>{{idea.Likes}}</span>
+                                                        </li>
+                                                        <li class="upButton">
+                                                            <img [src]="'assets/img/icons/chat/sad.svg'" alt="">
+                                                            <span>{{idea.Dislikes}}</span>
+                                                        </li>
+                                                        <li class="upButton">
+                                                            <img [src]="'assets/img/icons/chat/mee.svg'" alt="">
+                                                            <span>{{idea.Neutral}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </h3>
+                            </div>
+                            <p class="ideaMessageChatUsers ideaMessageChatUsersAllIdeas">
+                                <a [routerLink]="['/idea', idea.Id]" class="paragraphIdea">{{idea.IdeaText}}</a>
+                            </p>
+                            <div class="containerDisplayReply containerDisplayReplyAllIdeas" id="cdra-{{idea.Id}}">
+                                <h4 class="replyTitle">Comentarios
+                                    <span class="btnAddNewReply" >
+                                        <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="left" title="Agregar respuesta"></i>
+                                    </span>
+                                </h4>
+                                <ul class="elementReply list-group list-group-flush">
+                                    <li class="list-group-item" *ngFor="let commentAll of comments; index as c">
+                                        <div class="containerCommentAll">
+                                            <p class="commentAll">
+                                                {{commentAll.Comments}}
+                                            </p>
+                                        </div>
+                                        <div class="containerCommentImgAll">
+                                            <div class="img">
+                                                <img src="{{getImgUser(commentAll.Id_user)}}" alt="">
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>
-                            </h3>
+                            </div>
+                            <button class="btn btn-block btnSeeMoreMessage btnSeeMoreMessageAllIdeas" id="btnSeeMoreMessage btnSeeMoreMessageAllIdeas" (click)="getId(i); collapseIdeaAll(i)" (load)="getId(i)">
+                                Ver
+                                <i class="fas fa-comment-alt answerMessage" id="answerMessage"></i>
+                                <i class="fas fa-plus iconMoreMinus iconMoreMinusAllIdeas" id="iCdra-{{idea.Id}}"></i>
+                            </button> 
                         </div>
-                        <p class="ideaMessageChatUsers ideaMessageChatUsersAllIdeas">
-                            <a [routerLink]="['/idea', idea.Id]" class="paragraphIdea">{{idea.IdeaText}}</a>
-                        </p>
-                        <div class="containerDisplayReply containerDisplayReplyAllIdeas">
-                            <h4 class="replyTitle">Comentarios
-                                <span class="btnAddNewReply" >
-                                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="left" title="Agregar respuesta"></i>
-                                </span>
-                            </h4>
-                            <ul class="elementReply list-group list-group-flush">
-                                
-                            </ul>
-                        </div>
-                        <button class="btn btn-block btnSeeMoreMessage btnSeeMoreMessageAllIdeas" id="btnSeeMoreMessage btnSeeMoreMessageAllIdeas" (click)="collapseIdeaAll(i)">
-                            Ver
-                            <i class="fas fa-comment-alt answerMessage" id="answerMessage"></i>
-                            <i class="fas fa-plus iconMoreMinus iconMoreMinusAllIdeas"></i>
-                        </button>
                     </div> 
                 </div>
+            </div>
+            <div class="paginationAllIdeas">
+                <pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event" class="paginationNgx">
+                    <div class="pagination-previous" [class.disabled]="p1.isFirstPage()">
+                        <a *ngIf="!p1.isFirstPage()" (click)="p1.previous()" class="arrowPagination arrowPrevius"> <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt=""> </a>
+                    </div>
+                    
+                    <div *ngFor="let page of p1.pages" [class.current]="p1.getCurrent() === page.value">
+                        <a (click)="p1.setCurrent(page.value)" *ngIf="p1.getCurrent() !== page.value">
+                            <span>{{ page.label }}</span>
+                        </a>
+                        <div *ngIf="p1.getCurrent() === page.value">
+                            <span>{{ page.label }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pagination-next" [class.disabled]="p1.isLastPage()">
+                        <a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext">  <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt=""></a>
+                    </div>
+                </pagination-template>
             </div>
         </div>
     </div>

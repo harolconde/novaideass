@@ -153,10 +153,15 @@
                         </div>
                         <div class="card-footer">
                             <div class="imgUserIdeaFinish">
-                                <img src="{{getImgUser(ideaLast.IdUsers)}}" alt="">
+                                <div class="contentImgUserLastFinish">
+                                    <img src="{{getImgUser(ideaLast.IdUsers)}}" alt="">
+                                </div>
                             </div>
                             <div class="nameUserIdeaFinish">
                                 <span>{{ideaLast.Nick_name}}</span>
+                                <button class="btn btnSeeMoreLiFinish" [routerLink]="['/idea', ideaLast.Id]">
+                                    <span>Ver más</span>
+                                </button> 
                             </div>
                         </div>
                     </div>

@@ -52,6 +52,14 @@ $grid-breakpoints: (
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon{
     margin-top: .8rem;
+    .card-body{
+        .list-group-flush{
+            width: 100%;
+            .list-group-item{
+                padding: 0.17rem 1.25rem;
+            }
+        }
+    }
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .containerCardsPerfilAdmon .containerCardMisIdeasPostuladas{
     padding-right: 0;
@@ -201,7 +209,7 @@ $grid-breakpoints: (
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item{
     border-top: 0;
-    padding: 0.4rem 1.25rem;
+    padding: 0.17rem 1.25rem;
     @include responsive-mobile{
         padding-left: 0;
         padding-right: 0;
@@ -263,6 +271,11 @@ $grid-breakpoints: (
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon{
     background-color: #fff;
     height: 210px;
+    .card-body{
+        div{
+            width: 100%;
+        }
+    }
     .list-group-item{
         @include responsive-mobile{
             padding-left: 0;
@@ -317,6 +330,7 @@ $grid-breakpoints: (
     display: flex;
     position: absolute;
     right: 0;
+    width: auto;
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-body .list-group-flush .list-group-item .contentIconIdeaText button{
     width: 20px;

@@ -212,24 +212,69 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 
 
 //Ideas
-.filterAddIdeas .filter .allIdeasContent{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    margin-top: .6rem;
-}
-.filterAddIdeas .filter .allIdeasContent .contenedor{
-    
-}
+.filterAddIdeas{
+    .filter{
+        padding-top: 1rem;
+        padding-left: 36px;
+        padding-right: 36px;
+        max-width: 100%;
+        .allIdeasContent{
+            .card{
+                border: 0;
+                background-color: transparent;
+            }
+        }
+    }
+    .paginationAllIdeas{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .paginationNgx{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .pagination-previous{
+                width: 25px;
+                height: auto;
+                margin-right: 5px;
+                .arrowPrevius{
+                    transform: rotate(0.25turn);
+                    cursor: pointer;
+                }
+            }
+            .current{
+                div{
+                    width: 25px;
+                    text-align: center;
+                    span{
+                        font-weight: 600;
+                        color: #111;
+                    }
+                }
+            }
+            .pagination-next{
+                width: 25px;
+                height: auto;
+                margin-left: 5px;
+                .arrowNext{
+                    transform: rotate(0.75turn);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+} 
 .filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials{
+    
     position: relative;
-    margin: 10px 10px 10px 76px;
+    margin: 10px 10px 10px 67px;
     padding: 5px;
     background-color: #fafafa;
     border-radius: 4px;
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.125);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.45);
+    @include responsive-mobile{
+        max-width: 80%;
+    }
 }
 .filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials::before,.filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials::after{
     content: '';
@@ -312,13 +357,17 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
         border-radius: 5px;
         padding: .4rem .9rem .4rem .4rem;
         z-index: 1000;
-        .upButton{
+        .containerNameVotos{
             display: flex;
-            align-items: center;
-            list-style: none;
-            img{
-                width: 65px;
-                height: 65px;
+            padding: 0;
+            .upButton{
+                display: flex;
+                align-items: center;
+                list-style: none;
+                img{
+                    width: 65px;
+                    height: 65px;
+                }
             }
         }
     }
@@ -358,6 +407,31 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     height: auto;
     padding: 10px 0px 10px 0px;
     border-top: 1px dotted #ddd;
+    .elementReply{
+        .list-group-item{
+            display: flex;
+            align-items: flex-start;
+            .containerCommentAll{
+                width: 85%;
+            }
+            .containerCommentImgAll{
+                width: 15%;
+                .img{
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    background-color: rgba(0,0,0,0.125);
+                    border: 1px solid rgba(0, 0, 0, 0.125);
+                    border-radius: 50%;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }
 .filterAddIdeas .filter .allIdeasContent .containerIdeaCredentials .containerDisplayReply .replyTitle{
     font-size: .8rem;

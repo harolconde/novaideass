@@ -251,6 +251,44 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
         padding-right: 36px;
         max-width: 100%;
     }
+    .paginationDeadIdeas{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .paginationNgx{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .pagination-previous{
+                width: 25px;
+                height: auto;
+                margin-right: 5px;
+                .arrowPrevius{
+                    transform: rotate(0.25turn);
+                    cursor: pointer;
+                }
+            }
+            .current{
+                div{
+                    width: 25px;
+                    text-align: center;
+                    span{
+                        font-weight: 600;
+                        color: #111;
+                    }
+                }
+            }
+            .pagination-next{
+                width: 25px;
+                height: auto;
+                margin-left: 5px;
+                .arrowNext{
+                    transform: rotate(0.75turn);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 } 
 
 .filterAddIdeasDead .cardContainerIdeadDead{
@@ -278,6 +316,9 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
     margin-top: 1.5rem;
     margin-bottom: 1.2rem;
+    @include responsive-mobile{
+        max-width: 80%;
+    }
 }
 .filterAddIdeasDead .filter .containerIdeaCredentials hr{
     margin-top: .5rem;
@@ -342,16 +383,6 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     align-items: center;
     color: #444;
 }
-// .filterAddIdeasDead  .containerIdeaCredentials .ideaMessageChatUsers{
-//     padding: 2px 5px;
-//     white-space: nowrap;
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//     text-align: justify;
-//     display: block;
-//     font-size: 0.8rem;
-//     transition: all .5s;
-// }
 .filterAddIdeasDead .containerIdeaCredentials .ideaMessageChatUsers .paragraphIdea{
     color: #444;
     text-decoration: none;

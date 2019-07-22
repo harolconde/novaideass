@@ -322,20 +322,40 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     }
 }
 .sectionFishedIdeas .containerFinishedIdeas .card .card-footer .imgUserIdeaFinish{
-    width: 20%;
-
-}
-.sectionFishedIdeas .containerFinishedIdeas .card .card-footer .imgUserIdeaFinish img{
-    width: 50px;
-    height: 50px;
+    width: 23%;
+    .contentImgUserLastFinish{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 1px solid rgba(0,0,0,0.125);
+        overflow: hidden;
+        background-color: rgba(0,0,0,0.125);
+        display: flex;
+        align-items: center;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
 }
 .sectionFishedIdeas .containerFinishedIdeas .card .card-footer .nameUserIdeaFinish{
-    width: 80%;
+    width: 77%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: .2rem;
     @include responsive-mobile{
         padding-left: 10px;
+    }
+    .btnSeeMoreLiFinish{
+        padding: .5rem 1.5rem;
+        border-radius: 50px;
+        background-color: $colorButtons;
+        color: $bacgroundComponent;
+        span{
+            display: block;
+            height: 20px;
+        }
     }
 } 
 

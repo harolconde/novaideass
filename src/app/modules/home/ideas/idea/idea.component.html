@@ -33,11 +33,11 @@
 									<div class="col-6 col-lg-2 col-xl-2 menuHamburgerDashboard">
 										<div class="menuHamburguer">
 											<span class="titleMenu">Menu</span>
-											<button class="navbar-toggler" (click)="showMenuNavBar()">
+											<button class="navbar-toggler" (click)="showMenu()">
 												<img [src]="'assets/img/icons/dashboard/hamburguer.svg'" alt="">
 											</button>
 										</div>
-										<div class="menuNav" *ngIf="menuNavBar">
+										<div class="menuNav" *ngIf="menu">
 											<ul class="list-group list-group-flush">
 												<li class="list-group-item">
 													<a [routerLink]="'/dashboard'">

@@ -167,6 +167,8 @@ export class ChatComponent implements OnInit {
   // Animacion evntos chat de ideas 
   collapseIdea(i){
     this.getComments();
+    const textWrap = document.getElementsByClassName('ideaMessageChatUsers')
+    let text = textWrap[i].id
     const panelReply:any = document.getElementsByClassName('containerDisplayReply')
     const idIdeaCollapse:any = document.getElementById(this.textCollapse[i].id)
     const idPanel:any = panelReply[i].id
@@ -181,6 +183,9 @@ export class ChatComponent implements OnInit {
         $(this).hide(500)
         $('#'+iPlus).removeClass("fa-minus")
         $('#'+iPlus).addClass("fa-plus")
+        $('#' + text).css({
+          'white-space' : 'nowrap'
+        })
       })
     }
     else{
@@ -191,6 +196,9 @@ export class ChatComponent implements OnInit {
         $(this).show(500)
         $('#'+iPlus).removeClass("fa-plus")
         $('#'+iPlus).addClass("fa-minus")
+        $('#' + text).css({
+          'white-space' : 'normal'
+        })
       })
     }
   }
@@ -234,14 +242,6 @@ export class ChatComponent implements OnInit {
     let toasts = document.getElementsByClassName('containerToast')
     let idToast = toasts[i].id
     $('#'+idToast).fadeToggle()
-    // $('#'+idToast).animate({
-    //   top: "80",
-    //   height: "toggle"
-      
-    // },{
-    //   queue: true,
-    //   duration: 500
-    // }) 
   }
   // Nuevo comentario
   newIdea(){

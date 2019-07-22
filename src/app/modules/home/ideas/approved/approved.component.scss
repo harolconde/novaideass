@@ -291,10 +291,38 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardLastAproved .card-body .list-group .list-group-item:nth-child(3){
     color: $colorText;
+    border-bottom: 0;
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardLastAproved .card-body .list-group .list-group-item{
     border-left: 0;
     border-right: 0;
+    img{
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        border: 1px solid rgba(0,0,0,0.125);
+        background-color: rgba(0,0,0,0.125);
+        display: flex;
+        align-items: center;
+    }
+}
+.sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardLastAproved{
+    .card-footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $bacgroundComponent;
+        .btnSeeMoreLaproved{
+            width: 50%;
+            border-radius: 50px;
+            background-color: $colorButtons;
+            color: $bacgroundComponent;
+            span{
+                display: block;
+                height: 20px;
+            }
+        }
+    }
 }
 .sectionApprovedIdeas .containerApprovedIdeas .containerCardApprovedAll{
     padding-left: 0;
@@ -405,22 +433,3 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
         }
     }
 }
-// .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-footer .pagination{
-//     margin-bottom: 0;
-// }
-// .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-footer .pagination .page-item .page-link{
-//     border: 0;
-//     padding-top: 0;
-//     padding-bottom: 0;
-//     color: #444;
-//     padding-left: 0;
-//     padding-right: 0;
-//     margin-left: .7rem;
-//     margin-right: .7rem;
-// }
-// .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-footer .pagination .page-item .page-link .arrowPrevius{
-//     transform: rotate(0.25turn);
-// }
-// .sectionApprovedIdeas .containerApprovedIdeas .containerCardApproved .cardAlltAproved .card-footer .pagination .page-item .page-link .arrowNext{
-//     transform: rotate(0.75turn);
-// }

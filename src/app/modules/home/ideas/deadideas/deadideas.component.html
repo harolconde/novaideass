@@ -34,70 +34,70 @@
                                         <img [src]="'assets/img/icons/dashboard/hamburguer.svg'" alt="">
                                 </button>
                             </div>
-                                <div class="menuNav" *ngIf="menuComponents">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <a [routerLink]="'/dashboard'">
-                                                <span>
-                                                    <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
-                                                </span> 
-                                                <span>
-                                                    Dashboard
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a [routerLink]="'/postuladas'">
-                                                <span>
-                                                    <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
-                                                </span> 
-                                                <span>
-                                                        Ideas postuladas
-                                                </span>
-                                                </a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a [routerLink]="'/aprobadas'">
-                                                    <span>
-                                                        <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
-                                                    </span> 
-                                                    <span>
-                                                        Ideas aprobadas
-                                                    </span>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a [routerLink]="'/debate'">
-                                                <span>
-                                                    <img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
-                                                </span> 
-                                                <span>
-                                                        Ideas en debate
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a [routerLink]="'/finalizadas'">
-                                                <span>
-                                                    <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
-                                                </span> 
-                                                <span>
-                                                    Ideas finalizadas
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a [routerLink]="'/muertas'">
-                                                <span>
-                                                    <img [src]="'assets/img/icons/dates/ovalBlack.svg'" alt="">
-                                                </span> 
-                                                <span>
-                                                    Ideas muertas
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="menuNav" *ngIf="menuComponents">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/dashboard'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Dashboard
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/postuladas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas postuladas
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/aprobadas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas aprobadas
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/debate'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas en debate
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/finalizadas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas finalizadas
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a [routerLink]="'/muertas'">
+                                            <span>
+                                                <img [src]="'assets/img/icons/dates/ovalBlack.svg'" alt="">
+                                            </span> 
+                                            <span>
+                                                Ideas muertas
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -105,6 +105,7 @@
         </div>
     </div>
 </section>
+<!-- Seccion donde se muestran todas las ideas muertas -->
 <section class="filterAddIdeasDead">
         <div class="container"> 
             <div class="row">
@@ -120,7 +121,7 @@
                     </div>
                     <div class="row">
                         <div class="filter card-columns">
-                            <div class="cardContainerIdeadDead  card" *ngFor="let idea of ideas; index as i" >          
+                            <div class="cardContainerIdeadDead  card" *ngFor="let idea of ideas |  paginate: { itemsPerPage: 12, currentPage: p }; index as i" >          
                                 <div class="containerIdeaCredentials col-sm-12 col-lg-9 col-xl-9" id="{{idea.Id}}"> <!--Filter *ngIf -->
                                     <div class="imgUserInChat" >
                                             <img class="imgPerfilChat" src="{{getImgUser(idea.IdUsers)}}" alt="" >
@@ -159,6 +160,26 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="paginationDeadIdeas">
+                            <pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event" class="paginationNgx">
+                                <div class="pagination-previous" [class.disabled]="p1.isFirstPage()">
+                                    <a *ngIf="!p1.isFirstPage()" (click)="p1.previous()" class="arrowPagination arrowPrevius"> <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt=""> </a>
+                                </div>
+                                    
+                                <div *ngFor="let page of p1.pages" [class.current]="p1.getCurrent() === page.value">
+                                    <a (click)="p1.setCurrent(page.value)" *ngIf="p1.getCurrent() !== page.value">
+                                        <span>{{ page.label }}</span>
+                                    </a>
+                                    <div *ngIf="p1.getCurrent() === page.value">
+                                           <span>{{ page.label }}</span>
+                                    </div>
+                                </div>
+                                    
+                                <div class="pagination-next" [class.disabled]="p1.isLastPage()">
+                                    <a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext">  <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt=""></a>
+                                </div>
+                            </pagination-template>
                         </div>
                     </div>
                 </div>

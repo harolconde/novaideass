@@ -125,99 +125,47 @@
                             <div class="card-body">
                                 <div class="postuladasMe">
                                     <ul class="list-group list-group-flush">
-                                        <li class="idea list-group-item">
+                                        <li class="idea list-group-item" *ngFor="let ideaUser of ideasPostulatesForUser | paginate: { itemsPerPage: 4, currentPage: p }; index as i">
                                             <div class="img">
                                                 <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
                                             </div>
                                             <div class="descIdea">
                                                 <p class="ideaPostulada">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, eveniet sequi nihil possimus similique delectus enim sint vero ea doloremque?
+                                                    {{ideaUser.IdeasDTO.IdeaText}}
                                                 </p>
                                             </div>
                                             <div class="date">
-                                                <span>20/05/2019</span>
+                                                <span> {{ideaUser.IdeasDTO.IdeaCreateDt}}</span>
                                             </div>
                                             <div class="see">
-                                                <button class="btn btnEyePostulate">
+                                                <button class="btn btnEyePostulate" [routerLink]="['/idea', ideaUser.IdeasDTO.IdIdeas]">
                                                     <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
                                                 </button>
-                                            </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                            <div class="img">
-                                                <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                            </div>
-                                            <div class="descIdea">
-                                                <p class="ideaPostulada">
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                </p>
-                                            </div>
-                                            <div class="date">
-                                                <span>20/05/2019</span>
-                                            </div>
-                                            <div class="see">
-                                                <button class="btn btnEyePostulate">
-                                                    <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                </button>
-                                            </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                            <div class="img">
-                                                <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                            </div>
-                                            <div class="descIdea">
-                                                <p class="ideaPostulada">
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                </p>
-                                            </div>
-                                            <div class="date">
-                                                <span>20/05/2019</span>
-                                            </div>
-                                            <div class="see">
-                                                <button class="btn btnEyePostulate">
-                                                    <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                </button>
-                                            </div>
-                                        </li>
-                                        <li class="idea list-group-item">
-                                            <div class="img">
-                                                <img [src]="'assets/img/icons/dashboard/idea.svg'" alt="" class="imgPostuladas">
-                                            </div>
-                                            <div class="descIdea">
-                                                <p class="ideaPostulada">
-                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, doloribus! Pariatur, magni? Repellendus repellat eius quia suscipit quod sequi corporis.
-                                                </p>
-                                            </div>
-                                            <div class="date">
-                                                <span>20/05/2019</span>
-                                            </div>
-                                            <div class="see">
-                                                <button class="btn btnEyePostulate">
-                                                    <img [src]="'assets/img/icons/dashboard/eye.svg'" alt="">
-                                                </button>
-
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination justify-content-center">
-                                        <li class="page-item disabled">
-                                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                                <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt="">
+                                <nav aria-label="Page navigation example" class="pagination">
+                                    <pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event" class="paginationNgx">
+                                        <div class="pagination-previous" [class.disabled]="p1.isFirstPage()">
+                                            <a *ngIf="!p1.isFirstPage()" (click)="p1.previous()" class="arrowPagination arrowPrevius"> <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt=""> </a>
+                                        </div>
+                                
+                                        <div *ngFor="let page of p1.pages" [class.current]="p1.getCurrent() === page.value">
+                                            <a (click)="p1.setCurrent(page.value)" *ngIf="p1.getCurrent() !== page.value">
+                                                <span>{{ page.label }}</span>
                                             </a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">
-                                                <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt="">
-                                            </a>
-                                        </li>
-                                    </ul>
+                                            <div *ngIf="p1.getCurrent() === page.value" >
+                                                <span>{{ page.label }}</span>
+                                            </div>
+                                        </div>
+                                
+                                        <div class="pagination-next" [class.disabled]="p1.isLastPage()">
+                                            <a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext">  <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt=""></a>
+                                        </div>
+                                    </pagination-template>
                                 </nav>
                             </div>
                         </div>

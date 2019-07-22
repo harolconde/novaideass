@@ -9,6 +9,7 @@ import { votesModel } from '../models/modelVotes'
 import { internalIdea } from'../models/ideaInterna'
 import { environment } from '../../../../environments/environment'
 import { modelVotes } from '../models/votesModel'
+import { shiftInitState } from '@angular/core/src/view';
 // interface myIdea{
 //   obj: Object
 // }
@@ -95,6 +96,12 @@ export class IdeasService {
     // Todas las ideas postuladas por usuario //
     // ************************************** //
 
+
+    // Todas las ideas postuladas por un usuario
+    getIdeasAllForUser(): Observable<any>{
+        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=19&rowNumber=0`)
+    }
+
     // Ultimas cuatro
     getIdeasUser():Observable<any>{
         return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=19&rowNumber=4`)
@@ -107,6 +114,8 @@ export class IdeasService {
     getIdeasUserMoreVotes():Observable<any>{
         return this.http.get(`${environment.endpoint}/IdeasUsersVotes?ideaIdUser=19`)
     }
+
+
     // Ultimas cuatro opiniones
     getCommentsForUser():Observable<any>{
         return this.http.get(`${environment.endpoint}/CommentsUsersIdeas?opcion=1&commentsIdUser=19&rowNumber=4`)
@@ -118,7 +127,7 @@ export class IdeasService {
     }
     // Todos los comentarios generales
     getCommentsAllForUserAll():Observable<any>{
-        return this.http.get(`${environment.endpoint}/CommentsUsersIdeas?opcion=2&commentsIdUser=0&rowNumber=0`)
+        return this.http.get(`${environment.endpoint}/CommentsUsersIdeas?opcion=2&commentsIdUser=0&rowNumber=0`) 
     }
 
     getDataIdeas(){
@@ -148,7 +157,7 @@ export class IdeasService {
         dataInterna.idUser = internal.idUser
         console.log(dataInterna)
         let headersHTTP = new HttpHeaders().set('Content-Type','application/json')
-        this.http.post(`http://172.65.10.170:8050/Help/Api/POST-api-SendMail`,dataInterna,{
+        this.http.post(`h${environment.endpoint}/SendMail`,dataInterna,{
             headers : headersHTTP,
             observe: 'response'
         }).subscribe( resp => {

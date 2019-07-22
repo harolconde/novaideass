@@ -348,23 +348,39 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     background-color: transparent;
 }
 .sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-footer .pagination{
-    margin-bottom: 0;
-}
-.sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-footer .pagination .page-item .page-link{
-    border: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    color: #444;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: .7rem;
-    margin-right: .7rem;
-}
-.sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-footer .pagination .page-item .page-link .arrowPrevius{
-    transform: rotate(0.25turn);
-}
-.sectionPostuladas .containerPostuladas .containerCardsPostuladas .cardMisPostuladas .card-footer .pagination .page-item .page-link .arrowNext{
-    transform: rotate(0.75turn);
+    margin-bottom: 0; 
+    display: flex;
+    justify-content: center;
+    .paginationNgx{
+        display: flex;
+        .pagination-previous{
+            .arrowPrevius{
+                transform: rotate(0.25turn);
+                margin-right: 5px;
+                height: 8px;
+                margin-bottom: 2px;
+            }
+        }
+        .current{
+            width: 15px;
+            display: flex;
+            justify-content: center;
+            div{
+                span{
+                    font-weight: 600;
+                }
+            }
+        }
+        
+        .pagination-next{
+            .arrowNext{
+                transform: rotate(0.75turn);
+                margin-left: 5px;
+                height: 8px;
+                margin-bottom: 2px;
+            }
+        }
+    }
 }
 
 // Todas las ideas postuladas

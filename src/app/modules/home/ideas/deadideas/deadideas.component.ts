@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IdeasService } from './../../services/ideas.service';
 import { environment } from '../../../../../environments/environment'
 import * as $ from 'jquery'
@@ -23,11 +23,19 @@ export class DeadideasComponent implements OnInit {
   ideas:any[]
   comments:any[]
 
+  // Pagination ngx
+  @Input() id: string;
+  @Input() maxSize: number;
+  @Output() pageChange: EventEmitter<number>;
+
   constructor(private _service:IdeasService) {
    }
 
   ngOnInit() {
     this.getIdeasDead()
+
+    // Inicializacion pagination ngx
+    this.pageChange = new EventEmitter(true)
   }
 
   getIdeasDead(): void{
