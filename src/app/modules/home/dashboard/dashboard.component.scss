@@ -248,8 +248,27 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
     &.topParticipacion{
         height: 437px;
-        
+        .card-content{
+            overflow-y: scroll;
+        }
+        .card-content::-webkit-scrollbar{
+            width: 8px;     /* Tamaño del scroll en vertical */
+            height: 8px;    /* Tamaño del scroll en horizontal */
+            display: block;
+        }
+        .card-content::-webkit-scrollbar-thumb{
+            background: rgba(179, 179, 179, 0.5);
+            border-radius: 4px;
+        }
+        .card-content::-webkit-scrollbar-thumb:hover{
+            background: rgba(231, 184, 67, 0.2);
+            box-shadow: 0 0 2px 1px  rgba(0, 0, 0, 0.2);
+        }
+        .card-content::-webkit-scrollbar-thumb:active{
+            background-color: rgba(231, 184, 67, 0.5);
+        }
     }
+    
     &.votadas{
         height: 210px;
     }

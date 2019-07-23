@@ -125,12 +125,12 @@ export class PerfiluserComponent implements OnInit {
 
   postInternalIdeas(formValueInternal:any){
     let internaIdea = new internalIdea()
-    internaIdea.emisor = "sample string 1"
-    internaIdea.password = "sample string 2"
+    internaIdea.emisor = ""
+    internaIdea.password = ""
     internaIdea.mensaje = formValueInternal.mensaje
     internaIdea.asunto = "Prueba Envio Correo NovaIdeas"
-    internaIdea.destinatario = "sample string 3"
-    internaIdea.rutaAdjunto = "sample string 4"
+    internaIdea.destinatario = ""
+    internaIdea.rutaAdjunto = ""
     internaIdea.idUser = "19"
 
     this._service.postIdeasInternal(internaIdea)

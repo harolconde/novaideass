@@ -157,10 +157,10 @@ export class IdeasService {
         dataInterna.idUser = internal.idUser
         console.log(dataInterna)
         let headersHTTP = new HttpHeaders().set('Content-Type','application/json')
-        this.http.post(`h${environment.endpoint}/SendMail`,dataInterna,{
+        this.http.post(`${environment.endpoint}/SendMail`,dataInterna,{
             headers : headersHTTP,
             observe: 'response'
-        }).subscribe( resp => {
+        }).subscribe( resp => { 
             console.log(resp) 
         })
     }

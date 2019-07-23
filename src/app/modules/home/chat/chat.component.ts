@@ -10,6 +10,7 @@ import { modelComments } from '../models/modelComments'
 import * as $ from 'jquery'
 import { environment } from '../../../../environments/environment'
 import { modelVotes } from '../models/votesModel';
+import { ActivatedRoute } from '@angular/router';
 
 declare var $:any
 
@@ -64,7 +65,7 @@ export class ChatComponent implements OnInit {
   voteNeu:number
   response:any
 
-  constructor(private _service : IdeasService, private fidea: FormBuilder) {
+  constructor(private _service : IdeasService, private fidea: FormBuilder, private ruta:ActivatedRoute) {
 
 
   }
@@ -105,6 +106,7 @@ export class ChatComponent implements OnInit {
     let idIdeas = document.getElementsByClassName('containerIdeaCredentials')
     let ideaId = idIdeas[i].id
     console.log(ideaId)
+    this._service.id = idIdeas
     return this._service.idIdeas = ideaId 
     
   }

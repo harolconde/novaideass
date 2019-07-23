@@ -34,12 +34,15 @@ export class IdeaComponent implements OnInit {
     }
     getRouteId(){
         this.ruta.paramMap.subscribe(param => {this.id = param.get('id')
-            console.log(this.id)}
-        )
+            console.log(this.id)
+            this._service.id = this.id
+            this._service.idIdeas = this.id
+        })
     }
     getIdeaDetail(){
+        this.getCommentDetail()
         this._service.id = this.id
-        this._service.getIdeaDetalle().subscribe((data) => {
+        this._service.getIdeaDetalle().subscribe((data) => { 
             this.ideas = data;
             console.log(data)
             this.pos = this.ideas[0].Likes
