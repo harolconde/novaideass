@@ -10,9 +10,7 @@ import { internalIdea } from'../models/ideaInterna'
 import { environment } from '../../../../environments/environment'
 import { modelVotes } from '../models/votesModel'
 import { shiftInitState } from '@angular/core/src/view';
-// interface myIdea{
-//   obj: Object
-// }
+
 
 @Injectable({
     providedIn: 'root'
@@ -91,7 +89,6 @@ export class IdeasService {
         console.log(this.id)
         return this.http.get(`${environment.endpoint}/dashboard5?opcionc=5&estadoc=0&tipoc=0&fechaInic=20190720&fechaFinc=20190720&rownumberc=${this.id}`)
     }
-
     // ************************************** //
     // Todas las ideas postuladas por usuario //
     // ************************************** //

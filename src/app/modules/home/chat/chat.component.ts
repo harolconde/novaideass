@@ -131,7 +131,11 @@ export class ChatComponent implements OnInit {
 
     this._service.postSendIdea(ideap)
     this.newIdea()
-    this.reset()
+    setTimeout(()=>{
+      this.getListIdeas()
+      this.reset()
+    }, 100)
+
   }
   // Evento submit nuevo comentario
   onSubmiComment(formValueComment:any, i){
@@ -148,7 +152,11 @@ export class ChatComponent implements OnInit {
 
     this._service.postSendComment(commentp)
     this.addComments(i)
+    
     this.resetAddMessage(i)
+    setTimeout(()=>{
+      this.getComments()
+    }, 200)
   }
 
   // Reset inputs and textareas

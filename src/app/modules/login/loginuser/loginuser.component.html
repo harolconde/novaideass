@@ -14,7 +14,7 @@
                             <p>Ingresa con tu usuario y tu contraseña para que puedas compartirnos tus ideas.</p>
                         </div>
                     </div>
-                    <form class="formSingUp" [formGroup]="authenticateUserAll" (ngSubmit)="authenticateUser(authenticateUserAll.value)">
+                    <form class="formSingUp" [formGroup]="authenticateUserAll" (ngSubmit)="authenticateUser()">
                         <div class="form-group">
                             <label class="labels" for="exampleInputEmail1">Usuario</label> 
                             <div class="input-group mb-3 formGroupLogin">
@@ -48,18 +48,21 @@
                                 </div>
                             </div> 
                         </div>
+                        <div class="labelErrorAuth" *ngIf="authLDAPresponse == 0" class="text-danger">
+                            <label for="">{{authLDAPmessage}}</label>
+                        </div>
                         <div class="row containerButtons">
                             <div class="col-sm-12  col-md-6 col-lg-6 col-xl-6 buttonsLogin buttonCancel">
                                 <button type="button" (click)="reset()" class="btn btn-primary btn-block btnLogin btnCancel">Cancelar</button>
                             </div>
                             <div class="col-sm-12 col-6 col-md-6 col-lg-6 col-xl-6 buttonsLogin buttonsAcept">
-                                <button  type="submit" class="btn btn-primary btn-block btnLogin" [routerLink]="['/dashboard']">Ingresar</button>
+                                <button  type="submit" class="btn btn-primary btn-block btnLogin" >Ingresar</button>
                             </div>
                         </div>
                         <div class="form-group form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label checkLogin" for="exampleCheck1">Recordar</label>
-                        </div>   
+                        </div>
                     </form>
                 </div>
             </div>

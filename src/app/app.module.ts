@@ -14,6 +14,7 @@ import { LoginModule } from './modules/login/login.module';
 import { HomeModule } from './modules/home/home.module';
 import { UserModule } from './modules/user/user.module';
 import { AdministratorModule } from './modules/administrator/administrator.module';
+import { AuthguardComponent } from './modules/login/authGuard/authguard/authguard.component'
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { AdministratorModule } from './modules/administrator/administrator.modul
   providers: [
     IdeasService,
     UsersService,
-    AuthenticationService
+    AuthenticationService,
+    AuthguardComponent
   ],
   bootstrap: [AppComponent]
 })
