@@ -46,12 +46,12 @@ export class LoginuserComponent implements OnInit {
     
     this._authentic.authenticationIdea(authUser);
     setTimeout(()=>{
-      this.authLDAPresponse  = this._authentic.responseNumber
+      this.authLDAPresponse  = this._authentic.idUserLogged
       this.authLDAPmessage = this._authentic.response
       console.log(this.authLDAPresponse,this.authLDAPmessage)
 
       // En caso que la respuesta del LDAP se positiva
-      if(this.authLDAPresponse == 1){
+      if(this.authLDAPresponse > 0){
         this.submitted = false
         this.router.navigate(['/dashboard'])
       } 

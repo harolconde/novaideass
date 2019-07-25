@@ -4,6 +4,8 @@ import { IdeasService } from './../services/ideas.service';
 import { UsersService } from './../services/users.service';
 import { tick } from '@angular/core/testing';
 import {ActivatedRoute} from '@angular/router'
+import { environment } from '../../../../environments/environment'
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -120,7 +122,7 @@ export class DashboardComponent implements OnInit {
         const ctx = document.getElementById('myChart');
 
         let myChart = new Chart(ctx, {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: ['Positivos', 'Negativos', 'Me es indiferente'],
                 datasets: [
@@ -128,44 +130,45 @@ export class DashboardComponent implements OnInit {
                     label: 0,
                     data: [this.lastFourIdeasVotes[0].Votos,2,2],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)'
+                        'rgba(138,221,45,1)',
+                        'rgba(138,221,45,1)',
+                        'rgba(138,221,45,1)'   
                     ],
                     borderColor: [
+                        'rgba(138,221,45,1)',
                         'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)'
+                        'rgba(12, 12, 12, 0.6)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 2
                 },
                 {
                 label: '',
                     data: [this.lastFourIdeasVotes[1].Votos,2,4],
                     backgroundColor: [
-                        'rgba(255, 125, 0, 0.5)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)'
+                      
+                        'rgba(198, 255, 0, 0.7)',
+                        'rgba(198, 255, 0, 0.7)',
+                        'rgba(198, 255, 0, 0.7)'
                     ],
                     borderColor: [
-                        'rgba(255, 125, 0, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)'
+                        'rgba(138,221,45,1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(12, 12, 12, 0.6)',
                     ],
-                    borderWidth: 1
+                    borderWidth: 2
                 },
                 {
                 label: '',
                     data: [this.lastFourIdeasVotes[2].Votos,4,0],
                     backgroundColor: [
-                        'rgba(138,221,45,0.5)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)'
+                      'rgba(255, 125, 0, 0.5)',
+                      'rgba(255, 125, 0, 0.5)',
+                      'rgba(255, 125, 0, 0.5)'
                     ],
                     borderColor: [
-                        'rgba(138,221,45,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)'
+                      'rgba(138,221,45,1)',
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(12, 12, 12, 0.6)'
                     ],
                     borderWidth: 2
                 },
@@ -173,14 +176,14 @@ export class DashboardComponent implements OnInit {
                 label: '',
                     data: [this.lastFourIdeasVotes[3].Votos,4,7],
                     backgroundColor: [
-                        'rgba(198, 255, 0, 0.7)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)'
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 99, 132, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(198, 255, 0, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)'
+                        'rgba(138,221,45,1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(12, 12, 12, 0.6)'
                     ],
                     borderWidth: 2
                 }
@@ -250,6 +253,10 @@ export class DashboardComponent implements OnInit {
       this.topUserParticipation = data
       console.log(data)
     })
+  }
+  // Imagenes del top
+  getImgUser(id){
+    return environment.endpoint + `/Image?idUsers=${id}`
   }
 
 }

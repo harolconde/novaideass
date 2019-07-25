@@ -11,6 +11,9 @@ import * as $ from 'jquery'
 import { environment } from '../../../../environments/environment'
 import { modelVotes } from '../models/votesModel';
 import { ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../../login/services/authentication.service'
+import { CookieService } from 'ngx-cookie-service';
+
 
 declare var $:any
 
@@ -24,7 +27,10 @@ export interface myIdea{
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-
+  //
+  
+  // Variables de session
+  sessionUser:any
   //Variables mostrar idea completa
   //messageIdea:any =document.getElementsByClassName('ideaMessageChatUsers')
   btnShowIdea:any = document.getElementsByClassName('btnSeeMoreMessage')
@@ -32,6 +38,7 @@ export class ChatComponent implements OnInit {
   panelReply:any = document.getElementsByClassName('containerDisplayReply')
   btnMinus:any = document.getElementsByClassName('iconMoreMinus')
   stateCollapseIdea:boolean = false;
+
 
   //Variables popover
   btnPopober:any = document.getElementsByClassName('imgHeart')
@@ -65,14 +72,16 @@ export class ChatComponent implements OnInit {
   voteNeu:number
   response:any
 
-  constructor(private _service : IdeasService, private fidea: FormBuilder, private ruta:ActivatedRoute) {
-
-
-  }
+  constructor(
+    private _service : IdeasService, 
+    private fidea: FormBuilder, 
+    private ruta:ActivatedRoute, 
+    private idUserSession:AuthenticationService,
+    private cookieService: CookieService
+  ) {}
 
 
   ngOnInit() {
-    
     this.formulario = this.fidea.group({
       idea: ['']
     })
@@ -81,6 +90,10 @@ export class ChatComponent implements OnInit {
       comment: ['']
     })
 
+    setTimeout(()=>{
+      this.sessionUser = this.cookieService.get('session')
+      console.log(this.sessionUser)
+    },50)
     this.getListIdeas()
     
     
@@ -96,7 +109,7 @@ export class ChatComponent implements OnInit {
       //   this.votePos = this.ideas[i].Likes
       //   console.log(this.votePos)
       // }
-    }) 
+    })
   }
 
   
@@ -123,7 +136,7 @@ export class ChatComponent implements OnInit {
 
     const ideap = new IdeasModel()
     ideap.opcion = 1 
-    ideap.idUsuario = 19
+    ideap.idUsuario = this.sessionUser
     ideap.id = 141
     ideap.ideaText = formValue.idea
     ideap.ideaType = 1
@@ -135,6 +148,9 @@ export class ChatComponent implements OnInit {
       this.getListIdeas()
       this.reset()
     }, 100)
+    setInterval(()=>{
+      this.getListIdeas()
+    },5)
 
   }
   // Evento submit nuevo comentario
@@ -146,7 +162,7 @@ export class ChatComponent implements OnInit {
     const commentp = new modelComments()
     commentp.opcion = 1
     commentp.idIdea = iddea
-    commentp.idUser = 18
+    commentp.idUser = this.sessionUser
     commentp.comentsText = formValueComment.comment
     commentp.idComents = 0
 
@@ -157,6 +173,9 @@ export class ChatComponent implements OnInit {
     setTimeout(()=>{
       this.getComments()
     }, 200)
+    setInterval(()=>{
+      this.getComments()
+    },5)
   }
 
   // Reset inputs and textareas

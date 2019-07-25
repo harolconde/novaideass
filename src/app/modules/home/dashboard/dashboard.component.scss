@@ -267,6 +267,29 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
         .card-content::-webkit-scrollbar-thumb:active{
             background-color: rgba(231, 184, 67, 0.5);
         }
+        .card-content{
+            .list-group-flush{
+                .list-group-item{
+                    .containerUserTop{
+                        .imgUserTopParticipation{
+                            width: 30px;
+                            height: 30px;
+                            margin-right: 10px;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            display: flex;
+                            align-items: center;
+                            background-color: rgba(0,0,0,0.125);
+                            border: 1px solid rgba(0,0,0,0.125);
+                            img{
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     &.votadas{
@@ -274,6 +297,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     }
     &.votadas .card-content .containerUserTop .imgUserTop{
         width: 5%;
+        
     }
     &.votadas .card-content .containerUserTop .imgUserTop img{
         width: 5px;
@@ -354,7 +378,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     height: 30px;
 }
 .sectionDashboard .containerDashboard .card .card-content .containerUserTop .topParticipation{
-    width: 80%;
+    width: 76%;
     display: flex;
     flex-direction: column;
 }

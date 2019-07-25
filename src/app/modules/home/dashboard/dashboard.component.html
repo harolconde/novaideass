@@ -125,8 +125,8 @@
                                       <ul class="list-group list-group-flush">
                                           <li class="list-group-item" *ngFor="let user of topUserParticipation; index as i">
                                               <div class="containerUserTop">
-                                                  <div class="imgUserTop">
-                                                      <img [src]="'assets/img/users/ideas-avatar-mujer.svg'" alt="">
+                                                  <div class="imgUserTop imgUserTopParticipation">
+                                                      <img src="{{getImgUser(user.Id)}}" alt="">
                                                   </div>
                                                   <div class="topParticipation">
                                                       <div class="topParticipationNamePercentage">
