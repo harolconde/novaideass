@@ -9,10 +9,10 @@
                 <div class="datesOfUser">
                     <div class="row gridDatesUser">
                         <div class="img">
-                            <img [src]="'assets/img/users/ideas-avatar-hombre.svg'" alt="" class="mgUserInChat">
+                            <img src="{{getImgUser(userData.IdUsers)}}" alt="" class="mgUserInChat">
                         </div>
                         <div class="name"> 
-                            <span>Harol Conde</span>
+                            <span>{{userData.UserFirstName}} {{userData.UserLastName}}</span>
                         </div>
                         <div class="arrow">
                             <button class="btnDatesUser" data-toggle="tooltip" data-placement="top" title="Datos de perfil"  >
@@ -20,8 +20,8 @@
                             </button>
                         </div>
                         <div class="infoPerfil" >
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
+                            <ul class="list-group list-group-flush" >
+                                <li class="list-group-item" *ngIf="userData.UserType == 1 || userData.UserType == 2">
                                     <a [routerLink]="'/perfil-usuario'" (click) = "showMenuUser()">
                                         <span>
                                             <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
@@ -31,13 +31,13 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item" *ngIf="userData.UserType == 3">
                                         <a [routerLink]="'/perfil-administrador'" (click) = "showMenuUser()">
                                             <span>
                                                 <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
                                             </span> 
                                             <span>
-                                                Perfil Administrador 
+                                                Mi perfil
                                             </span>
                                         </a>
                                     </li>

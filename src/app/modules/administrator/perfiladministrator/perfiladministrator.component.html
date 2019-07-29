@@ -12,21 +12,24 @@
 				<div class="col-sm-12 col-md-12 col-lg-2 col-xl-2 ">
 					<div class="card cardPerfil">
 						<div class="cardheader" data-toggle="tooltip" data-placement="bottom" title="Editar">
-							<img class="imgPerfilUser" src="assets/img/users/ideas-avatar-hombre-moreno.svg" alt="">
+							<img class="imgPerfilUser" src="{{getImgUser(userDatesPerfil.IdUsers)}}" alt="">
 							<button class="btnImgPerfilUser" data-toggle="modal" data-target="#exampleModalCenter">
 								<img src="assets/img/icons/perfilUser/pencil-edit-buttons.svg" alt="" class="imgEditPerfil">
 							</button>
 						</div>
-						<div class="namePerfilUser"> <span>Harol Conde</span></div>
+						<div class="namePerfilUser"> 
+							<span>{{userDatesPerfil.UserFirstName}} {{userDatesPerfil.UserLastName}}</span>
+							<label>{{userDatesPerfil.User_type_desc}}</label>
+						</div>
 						<div class="card-body">
 							<form>
 								<div class="form-group">
 									<label for="formGroupExampleInput">Nickname</label>
-									<input type="text" class="form-control" id="formGroupExampleInput" placeholder="HConde">
+									<input type="text" class="form-control" id="formGroupExampleInput" placeholder="{{userDatesPerfil.UserNickName}}">
 								</div>
 							</form>
 							<label for="formGroupExampleInput2">Correo</label>
-							<span class="emailPerfilUser">harol.conde@novatec.com.co</span>
+							<span class="emailPerfilUser">{{userDatesPerfil.UserEmail}}</span>
 						</div>
 						<div class="card-footer">
 							<button class="btn btn-block btnSavePerfilAdmon">Guardar cambios</button>
@@ -263,7 +266,7 @@
     </div>
 </div>
 
- Modal cambio imagen
+ <!-- Modal cambio imagen -->
  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 			<div class="modal-content">

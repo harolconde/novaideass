@@ -109,12 +109,22 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     margin: 1rem 0rem;
     border-left: 1.5px solid #fff;
 }
-.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .imgBarNav img{
+.sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .imgBarNav {
     width: 50px;
     height: 50px;
-    @include responsive-mobile{
-        width: 40px;
-        height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: rgba(0, 0, 0, 0.125);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    img{
+        width: 100%;
+        height: auto;
+        @include responsive-mobile{
+            width: 40px;
+            height: 40px;
+        }
     }
 }
 .sectionAdministratorMenu .barNav .barNavDates .barNavDatesUser .container .nameBarNav{

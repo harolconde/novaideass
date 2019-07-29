@@ -119,21 +119,24 @@
                     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 containerDatesPerfilUser containerCardPerfil">
                         <div class="card datesPerfilUser">
                             <div class="cardheader" data-toggle="tooltip" data-placement="bottom" title="Editar">
-                                <img class="imgPerfilUser" src="assets/img/users/ideas-avatar-hombre.svg" alt="">
+                                <img class="imgPerfilUser" src="{{getImgUser(userDataPerfil.IdUsers)}}" alt="">
                                 <button class="btnImgPerfilUser" data-toggle="modal" data-target="#exampleModalCenter">
                                     <img src="assets/img/icons/perfilUser/pencil-edit-buttons.svg" alt="" class="imgEditPerfil">
                                 </button>
                             </div>
-                            <div class="namePerfilUser"> <span>Harol Conde</span></div>
+                            <div class="namePerfilUser"> 
+                                <span>{{userDataPerfil.UserFirstName}} {{userDataPerfil.UserLastName}}</span>
+                                <label>{{userDataPerfil.User_type_desc}}</label>
+                            </div>
                             <div class="card-body">
                                 <form>
                                     <div class="form-group">
                                         <label for="formGroupExampleInput">Nickname</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="HConde">
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="{{userDataPerfil.UserNickName}}">
                                     </div>
                                 </form>
                                 <label for="formGroupExampleInput2">Correo</label>
-                                <span class="emailPerfilUser">harol.conde@novatec.com.co</span>
+                                <span class="emailPerfilUser">{{userDataPerfil.UserEmail}}</span>
                             </div>
                             <div class="card-footer">
                                 <button class="btnEditPerfilUser">Guardar cambios</button>
@@ -308,7 +311,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="card cardAffair">
+                    <div class="card cardAffair"> 
                         <div class="selectAffair">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">

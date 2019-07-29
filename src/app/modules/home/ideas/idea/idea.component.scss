@@ -270,13 +270,30 @@ $grid-breakpoints: (
                     }
                     .card-body{
                         padding: 0px 20px;
+                        overflow-y: auto;
                         p{
                             margin-bottom: 0px;
                         }
                     }
+                    .card-body::-webkit-scrollbar{
+                        width: 8px;     /* Tamaño del scroll en vertical */
+                        height: 8px;    /* Tamaño del scroll en horizontal */
+                        display: block;
+                    }
+                    .card-body::-webkit-scrollbar-thumb{
+                        background: rgba(179, 179, 179, 0.5);
+                        border-radius: 4px;
+                    }
+                    .card-body::-webkit-scrollbar-thumb:hover{
+                        background: rgba(231, 184, 67, 0.2);
+                        box-shadow: 0 0 2px 1px  rgba(0, 0, 0, 0.2);
+                    }
+                    .card-body::-webkit-scrollbar-thumb:active{
+                        background-color: rgba(231, 184, 67, 0.5);
+                    }
                     .card-footer{
                         background-color: $backgroundNavBar;
-                        padding: 0px 20px 40px 20px;
+                        padding: 10px 20px 30px 20px;
                         border: 0;
                         display: flex;
                         align-items: center;

@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { isLContainer } from '@angular/core/src/render3/util';
 import { IdeasService } from '../services/ideas.service'
+import { UsersService } from '../services/users.service'
+import { CookieService } from 'ngx-cookie-service'
+import { environment } from '../../../../environments/environment'
 import { ActivatedRoute } from '@angular/router';
 import { internalIdea } from '../models/ideaInterna'
 import { FormControl, FormGroup, FormBuilder, FormArray} from '@angular/forms'
+import { from } from 'rxjs';
 
 declare var $:any;
 
@@ -15,10 +19,14 @@ declare var $:any;
 })
 export class PerfiluserComponent implements OnInit {
 
+  // Informacion del usuario
+  idUserPerfil: any
+  userDataPerfil: any
   // Subir imagen de perfil del usuario
   imgSrc: string = 'assets/img/users/user.svg';
   fileUpload: File = null;
   mimeType: string = null;
+
   // Menu de navegacion
   menuComponents: boolean = false;
 
@@ -26,7 +34,13 @@ export class PerfiluserComponent implements OnInit {
   ideasMoreVotes:any[] = []
   commentsForUser:any[] = []
   idRedir:any
-  constructor(private _service:IdeasService, private _route:ActivatedRoute, private _idInternal:FormBuilder) { }
+  constructor(
+    private _service:IdeasService,
+    private _user: UsersService, 
+    private _route:ActivatedRoute, 
+    private _idInternal:FormBuilder,
+    private cookieService: CookieService
+  ) { }
 
   // Formulario
   formInternal: FormGroup
@@ -50,11 +64,23 @@ export class PerfiluserComponent implements OnInit {
       mensaje: ['']
       //asunto: ['']
     })
+    this.getDataUserPerfil()
   }
 
   // Menu de navegacion
   showMenuNav() {
     this.menuComponents = ! this.menuComponents;
+  }
+
+  // Traer datos del usuario
+  getDataUserPerfil(){
+    this._user.getDatesUser().subscribe((data) => {
+      this.userDataPerfil = data
+    })
+  }
+  // imagen de perfil del usuario
+  getImgUser(id){
+    return environment.endpoint + `/Image?idUsers=${id}`
   }
 
   // Subir imagen de perfil del usuario.
@@ -124,6 +150,7 @@ export class PerfiluserComponent implements OnInit {
   // ******************************************* //
 
   postInternalIdeas(formValueInternal:any){
+
     let internaIdea = new internalIdea()
     internaIdea.emisor = ""
     internaIdea.password = ""
@@ -131,7 +158,7 @@ export class PerfiluserComponent implements OnInit {
     internaIdea.asunto = "Prueba Envio Correo NovaIdeas"
     internaIdea.destinatario = ""
     internaIdea.rutaAdjunto = ""
-    internaIdea.idUser = "19"
+    internaIdea.idUser = this.cookieService.get('session')
 
     this._service.postIdeasInternal(internaIdea)
     this.reset()

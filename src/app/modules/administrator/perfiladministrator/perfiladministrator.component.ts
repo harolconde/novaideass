@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from '../../home/services/ideas.service'
+import {UsersService} from '../../home/services/users.service'
 import * as $ from 'jquery';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, FormBuilder, FormArray, ReactiveFormsModule } from '@angular/forms';
 import { internalIdea } from '../../home/models/ideaInterna'
+import { CookieService } from 'ngx-cookie-service'
+import { environment } from '../../../../environments/environment'
 declare var $:any;
 
 
@@ -14,7 +17,9 @@ declare var $:any;
 })
 export class PerfiladministratorComponent implements OnInit {
 
-  
+  // Datos del perfil del usuario
+  idUserPerfil:any
+  userDatesPerfil:any
 
   // Redireccionamiento Id Idea
   idRedir:any
@@ -31,12 +36,21 @@ export class PerfiladministratorComponent implements OnInit {
   // Ultimos cuatro comentarios del usuario
   commentsLastFourUser:any []
 
-  constructor(private _service: IdeasService, private _route:ActivatedRoute, private _idInternal:FormBuilder) { }
+  constructor(
+    private _service: IdeasService,
+    private _user: UsersService, 
+    private _route:ActivatedRoute, 
+    private _idInternal:FormBuilder,
+    private cookieService: CookieService
+  ) { }
 
   // Formulario
   formInterna: FormGroup
 
   ngOnInit() {
+    // Datos del perfil del usuario
+    this.getUserDatesPerfil()
+
     // Ideas con mas votos del usuario
     this.getIdeasMvotes()
     // Ultimas cuatro ideas del usuario
@@ -56,6 +70,19 @@ export class PerfiladministratorComponent implements OnInit {
     })
     
   }
+
+  // Datos del usuario
+  getUserDatesPerfil(){
+    this._user.getDatesUser().subscribe((data) => {
+      this.userDatesPerfil = data
+      console.log(this.userDatesPerfil)
+    })
+  }
+
+  // Imagen de perfil del usuario
+  getImgUser(id){
+		return environment.endpoint + `/Image?idUsers=${id}`
+	}
 
   // Traer las ideas mas votadas del administrador
   getIdeasMvotes():void{

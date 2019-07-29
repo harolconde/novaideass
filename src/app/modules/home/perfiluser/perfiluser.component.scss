@@ -248,6 +248,7 @@ $grid-breakpoints: (
                         background-color: $colorButtons;
                         border-radius: 50px;
                         color: $colorBrowser;
+                        height: 35px;
                     }
                 }
             }
@@ -291,18 +292,23 @@ $grid-breakpoints: (
     background-color: $colorButtons;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader{
-    width: 50px;
-    height: 50px;
-    margin-top: 31px;
+    width: 60px;
+    height: 60px;
+    margin-top: 21px;
     position: relative;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.125);
+    background-color: rgba(0,0,0,0.125);
+    display: flex;
+    align-items: center;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader .imgPerfilUser{
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: auto;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader .btnImgPerfilUser{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: $radiusButtons;
     position: absolute;
     border: none;
@@ -317,10 +323,15 @@ $grid-breakpoints: (
     display: block;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .namePerfilUser{
-    margin-top: 19px;
+    margin-top: 10px;
     width: 100%;
     height: auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    label{
+        font-size: .7rem;
+    }
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .namePerfilUser span{
     color: $colorTextCardPerfil;
@@ -329,7 +340,7 @@ $grid-breakpoints: (
 } 
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body{
     width: 100%;
-    margin-top: 18px;
+    margin-top: 10px;
     padding-bottom: 0;
     padding-top: 0;
 }
@@ -353,6 +364,7 @@ $grid-breakpoints: (
     font-size: 0.6875rem;
     line-height: 17px;
     color: $colorTextCardPerfil;
+    text-transform: lowercase;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body form .form-group .form-control{
     padding: 0;

@@ -32,7 +32,15 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
     justify-content: space-between;
 }
 .sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .img{
-    margin: 0;  
+    margin: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.125);
+    background-color: rgba(0,0,0,0.125);
+    overflow: hidden;
+    display: flex;
+    align-items: center;  
 }
 .sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .name{
     margin:0rem 1rem 0rem 1rem;
@@ -62,7 +70,7 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
     width: 181.91px;
     //height: calc(91.14px - 10px);
     right: 15px;
-    bottom: -82px;
+    bottom: -64px;
     z-index: 1005;
     border: 1px solid #DDDDDD;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);

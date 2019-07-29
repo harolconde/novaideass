@@ -10,6 +10,7 @@ import { internalIdea } from'../models/ideaInterna'
 import { environment } from '../../../../environments/environment'
 import { modelVotes } from '../models/votesModel'
 import { shiftInitState } from '@angular/core/src/view';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -27,7 +28,7 @@ export class IdeasService {
     public nameController4:string = 'dashboard4'
     private ArrayG: Array<IdeasResponseModel>
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private cookieService: CookieService) {
         
     }
 
@@ -40,6 +41,7 @@ export class IdeasService {
     month: any = this.date.getMonth()+1
     day: any = this.date.getDate()
     fechatFin: any = this.year+this.month+this.day
+    
 
     // Todas las ideas
     getIdeas() : Observable<any>{
@@ -96,31 +98,37 @@ export class IdeasService {
 
     // Todas las ideas postuladas por un usuario
     getIdeasAllForUser(): Observable<any>{
-        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=19&rowNumber=0`)
+        this.id = this.cookieService.get('session')
+        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=${this.id}&rowNumber=0`)
     }
 
     // Ultimas cuatro
     getIdeasUser():Observable<any>{
-        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=19&rowNumber=4`)
+        this.id = this.cookieService.get('session')
+        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=${this.id}&rowNumber=4`)
     }
     // Todas
     getIdeasUserAll():Observable<any>{
-        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=19&rowNumber=0`) 
+        this.id = this.cookieService.get('session')
+        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=${this.id}&rowNumber=0`) 
     }
     // Las cuatro mas votadas
     getIdeasUserMoreVotes():Observable<any>{
-        return this.http.get(`${environment.endpoint}/IdeasUsersVotes?ideaIdUser=19`)
+        this.id = this.cookieService.get('session')
+        return this.http.get(`${environment.endpoint}/IdeasUsersVotes?ideaIdUser=${this.id}`)
     }
 
 
     // Ultimas cuatro opiniones
     getCommentsForUser():Observable<any>{
-        return this.http.get(`${environment.endpoint}/CommentsUsersIdeas?opcion=1&commentsIdUser=19&rowNumber=4`)
+        this.id = this.cookieService.get('session')
+        return this.http.get(`${environment.endpoint}/CommentsUsersIdeas?opcion=1&commentsIdUser=${this.id}&rowNumber=4`)
     }
     // Todos los comentarios por usuario
     getCommentsAllForUser():Observable<any>{
+        this.id = this.cookieService.get('session')
         console.log(this.opcionComments)
-        return this.http.get(`${environment.endpoint}/CommentsUsersIdeas?opcion=${this.opcionComments}&commentsIdUser=19&rowNumber=0`)
+        return this.http.get(`${environment.endpoint}/CommentsUsersIdeas?opcion=${this.opcionComments}&commentsIdUser=${this.id}&rowNumber=0`)
     }
     // Todos los comentarios generales
     getCommentsAllForUserAll():Observable<any>{

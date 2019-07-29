@@ -148,42 +148,52 @@
                           <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
                               <div class="row">
                                   <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 containerIdeasMoreVotes">
-                                      <div class="card votadas">
-                                          <div class="card-title">
-                                              <span>Ideas mas votadas</span>
-                                          </div>
-                                          <div class="containerChart">
-                                                  <div class="card-body">
-                                                          <div class="statistic">
-                                                              <canvas id="myChart" width="500px" height="170px">
-              
-                                                              </canvas>
-                                                          </div>
-                                                      </div>
-                                                      <div class="card-content">
-                                                          <ul class="list-group list-group-flush" *ngFor="let ideaVote of lastFourIdeasVotes; index as i">
-                                                              <ng-container *ngIf="i<4">
-                                                                  <li class="list-group-item" >
-                                                                      <div class="containerUserTop imgUserIdeaTop">
-                                                                          <ng-container>
-                                                                              <div class="imgUserTop" >
-                                                                                  <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
-                                                                              </div>
-                                                                          </ng-container>
-                                                                          <div class="topParticipation topIdeaPercentage">
-                                                                              <div class="topParticipationNamePercentage topParticipationIdeaPercentage">
-                                                                                  <span class="nameUserTop contentIdeaTop" > {{ ideaVote.Id_text }} </span>
-                                                                                  <span class="percentage percentagetIdeaTop" > {{ ideaVote.Votos }} </span>
-                                                                              </div>
-                                                                          </div>
-                                                                      </div> 
-                                                                  </li>
-                                                              </ng-container>
-                                                          </ul>
-                                                      </div>
-                                          </div>
-                                         
-                                      </div>   
+                                        <div class="card votadas">
+                                            <div class="card-title">
+                                                <span>Ideas mas votadas</span>
+                                            </div>
+                                            <div class="containerChart">
+                                                <div class="row">
+                                                    <div class="card-body col-12 col-md-12 col-lg-6 col-xl-6">
+                                                        <div class="statistic">
+                                                            <canvas id="myChart" width="500px" height="170px">
+                      
+                                                            </canvas>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-content col-12 col-md-12 col-lg-6 col-xl-6">
+                                                        <ul class="list-group list-group-flush" >
+                                                            <ng-container *ngFor="let ideaVote of lastFourIdeasVotes; index as i">
+                                                                <li class="list-group-item"  *ngIf="i<4">
+                                                                    <div class="containerUserTop imgUserIdeaTop">
+                                                                        <ng-container>
+                                                                            <div class="imgUserTop" *ngIf="i == 0">
+                                                                                <img [src]="'assets/img/icons/dates/ovalGreen.svg'" alt="">
+                                                                            </div>
+                                                                            <div class="imgUserTop" *ngIf="i == 1">
+                                                                                <img [src]="'assets/img/icons/dates/ovalGreenLight.svg'" alt="">
+                                                                            </div>
+                                                                            <div class="imgUserTop" *ngIf="i == 2">
+                                                                                <img [src]="'assets/img/icons/dates/ovalOrange.svg'" alt="">
+                                                                            </div>
+                                                                            <div class="imgUserTop" *ngIf="i == 3">
+                                                                                <img [src]="'assets/img/icons/dates/ovalRed.svg'" alt="">
+                                                                            </div>
+                                                                        </ng-container>
+                                                                        <div class="topParticipation topIdeaPercentage">
+                                                                            <div class="topParticipationNamePercentage topParticipationIdeaPercentage">
+                                                                                <span class="nameUserTop contentIdeaTop" > {{ ideaVote.Id_text }} </span>
+                                                                                <span class="percentage percentagetIdeaTop" > {{ ideaVote.Votos }} </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> 
+                                                                </li>
+                                                            </ng-container>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>   
                                   </div> 
                                   <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 containerIdeasPostule containerCard">
                                       <div class="card postuladas">

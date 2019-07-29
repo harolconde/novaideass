@@ -161,9 +161,9 @@ export class DashboardComponent implements OnInit {
                 label: '',
                     data: [this.lastFourIdeasVotes[2].Votos,4,0],
                     backgroundColor: [
-                      'rgba(255, 125, 0, 0.5)',
-                      'rgba(255, 125, 0, 0.5)',
-                      'rgba(255, 125, 0, 0.5)'
+                      'rgba(255, 125, 0, 0.7)',
+                      'rgba(255, 125, 0, 0.7)',
+                      'rgba(255, 125, 0, 0.7)'
                     ],
                     borderColor: [
                       'rgba(138,221,45,1)',
@@ -176,9 +176,9 @@ export class DashboardComponent implements OnInit {
                 label: '',
                     data: [this.lastFourIdeasVotes[3].Votos,4,7],
                     backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(255, 99, 132, 0.2)'
+                      'rgba(255, 99, 132, 0.7)',
+                      'rgba(255, 99, 132, 0.7)',
+                      'rgba(255, 99, 132, 0.7)'
                     ],
                     borderColor: [
                         'rgba(138,221,45,1)',
@@ -220,7 +220,7 @@ export class DashboardComponent implements OnInit {
                         zeroLineWidth: 1,
                 
                         // String - color of the grid line for the first index
-                        zeroLineColor: "rgba(0,0,0,0.25)",
+                        zeroLineColor: "rgba(0,0,0,0.05)",
                 
                         // Boolean - if true, offset labels from grid lines
                         offsetGridLines: false
