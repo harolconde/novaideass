@@ -111,12 +111,12 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="title">
-					<h3 class="titlePage">Todos los comentarios</h3>
+					<h3 class="titlePage">Todos mis comentarios</h3>
 					<hr>
 				</div>
 			</div>
 			<div class="col-12">
-				<div class="card cardOptions">
+				<div class="card cardOptions" *ngIf="userDcomments.User_type_desc == 'Administrador'">
 					<div class="options">
 						<!-- <div class="form-check">
 							<input class="form-check-input" type="checkbox" [(ngModel)]="checked" value="" id="defaultCheck1" (change)="getSuperuser($event)">
@@ -127,7 +127,7 @@
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" [(ngModel)]="checked" (change)="getSuperuser2($event)" value="" id="defaultCheck2">
 							<label class="form-check-label" for="defaultCheck2">
-								Todos los comentarios
+								Todos los comentarios de todos los usuarios
 							</label>
 						</div>
 					</div>

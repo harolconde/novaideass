@@ -34,6 +34,12 @@ export class PerfiluserComponent implements OnInit {
   ideasMoreVotes:any[] = []
   commentsForUser:any[] = []
   idRedir:any
+
+  // Ideas internas
+  ideaInterna:boolean = false
+  respInterna: false
+  respInternaWrong:boolean = false
+
   constructor(
     private _service:IdeasService,
     private _user: UsersService, 
@@ -65,6 +71,9 @@ export class PerfiluserComponent implements OnInit {
       //asunto: ['']
     })
     this.getDataUserPerfil()
+    this._service.change.subscribe(respInterna => {
+      this.respInterna = respInterna
+    })  
   }
 
   // Menu de navegacion
@@ -150,7 +159,8 @@ export class PerfiluserComponent implements OnInit {
   // ******************************************* //
 
   postInternalIdeas(formValueInternal:any){
-
+    const toastOk =  document.getElementById('contentToastOk')
+    const toastFalse =  document.getElementById('contentToastFalse')
     let internaIdea = new internalIdea()
     internaIdea.emisor = ""
     internaIdea.password = ""
@@ -161,15 +171,62 @@ export class PerfiluserComponent implements OnInit {
     internaIdea.idUser = this.cookieService.get('session')
 
     this._service.postIdeasInternal(internaIdea)
+    this._service.change.subscribe( respInterna => {
+      this.respInterna = respInterna
+      if(this.respInterna){
+        //console.log('MOSTRANDO MENSAJE OK')
+        this.ideaInterna = true
+        setTimeout(() => {
+          this.ideaInterna = false  
+        }, 8000)
+      }
+      else{
+        //console.log('MOSTRANDO MENSAJE FALSE')
+        this.respInternaWrong = true
+        setTimeout(() => {
+          this.respInternaWrong = false
+        }, 8000)
+      }
+    })
     this.reset()
+    //modalInterna.style.display = 'none'
+    
   }
 
   // Reset post
   reset(){
     this.formInternal.reset()
   }
+  
+  // Toast
+  // hideToasts(){
+  //   console.log(this.respInterna)
+  //   const toastOk =  document.getElementById('contentToastOk')
+  //   const toastFalse =  document.getElementById('contentToastFalse')
+  //   const closeToastOk = document.getElementById('close')
+  //   this.ideaInterna = this.respInterna
+    
+  //   if(this.ideaInterna = true){
+  //     toastOk.style.display = 'block'
+  //     setTimeout(() => {
+  //       toastOk.style.display = 'none'
+  //     }, 8000)
+  //   }
+  //   else{
+  //     toastFalse.style.display = 'block'
+  //     setTimeout(() => {
+  //       toastFalse.style.display = 'none'
+  //     }, 8000)
+  //   }
+  // }
 
-
+  hideModalsAll(){
+    $('.modal').modal('hide')
+  }
+  closeToast(){
+    this.ideaInterna = false
+    this.respInternaWrong = false
+  }
 }
 $( () => {
   $('[data-toggle="tooltip"]').tooltip();

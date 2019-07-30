@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IdeasService } from '../../services/ideas.service'
+import { UsersService } from '../../services/users.service'
 import * as $ from 'jquery'
 import { ActivatedRoute } from '@angular/router';
 declare var $:any
@@ -19,15 +20,25 @@ export class AllCommentsUserComponent implements OnInit {
   commentsAll:any[] =[]
   idRedir:any
 
+  // User Dates
+  userDcomments: any 
+
   // Input check
   isCheckedValue:any = 1
   marcked:boolean = false
   checked:boolean = false
 
   menuComponents:boolean = false;
-  constructor(private _service:IdeasService, private _route:ActivatedRoute) { }
+  constructor(
+    private _service:IdeasService,
+    private _user:UsersService, 
+    private _route:ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    // Datos del usuario
+    this.datesUserComments()
+    
     // Comentarios por usuario
     this.getCommentUserAll()
     // Todos los comentarios de los usuarios
@@ -54,7 +65,7 @@ export class AllCommentsUserComponent implements OnInit {
   getCommentAllUserAll():void{
     this._service.getCommentsAllForUserAll().subscribe((data) => {
       this.commentsAll = data
-      console.log(data)
+      //console.log(data)
     })
   }
 
@@ -71,6 +82,14 @@ export class AllCommentsUserComponent implements OnInit {
     }
     // Volver a llamar la api comentarios
     this.getCommentUserAll()
+  }
+
+  // Datos del usuario
+  datesUserComments(){
+    this._user.getDatesUser().subscribe((data) => {
+      this.userDcomments = data
+      console.log(this.userDcomments)
+    })
   }
 }
 $(()=>{

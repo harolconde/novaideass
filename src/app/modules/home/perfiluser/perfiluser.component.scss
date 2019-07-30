@@ -851,6 +851,45 @@ $grid-breakpoints: (
     }
 }
 
+// Toast
+.contentToast{
+    position: fixed;
+    top: 90px;
+    right: 36px;
+    width: 100%;
+    .toast{
+        position: absolute;
+        top: 11px;
+        right: 0;
+        opacity: 1;
+        .toast-header{
+            img{
+                background-color: rgba(0, 0, 0, 0.125);
+                border-radius: 50%;
+                border: 1px solid rgba(0, 0, 0, 0.125);
+                width: 25px;
+                height: 25px;
+                display: block;
+            }
+        }
+        .toast-body{
+            .iconToastBody{
+                .icon{
+                    font-size: 1.5rem;
+                    margin-left: 1rem;
+                    margin-bottom: 1rem;
+                    &.messageSendOk{
+
+                    }
+                    &.messageSendError{
+                        color: #b71c1c;
+                    }
+                }
+            }
+        }
+    }
+}
+
 //Media queries
 @media (min-width: 1px) and (max-width: 991px) { 
     .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .containerCardPerfil{

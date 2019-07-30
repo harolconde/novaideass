@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of, from } from 'rxjs';
@@ -11,6 +11,7 @@ import { environment } from '../../../../environments/environment'
 import { modelVotes } from '../models/votesModel'
 import { shiftInitState } from '@angular/core/src/view';
 import { CookieService } from 'ngx-cookie-service';
+import { EventEmitter } from '@angular/core';
 
 
 @Injectable({
@@ -20,7 +21,10 @@ export class IdeasService {
     ideas:any[]
     public id:any
     resp:any
-    
+    public respInternas:boolean = false
+
+    @Output() change: EventEmitter<boolean> = new EventEmitter();
+
     // Nombre de controladores
     public nameController:string = 'dashboard1'
     public nameController2:string = 'dashboard2'
@@ -166,7 +170,9 @@ export class IdeasService {
             headers : headersHTTP,
             observe: 'response'
         }).subscribe( resp => { 
-            console.log(resp) 
+            console.log(resp)
+            this.respInternas = resp.ok
+            this.change.emit(this.respInternas)
         })
     }
 

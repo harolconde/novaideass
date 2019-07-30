@@ -300,7 +300,7 @@
 </div>
 
 <!-- Modal Mensaje interno o PQR -->
-<div class="modal fade bd-example-modal-xl modalPQR" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-xl modalPQR" id="modalPQR" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <form [formGroup] = "formInternal" (ngSubmit) = "postInternalIdeas(formInternal.value)">
@@ -339,10 +339,51 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btnCancelPQR" data-dismiss="modal" (click)="reset()">Cancelar</button>
-                    <button type="submit" class="btn btn-primary btnSubmitPQR">Enviar</button>
+                    <button type="submit" class="btn btn-primary btnSubmitPQR" (click)="hideModalsAll()">Enviar</button>
                 </div>
             </form>    
         </div>
     </div>
 </div>
 
+<!-- Toast respuesta envio de mensaje -->
+<ng-container *ngIf="ideaInterna"> 
+    <div class="contentToast contentToastOk" id="contentToastOk" aria-live="polite" aria-atomic="true" >
+        <div class="toast" style="position: absolute; top: 0; right: 0;">
+          <div class="toast-header">
+            <img [src]="'assets/img/icons/dashboard/idea.svg'" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small>Justo Ahora</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" (click)="closeToast()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body">
+                <div class="iconToastBody">
+                    <span>Se ha enviado tu mensaje o peticion.</span>
+                    <i class="fas fa-paper-plane icon messageSendOk"></i>
+                </div>
+          </div>
+        </div>
+      </div>
+</ng-container>
+<ng-template *ngIf="respInternaWrong">
+    <div class="contentToast contentToastFalse" id="contentToastFalse" aria-live="polite" aria-atomic="true" >
+        <div class="toast">
+          <div class="toast-header">
+            <img [src]="'assets/img/icons/dashboard/idea.svg'" class=" mr-2" alt="...">
+            <strong class="mr-auto">Novaideas</strong>
+            <small>Justo ahora</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" (click)="closeToast()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body">
+                <div class="iconToastBody">
+                    <span>No se ha podido enviar tu mensaje o peticion.</span>
+                    <i class="fas fa-exclamation-triangle icon messageSendError"></i>
+                </div>
+          </div>
+        </div>
+      </div>
+</ng-template>
