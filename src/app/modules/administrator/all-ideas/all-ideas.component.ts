@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
+import { IdeasService } from '../../home/services/ideas.service'
+import { FormBuilder, Validators } from "@angular/forms"
 import  * as $ from 'jquery';
 declare var $:any;
 
@@ -9,11 +11,31 @@ declare var $:any;
 })
 export class AllIdeasComponent implements OnInit {
 
+  // Formulario
+  isSubmit: false
+  formChecked: FormBuilder
+  // Ideas
+  ideas:any []
+
+  // Imagen
   imgIdeasSrc:string ='/assets/img/pics/photo.svg'
   fileUpload: File = null;
-  constructor() { }
+
+  @Input() id: string;
+  @Input() maxSize: number = 7
+  @Output() pageChange: EventEmitter<number>;
+  @Output() pageChange2: EventEmitter<number>;
+
+  constructor(
+    private _ideas:IdeasService
+  ) { }
 
   ngOnInit() {
+    this.getAdminAllIdeas()
+
+    // Pagination ngx
+    this.pageChange = new EventEmitter(true);
+
   }
 
   // Subir imagen de perfil del usuario.
@@ -27,6 +49,13 @@ export class AllIdeasComponent implements OnInit {
     };
     reader.readAsDataURL(this.fileUpload);
 
+  }
+
+  getAdminAllIdeas(){
+    this._ideas.getIdeasAdmin().subscribe((data) => {
+      this.ideas = data
+      console.log(data)
+    })
   }
 
 }

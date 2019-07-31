@@ -223,6 +223,26 @@ $grid-breakpoints: (
     padding-top: 29px;
     .row{
         .containerCardPerfil{
+            .datesPerfilUser{
+                form{
+                    width: 100%;
+                    .card-body{
+                        .form-group{
+                            margin-bottom: .3rem;
+                            .form-control{
+                                padding: 0;
+                                border: 0;
+                                border-bottom: 1px solid $colorButtons;
+                                border-radius: 0;
+                                height: 22px;
+                                font-size: 1rem;
+                                line-height: 17px;
+                                box-sizing: border-box;
+                            }
+                        }
+                    }
+                }
+            }
             .cardPqr{
                 height: 91px;
                 .card-title{
@@ -344,20 +364,11 @@ $grid-breakpoints: (
     padding-bottom: 0;
     padding-top: 0;
 }
-.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body form .form-group{
-    margin-bottom: .3rem;
-}
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body label{
     font-size: 0.625rem;
     line-height: 17px;
     margin-bottom: 0;
     color: #666666; 
-}
-.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body form .form-group label{
-    margin-bottom: 0;
-    font-size: 0.625rem;
-    line-height: 17px;
-    color: #666666;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body .emailPerfilUser{
     display: block;
@@ -365,16 +376,6 @@ $grid-breakpoints: (
     line-height: 17px;
     color: $colorTextCardPerfil;
     text-transform: lowercase;
-}
-.sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-body form .form-group .form-control{
-    padding: 0;
-    border: 0;
-    border-bottom: 1px solid $colorButtons;
-    border-radius: 0;
-    height: 22px;
-    font-size: 1rem;
-    line-height: 17px;
-    box-sizing: border-box;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .card-footer{
     width: 100%;
@@ -862,11 +863,11 @@ $grid-breakpoints: (
         top: 11px;
         right: 0;
         opacity: 1;
+        background-color: #eee;
         .toast-header{
             img{
-                background-color: rgba(0, 0, 0, 0.125);
                 border-radius: 50%;
-                border: 1px solid rgba(0, 0, 0, 0.125);
+
                 width: 25px;
                 height: 25px;
                 display: block;
@@ -875,7 +876,7 @@ $grid-breakpoints: (
         .toast-body{
             .iconToastBody{
                 .icon{
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                     margin-left: 1rem;
                     margin-bottom: 1rem;
                     &.messageSendOk{

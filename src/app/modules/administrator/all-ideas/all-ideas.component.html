@@ -7,24 +7,52 @@
                     <hr>
                 </div>
             </div>
+            <div class="col-12">
+                <div class="card cardOptionIdeas">
+                    <form action="">
+                        <div class="card-body">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Ideas publicadas</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Ideas en debate</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                <label class="form-check-label" for="inlineRadio3">Ideas aprobadas</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                                <label class="form-check-label" for="inlineRadio4">Ideas finalizadas</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                                <label class="form-check-label" for="inlineRadio5">Ideas muertas</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="col-12 containerCardsAdminAllIdeas">
                 <div class="row">
                     <div class="card-columns">
-                        <div class=" card">
+                        <div class="card" *ngFor="let idea of ideas | paginate: {itemsPerPage: 10, currentPage: p }; index as i">
                             <div class="card-title">
                                 <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="imgUserAdminIdeas">
                                 <div class="contentNameDateIdeasAdmin">
-                                    <span>Harol Conde</span>
-                                    <span>20/05/2019</span>
+                                    <span>{{idea.Nick_name}}</span>
+                                    <span>{{idea.CreateDt}}</span>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item titleIdeasAdmin">Porta ac consectetur ac</li>
                                     <li class="list-group-item ideaAdmin">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quod molestiae recusandae, quae iure repudiandae nam facilis a expedita atque nihil tempora reprehenderit nulla ad fuga sapiente illum saepe quia officia praesentium. Cum voluptatibus suscipit odit quibusdam dolore! Labore, ex.
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quod molestiae recusandae, quae iure repudiandae nam facilis a expedita atque nihil tempora reprehenderit nulla ad fuga sapiente illum saepe quia officia praesentium. Cum voluptatibus suscipit odit quibusdam dolore! Labore, ex.
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quod molestiae recusandae, quae iure repudiandae nam facilis a expedita atque nihil tempora reprehenderit nulla ad fuga sapiente illum saepe.
+                                        <p>
+                                            {{idea.IdeaText}}
+                                        </p>
                                     </li>
                                 </ul>
                             </div>
@@ -41,212 +69,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class=" card">
-                            <div class="card-title">
-                                <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="imgUserAdminIdeas">
-                                <div class="contentNameDateIdeasAdmin">
-                                    <span>Harol Conde</span>
-                                    <span>20/05/2019</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item titleIdeasAdmin">Porta ac consectetur ac</li>
-                                    <li class="list-group-item ideaAdmin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit blanditiis ducimus aliquam, ratione iste officia.</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-6 btnEditFinish">
-                                        <button class="btn btFinalizarIdeas" data-toggle="modal" data-target=".exampleModalCenter">Administrar</button>
-                                    </div>
-                                    <div class="col-6 btnUploading">
-                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2">
-                                            <i class="fas fa-image"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" card">
-                            <div class="card-title">
-                                <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="imgUserAdminIdeas">
-                                <div class="contentNameDateIdeasAdmin">
-                                    <span>Harol Conde</span>
-                                    <span>20/05/2019</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item titleIdeasAdmin">Porta ac consectetur ac</li>
-                                    <li class="list-group-item ideaAdmin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia tempora ipsam tempore fugit, repudiandae quidem modi a dolore ipsa quisquam?</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-6 btnEditFinish">
-                                        <button class="btn btFinalizarIdeas" data-toggle="modal" data-target=".exampleModalCenter">Administrar</button>
-                                    </div>
-                                    <div class="col-6 btnUploading">
-                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2">
-                                            <i class="fas fa-image"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" card">
-                            <div class="card-title">
-                                <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="imgUserAdminIdeas">
-                                <div class="contentNameDateIdeasAdmin">
-                                    <span>Harol Conde</span>
-                                    <span>20/05/2019</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item titleIdeasAdmin">Porta ac consectetur ac</li>
-                                    <li class="list-group-item ideaAdmin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque magnam soluta eum, cupiditate deleniti facere possimus sed?</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-6 btnEditFinish">
-                                        <button class="btn btFinalizarIdeas" data-toggle="modal" data-target=".exampleModalCenter">Administrar</button>
-                                    </div>
-                                    <div class="col-6 btnUploading">
-                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2">
-                                            <i class="fas fa-image"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" card">
-                            <div class="card-title">
-                                <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="imgUserAdminIdeas">
-                                <div class="contentNameDateIdeasAdmin">
-                                    <span>Harol Conde</span>
-                                    <span>20/05/2019</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item titleIdeasAdmin">Porta ac consectetur ac</li>
-                                    <li class="list-group-item ideaAdmin">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae magni atque libero laudantium sunt nam minus assumenda recusandae in nemo soluta, deleniti ea.</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-6 btnEditFinish">
-                                        <button class="btn btFinalizarIdeas" data-toggle="modal" data-target=".exampleModalCenter">Administrar</button>
-                                    </div>
-                                    <div class="col-6 btnUploading">
-                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2">
-                                            <i class="fas fa-image"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" card">
-                            <div class="card-title">
-                                <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="imgUserAdminIdeas">
-                                <div class="contentNameDateIdeasAdmin">
-                                    <span>Harol Conde</span>
-                                    <span>20/05/2019</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item titleIdeasAdmin">Porta ac consectetur ac</li>
-                                        <li class="list-group-item ideaAdmin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quod molestiae recusandae, quae iure repudiandae nam facilis a expedita atque nihil tempora reprehenderit nulla ad fuga sapiente illum saepe quia officia praesentium. Cum voluptatibus suscipit odit quibusdam dolore! Labore, ex.</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-6 btnEditFinish">
-                                        <button class="btn btFinalizarIdeas" data-toggle="modal" data-target=".exampleModalCenter">Administrar</button>
-                                    </div>
-                                    <div class="col-6 btnUploading">
-                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2">
-                                            <i class="fas fa-image"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" card">
-                            <div class="card-title">
-                                <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="imgUserAdminIdeas">
-                                <div class="contentNameDateIdeasAdmin">
-                                    <span>Harol Conde</span>
-                                    <span>20/05/2019</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item titleIdeasAdmin">Porta ac consectetur ac</li>
-                                    <li class="list-group-item ideaAdmin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit blanditiis ducimus aliquam, ratione iste officia.</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-6 btnEditFinish">
-                                        <button class="btn btFinalizarIdeas" data-toggle="modal" data-target=".exampleModalCenter">Administrar</button>
-                                    </div>
-                                    <div class="col-6 btnUploading">
-                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2">
-                                            <i class="fas fa-image"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" card">
-                            <div class="card-title">
-                                <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="imgUserAdminIdeas">
-                                <div class="contentNameDateIdeasAdmin">
-                                    <span>Harol Conde</span>
-                                    <span>20/05/2019</span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item titleIdeasAdmin">Porta ac consectetur ac</li>
-                                    <li class="list-group-item ideaAdmin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia tempora ipsam tempore fugit, repudiandae quidem modi a dolore ipsa quisquam?</li>
-                                </ul>
-                            </div>
-                            <div class="card-footer">
-                                <div class="row">
-                                    <div class="col-6 btnEditFinish">
-                                        <button class="btn btFinalizarIdeas" data-toggle="modal" data-target=".exampleModalCenter">Administrar</button>
-                                    </div>
-                                    <div class="col-6 btnUploading">
-                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2">
-                                            <i class="fas fa-image"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <nav aria-label="Page navigation example" class="navigation">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                    <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt="">
+                        <pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event" class="paginationNgx">
+                            <div class="pagination-previous" [class.disabled]="p1.isFirstPage()">
+                                <a *ngIf="!p1.isFirstPage()" (click)="p1.previous()" class="arrowPagination arrowPrevius"> <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt=""> </a>
+                            </div>                          
+                            <div *ngFor="let page of p1.pages" [class.current]="p1.getCurrent() === page.value">
+                                <a (click)="p1.setCurrent(page.value)" *ngIf="p1.getCurrent() !== page.value">
+                                    <span>{{ page.label }}</span>
                                 </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt="">
-                                </a>
-                            </li>
-                        </ul>
+                                <div *ngIf="p1.getCurrent() === page.value">
+                                    <span>{{ page.label }}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="pagination-next" [class.disabled]="p1.isLastPage()">
+                                <a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext">  <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt=""></a>
+                            </div>
+                        </pagination-template> 
                     </nav>
                 </div>
             </div>

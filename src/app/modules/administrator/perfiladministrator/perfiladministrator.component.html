@@ -12,28 +12,29 @@
 				<div class="col-sm-12 col-md-12 col-lg-2 col-xl-2 ">
 					<div class="card cardPerfil">
 						<div class="cardheader" data-toggle="tooltip" data-placement="bottom" title="Editar">
-							<img class="imgPerfilUser" src="{{getImgUser(userDatesPerfil.IdUsers)}}" alt="">
+							<img class="imgPerfilUser" src="{{getImgUser(userDatesPerfil.UsersDTO.IdUsers)}}" alt="">
 							<button class="btnImgPerfilUser" data-toggle="modal" data-target="#exampleModalCenter">
 								<img src="assets/img/icons/perfilUser/pencil-edit-buttons.svg" alt="" class="imgEditPerfil">
 							</button>
 						</div>
 						<div class="namePerfilUser"> 
-							<span>{{userDatesPerfil.UserFirstName}} {{userDatesPerfil.UserLastName}}</span>
-							<label>{{userDatesPerfil.User_type_desc}}</label>
+							<span>{{userDatesPerfil.UsersDTO.UserFirstName}} {{userDatesPerfil.UsersDTO.UserLastName}}</span>
+							<label>{{userDatesPerfil.UsersTypeDTO.UsersType}}</label>
 						</div>
-						<div class="card-body">
-							<form>
-								<div class="form-group">
-									<label for="formGroupExampleInput">Nickname</label>
-									<input type="text" class="form-control" id="formGroupExampleInput" placeholder="{{userDatesPerfil.UserNickName}}">
-								</div>
-							</form>
-							<label for="formGroupExampleInput2">Correo</label>
-							<span class="emailPerfilUser">{{userDatesPerfil.UserEmail}}</span>
-						</div>
-						<div class="card-footer">
-							<button class="btn btn-block btnSavePerfilAdmon">Guardar cambios</button>
-						</div>
+						<form [formGroup]="formPerfilUser" (ngSubmit)="putDatesUser(formPerfilUser.value)">
+							<div class="card-body">
+									<div class="form-group">
+										<label for="formGroupExampleInput">Nickname</label>
+										<input type="text" formControlName="nickName" class="form-control" id="formGroupExampleInput" placeholder="{{userDatesPerfil.UsersDTO.UserNickName}}">
+									</div>
+								
+								<label for="formGroupExampleInput2">Correo</label>
+								<span class="emailPerfilUser">{{userDatesPerfil.UsersDTO.UserEmail}}</span>
+							</div>
+							<div class="card-footer">
+								<button class="btn btn-block btnSavePerfilAdmon">Guardar cambios</button>
+							</div>
+						</form>
 					</div>
 					<div class="card cardPqr">
 						<div class="card-title">

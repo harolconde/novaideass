@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeasService } from '../../home/services/ideas.service'
-import {UsersService} from '../../home/services/users.service'
+import { UsersService } from '../../home/services/users.service'
 import * as $ from 'jquery';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, FormBuilder, FormArray, ReactiveFormsModule } from '@angular/forms';
 import { internalIdea } from '../../home/models/ideaInterna'
+import { UserModel } from '../../home/models/userModel'
 import { CookieService } from 'ngx-cookie-service'
 import { environment } from '../../../../environments/environment'
 declare var $:any;
@@ -41,11 +42,13 @@ export class PerfiladministratorComponent implements OnInit {
     private _user: UsersService, 
     private _route:ActivatedRoute, 
     private _idInternal:FormBuilder,
+    private _nickNameUpd: FormBuilder,
     private cookieService: CookieService
   ) { }
 
   // Formulario
   formInterna: FormGroup
+  formPerfilUser: FormGroup
 
   ngOnInit() {
     // Datos del perfil del usuario
@@ -67,6 +70,9 @@ export class PerfiladministratorComponent implements OnInit {
     this.formInterna = this._idInternal.group({
       mensaje: ['']
       //asunto: ['']
+    })
+    this.formPerfilUser = this._nickNameUpd.group({
+      nickName: ['']
     })
     
   }
@@ -128,6 +134,18 @@ export class PerfiladministratorComponent implements OnInit {
   reset(){
     this.formInterna.reset()
   }
+
+  // *************************************** //
+  // *********** PETICIONES PUT *********** //
+  // ************************************** //
+  putDatesUser(formValue:any){
+    let userData = new UserModel()
+    userData.IdUsers = this.cookieService.get('session')
+    userData.UserNickName = formValue.nickName
+    this._user.updDatesUser(userData)
+  }
+
+  
 
 }
 $(() => {

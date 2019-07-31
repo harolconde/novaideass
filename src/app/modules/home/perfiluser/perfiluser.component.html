@@ -119,28 +119,30 @@
                     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 containerDatesPerfilUser containerCardPerfil">
                         <div class="card datesPerfilUser">
                             <div class="cardheader" data-toggle="tooltip" data-placement="bottom" title="Editar">
-                                <img class="imgPerfilUser" src="{{getImgUser(userDataPerfil.IdUsers)}}" alt="">
+                                <img class="imgPerfilUser" src="{{getImgUser(userDataPerfil.UsersDTO.IdUsers)}}" alt="">
                                 <button class="btnImgPerfilUser" data-toggle="modal" data-target="#exampleModalCenter">
                                     <img src="assets/img/icons/perfilUser/pencil-edit-buttons.svg" alt="" class="imgEditPerfil">
                                 </button>
                             </div>
                             <div class="namePerfilUser"> 
-                                <span>{{userDataPerfil.UserFirstName}} {{userDataPerfil.UserLastName}}</span>
-                                <label>{{userDataPerfil.User_type_desc}}</label>
+                                <span>{{userDataPerfil.UsersDTO.UserFirstName}} {{userDataPerfil.UsersDTO.UserLastName}}</span>
+                                <label>{{userDataPerfil.UsersTypeDTO.UsersType}}</label>
                             </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Nickname</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="{{userDataPerfil.UserNickName}}">
-                                    </div>
-                                </form>
-                                <label for="formGroupExampleInput2">Correo</label>
-                                <span class="emailPerfilUser">{{userDataPerfil.UserEmail}}</span>
-                            </div>
-                            <div class="card-footer">
-                                <button class="btnEditPerfilUser">Guardar cambios</button>
-                            </div>
+                            <form [formGroup] ="formUpdUser" (ngSubmit)="putNicknameUser(formUpdUser.value)">
+                                <div class="card-body">
+                                    
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Nickname</label>
+                                            <input type="text" formControlName="nickname" class="form-control" id="formGroupExampleInput" placeholder="{{userDataPerfil.UsersDTO.UserNickName}}">
+                                        </div>
+                                    
+                                    <label for="formGroupExampleInput2">Correo</label>
+                                    <span class="emailPerfilUser">{{userDataPerfil.UsersDTO.UserEmail}}</span>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btnEditPerfilUser">Guardar cambios</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="card cardPqr">
                             <div class="card-title">
@@ -352,7 +354,7 @@
         <div class="toast" style="position: absolute; top: 0; right: 0;">
           <div class="toast-header">
             <img [src]="'assets/img/icons/dashboard/idea.svg'" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
+            <strong class="mr-auto">Novaideas</strong>
             <small>Justo Ahora</small>
             <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" (click)="closeToast()">
               <span aria-hidden="true">&times;</span>

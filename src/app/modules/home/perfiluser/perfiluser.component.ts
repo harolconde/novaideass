@@ -7,6 +7,7 @@ import { CookieService } from 'ngx-cookie-service'
 import { environment } from '../../../../environments/environment'
 import { ActivatedRoute } from '@angular/router';
 import { internalIdea } from '../models/ideaInterna'
+import { UserModel } from '../models/userModel'
 import { FormControl, FormGroup, FormBuilder, FormArray} from '@angular/forms'
 import { from } from 'rxjs';
 
@@ -45,11 +46,13 @@ export class PerfiluserComponent implements OnInit {
     private _user: UsersService, 
     private _route:ActivatedRoute, 
     private _idInternal:FormBuilder,
+    private _userDate:FormBuilder,
     private cookieService: CookieService
   ) { }
 
   // Formulario
   formInternal: FormGroup
+  formUpdUser: FormGroup
 
   ngOnInit() {
     // Todas mis ideas
@@ -70,6 +73,11 @@ export class PerfiluserComponent implements OnInit {
       mensaje: ['']
       //asunto: ['']
     })
+    // Captura datos del formulario acutalizar nickname perfil del usuario
+    this.formUpdUser = this._userDate.group({
+      nickname: ['']
+    })
+
     this.getDataUserPerfil()
     this._service.change.subscribe(respInterna => {
       this.respInterna = respInterna
@@ -198,27 +206,22 @@ export class PerfiluserComponent implements OnInit {
     this.formInternal.reset()
   }
   
-  // Toast
-  // hideToasts(){
-  //   console.log(this.respInterna)
-  //   const toastOk =  document.getElementById('contentToastOk')
-  //   const toastFalse =  document.getElementById('contentToastFalse')
-  //   const closeToastOk = document.getElementById('close')
-  //   this.ideaInterna = this.respInterna
-    
-  //   if(this.ideaInterna = true){
-  //     toastOk.style.display = 'block'
-  //     setTimeout(() => {
-  //       toastOk.style.display = 'none'
-  //     }, 8000)
-  //   }
-  //   else{
-  //     toastFalse.style.display = 'block'
-  //     setTimeout(() => {
-  //       toastFalse.style.display = 'none'
-  //     }, 8000)
-  //   }
-  // }
+  
+  // ******************************************* //
+  // *********** Put Datos de perfil *********** //
+  // ******************************************* //
+
+  // Datos perfil usuario nickname
+  putNicknameUser(formValue:any){
+    let userData = new UserModel()
+    userData.IdUsers = this.cookieService.get('session')
+    userData.UserNickName = formValue.nickname
+    this._user.updDatesUser(userData)
+    setTimeout(()=>{
+      this.getDataUserPerfil()
+      this.resetUpd()
+    }, 400)
+  }
 
   hideModalsAll(){
     $('.modal').modal('hide')
@@ -226,6 +229,10 @@ export class PerfiluserComponent implements OnInit {
   closeToast(){
     this.ideaInterna = false
     this.respInternaWrong = false
+  }
+
+  resetUpd(){
+    this.formUpdUser.reset()
   }
 }
 $( () => {

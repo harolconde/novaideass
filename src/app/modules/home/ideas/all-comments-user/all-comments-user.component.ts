@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IdeasService } from '../../services/ideas.service'
 import { UsersService } from '../../services/users.service'
-import * as $ from 'jquery'
 import { ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery'
 declare var $:any
 
 @Component({
@@ -37,7 +37,7 @@ export class AllCommentsUserComponent implements OnInit {
 
   ngOnInit() {
     // Datos del usuario
-    this.datesUserComments()
+    this.datesUserComments() 
     
     // Comentarios por usuario
     this.getCommentUserAll()

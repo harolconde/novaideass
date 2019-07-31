@@ -9,10 +9,10 @@
                 <div class="datesOfUser">
                     <div class="row gridDatesUser">
                         <div class="img">
-                            <img src="{{getImgUser(userData.IdUsers)}}" alt="" class="mgUserInChat">
+                            <img src="{{getImgUser(userData.UsersDTO.IdUsers)}}" alt="" class="mgUserInChat">
                         </div>
                         <div class="name"> 
-                            <span>{{userData.UserFirstName}} {{userData.UserLastName}}</span>
+                            <span>{{userData.UsersDTO.UserFirstName}} {{userData.UsersDTO.UserLastName}}</span>
                         </div>
                         <div class="arrow">
                             <button class="btnDatesUser" data-toggle="tooltip" data-placement="top" title="Datos de perfil"  >
@@ -21,7 +21,7 @@
                         </div>
                         <div class="infoPerfil" >
                             <ul class="list-group list-group-flush" >
-                                <li class="list-group-item" *ngIf="userData.UserType == 1 || userData.UserType == 2">
+                                <li class="list-group-item" *ngIf="userData.UsersDTO.UserType == 1 || userData.UserType == 2">
                                     <a [routerLink]="'/perfil-usuario'" (click) = "showMenuUser()">
                                         <span>
                                             <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">
@@ -31,7 +31,7 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li class="list-group-item" *ngIf="userData.UserType == 3">
+                                <li class="list-group-item" *ngIf="userData.UsersDTO.UserType == 3">
                                         <a [routerLink]="'/perfil-administrador'" (click) = "showMenuUser()">
                                             <span>
                                                 <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">

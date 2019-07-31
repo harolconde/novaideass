@@ -6,13 +6,15 @@ import { AdministratorComponent } from './administrator.component';
 import { PerfiladministratorComponent } from './perfiladministrator/perfiladministrator.component';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { AllIdeasComponent } from './all-ideas/all-ideas.component';
+import { NgxPaginationModule } from 'ngx-pagination'
 
 @NgModule({
   imports: [
     CommonModule,
     AdministratorRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   declarations: [
     AdministratorComponent,

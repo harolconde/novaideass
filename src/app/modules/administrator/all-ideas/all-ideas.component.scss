@@ -12,6 +12,28 @@ $radiusButton: 50px;
     padding-left: 36px;
     padding-right: 36px;
 }
+.sectionAllIdeasAdmin .containerAllIdeasAdmin{
+    .row{
+        .col-12{
+            .cardOptionIdeas{
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+                .card-body{
+                    display: flex;
+                    justify-content: space-between;
+                    .form-check{
+                        .form-check-input{
+                            width: 20px;
+                            height: 20px;
+                        }
+                        .form-check-label{
+                            height: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 .sectionAllIdeasAdmin .containerAllIdeasAdmin .titleAdminAllIdeas{
     padding-top: 26px;
     h3{
@@ -114,25 +136,38 @@ $radiusButton: 50px;
     .navigation{
         width: 100%;
         padding-top: 1rem;
-        .pagination{
+        .paginationNgx{
             margin-bottom: 0;
-            .page-item .page-link{
-                border: 0;
-                padding-top: 0;
-                padding-bottom: 0;
-                color: #444;
-                padding-left: 0;
-                padding-right: 0;
-                margin-left: .7rem;
-                margin-right: .7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .pagination-previous{
+                width: 25px;
+                height: auto;
+                margin-right: 5px;
                 .arrowPrevius{
-                    -webkit-transform: rotate(0.25turn);
                     transform: rotate(0.25turn);
+                    cursor: pointer;
                 }
+            }
+            .current{
+                div{
+                    width: 25px;
+                    text-align: center;
+                    span{
+                        font-weight: 600;
+                        color: #111;
+                    }
+                }
+            }
+            .pagination-next{
+                width: 25px;
+                height: auto;
+                margin-left: 5px;
                 .arrowNext{
-                    -webkit-transform: rotate(0.75turn);
                     transform: rotate(0.75turn);
-                }            
+                    cursor: pointer;
+                }
             }
         }
     } 

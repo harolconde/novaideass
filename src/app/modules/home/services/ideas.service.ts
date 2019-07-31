@@ -22,6 +22,7 @@ export class IdeasService {
     public id:any
     resp:any
     public respInternas:boolean = false
+    public estado:any = 1
 
     @Output() change: EventEmitter<boolean> = new EventEmitter();
 
@@ -90,6 +91,10 @@ export class IdeasService {
         return this.http.get(`${environment.endpoint}/${this.nameController4}?opcionc=4&estadoc=0&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=4`)
     }
     
+    getIdeasAdmin() : Observable<any>{
+        return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=${this.estado}&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
+    }
+
     // Idea en detalle
     getIdeaDetalle(): Observable<any>{
         console.log(this.id)

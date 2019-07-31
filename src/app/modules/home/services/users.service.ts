@@ -5,6 +5,7 @@ import { of } from 'rxjs';
 import { environment } from '../../../../environments/environment'
 import { AuthenticationService } from '../../login/services/authentication.service'
 import { CookieService } from 'ngx-cookie-service'
+import { UserModel } from '../models/userModel'
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,28 @@ export class UsersService {
   getDatesUser(){
     this.idUser = this.cookieService.get('session')
     return this.http.get(`${environment.endpoint}/Users?opcion=4&idUsers=${this.idUser}`)
+  }
+
+  // *************************************** //
+  // *********** PETICIONES PUT *********** //
+  // ************************************** //
+
+  // atuualizar datos del usuario
+  updDatesUser(userDates: UserModel){
+    this.idUser = this.cookieService.get('session')
+    const user = new UserModel()
+    user.IdUsers = userDates.IdUsers
+    user.UserNickName = userDates.UserNickName
+    user.UserTypé = userDates.UserTypé
+    user.UserStatus = userDates.UserStatus
+    let headersUser = new HttpHeaders().set('Content-Type','application/json')
+
+    return this.http.put(`${environment.endpoint}/Users/${this.idUser}?opcion=2`,user,{
+      headers : headersUser,
+      observe : 'response'
+    }).subscribe((response) => {
+      console.log(response)
+    })
   }
 
 }

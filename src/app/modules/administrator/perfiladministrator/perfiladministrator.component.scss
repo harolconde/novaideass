@@ -123,6 +123,14 @@ $grid-breakpoints: (
     justify-content: center;
     height: auto;
     padding-top: 1rem;
+    form{
+        width: 100%;
+        .card-footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader{
     position: relative;
@@ -186,6 +194,7 @@ $grid-breakpoints: (
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .card-body .form-group{
     margin-bottom: .3rem;
+    width: 100%;
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .card-body .form-group label:first-child{
     font-size: 0.625rem;

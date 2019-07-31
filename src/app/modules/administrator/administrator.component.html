@@ -9,10 +9,10 @@
                 <div class="col-6 barNavDatesUser">
                 <div class="container">
                     <div class="imgBarNav">
-                        <img src="{{getImgUserAdmon(userDateAdmon.IdUsers)}}" alt="" class="mgUserInChat">
+                        <img src="{{getImgUserAdmon(userDateAdmon.UsersDTO.IdUsers)}}" alt="" class="mgUserInChat">
                     </div>
                     <div class="nameBarNav">
-                        <span>{{userDateAdmon.UserFirstName}} {{userDateAdmon.UserLastName}}</span>
+                        <span>{{userDateAdmon.UsersDTO.UserFirstName}} {{userDateAdmon.UsersDTO.UserLastName}}</span>
                     </div>
                     <div class="arrowBarNav">
                         <button class="btnDatesUser" data-toggle="tooltip" data-placement="top" title="Datos de perfil" (click)="showMenuUser()"> 
