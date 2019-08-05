@@ -20,7 +20,7 @@ import { EventEmitter } from '@angular/core';
 export class IdeasService {
     ideas:any[]
     public id:any
-    resp:any
+    public resp:any = 0
     public respInternas:boolean = false
     public estado:any = 1
 
@@ -240,15 +240,23 @@ export class IdeasService {
         vote.idUser = voting.idUser
         vote.voteType = voting.voteType
         
-        console.log(vote)
+        //console.log(vote)
         let headersHttp = new HttpHeaders().set('Content-Type','application/json')
         return this.http.post<any>(`${environment.endpoint}/tallerVotes`, vote, {
             headers : headersHttp,
-            observe : 'response'
+            observe : 'response' 
         }).subscribe((resp) => {
             console.log(resp)
-            return this.resp = resp.body
+            this.resp = resp.body
+            this.change.emit(this.resp)
+            console.log(this.resp)
         })
+    }
+
+    // Id voto
+    getIdVote(){
+        this.id = this.cookieService.get('session')
+        return this.http.get(`${environment.endpoint}/GetVotes?idUser=${this.id}&idIdea=${this.idIdeas}`)
     }
     // Update Voto
     putSendVote(votingUpd: votesModel){

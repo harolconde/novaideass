@@ -86,7 +86,7 @@ export class DeadideasComponent implements OnInit {
 
   // Obtener imagen usuario
   getImgUser(id){
-    return environment.endpoint + `/Image?idUsers=${id}`
+    return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
   }
 
   // Obtener id de la idea

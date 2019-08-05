@@ -48,7 +48,7 @@ export class FinishideasComponent implements OnInit {
 
   // Get imagenes Usuario
   getImgUser(id){
-    return environment.endpoint + `/Image?idUsers=${id}`
+    return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
   }
 
 }

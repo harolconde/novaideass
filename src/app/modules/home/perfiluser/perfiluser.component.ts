@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as $ from 'jquery';
 import { isLContainer } from '@angular/core/src/render3/util';
 import { IdeasService } from '../services/ideas.service'
@@ -47,7 +48,8 @@ export class PerfiluserComponent implements OnInit {
     private _route:ActivatedRoute, 
     private _idInternal:FormBuilder,
     private _userDate:FormBuilder,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private http: HttpClient
   ) { }
 
   // Formulario
@@ -97,10 +99,10 @@ export class PerfiluserComponent implements OnInit {
   }
   // imagen de perfil del usuario
   getImgUser(id){
-    return environment.endpoint + `/Image?idUsers=${id}`
+    return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
   }
 
-  // Subir imagen de perfil del usuario.
+  // Captural imagen de perfil del usuario.
   selectImg(file: FileList) {
     this.fileUpload = file.item(0);
 
@@ -113,6 +115,23 @@ export class PerfiluserComponent implements OnInit {
 
     // Obtener mime imagen
     
+  }
+
+  // Subir image
+  onSubmitImg(id){
+    console.log(this.fileUpload)
+    const uploadImg = new FormData()
+    uploadImg.append('myFile', this.fileUpload, this.fileUpload.name)
+    this.http.put(`${environment.endpoint}/ImageUsers?opcion=2&idUsers=${this.cookieService.get('session')}`, uploadImg, {
+      reportProgress: true,
+      observe: 'events'
+    }).subscribe(event=>{
+      console.log(event)
+    })
+    setTimeout(() => {
+      this.getDataUserPerfil()
+      this.getImgUser(id)
+    },400)
   }
 
   // ********************* //

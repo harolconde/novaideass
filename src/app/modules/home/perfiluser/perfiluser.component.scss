@@ -288,13 +288,13 @@ $grid-breakpoints: (
         align-items: center;
     }
     &.ideasPostuladas{
-        height: 210px;
+        height: 222px;
     }
-    &.ideasComentadas{
-        height: 210px;
+    &.todasMisIdeas{
+        height: 235px;
     }
     &.misOpiniones{
-        height: 210px;
+        height: 235px;
     }
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .row .card .card-title{
@@ -312,8 +312,8 @@ $grid-breakpoints: (
     background-color: $colorButtons;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader{
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     margin-top: 21px;
     position: relative;
     border-radius: 50%;
@@ -321,14 +321,15 @@ $grid-breakpoints: (
     background-color: rgba(0,0,0,0.125);
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader .imgPerfilUser{
     width: 100%;
     height: auto;
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader .btnImgPerfilUser{
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     border-radius: $radiusButtons;
     position: absolute;
     border: none;
@@ -338,6 +339,10 @@ $grid-breakpoints: (
     bottom: 0;
     background-color: transparent;
     display: none;
+    .imgEditPerfil{
+        width: 30px;
+        height: 30px;
+    }
 }
 .sectionPerfilUser .containerPerfilUser .row .containerCardPerfilUser .datesPerfilUser .cardheader:hover .btnImgPerfilUser{
     display: block;
@@ -474,7 +479,7 @@ $grid-breakpoints: (
 
 //Card mis ideas postuladas
 .sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-body{
-    padding-top: 0rem;
+    //padding-top: 0rem;
     padding-bottom: 0rem;
 }
 .sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .todasMisIdeas .card-body .list-group-flush .list-group-item{
@@ -543,7 +548,7 @@ $grid-breakpoints: (
 
 //Card mis comentarios
 .sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-body{
-    padding-top: 0rem;
+    //padding-top: 0rem;
     padding-bottom: 0rem;
 }
 .sectionPerfilUser .containerPerfilUser .containerCardPerfilUser .misOpiniones .card-body .list-group-flush .list-group-item{

@@ -134,7 +134,7 @@
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Nickname</label>
                                             <input type="text" formControlName="nickname" class="form-control" id="formGroupExampleInput" placeholder="{{userDataPerfil.UsersDTO.UserNickName}}">
-                                        </div>
+                                        </div> 
                                     
                                     <label for="formGroupExampleInput2">Correo</label>
                                     <span class="emailPerfilUser">{{userDataPerfil.UsersDTO.UserEmail}}</span>
@@ -295,7 +295,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btnModal btnCancel" data-dismiss="modal" (click)="cancelSelectIdea()">Cancelar</button>
-                <button type="button" class="btn btn-primary btnModal btnSave" (click)="getMimeType()">Guardar</button>
+                <button type="button" class="btn btn-primary btnModal btnSave" (click)="onSubmitImg()">Guardar</button>
             </div>
         </div>
     </div>

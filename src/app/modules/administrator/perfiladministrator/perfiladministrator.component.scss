@@ -84,7 +84,7 @@ $grid-breakpoints: (
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
     background-color: $backgroundNavBar;
     margin-bottom: 1rem;
-    height: 210px;
+    height: 235px;
     &.cardPqr{
         height: 105px;
         .card-title{
@@ -135,21 +135,22 @@ $grid-breakpoints: (
 .sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader{
     position: relative;
     /* margin-top: 31px; */
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 1px solid rgba(0,0,0,0.125);
     background-color: rgba(0,0,0,0.125);
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader img{
     width: 100%;
     height: auto;
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader .btnImgPerfilUser{
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50px;
     border: 0;
     position: absolute;
@@ -167,7 +168,7 @@ $grid-breakpoints: (
     justify-content: center;
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .cardheader .btnImgPerfilUser .imgEditPerfil{
-    width: 20px;
+    width: 30px;
     height: auto;
 }
 .sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .namePerfilUser{
@@ -244,7 +245,7 @@ $grid-breakpoints: (
     line-height: 21px;
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon{
-    height: 210px;
+    height: 235px;
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-title{
     padding-left: 14px;
@@ -258,7 +259,7 @@ $grid-breakpoints: (
     line-height: 19px;
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body{
-    padding: 0px 20px;
+    padding-top: 10px;
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardMisPostuladasAdmon .card-body .list-group .list-group-item{
     border-top: 0;
@@ -323,7 +324,16 @@ $grid-breakpoints: (
 // Cards todas las ideas mis opiniones
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon{
     background-color: #fff;
-    height: 210px;
+    height: 235px;
+    .card-title{
+        span{
+            font-size: .9rem;
+            font-weight: 600;
+            color: #5A5858;
+            letter-spacing: 1.18px;
+            line-height: 19px;
+        }
+    }
     .card-body{
         div{
             width: 100%;
@@ -348,7 +358,7 @@ $grid-breakpoints: (
     padding-bottom: 0rem;
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmon .card-body .list-group-flush .list-group-item{
-    padding: 0rem 1.25rem;
+    //padding: 0rem 1.25rem;
     display: flex;
     align-items: center;
     @include responsive-mobile{
@@ -417,10 +427,17 @@ $grid-breakpoints: (
     padding-top: .5rem;
     line-height: 17px;
 }
-.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-title{
-    padding-left: 14px;
-    margin-bottom: 0;
-}
+.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin{
+    &.cardAdminIdeas{
+        .card-footer{
+            padding-top: 6px;
+        }
+    }
+    .card-title{
+        padding-left: 14px;
+        margin-bottom: 0;
+    }
+} 
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-title span{
     font-size: .9rem;
     font-weight: 600;
@@ -428,9 +445,9 @@ $grid-breakpoints: (
     letter-spacing: 1.18px;
     line-height: 19px;
 }
-.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body{
-    padding-top: 10px;
-}
+// .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body{
+//     padding-top: 10px;
+// }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-body .list-group{
     width: 100%;
 }
@@ -500,8 +517,7 @@ $grid-breakpoints: (
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 0.65rem;
-    padding-bottom: 0.65rem;
+    padding-top: 1.1rem;
 }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdmin .card-footer button{
     background-color: $backgroundDates;
@@ -517,12 +533,12 @@ $grid-breakpoints: (
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas {
     // height: auto;
 }
-.sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body{
-    padding: 0rem 1.25rem;
-}
+// .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body{
+//     padding: 0rem 1.25rem;
+// }
 .sectionPerfilAdmon .containerCardsPerfilAdmon .cardAdminIdeas .card-body .list-group .list-group-item {
-    padding: 0rem 1.25rem;
-    height: 30px;
+    // padding: 0rem 1.25rem;
+    // height: 30px;
     @include responsive-mobile{
         padding: .1rem 0rem;
     }

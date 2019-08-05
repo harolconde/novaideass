@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { IdeasService } from '../../home/services/ideas.service'
 import { FormBuilder, Validators } from "@angular/forms"
 import  * as $ from 'jquery';
+import { environment } from '../../../../environments/environment';
 declare var $:any;
 
 @Component({
@@ -58,6 +59,10 @@ export class AllIdeasComponent implements OnInit {
     })
   }
 
+  // Imagenes de perfil usuarios
+  getImgUser(id){
+    return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
+  }
 }
 (() => {
   $('[data-toggle="tooltip"]').tooltip()

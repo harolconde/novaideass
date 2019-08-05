@@ -67,10 +67,8 @@ export class ChatComponent implements OnInit {
   fcomentarios: FormGroup
 
   // Variables votos
-  votePos:number
-  voteNeg:number
-  voteNeu:number
-  response:any
+  vote:any []
+  resp:any
 
   constructor(
     private _service : IdeasService, 
@@ -185,7 +183,7 @@ export class ChatComponent implements OnInit {
 
   // Imagen de usuario
   getImgUser(id){
-    return environment.endpoint + `/Image?idUsers=${id}`
+    return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
   }
 
   // Post votes
@@ -287,20 +285,28 @@ export class ChatComponent implements OnInit {
   // Votar
   // Postivos
   addVotesPos(id, i){
+    let idIdeaVote
+    let idVote = id
+    this._service.idIdeas = idVote
     let toasts = document.getElementsByClassName('toast')
+
     const vote = new modelVotes()
     vote.opcion = 1
     vote.idVote = 0
     vote.idIdea = id
-    vote.idUser = 19
+    vote.idUser = this.cookieService.get('session') 
     vote.voteType = 1
-
     this._service.postSendVote(vote)
-    this.response = this._service.resp
-    console.log(this.response)
-    if(this.response = 1){
-      this.hideToast(i)
-    }
+    setTimeout(()=>{ 
+      this.resp = this._service.resp
+      console.log(this.resp)
+      if(this.resp = 1){
+        this._service.getIdVote().subscribe((data) => {
+          console.log(data)
+          idIdeaVote = data 
+        }) 
+      }
+    }, 700)
   }
 
   // Negativos
@@ -308,14 +314,14 @@ export class ChatComponent implements OnInit {
     const vote = new modelVotes()
     vote.opcion = 1
     vote.idVote = 0
-    vote.idIdea = id
+    vote.idIdea = id 
     vote.idUser = 19
     vote.voteType = 2 
 
     this._service.postSendVote(vote)
-    this.response = this._service.resp
-    console.log(this.response)
-    if(this.response = 1){
+    this.resp = this._service.resp
+    console.log(this.resp)
+    if(this.resp = 1){
       this.hideToast(i)
     }
   }
@@ -330,9 +336,9 @@ export class ChatComponent implements OnInit {
     vote.voteType = 3
 
     this._service.postSendVote(vote)
-    this.response = this._service.resp
-    console.log(this.response)
-    if(this.response = 1){
+    this.resp = this._service.resp
+    console.log(this.resp)
+    if(this.resp = 1){
       this.hideToast(i)
     }
   }

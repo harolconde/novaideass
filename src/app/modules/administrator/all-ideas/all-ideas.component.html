@@ -9,7 +9,7 @@
             </div>
             <div class="col-12">
                 <div class="card cardOptionIdeas">
-                    <form action="">
+                    <form [formGroup]="">
                         <div class="card-body">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -40,7 +40,9 @@
                     <div class="card-columns">
                         <div class="card" *ngFor="let idea of ideas | paginate: {itemsPerPage: 10, currentPage: p }; index as i">
                             <div class="card-title">
-                                <img [src]="'assets/img/users/ideas-avatar-hombre-moreno.svg'" alt="" class="imgUserAdminIdeas">
+                                <div class="contentImgUserAdmon">
+                                    <img src="{{getImgUser(idea.IdUsers)}}" alt="" class="imgUserAdminIdeas">
+                                </div>
                                 <div class="contentNameDateIdeasAdmin">
                                     <span>{{idea.Nick_name}}</span>
                                     <span>{{idea.CreateDt}}</span>

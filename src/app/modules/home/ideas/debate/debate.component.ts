@@ -59,7 +59,7 @@ export class DebateComponent implements OnInit {
 
   // Get imagen Usuario
   getImgUser(id){
-    return environment.endpoint + `/Image?idUsers=${id}`
+    return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
   }
 
   // Boton ver mas

@@ -87,7 +87,7 @@ export class PerfiladministratorComponent implements OnInit {
 
   // Imagen de perfil del usuario
   getImgUser(id){
-		return environment.endpoint + `/Image?idUsers=${id}`
+		return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
 	}
 
   // Traer las ideas mas votadas del administrador

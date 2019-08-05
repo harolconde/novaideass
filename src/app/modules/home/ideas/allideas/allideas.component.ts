@@ -105,7 +105,7 @@ export class AllideasComponent implements OnInit {
 
   // Get imagen de usuario
   getImgUser(id){
-    return environment.endpoint + `/Image?idUsers=${id}`
+    return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
   }
 
   // Get comentarios ideas

@@ -73,7 +73,7 @@ export class DatesuserComponent implements OnInit {
 
 	// Imagen de usuario
 	getImgUser(id){
-		return environment.endpoint + `/Image?idUsers=${id}`
+		return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
 	}
   
 }

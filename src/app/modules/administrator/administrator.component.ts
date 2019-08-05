@@ -50,6 +50,6 @@ export class AdministratorComponent {
 
     // Imagen del usuario administrador
     getImgUserAdmon(id){
-        return environment.endpoint + `/Image?idUsers=${id}`
+        return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
     }
 }

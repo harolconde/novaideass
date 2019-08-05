@@ -44,7 +44,7 @@ export class AllIdeasUserComponent implements OnInit {
 
   // Mostrar imagen de usuario
   getImgUser(id){
-    return environment.endpoint + `/Image?idUsers=${id}`
+    return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
   }
 
 

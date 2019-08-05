@@ -256,7 +256,7 @@ export class DashboardComponent implements OnInit {
   }
   // Imagenes del top
   getImgUser(id){
-    return environment.endpoint + `/Image?idUsers=${id}`
+    return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
   }
 
 }

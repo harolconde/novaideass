@@ -243,6 +243,14 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
     align-items: center;
     padding: 0px 20px;
     color: $colorText;
+    img{
+        background-color: rgba(0,0,0,0.125);
+        border: 1px solid rgba(0,0,0,0.125);
+        border-radius: 50%;
+        overflow: hidden;
+        width: 52px;
+        height: 52px;
+    }
 }
 .sectionDebateIdeas .containerSectionDebateIdeas .card-columns .card .card-title .name{
     margin-left: 20px;
@@ -291,6 +299,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button,textarea{
             }
             .imgComments{
                 width: 10%;
+                border: 1px solid rgba(0,0,0,0.125);
+                background-color: rgba(0,0,0,0.125);
+                overflow: hidden;
+                border-radius: 50%;
                 img{
                     width: 100%;
                 }

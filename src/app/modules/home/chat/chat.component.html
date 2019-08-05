@@ -15,9 +15,7 @@
 					<div class="containerIdeaCredentials" id="{{idea.Id}}" >
 						<div class="imgUserInChat">
 							<figure>
-								
-								<img src="{{getImgUser(idea.IdUsers)}}" alt="" >  
-								
+								<img src="{{getImgUser(idea.IdUsers)}}" alt="" >  	
 							</figure>
 						</div>
 						<div class="containerNameVotes">
@@ -34,15 +32,21 @@
 											<div class="votos" id="v-{{idea.Id}}" >
 												<ul class="containerVotos"> <!-- [ngClass]="popovers ? 'visible' : 'hidden'" -->
 													<li class="upButton">
-														<img [src]="'assets/img/icons/chat/hapy.svg'" data-toggle="tooltip" data-placement="top" title="Me gusta" alt="" (click)="addVotesPos(idea.Id, i)">
+														<div class="imgLikes">
+															<img [src]="'assets/img/icons/chat/hapy.svg'" data-toggle="tooltip" data-placement="top" title="Me gusta" alt="" (click)="addVotesPos(idea.Id, i)">
+														</div>
 														<span>{{idea.Likes}}</span>
 													</li>
 													<li class="upButton">
-														<img [src]="'assets/img/icons/chat/sad.svg'" data-toggle="tooltip" data-placement="top" title="No me gusta" alt="" (click)="addVotesNeg(idea.Id, i)">
+														<div class="imgLikes">
+															<img [src]="'assets/img/icons/chat/sad.svg'" data-toggle="tooltip" data-placement="top" title="No me gusta" alt="" (click)="addVotesNeg(idea.Id, i)">
+														</div>
 														<span> {{idea.Dislikes}} </span> 
 													</li>
 													<li class="upButton">
-														<img [src]="'assets/img/icons/chat/mee.svg'" data-toggle="tooltip" data-placement="top" title="Neutro" alt="" (click)="addVotesNeu(idea.Id, i)">
+														<div class="imgLikes">
+															<img [src]="'assets/img/icons/chat/mee.svg'" data-toggle="tooltip" data-placement="top" title="Neutro" alt="" (click)="addVotesNeu(idea.Id, i)">
+														</div>
 														<span> {{idea.Neutral}} </span>
 													</li>
 												</ul>

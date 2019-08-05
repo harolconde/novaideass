@@ -40,7 +40,10 @@ h1,h2,h3,h4,h5,h6,span,p,a,li,label,small,input,button{
     background-color: rgba(0,0,0,0.125);
     overflow: hidden;
     display: flex;
-    align-items: center;  
+    align-items: center;
+    img{
+        width: 100%;
+    }  
 }
 .sectionDatesUserDashboard .containerDatesUser .row .containerDates .datesOfUser .gridDatesUser .name{
     margin:0rem 1rem 0rem 1rem;
