@@ -21,7 +21,7 @@
                         </div>
                         <div class="infoPerfil" >
                             <ul class="list-group list-group-flush" >
-                                <li class="list-group-item" *ngIf="userData.UsersDTO.UserType == 1 || userData.UserType == 2">
+                                <li class="list-group-item" *ngIf="userData.UsersDTO.UserType == 1 || userData.UsersDTO.UserType == 2">
                                     <a [routerLink]="'/perfil-usuario'" (click) = "showMenuUser()">
                                         <span>
                                             <img [src]="'assets/img/icons/dates/ovalGrey.svg'" alt="">

@@ -67,6 +67,9 @@ $radiusButton: 50px;
             background-color: $backgroundCards;
             border: 1px solid $colorBorder;
             margin-bottom: 1.1rem;
+            .carouselContainer{
+                display: none;
+            }
             .card-title{
                 margin-bottom: 0;
                 display: flex;
@@ -80,6 +83,9 @@ $radiusButton: 50px;
                     height: 52px;
                     background-color: rgba(0,0,0,0.125);
                     border-radius: 50%;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
                     img{
                         width: 100%;
                     }
@@ -92,6 +98,21 @@ $radiusButton: 50px;
                     margin-left: 10px;
                     span:first-child{
                         font-weight: 600;
+                    }
+                }
+                .showImg{
+                    position: absolute;
+                    right: 4px;
+                    top: 2px;
+                    z-index: 2;
+                    .btn{
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        i{
+                            font-size: 2rem;
+                            color: $backgroundButtons;
+                        }
                     }
                 }
             }
@@ -119,6 +140,7 @@ $radiusButton: 50px;
                     border-radius: $radiusButton;
                     color: $backgroundCards;
                     width: 100%;
+                    height: 35px;
                 }
                 .btnEditFinish{
                     display: flex;
@@ -131,12 +153,17 @@ $radiusButton: 50px;
                     align-items: center;
                     justify-content: flex-end;
                     .btnUploadImgAdminIdeas{
-                        width: auto;
-                        height: auto;
+                        width: 95%;
+                        /* height: auto; */
                         display: flex;
+                        color: $backgroundButtons;
+                        height: 35px;
+                        border-radius: 50px;
+                        justify-content: space-around;
+                        border: 2px solid $backgroundButtons;
                         i{
-                            font-size: 1.7rem;
-                            color: $colorText;
+                            font-size: 1.4rem;
+                            color: $backgroundButtons;
                         }
                     }
                 }
@@ -385,5 +412,7 @@ $radiusButton: 50px;
         }
     }
 }
-
+.myImgs{
+    display: block;
+}
 

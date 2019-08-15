@@ -8,6 +8,8 @@ import { internalIdea } from '../../home/models/ideaInterna'
 import { UserModel } from '../../home/models/userModel'
 import { CookieService } from 'ngx-cookie-service'
 import { environment } from '../../../../environments/environment'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+//import { url } from 'inspector';
 declare var $:any;
 
 
@@ -21,6 +23,12 @@ export class PerfiladministratorComponent implements OnInit {
   // Datos del perfil del usuario
   idUserPerfil:any
   userDatesPerfil:any
+
+  // Imagenes perfil de usuario
+  // Subir imagen de perfil del usuario
+  imgSrc: string = 'assets/img/users/user.svg';
+  fileUpload: File = null;
+  mimeType: string = null;
 
   // Redireccionamiento Id Idea
   idRedir:any
@@ -43,7 +51,8 @@ export class PerfiladministratorComponent implements OnInit {
     private _route:ActivatedRoute, 
     private _idInternal:FormBuilder,
     private _nickNameUpd: FormBuilder,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private http: HttpClient
   ) { }
 
   // Formulario
@@ -85,11 +94,6 @@ export class PerfiladministratorComponent implements OnInit {
     })
   }
 
-  // Imagen de perfil del usuario
-  getImgUser(id){
-		return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
-	}
-
   // Traer las ideas mas votadas del administrador
   getIdeasMvotes():void{
     this._service.getIdeasUserMoreVotes().subscribe((data) => {
@@ -124,7 +128,7 @@ export class PerfiladministratorComponent implements OnInit {
     internaIdea.asunto = "Prueba Envio Correo NovaIdeas"
     internaIdea.destinatario = "sample string 3"
     internaIdea.rutaAdjunto = "sample string 4"
-    internaIdea.idUser = "19"
+    internaIdea.idUser = this.cookieService.get('session')
 
     this._service.postIdeasInternal(internaIdea)
     this.reset()
@@ -145,7 +149,45 @@ export class PerfiladministratorComponent implements OnInit {
     this._user.updDatesUser(userData)
   }
 
-  
+  //************************************************//
+  // ******* Imagenes de perfil del usuario ******* //
+  //************************************************//
+
+  // Obtener imagen de perfil
+  getImgUser(id){
+		return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}` 
+	}
+
+  // Capturar imagen del perfil para reemplazar
+  captureImg(File: FileList){
+    this.fileUpload = File.item(0)
+    const reader = new FileReader()
+    reader.onload = (event:any) => {
+      this.imgSrc = event.target.result;
+    }
+    reader.readAsDataURL(this.fileUpload)
+  }
+
+  // Cambiar imagen de perfil del usuario.
+  changeImgPerfil(id){
+    const uploadImg = new FormData()
+    uploadImg.append('myFile', this.fileUpload, this.fileUpload.name)
+    this.http.put(`${environment.endpoint}/ImageUsers?opcion=2&idUsers=${this.cookieService.get('session')}`, uploadImg, {
+      reportProgress: true,
+      observe: 'events'
+    }).subscribe((event) => {
+      console.log(event)
+    })
+    setTimeout(() => {
+      this.getUserDatesPerfil()
+      this.getImgUser(id)
+    },500)
+  }
+
+  // Cancelar cambio de imagen
+  cancelSelectIdea(){
+    return this.imgSrc = 'assets/img/users/user.svg';
+  }
 
 }
 $(() => {

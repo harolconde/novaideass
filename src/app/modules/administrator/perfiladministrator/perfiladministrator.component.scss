@@ -171,7 +171,7 @@ $grid-breakpoints: (
     width: 30px;
     height: auto;
 }
-.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .namePerfilUser{
+.sectionPerfilAdmon .containerSectionPerfilAdmon .cardPerfil .namePerfilUser{ 
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -560,4 +560,90 @@ $grid-breakpoints: (
     font-size: .9rem;
     font-weight: 300;
     color: $colorText;
+}
+
+// Modal cambio imagen de usuario
+.modalCambioImagenUsuario{
+    .modal-lg{
+        .modal-content{
+            .modal-header{
+
+            }
+            .modal-body{
+                .containerImgsUserSelection{
+                    .imgUpload{
+                        display: flex;
+                        align-items: center;
+                        padding: 10px 0;
+                        .containerImgUpload{
+                            overflow: hidden;
+                            width: 80px;
+                            height: 80px;
+                            border-radius: 50%;
+                            background-color: rgba(0,0,0,0.125);
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid rgba(0,0,0,0.125);
+                            img{
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                        .containerBtnUpload{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            padding-left: 14px;
+                            input[type=file]{
+                                display: block;
+                            }
+                            .inputUpload{
+                                width: 0.1px;
+                                height: 0.1px;
+                                opacity: 0;
+                                overflow: hidden;
+                                position: absolute;
+                                z-index: 1;
+                            }
+                            .btnUpload{
+                                border-radius: 50px;
+                                width: 153px;
+                                height: 30px;
+                                border: 1px solid #E7B843;
+                                background-color: #fff;
+                                color: #E7B843;
+                                font-size: .9rem;
+                                line-height: 19px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            .modal-footer{
+                padding-top: 1.1875rem;
+                padding-bottom: 1.875rem;
+                display: flex;
+                justify-content: flex-start;
+                .btnModal{
+                    width: 153px;
+                    height: 39px;
+                    border: 1px solid #E7B843;
+                    border-radius: 50px;
+                    font-size: .9rem;
+                    letter-spacing: 1.03px;
+                    line-height: 8px;
+                    padding-top: .65rem;
+                    &.btnCancel{
+                        background-color: #fff;
+                        color: #E7B843;
+                    }
+                    &.btnSave{
+                        background-color: #E7B843;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
 }

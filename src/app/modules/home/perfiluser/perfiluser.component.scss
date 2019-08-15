@@ -682,10 +682,11 @@ $grid-breakpoints: (
     margin-top: 14px;
 }
 .modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .containerImgUpload{
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     background-color: rgba(0,0,0,0.38);
     border-radius: 50px;
+    overflow: hidden;
 }
 
 .modal .modal-dialog .modal-content .modal-body .containerImgsUserSelection .imgUpload .containerImgUpload img{

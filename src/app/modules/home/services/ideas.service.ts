@@ -270,7 +270,32 @@ export class IdeasService {
         let headersHTTP = new HttpHeaders().set('Content-Type','application/json')
         return this.http.put(`${environment.endpoint}/tallerVotes`, voteUpd,{
             headers : headersHTTP,
-            observe : 'response' 
+            observe : 'response'  
         })
+    }
+
+    // *************************************** //
+    // ************** IMAGENES *************** //
+    // *************************************** //
+
+    // GETS
+    getImgsIdeasAll(){
+        return this.http.get(`${environment.endpoint}/Attachments?opcion=2&ideasIdIdea=${this.idIdeas}`)
+    }
+
+    // POSTS
+
+    // Add Images to idea finish
+    postImgIidea(ideaId : IdeasModel){
+        const dataId = new IdeasModel()
+        dataId.id = ideaId.id
+        dataId.opcion =ideaId.opcion
+        let headersHTTP = new HttpHeaders().set('Content-Type', 'application/json')
+        return this.http.post(`${environment.endpoint}/Attachments?`, ideaId,{
+            headers : headersHTTP,
+            observe : 'response'
+        }).subscribe(event => {
+            console.log(event)
+        }) 
     }
 }

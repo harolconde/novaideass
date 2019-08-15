@@ -12,7 +12,7 @@
 				<div class="col-sm-12 col-md-12 col-lg-2 col-xl-2 ">
 					<div class="card cardPerfil">
 						<div class="cardheader" data-toggle="tooltip" data-placement="bottom" title="Editar">
-							<img class="imgPerfilUser" src="{{getImgUser(userDatesPerfil.UsersDTO.IdUsers)}}" alt="">
+							<img class="imgPerfilUser" src="{{getImgUser (userDatesPerfil.UsersDTO.IdUsers)}}" alt="">
 							<button class="btnImgPerfilUser" data-toggle="modal" data-target="#exampleModalCenter">
 								<img src="assets/img/icons/perfilUser/pencil-edit-buttons.svg" alt="" class="imgEditPerfil"> 
 							</button>
@@ -268,7 +268,7 @@
 </div>
 
  <!-- Modal cambio imagen -->
- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+ <div class="modal fade modalCambioImagenUsuario" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -298,7 +298,7 @@
 								<img id="upload" [src]="imgSrc"  alt="">
 							</div>
 							<div class="containerBtnUpload">
-								<input type="file"  id="imgUpload" class="inputUpload"  accept="image/*" (change)="selectImg($event.target.files);">
+								<input type="file"  id="imgUpload" class="inputUpload"  accept="image/*" (change)="captureImg($event.target.files);">
 								<label for="imgUpload">
 									<span class="btn btn-secondary btn-lg btnUpload">Subir archivo</span>
 								</label> 
@@ -308,7 +308,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary btnModal btnCancel" data-dismiss="modal" (click)="cancelSelectIdea()">Cancelar</button>
-					<button type="button" class="btn btn-primary btnModal btnSave" (click)="getMimeType()">Guardar</button>
+					<button type="button" class="btn btn-primary btnModal btnSave" (click)="changeImgPerfil()">Guardar</button>
 				</div>
 			</div>
 		</div>
