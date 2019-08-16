@@ -7,64 +7,25 @@
 					<hr>
 				</div>
 			</div>
-			<div class="col-12 containerCardsAdminAllUsers">
-				<div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
-					<div class="card">
-						<div class="card-title">
-							<div class="containerTitleUser">
-								<img [src]="'assets/img/users/ideas-avatar-mujer-coletas.svg'" alt="">
-								<span class="name">Angela Zarate</span>
-								<small>Usuario Basico</small>
-							</div> 
-						</div>
-						<div class="card-body">
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item">
-									<div class="nickname">
-										<label for="">Nickname:</label>
-										<span>A.Zarate</span>
-									</div>
-								</li>
-								<li class="list-group-item">
-									<div class="fullName">
-										<label for="">Nombre:</label>
-										<span>Angela Zarate</span>
-									</div>
-								</li>
-								<li class="list-group-item">
-									<div class="email">
-										<label for="">Correo electronico:</label>
-										<span>angela.zarate@novatec.com.co</span>
-									</div>
-								</li>
-								<li class="list-group-item">
-									<div class="ideas">
-										<span class="ideasPostuladasTitle">Total ideas publicas:</span>
-										<span class="cant">5</span>
-									</div>
-								</li>
-								<li class="list-group-item">
-									<div class="ideas">
-										<span class="ideasPostuladasTitle">Total ideas privadas:</span>
-										<span class="cant">5</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="card-footer">
-							<div class="row">
-								<div class="col-6 editUserAdmin">
-									<button class="btn" data-toggle="modal" data-target="#modalEditUser">
-										<i class="fas fa-pen" data-toggle="tooltip" data-placement="top" title="Editar"></i>
-									</button>
-								</div>
-								<div class="col-6 deletetUserAdmin">
-									<button class="btn" data-toggle="modal" data-target="#modalDeleteUser">
-										<i class="fas fa-trash" data-toggle="tooltip" data-placement="top" title="Eliminar"></i>
-									</button>
-								</div>
+			<div class="containerCardsAdminAllUsers card-columns">
+				<div class="card " *ngFor="let user of users; index as i" id="user.IdUsers" [routerLink]="['/usuario-ver', user.IdUsers]">
+					<div class="card-header">
+						<div class="containerInfoUser">
+							<div class="img">
+								<img src="{{getImgUser(user.IdUsers)}}" alt="">
 							</div>
+							<h4>{{user.UserNickName}}</h4>
 						</div>
+					</div>
+					<div class="card-body">
+						<blockquote class="blockquote mb-0">
+							<span>{{user.UserFirstName}} {{user.UserLastName}}</span>
+							<footer class="blockquote-footer"> Tipo de usuario: 
+								<cite title="Source Title" *ngIf="user.UserType == 1"> Normal </cite>
+								<cite title="Source Title" *ngIf="user.UserType == 2"> Comité </cite>
+								<cite title="Source Title" *ngIf="user.UserType == 3"> Administrador </cite>
+							</footer>
+						</blockquote>
 					</div>
 				</div>
 			</div>

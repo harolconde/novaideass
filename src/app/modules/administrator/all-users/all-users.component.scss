@@ -5,6 +5,34 @@ $backgroundNavBar: #fff;
 $colorText: #5A5858;
 $buttonsRadius: 50px;
 
+// Grid
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px,
+  // Column-count
+  "cc" : 1780px
+);
+
+@mixin media-breackpoint {
+    @media (min-width: map-get($grid-breakpoints, "cc" ))
+    {
+        @content;
+    }
+}
+@mixin media-breackpoint-lg {
+    @media (min-width: map-get($grid-breakpoints , "lg")) and (max-width: map-get($grid-breakpoints, "cc")){
+        @content;
+    }
+}
+
 .sectionAllUsersAdmin{
     padding-left: 36px;
     padding-right: 36px;
@@ -25,92 +53,64 @@ $buttonsRadius: 50px;
         height: 1px;
     }
 }
-// Cards
-.sectionAllUsersAdmin .containerSectonAllUserAdmin .containerCardsAdminAllUsers .card{
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
-    background-color: $backgroundNavBar;
-    border: 1px solid #DDDDDD;
-    .card-title{
-        padding-bottom: 1.4rem;
-        padding-top: 2rem;
-        margin-bottom: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        .containerTitleUser{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            img{
-                width: 100px;
-                height: 100px;
-                margin-bottom: 1rem;
-            }
-            span{
-                font-size: 1.2rem;
-                color: $colorText;
-                font-weight: 600;
-            }
-        }
+// Cards 
+.sectionAllUsersAdmin .containerSectonAllUserAdmin .card-columns{
+    max-width: 100%;
+    padding-left: 6px;
+    padding-right: 22px;
+    @include media-breackpoint{
+        column-count: 6;
     }
-    .card-body{
-        padding-top: 0;
-        .list-group .list-group-item{
-            border: 0;
-            padding: 5px 5px;
-            .nickname,.fullName,.email{
+    @include media-breackpoint-lg{
+        column-count: 4;
+    }
+    .card{
+        padding: 0;
+        margin-bottom: 1.15rem;
+        margin-left: .5rem;
+        margin-right: .5rem;
+        cursor: pointer;
+        .card-header{
+            padding-bottom: .5rem;
+            padding-top: .5rem;
+            .containerInfoUser{
                 display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-            }
-            .nickname,.fullName,.email, label{
-                font-size: 1rem;
-                font-weight: 600;
-                color: $colorText;
-                margin-bottom: 0;
-            }
-            .nickname,.fullName,.email, span{
-                font-size: 1.1rem;
-                font-weight: 300;
-                color: $colorText;   
-            }
-            .ideas span{
-                font-size: 1.1rem;
-                font-weight: 600;
-                color: $colorText;
-            }
-            .ideas span:last-child{
-                position: absolute;
-                right: 10px;
+                align-items: center;
+                .img{
+                    width: 35px;
+                    height: 35px;
+                    border: 1px solid rgba(0,0,0,0.125);
+                    background-color: rgba(0,0,0,0.125);
+                    border-radius: 50px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    img{
+                        width: 100%;
+                    }
+                }
+                h4{
+                    margin-bottom: 0;
+                    margin-left: 10px;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    height: 15px;
+                }
             }
         }
-    }
-    .card-footer{
-        background-color: $backgroundNavBar;
-        .editUserAdmin,.deletetUserAdmin,.btn{
-            display: flex;
-            align-items: center;
-            height: auto;
-            color: $colorText;
-        }
-        .deletetUserAdmin{
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            .btn:hover i{
-                color: #d32f2f;
-                transition: 500ms;
+        .card-body{
+            padding-bottom: 0.8rem;
+            padding-top: 0.2rem;
+            .blockquote{
+                span{
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
             }
-        }
-        .editUserAdmin .btn:hover i{
-            color: #63C533;
-            transition: 500ms;
-        }
+        }  
     }
 }
+
 .sectionModalDelete{
     .modal{
         .modal-dialog-centered{

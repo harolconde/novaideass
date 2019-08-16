@@ -6,7 +6,8 @@ import { AdministratorComponent } from './administrator.component';
 import { PerfiladministratorComponent } from './perfiladministrator/perfiladministrator.component';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { AllIdeasComponent } from './all-ideas/all-ideas.component';
-import { NgxPaginationModule } from 'ngx-pagination'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ShowUserDetailComponent } from './show-user-detail/show-user-detail.component'
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { NgxPaginationModule } from 'ngx-pagination'
     AdministratorComponent,
     PerfiladministratorComponent,
     AllUsersComponent,
-    AllIdeasComponent
+    AllIdeasComponent,
+    ShowUserDetailComponent
   ]
 })
 export class AdministratorModule { }

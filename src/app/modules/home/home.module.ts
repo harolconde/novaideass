@@ -47,7 +47,8 @@ import { AllCommentsUserComponent } from './ideas/all-comments-user/all-comments
     IdeaspostulateComponent,
     ApprovedComponent, 
     DebateComponent, 
-    AllIdeasUserComponent, AllCommentsUserComponent
+    AllIdeasUserComponent, 
+    AllCommentsUserComponent
   ],
   providers: [
     IdeasService,

@@ -13,8 +13,10 @@ import { UserModel } from '../models/userModel'
 export class UsersService {
   idUser:any
   user:any[]
+  public usersId:any
   // Nombre controlador en el servicio
   public nameController:string = 'dashboard1'
+  messageService: any;
 
   constructor(
       private http: HttpClient,
@@ -30,6 +32,14 @@ export class UsersService {
   getDatesUser(){
     this.idUser = this.cookieService.get('session')
     return this.http.get(`${environment.endpoint}/Users?opcion=4&idUsers=${this.idUser}`)
+  }
+
+  getUser(id: number): Observable<any>{
+    return this.http.get(`${environment.endpoint}/Users?opcion=4&idUsers=${id}`)
+  }
+  // Traer todos los datos de todos los usuarios
+  getDatesAllUsers(){
+    return this.http.get(`${environment.endpoint}/Users?opcion=4`)
   }
 
   // *************************************** //

@@ -31,7 +31,7 @@ export class IdeaComponent implements OnInit {
         this.getRouteId()
         this.getIdeaDetail()  
         this.getCommentDetail()  
-    }
+    } 
     getRouteId(){
         this.ruta.paramMap.subscribe(param => {this.id = param.get('id')
             console.log(this.id)
