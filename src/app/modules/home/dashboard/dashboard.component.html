@@ -158,13 +158,13 @@
                                                         <div class="statistic">
                                                             <canvas id="myChart" width="500px" height="170px">
                       
-                                                            </canvas>
+                                                            </canvas> 
                                                         </div>
                                                     </div>
                                                     <div class="card-content col-12 col-md-12 col-lg-6 col-xl-6">
                                                         <ul class="list-group list-group-flush" >
-                                                            <ng-container *ngFor="let ideaVote of lastFourIdeasVotes; index as i">
-                                                                <li class="list-group-item"  *ngIf="i<4">
+                                                            <ng-container *ngFor="let ideaVote of lastFourIdeasVotes | orderBy: order:reverse; index as i">
+                                                                <li class="list-group-item"  *ngIf="i<4" id="ideaVoted-{{ideaVote.IdeasDTO.IdIdeas}}">
                                                                     <div class="containerUserTop imgUserIdeaTop">
                                                                         <ng-container>
                                                                             <div class="imgUserTop" *ngIf="i == 0">
@@ -182,8 +182,8 @@
                                                                         </ng-container>
                                                                         <div class="topParticipation topIdeaPercentage">
                                                                             <div class="topParticipationNamePercentage topParticipationIdeaPercentage">
-                                                                                <span class="nameUserTop contentIdeaTop" > {{ ideaVote.Id_text }} </span>
-                                                                                <span class="percentage percentagetIdeaTop" > {{ ideaVote.Votos }} </span>
+                                                                                <span class="nameUserTop contentIdeaTop" > {{ ideaVote.IdeasDTO.IdeaText }} </span>
+                                                                                <span class="percentage percentagetIdeaTop" > {{ ideaVote.VotesTypeDTO.VotesTotal }} </span>
                                                                             </div>
                                                                         </div>
                                                                     </div> 
@@ -204,7 +204,7 @@
                                               <ul class="list-group list-group-flush" *ngFor="let lfidea of lastFourIdeas; index as i">
                                                   <li class="list-group-item">
                                                       <span class="spinnerIdea">.</span>
-                                                      <span class="contenIdeaText"> {{lfidea.IdeaText}} </span>
+                                                      <span class="contenIdeaText"> {{lfidea.IdeasDTO.IdeaText}} </span>
                                                       <div class="contentIconIdeaText">
                                                           <button class="btnIconIdeaText" type="button" ><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lfidea.Id]"></button>
                                                           <button class="btnIconIdeaText btnLikeIdeaText"><img [src]="'assets/img/icons/dashboard/like.svg'" alt=""></button>
@@ -226,7 +226,7 @@
                                               <ul class="list-group list-group-flush" *ngFor="let lfdIdeas of lastFourDebateIdeas; index as i">
                                                   <li class="list-group-item">
                                                       <span class="spinnerIdea">.</span>
-                                                      <span class="contenIdeaText">{{lfdIdeas.IdeaText}}</span>
+                                                      <span class="contenIdeaText">{{lfdIdeas.IdeasDTO.IdeaText}}</span>
                                                       <div class="contentIconIdeaText">
                                                           <button class="btnIconIdeaText btnMessageIdeaText"><img [src]="'assets/img/icons/dashboard/message.svg'" alt=""></button>
                                                           <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lfdIdeas.Id]"></button>
@@ -253,7 +253,7 @@
                                               <ul class="list-group list-group-flush" *ngFor="let lfaIdeas of lastFourApprovedIdeas; index as i">
                                                   <li class="list-group-item">
                                                       <span class="spinnerIdea">.</span>
-                                                      <span class="contenIdeaText"> {{lfaIdeas.IdeaText}} </span>
+                                                      <span class="contenIdeaText"> {{lfaIdeas.IdeasDTO.IdeaText}} </span>
                                                       <div class="contentIconIdeaText">
                                                           <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lfaIdeas.Id]"></button>
                                                       </div>
@@ -274,7 +274,7 @@
                                               <ul class="list-group list-group-flush" *ngFor="let lffIdeas of lastFourFinishIdeas; index as i">
                                                   <li class="list-group-item">
                                                       <span class="spinnerIdea">.</span>
-                                                      <span class="contenIdeaText"> {{lffIdeas.IdeaText}} </span>
+                                                      <span class="contenIdeaText"> {{lffIdeas.IdeasDTO.IdeaText}} </span>
                                                       <div class="contentIconIdeaText">
                                                           <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lffIdeas.Id]"></button>
                                                       </div>
@@ -298,7 +298,7 @@
                                       <ul class="list-group list-group-flush" *ngFor="let lfdeadIdeas of lastFourDeadIdeas; index as i">
                                           <li class="list-group-item">
                                               <span class="spinnerIdea">.</span>
-                                              <span class="contenIdeaText"> {{lfdeadIdeas.IdeaText}} </span>
+                                              <span class="contenIdeaText"> {{lfdeadIdeas.IdeasDTO.IdeaText}} </span>
                                               <div class="contentIconIdeaText">
                                                   <button class="btnIconIdeaText"><img [src]="'assets/img/icons/dashboard/eye.svg'" alt="" [routerLink]="['/idea', lfdeadIdeas.Id]"></button>
                                               </div>

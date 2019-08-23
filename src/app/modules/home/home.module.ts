@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { OrderModule } from 'ngx-order-pipe'
 import { IdeasService } from './services/ideas.service';
 
 
@@ -30,7 +30,8 @@ import { AllCommentsUserComponent } from './ideas/all-comments-user/all-comments
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    OrderModule
   ],
   declarations: [
     HomeComponent,

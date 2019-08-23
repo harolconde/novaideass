@@ -45,11 +45,15 @@ export class IdeasService {
     year: any = this.date.getFullYear()
     month: any = this.date.getMonth()+1
     day: any = this.date.getDate()
-    fechatFin: any = this.year+this.month+this.day
+    monthFull:any = (this.month < 10) ? '0' + this.month : this.month // Adicionar '0' al mes
+    fechatFin: any = `${this.year}${this.monthFull}${this.day}`
+    fechaInit: any = `${this.year}${this.monthFull}01`
     
 
     // Todas las ideas
     getIdeas() : Observable<any>{
+        console.log(this.fechaInit)
+        console.log(this.fechatFin)
         return this.http.get(`${environment.endpoint}/${this.nameController}?opcionc=1&estadoc=1&tipoc=1&fechaInic=20180101&fechaFinc=${this.fechatFin}&rownumberc=0`)
     }
     // Ultimas cuatro ideas

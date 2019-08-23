@@ -6,6 +6,8 @@ import { tick } from '@angular/core/testing';
 import {ActivatedRoute} from '@angular/router'
 import { environment } from '../../../../environments/environment'
 import { from } from 'rxjs';
+import { reverse } from 'dns';
+import { OrderPipe } from 'ngx-order-pipe'
 
 @Component({
   selector: 'app-dashboard',
@@ -37,10 +39,26 @@ export class DashboardComponent implements OnInit {
   // Id por idea redireccionar
   idRedir: any
 
-  constructor(private _service:IdeasService, private _userService:UsersService, private _route:ActivatedRoute) { }
+  // Ordenar 
+  order:string = 'VotesTypeDTO.VotesTotal'
+  reverse: boolean = true
+  dataStatisc: any = []
+
+  constructor(
+    private _service:IdeasService, 
+    private _userService:UsersService, 
+    private _route:ActivatedRoute,
+    private orderPipe: OrderPipe
+    ) {
+       
+      
+    }
 
   ngOnInit() {
-    
+    setTimeout(()=>{
+      this.dataStatisc = this.orderPipe.transform(this.lastFourIdeasVotes, this.order, this.reverse)
+      console.log(this.dataStatisc[0].VotesTypeDTO.VotesTotal)
+    },700)
     this._route.paramMap.subscribe(param => {this.idRedir = param.get('id')
       console.log(this.idRedir)
     })
@@ -119,127 +137,129 @@ export class DashboardComponent implements OnInit {
         console.log(data)
         
         //  Estadisticas
-        const ctx = document.getElementById('myChart');
+        setTimeout(() => {
+          const ctx = document.getElementById('myChart');
 
-        let myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Positivos', 'Negativos', 'Me es indiferente'],
-                datasets: [
-                {
-                    label: 0,
-                    data: [this.lastFourIdeasVotes[0].Votos,2,2],
-                    backgroundColor: [
-                        'rgba(138,221,45,1)',
-                        'rgba(138,221,45,1)',
-                        'rgba(138,221,45,1)'   
-                    ],
-                    borderColor: [
-                        'rgba(138,221,45,1)',
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(12, 12, 12, 0.6)'
-                    ],
-                    borderWidth: 2
-                },
-                {
-                label: '',
-                    data: [this.lastFourIdeasVotes[1].Votos,2,4],
-                    backgroundColor: [
-                      
-                        'rgba(198, 255, 0, 0.7)',
-                        'rgba(198, 255, 0, 0.7)',
-                        'rgba(198, 255, 0, 0.7)'
-                    ],
-                    borderColor: [
-                        'rgba(138,221,45,1)',
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(12, 12, 12, 0.6)',
-                    ],
-                    borderWidth: 2
-                },
-                {
-                label: '',
-                    data: [this.lastFourIdeasVotes[2].Votos,4,0],
-                    backgroundColor: [
-                      'rgba(255, 125, 0, 0.7)',
-                      'rgba(255, 125, 0, 0.7)',
-                      'rgba(255, 125, 0, 0.7)'
-                    ],
-                    borderColor: [
-                      'rgba(138,221,45,1)',
-                      'rgba(255, 99, 132, 1)',
-                      'rgba(12, 12, 12, 0.6)'
-                    ],
-                    borderWidth: 2
-                },
-                {
-                label: '',
-                    data: [this.lastFourIdeasVotes[3].Votos,4,7],
-                    backgroundColor: [
-                      'rgba(255, 99, 132, 0.7)',
-                      'rgba(255, 99, 132, 0.7)',
-                      'rgba(255, 99, 132, 0.7)'
-                    ],
-                    borderColor: [
-                        'rgba(138,221,45,1)',
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(12, 12, 12, 0.6)'
-                    ],
-                    borderWidth: 2
-                }
-            ]
-            },
-            options: {
-            legend: {
-                labels:{
-                fontFamily: "'Aristotelica Display Regular'"
-                },
-                display: false
-            },
-            responsive: false,
-            scales: {
-                yAxes: [{
-                    //display: false
-                    gridLines: {
-                        // Boolean - if true, show the grid lines
-                        show: true,
-                
-                        // String - color of the grid lines
-                        color: "rgba(0, 0, 0, 0.05)",
-                
-                        // Number - width of the grid lines
-                        lineWidth: 1,
-                
-                        // Boolean - if true draw lines on the chart area
-                        drawOnChartArea: true,
-                
-                        // Boolean - if true draw ticks in the axis area
-                        drawTicks: true,
-                
-                        // Number - width of the grid line for the first index (index 0)
-                        zeroLineWidth: 1,
-                
-                        // String - color of the grid line for the first index
-                        zeroLineColor: "rgba(0,0,0,0.05)",
-                
-                        // Boolean - if true, offset labels from grid lines
-                        offsetGridLines: false
+          let myChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                  labels: ['Positivos', 'Negativos', 'Me es indiferente'],
+                  datasets: [
+                  {
+                      label: 0,
+                      data: [this.dataStatisc[0].VotesTypeDTO.VotesLikeTotal,this.dataStatisc[0].VotesTypeDTO.VotesDislikeTotal,this.dataStatisc[0].VotesTypeDTO.VotesNeutralTotal],
+                      backgroundColor: [
+                          'rgba(138,221,45,1)',
+                          'rgba(138,221,45,1)',
+                          'rgba(138,221,45,1)'   
+                      ],
+                      borderColor: [
+                          'rgba(138,221,45,1)',
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(12, 12, 12, 0.6)'
+                      ],
+                      borderWidth: 2
+                  },
+                  {
+                  label: '',
+                      data: [this.dataStatisc[1].VotesTypeDTO.VotesLikeTotal,this.dataStatisc[1].VotesTypeDTO.VotesDislikeTotal,this.dataStatisc[1].VotesTypeDTO.VotesNeutralTotal],
+                      backgroundColor: [
                         
-                    },
-                    ticks: {
-                        fontSize: 12,
-                        fontFamily: "'Aristotelica Display Regular'"
-                    }
-                }],
-                xAxes: [{
-                    ticks: {
-                    fontSize: 12,
-                    fontFamily: "'Aristotelica Display Regular'"
-                    }
-                }]
-            }
-            }
-        });
+                          'rgba(198, 255, 0, 0.7)',
+                          'rgba(198, 255, 0, 0.7)',
+                          'rgba(198, 255, 0, 0.7)'
+                      ],
+                      borderColor: [
+                          'rgba(138,221,45,1)',
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(12, 12, 12, 0.6)',
+                      ],
+                      borderWidth: 2
+                  },
+                  {
+                  label: '',
+                      data: [this.dataStatisc[2].VotesTypeDTO.VotesLikeTotal,this.dataStatisc[2].VotesTypeDTO.VotesDislikeTotal,this.dataStatisc[2].VotesTypeDTO.VotesNeutralTotal],
+                      backgroundColor: [
+                        'rgba(255, 125, 0, 0.7)',
+                        'rgba(255, 125, 0, 0.7)',
+                        'rgba(255, 125, 0, 0.7)'
+                      ],
+                      borderColor: [
+                        'rgba(138,221,45,1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(12, 12, 12, 0.6)'
+                      ],
+                      borderWidth: 2
+                  },
+                  {
+                  label: '',
+                      data: [this.dataStatisc[3].VotesTypeDTO.VotesLikeTotal,this.dataStatisc[3].VotesTypeDTO.VotesDislikeTotal,this.dataStatisc[3].VotesTypeDTO.VotesNeutralTotal],
+                      backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(255, 99, 132, 0.7)'
+                      ],
+                      borderColor: [
+                          'rgba(138,221,45,1)',
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(12, 12, 12, 0.6)'
+                      ],
+                      borderWidth: 2
+                  }
+              ]
+              },
+              options: {
+              legend: {
+                  labels:{
+                  fontFamily: "'Aristotelica Display Regular'"
+                  },
+                  display: false
+              },
+              responsive: false,
+              scales: {
+                  yAxes: [{
+                      //display: false
+                      gridLines: {
+                          // Boolean - if true, show the grid lines
+                          show: true,
+                  
+                          // String - color of the grid lines
+                          color: "rgba(0, 0, 0, 0.05)",
+                  
+                          // Number - width of the grid lines
+                          lineWidth: 1,
+                  
+                          // Boolean - if true draw lines on the chart area
+                          drawOnChartArea: true,
+                  
+                          // Boolean - if true draw ticks in the axis area
+                          drawTicks: true,
+                  
+                          // Number - width of the grid line for the first index (index 0)
+                          zeroLineWidth: 1,
+                  
+                          // String - color of the grid line for the first index
+                          zeroLineColor: "rgba(0,0,0,0.05)",
+                  
+                          // Boolean - if true, offset labels from grid lines
+                          offsetGridLines: false
+                          
+                      },
+                      ticks: {
+                          fontSize: 12,
+                          fontFamily: "'Aristotelica Display Regular'"
+                      }
+                  }],
+                  xAxes: [{
+                      ticks: {
+                      fontSize: 12,
+                      fontFamily: "'Aristotelica Display Regular'"
+                      }
+                  }]
+              }
+              }
+          });
+        },800)
     })
   }
 

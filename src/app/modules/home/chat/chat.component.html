@@ -12,47 +12,47 @@
 		<div class="containerMessageIdeas">
 		   <div class="contenedor" *ngIf="ideas">
 			 <ng-container *ngFor="let idea of ideas; index as i">
-					<div class="containerIdeaCredentials" id="{{idea.Id}}" >
+					<div class="containerIdeaCredentials" id="{{idea.IdeasDTO.IdIdeas}}" >
 						<div class="imgUserInChat">
 							<figure>
-								<img src="{{getImgUser(idea.IdUsers)}}" alt="" >  	
+								<img src="{{getImgUser(idea.UsersDTO.IdUsers)}}" alt="" >  	
 							</figure>
 						</div>
 						<div class="containerNameVotes">
-							<h3 class="nameUserIdea"> {{idea.Nick_name}}
+							<h3 class="nameUserIdea"> {{idea.UsersDTO.UserNickName}}
 								<ul class="containerBtnsLikesDslike">
 									<li class="listIconsMessage">
 										<div class="btnLikeMyHeark" >
 											<ul class="contentBtnMyHeart" >
 												<li>
 													<img [src]="'assets/img/icons/chat/myHeart.svg'" alt="" data-toggle="tooltip" data-placement="top" title="Votos"    class="imgHeart" (click)="popLikes(i)" >
-													<span> {{idea.Total}} </span>
+													<span> {{idea.VotesTypeDTO.VotesTotal}} </span>
 												</li>
 											</ul>
-											<div class="votos" id="v-{{idea.Id}}" >
+											<div class="votos" id="v-{{idea.IdeasDTO.IdIdeas}}" >
 												<ul class="containerVotos"> <!-- [ngClass]="popovers ? 'visible' : 'hidden'" -->
 													<li class="upButton">
 														<div class="imgLikes">
-															<img [src]="'assets/img/icons/chat/hapy.svg'" data-toggle="tooltip" data-placement="top" title="Me gusta" alt="" (click)="addVotesPos(idea.Id, i)">
+															<img [src]="'assets/img/icons/chat/hapy.svg'" data-toggle="tooltip" data-placement="top" title="Me gusta" alt="" (click)="addVotesPos(idea.IdeasDTO.IdIdeas, i)">
 														</div>
-														<span>{{idea.Likes}}</span>
+														<span>{{idea.VotesTypeDTO.VotesLikeTotal}}</span>
 													</li>
 													<li class="upButton">
 														<div class="imgLikes">
-															<img [src]="'assets/img/icons/chat/sad.svg'" data-toggle="tooltip" data-placement="top" title="No me gusta" alt="" (click)="addVotesNeg(idea.Id, i)">
+															<img [src]="'assets/img/icons/chat/sad.svg'" data-toggle="tooltip" data-placement="top" title="No me gusta" alt="" (click)="addVotesNeg(idea.IdeasDTO.IdIdeas, i)">
 														</div>
-														<span> {{idea.Dislikes}} </span> 
+														<span> {{idea.VotesTypeDTO.VotesDislikeTotal}} </span> 
 													</li>
 													<li class="upButton">
 														<div class="imgLikes">
-															<img [src]="'assets/img/icons/chat/mee.svg'" data-toggle="tooltip" data-placement="top" title="Neutro" alt="" (click)="addVotesNeu(idea.Id, i)">
+															<img [src]="'assets/img/icons/chat/mee.svg'" data-toggle="tooltip" data-placement="top" title="Neutro" alt="" (click)="addVotesNeu(idea.IdeasDTO.IdIdeas, i)">
 														</div>
-														<span> {{idea.Neutral}} </span>
+														<span> {{idea.VotesTypeDTO.VotesNeutralTotal}} </span>
 													</li>
 												</ul>
 												<ng-container class="responseToast">
-														<div aria-live="polite" aria-atomic="true" style="position: absolute; min-height: 200px; z-index: 1001;" class="containerToast" id="cToast-{{idea.Id}}">
-																<div class="toast" style="" id="toast-{{idea.Id}}">
+														<div aria-live="polite" aria-atomic="true" style="position: absolute; min-height: 200px; z-index: 1001;" class="containerToast" id="cToast-{{idea.IdeasDTO.IdIdeas}}">
+																<div class="toast" style="" id="toast-{{idea.IdeasDTO.IdIdeas}}">
 																	<div class="toast-header">
 																		<div class="imgToast">
 																				<img src="../../../../assets/img/icons/dashboard/idea.svg" class="rounded mr-2" alt="...">
@@ -82,23 +82,23 @@
 								</ul>
 							</h3>
 						</div>
-						<p class="ideaMessageChatUsers" id="i-{{idea.Id}}">
-							<a [routerLink]="['/idea', idea.Id]" class="paragraphIdea"> {{idea.IdeaText}} </a>
+						<p class="ideaMessageChatUsers" id="i-{{idea.IdeasDTO.IdIdeas}}">
+							<a [routerLink]="['/idea', idea.IdeasDTO.IdIdeas]" class="paragraphIdea"> {{idea.IdeasDTO.IdeaText}} </a>
 						</p>
-						<div class="containerDisplayReply" id="p-{{idea.Id}}">
+						<div class="containerDisplayReply" id="p-{{idea.IdeasDTO.IdIdeas}}">
 							<h4 class="replyTitle" > <span class="titleComment" (click)="collapseIdea(i)"> Comentarios</span>
 							<button class="btn btnAddNewReply" (click)="addComments(i)">
 								<span>Nuevo Comentario</span> 
 								<i class="fas fa-comment-alt" data-toggle="tooltip" data-placement="left" title="Nuevo comentario"></i>
 							</button>
 							</h4>
-							<div class="replyMessage" id="r-{{idea.Id}}">
+							<div class="replyMessage" id="r-{{idea.IdeasDTO.IdIdeas}}">
 									<div class="row rowReply">
 										<div class="col-12 col-sm-12 my-1"> 
 											<label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
 											<div class="input-group input-group-reply-message">
 												<form [formGroup]="fcomentarios" (ngSubmit)="onSubmiComment(fcomentarios.value, i)"  class="formReply">
-													<textarea type="text" class="form-control input-reply-idea textareaFormulario" id="text-{{idea.Id}}" placeholder="Responde esta idea" name="reply_ideas" formControlName="comment" required></textarea>
+													<textarea type="text" class="form-control input-reply-idea textareaFormulario" id="text-{{idea.IdeasDTO.IdIdeas}}" placeholder="Responde esta idea" name="reply_ideas" formControlName="comment" required></textarea>
 																
 													<div class="input-group-prepend">
 														<div class="input-group-text group-btn-reply-message">
@@ -106,7 +106,7 @@
 																	<span>Cancelar</span>
 																	<i class="fas fa-times"></i>
 																</button>
-															<button type="submit" class="btn btn-reply-message" id="c-{{idea.Id}}">
+															<button type="submit" class="btn btn-reply-message" id="c-{{idea.IdeasDTO.IdIdeas}}">
 																<span>Publicar</span>
 																<i class="fas fa-paper-plane"></i>
 															</button>
@@ -132,10 +132,10 @@
 								</li>
 							</ul>
 						</div>
-						<button class="btn btn-block btnSeeMoreMessage" id="btn-{{idea.Id}}" (click)="getId(i); collapseIdea(i)" (load)="getId(i)">
+						<button class="btn btn-block btnSeeMoreMessage" id="btn-{{idea.IdeasDTO.IdIdeas}}" (click)="getId(i); collapseIdea(i)" (load)="getId(i)">
 							Ver
 							<i class="fas fa-comment-alt answerMessage" id="answerMessage"></i>
-							<i class="fas fa-plus iconMoreMinus" id="icon-{{idea.Id}}"></i>
+							<i class="fas fa-plus iconMoreMinus" id="icon-{{idea.IdeasDTO.IdIdeas}}"></i>
 						</button>
 					</div>
 			 </ng-container>
@@ -168,7 +168,6 @@
 				<a [routerLink]="['/todas']">Ver todas</a>
 			</div>
 		</div>
-	</div>
-	 
+	</div> 
 </div>
   
