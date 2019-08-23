@@ -3,6 +3,8 @@ import { Chart } from 'chart.js'
 import { ActivatedRoute } from '@angular/router'
 import { IdeasService } from '../../services/ideas.service'
 import { environment } from '../../../../../environments/environment'
+import * as $ from 'jquery'
+declare var $:any
 
 @Component({
   selector: 'app-idea',
@@ -30,7 +32,7 @@ export class IdeaComponent implements OnInit {
     ngOnInit() {
         this.getRouteId()
         this.getIdeaDetail()  
-        this.getCommentDetail()  
+        this.getCommentDetail() 
     } 
     getRouteId(){
         this.ruta.paramMap.subscribe(param => {this.id = param.get('id')
