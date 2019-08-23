@@ -42,6 +42,7 @@ export class DashboardComponent implements OnInit {
   // Ordenar 
   order:string = 'VotesTypeDTO.VotesTotal'
   reverse: boolean = true
+  // Arreglo para las ideas mas votadas.
   dataStatisc: any = []
 
   constructor(
@@ -55,10 +56,12 @@ export class DashboardComponent implements OnInit {
     }
 
   ngOnInit() {
+    // Asignacion datos estadisticos a mostrar en ideas mas votadas.
     setTimeout(()=>{
       this.dataStatisc = this.orderPipe.transform(this.lastFourIdeasVotes, this.order, this.reverse)
       console.log(this.dataStatisc[0].VotesTypeDTO.VotesTotal)
     },700)
+
     this._route.paramMap.subscribe(param => {this.idRedir = param.get('id')
       console.log(this.idRedir)
     })
