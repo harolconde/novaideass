@@ -124,15 +124,15 @@
 						<div class="card cardIdeaDetalle" *ngFor="let ideaD of ideas">
 							<div class="card-title">
 								<div class="imgUserDetalleIdea">
-									<img src="{{getImgUser(ideaD.Id_user)}}" alt="">
-								</div>
+									<img src="{{getImgUser(ideaD.UsersDTO.IdUsers)}}" alt="">
+								</div> 
 								<span class="nameUserIdeaDetalle">
-									{{ideaD.Nick_name}}
+									{{ideaD.UsersDTO.UserNickName}}
 								</span>
 							</div>
 							<div class="card-body">
 								<p class="pIdea">
-									{{ideaD.Idea_text}}
+									{{ideaD.IdeasDTO.IdeaText}}
 								</p>
 							</div>
 							<div class="card-footer">
@@ -140,7 +140,7 @@
 									Fecha de publicacion
 								</span>
 								<span class="dateTime">
-									{{ideaD.Create_dt}}
+									{{ideaD.IdasDTO.IdeaCreateDt}}
 								</span>
 							</div>
 						</div>

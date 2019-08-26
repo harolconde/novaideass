@@ -1,12 +1,125 @@
-<section *ngIf="user">
-    <div>
-        <h2>{{user.UserNickName | uppercase}} detalles del usuario</h2>
-        <div><span>id: </span>{{user.IdUsers}}</div>
-        <div>
-            <label>name:
-                <input [(ngModel)]="user.UserFirstName" placeholder="name"/>
-            </label>
+<section class="sectionOneUsersAdmin" *ngIf="user">
+    <div class="containerSectonOneUserAdmin">
+        <div class="row">
+            <div class="col-12">
+                <div class="titleAdminOneUser">
+                    <h3>Detalles del usuario</h3>
+                    <button (click)="goBack()">Volver</button>
+                    <hr>
+                </div>
+            </div>
+            <div class="containerCardsAdminOneUsers col-12">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="card cardPerfilOneUser" id="user.UsersDTO.IdUsers">
+                            <div class="card-header">
+                                <div class="containerInfoUser">
+                                    <div class="img">
+                                        <img src="{{getImgUserIndividual(user.UsersDTO.IdUsers)}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h4>{{user.UsersDTO.UserNickName}}</h4>
+                                <span>
+                                    <cite>
+                                        Usuario {{user.UsersTypeDTO.UsersType}} - Estado:
+                                    </cite>
+                                    <cite *ngIf="user.UsersStatusDTO.UsersStatus == 'Activo'; else elseBlock"
+                                        class="text-success">
+                                        {{user.UsersStatusDTO.UsersStatus}}
+                                    </cite>
+                                    <ng-template #elseBlock>
+                                        <cite class="text-danger">
+                                            {{user.UsersStatusDTO.UsersStatus}}
+                                        </cite>
+                                    </ng-template>
+                                </span>
+                                <span>
+                                    <cite>{{user.UsersDTO.UserFirstName}} {{user.UsersDTO.UserLastName}}</cite>
+                                </span>
+                                <span>
+                                    <cite>{{user.UsersDTO.UserEmail}}</cite>
+                                </span>
+                            </div>
+                            <div class="card-footer">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <span>Ideas publicas publicadas</span>
+                                        <span>{{user.IdeasTypeDTO.IdeasPublicaTotal}}</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Ideas privadas publicadas</span>
+                                        <span>{{user.IdeasTypeDTO.IdeasPrivadaTotal}}</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Comentarios publicados</span>
+                                        <span>{{user.CommentsTotalesDTO.CommentsTotales}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-8">
+                        <div class="card cardPerfilOnerUserEdit">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="card cardFomrOneUser">
+                                        <div class="card-title">
+                                            <h6>Editar datos de usuario</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="" class="formUserDetail">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Nickname usuario</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                                        aria-describedby="emailHelp" placeholder="{{user.UsersDTO.UserNickName}}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Estado usuario</label>
+                                                    <select class="custom-select" id="inputGroupSelect01">
+                                                        <option selected>Choose...</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Tipo de usuario</label>
+                                                    <select class="custom-select" id="inputGroupSelect01">
+                                                        <option selected>Choose...</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="contentBtnEditUser">
+                                                    <button type="submit"
+                                                        class="btn btn-primary btnFormUserOne btnFormUserOneCancel">Cancelar</button>
+                                                    <button type="submit"
+                                                        class="btn btn-primary btnFormUserOne btnFormUserOneSubmit">Aceptar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="card cardStatisticUser">
+                                        <div class="card-title">
+                                            <h6>Estadisticas de usuario</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="statisticUser">
+                                                <canvas id="myChart" width="520" height="370"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button (click)="goBack()">go back</button>
     </div>
 </section>

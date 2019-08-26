@@ -112,7 +112,7 @@ export class IdeasService {
     // Todas las ideas postuladas por un usuario
     getIdeasAllForUser(): Observable<any>{
         this.id = this.cookieService.get('session')
-        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=${this.id}&rowNumber=0`)
+        return this.http.get(`${environment.endpoint}/IdeasUsers?ideasIdUser=${this.id}&rowNumber=1`)
     }
 
     // Ultimas cuatro
@@ -157,7 +157,7 @@ export class IdeasService {
     }
     // Todos los comentarios por idea
     getAllComents() : Observable<any>{
-        return this.http.get(`${environment.endpoint}/${this.nameController3}?opcionc=3&estadoc=0&tipoc=0&fechaInic=20180101&fechaFinc=20180101&rownumberc=${this.idIdeas}`)
+        return this.http.get(`${environment.endpoint}/${this.nameController3}?opcionc=3&estadoc=0&tipoc=0&fechaInic=20180101&fechaFinc=20180101&rownumberc=${this.id}`)
     }
 
     // ***************************************************************** //

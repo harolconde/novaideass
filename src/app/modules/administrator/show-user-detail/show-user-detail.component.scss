@@ -1,0 +1,367 @@
+// Variables
+$backgroundDates: #E7B843;
+$colorTitle: #E7B843;
+$backgroundNavBar: #fff;
+$colorText: #5A5858;
+$buttonsRadius: 50px;
+
+// Grid
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px,
+  // Column-count
+  "cc" : 1780px
+);
+
+@mixin media-breackpoint {
+    @media (min-width: map-get($grid-breakpoints, "cc" ))
+    {
+        @content;
+    }
+}
+@mixin media-breackpoint-lg {
+    @media (min-width: map-get($grid-breakpoints , "lg")) and (max-width: map-get($grid-breakpoints, "cc")){
+        @content;
+    }
+}
+@mixin  media-breackpoint-sm-md {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")){
+        @content;
+    }
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.sectionOneUsersAdmin{
+    padding-left: 36px;
+    padding-right: 36px;
+    overflow-x: hidden;
+}
+.sectionOneUsersAdmin .containerSectonOneUserAdmin .containerCardsAdminOneUsers{
+    padding-top: .8rem;
+    padding-right: 0;
+    padding-left: 0;
+}
+.sectionOneUsersAdmin .containerSectonOneUserAdmin .titleAdminOneUser{
+    padding-top: 26px;
+    position: relative;
+    h3{
+        color: $backgroundDates;
+        font-size: 1.5rem;
+    }
+    hr{
+        background-color: $backgroundDates;
+        height: 1px;
+    }
+    button{
+        position: absolute;
+        right: 0;
+        top: 1.1rem;
+        background-color: $backgroundDates;
+        color: $backgroundNavBar;
+        border-radius: 50px;
+        align-items: center;
+        padding-top: .5rem;
+        line-height: 17px;
+        border: 1px solid $backgroundDates;
+        width: 130px;
+        height: 35px;
+    }
+}
+// Cards 
+.sectionOneUsersAdmin .containerSectonOneUserAdmin{
+    .card{
+        padding: 0;
+        margin-bottom: 1.15rem;
+        margin-left: .5rem;
+        margin-right: .5rem;
+        cursor: pointer;
+        .card-header{
+            padding-bottom: .5rem;
+            padding-top: .5rem;
+            .containerInfoUser{
+                display: flex;
+                align-items: center;
+                .img{
+                    width: 35px;
+                    height: 35px;
+                    border: 1px solid rgba(0,0,0,0.125);
+                    background-color: rgba(0,0,0,0.125);
+                    border-radius: 50px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    img{
+                        width: 100%;
+                    }
+                }
+                h4{
+                    margin-bottom: 0;
+                    margin-left: 10px;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    height: 15px;
+                }
+            }
+        }
+        .card-body{
+            padding-bottom: 0.8rem;
+            padding-top: 0.2rem;
+            span{
+                font-size: 1rem;
+            }
+        }
+        &.cardPerfilOneUser{
+            height: 506px;
+            @include media-breackpoint-sm-md{
+                height: auto;
+            }
+            .card-header{
+                padding-bottom: 1rem;
+                padding-top: 1.5rem;
+                .containerInfoUser{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    .img{
+                        width: 200px;
+                        height: 200px;
+                        background-color: transparent;
+                        border: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        border: 1px solid rgba(0,0,0,0.125);
+                        img{
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+            .card-body{
+                height: 116px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                h4{
+                    margin-top: .5rem;
+                    margin-bottom: 0;
+                }
+            }
+            .card-footer{
+                padding: 0;
+                .list-group-flush{
+                    .list-group-item{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        span{
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        &.cardPerfilOnerUserEdit{
+            height: 506px;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            .row{
+                .card{
+                    height: 506px;
+                    .card-title{
+                        padding: .5rem;
+                        border-bottom: 1px solid rgba(0,0,0,0.125);
+                        h6{
+                            font-weight: 600;
+                            color: $colorText;
+                            margin-left: .8rem;
+                            margin-top: .5rem;
+                        }
+                    }
+                    &.cardFomrOneUser{
+                        .card-body{
+                            padding-top: .8rem;
+                            padding-bottom: 1rem;
+                            display: flex;
+                            //align-items: center;
+                            justify-content: center;
+                            .formUserDetail{
+                                width: 100%;
+                                .form-group{
+                                    margin-bottom: 1.2rem;
+                                }
+                                .contentBtnEditUser{
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .btnFormUserOne{
+                                        margin-top: 4rem;
+                                        background-color: $backgroundDates;
+                                        border-radius: 50px;
+                                        width: 42%;
+                                        height: 35px;
+                                        color: $backgroundNavBar;
+                                        border: 1px solid $backgroundDates;
+                                        &.btnFormUserOneCancel{
+                                            background-color: $backgroundNavBar;
+                                            color: $backgroundDates;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.cardStatisticUser{
+                        .card-body{
+                            .statisticUser{
+                                margin-top: 1.4rem;
+                                canvas{
+                                    max-width: 100%;
+                                    max-height: auto;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}
+
+.sectionModalDelete{
+    .modal{
+        .modal-dialog-centered{
+            .modal-content{
+                .modal-header{
+                    display: flex;
+                    justify-content: flex-start;
+                    padding: 22px 17px 5px 17px;
+                    .modal-title{
+                        font-size: 1.125rem;
+                        line-height: 28px;
+                        color: $colorText;
+                        font-weight: 500;
+                    }
+                    .close{
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50px;
+                        background-color: #9E9E9E;
+                        right: 24px;
+                        top: 23px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: .81rem .5rem .5rem .5rem;
+                        position: absolute;
+                    }
+                }
+                .modal-body{
+                    text-align: center;
+                    padding: 2.5rem 1rem;
+                    .paragraphModalDelete{
+                        color: $colorText;
+                    }
+                }
+                .modal-footer{
+                    justify-content: space-around;
+                    button{
+                        border-radius: 50px;
+                        width: 153px;
+                        height: 39px;
+                        border: 1px solid $backgroundDates;
+                        font-size: .9rem;
+                        letter-spacing: 1.03px;
+                        line-height: 8px;
+                        padding-top: .65rem;
+                        &.cancel{
+                            background-color: $backgroundNavBar;
+                            color: $backgroundDates;
+                        }
+                        &.success{
+                            background-color: $backgroundDates;
+                            color: $backgroundNavBar;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.sectionModalEditUser{
+    .modal{
+        .modal-dialog-centered{
+            .modal-content{
+                .modal-header{
+                    display: flex;
+                    justify-content: flex-start;
+                    padding: 22px 17px 5px 17px;
+                    .modal-title{
+                        font-size: 1.125rem;
+                        line-height: 28px;
+                        color: $colorText;
+                        font-weight: 500;
+                    }
+                    .close{
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50px;
+                        background-color: #9E9E9E;
+                        right: 24px;
+                        top: 23px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: .81rem .5rem .5rem .5rem;
+                        position: absolute;
+                    }
+                }
+                .modal-body{
+                    padding: 2.5rem 1rem;
+                    .contentBtnModal{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        button{
+                            border-radius: 50px;
+                            width: 153px;
+                            height: 39px;
+                            border: 1px solid $backgroundDates;
+                            font-size: .9rem;
+                            letter-spacing: 1.03px;
+                            line-height: 8px;
+                            padding-top: .65rem;
+                            &.cancel{
+                                background-color: $backgroundNavBar;
+                                color: $backgroundDates;
+                            }
+                            &.success{
+                                background-color: $backgroundDates;
+                                color: $backgroundNavBar;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
