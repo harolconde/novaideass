@@ -31,7 +31,7 @@ export class PerfiladministratorComponent implements OnInit {
   mimeType: string = null;
 
   // Redireccionamiento Id Idea
-  idRedir:any
+  idRedir:any 
 
   // ****** Ideas ****** //
 

@@ -69,28 +69,26 @@
                                             <h6>Editar datos de usuario</h6>
                                         </div>
                                         <div class="card-body">
-                                            <form action="" class="formUserDetail">
+                                            <form [formGroup]="formEditarUsuario" (ngSubmit)="putEditUser(formEditarUsuario.value)" class="formUserDetail">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Nickname usuario</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                                    <input type="text" formControlName="nickName" class="form-control" id="exampleInputEmail1"
                                                         aria-describedby="emailHelp" placeholder="{{user.UsersDTO.UserNickName}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="">Estado usuario</label>
-                                                    <select class="custom-select" id="inputGroupSelect01">
-                                                        <option selected>Choose...</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                    <select formControlName="optionStatus" class="form-control" id="optionStatus" name="status" ngModel>
+                                                        <!-- <option selected>{{user.UsersStatusDTO.UsersStatus}}</option> -->
+                                                        <option value="" *ngFor="let status of userStatus; index as i" [ngValue]="status"> {{status.name}} </option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="">Tipo de usuario</label>
-                                                    <select class="custom-select" id="inputGroupSelect01">
-                                                        <option selected>Choose...</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                    <select formControlName="optionUserType" class="form-control" id="optionUserType" name="type">
+                                                        <!-- <option selected>
+                                                            {{user.UsersTypeDTO.UsersType}}
+                                                        </option> -->
+                                                        <option value="" *ngFor="let type of userTypeArray; index as i" [ngValue]="type">{{type.type}}</option>
                                                     </select>
                                                 </div>
                                                 <div class="contentBtnEditUser">

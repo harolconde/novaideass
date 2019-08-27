@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../../home/services/users.service';
 import { environment } from '../../../../environments/environment'
+import { FormControl, FormBuilder, FormGroup, FormArray, ReactiveFormsModule } from '@angular/forms'
 import { Location } from '@angular/common'
 import { Chart } from 'chart.js'
 import { from } from 'rxjs';
+import { UserModel } from '../../home/models/userModel';
 
 @Component({
     selector: 'app-show-user-detail',
@@ -13,23 +15,52 @@ import { from } from 'rxjs';
 })
 export class ShowUserDetailComponent implements OnInit {
 
+    id: any
     user: any = {}
     ideaPrivate: any
     ideaPublic: any
     commentIdea: any
 
+    userTypeArray: any = []
+    userStatus: any = []
+
+    public states: any = [
+        { id: 1, name: 'Activo' },
+        { id: 2, name: 'Inactivo' },
+        { id: 3, name: 'Otro' }
+    ]
+
+    public userType: any = [
+        { id: 1, type: 'Normal' },
+        { id: 2, type: 'Comite' },
+        { id: 3, type: 'Administrador' }
+    ]
+
     constructor(
         private route: ActivatedRoute,
         private userData: UsersService,
-        private location: Location
+        private location: Location,
+        private nickname: FormBuilder
     ) { }
+
+    // Formulario edidcion usuario
+    formEditarUsuario = new FormGroup({
+        nickName: new FormControl(''),
+        optionStatus: new FormControl(''),
+        optionUserType: new FormControl('')
+    })
 
     ngOnInit() {
         this.getIdUser()
+
+        setTimeout(() => {
+            this.getDataUsersStatus()
+            this.getDataUsetType()
+        }, 300)
     }
     getIdUser() {
-        const id: any = this.route.snapshot.paramMap.get('id')
-        this.userData.getUser(id).subscribe(
+        this.id = this.route.snapshot.paramMap.get('id')
+        this.userData.getUser(this.id).subscribe(
             user => {
 
                 this.user = user
@@ -67,7 +98,7 @@ export class ShowUserDetailComponent implements OnInit {
                                 borderWidth: 1
                             },
                             {
-                                label:'Comentarios publicados',
+                                label: 'Comentarios publicados',
                                 data: [this.commentIdea],
                                 backgroundColor: [
                                     'rgba(255, 206, 86, 0.2)'
@@ -79,7 +110,7 @@ export class ShowUserDetailComponent implements OnInit {
                         ]
                     },
                     options: {
-                        title:{
+                        title: {
                             display: true,
                             text: `Estadisticas de ${this.user.UsersDTO.UserFirstName} ${this.user.UsersDTO.UserLastName}`,
                             position: 'top',
@@ -140,11 +171,27 @@ export class ShowUserDetailComponent implements OnInit {
             }
         )
     }
+
+    getDataUsersStatus() {
+        this.userStatus = this.states
+    }
+    getDataUsetType() {
+        this.userTypeArray = this.userType
+    }
     getImgUserIndividual(id) {
         return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
     }
     goBack(): void {
         this.location.back()
+    }
+
+    putEditUser(formValueUserEdit: any) {
+        console.log(this.formEditarUsuario.get('optionStatus').value.name)
+        let userDataEdit = new UserModel()
+        this.userData.idUserEdit = this.id
+        userDataEdit.IdUsers = this.id
+        userDataEdit.UserNickName = formValueUserEdit.nickName
+        this.userData.updAdmonDateUsers(userDataEdit)
     }
 
 }
