@@ -5,7 +5,7 @@
                 <div class="titleAdminAllIdeas">
                     <h3>Administrar todas las ideas </h3>
                     <hr>
-                </div>
+                </div> 
             </div>
             <div class="col-12">
                 <div class="card cardOptionIdeas">
@@ -38,15 +38,15 @@
             <div class="col-12 containerCardsAdminAllIdeas">
                 <div class="row">
                     <div class="card-columns">
-                        <div class="card" *ngFor="let idea of ideas | paginate: {itemsPerPage: 10, currentPage: p }; index as i" id="{{idea.Id}}">
-                            <div class="carouselContainer" id="carousel-{{idea.Id}}" >
+                        <div class="card" *ngFor="let idea of ideas | paginate: {itemsPerPage: 10, currentPage: p }; index as i" id="{{idea.IdeasDTO.IdIdeas}}">
+                            <div class="carouselContainer carouselContainerImgsIdeas" id="carousel-{{idea.IdeasDTO.IdIdeas}}" >
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img [src]="'https://image.freepik.com/vector-gratis/ilustracion-pasatiempos-actividades-humanas_53876-44088.jpg'" class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img [src]="'https://image.freepik.com/vector-gratis/ninos-aprendiendo-jugando-ilustracion_53876-40285.jpg'" class="d-block w-100" alt="...">
+                                        <div class="carousel-item" *ngFor="let img of imgsList; index as j" id="imgCarousel-{{idea.IdeasDTO.IdIdeas}}-{{j}}">
+                                            <ng-template >
+
+                                            </ng-template>
+                                            <img src="{{getImgIdeas(idea.IdeasDTO.IdIdeas)}}" class="d-block w-100" alt="...">
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -60,18 +60,18 @@
                                         <span class="sr-only">Next</span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> 
                             <!-- <img src="{{getImgsIdea(idea.Id)}}" class="d-block w-100" alt="..."> -->
                             <div class="card-title">
                                 <div class="contentImgUserAdmon">
-                                    <img src="{{getImgUser(idea.IdUsers)}}" alt="" class="imgUserAdminIdeas">
+                                    <img src="{{getImgUser(idea.UsersDTO.IdUsers)}}" alt="" class="imgUserAdminIdeas">
                                 </div>
                                 <div class="contentNameDateIdeasAdmin">
-                                    <span>{{idea.Nick_name}}</span>
-                                    <span>{{idea.CreateDt}}</span>
+                                    <span>{{idea.UsersDTO.UserNickName}}</span>
+                                    <span>{{idea.IdeasDTO.IdeaCreateDt}}</span>
                                 </div>
                                 <div class="showImg">
-                                    <button class="btn" data-toggle="tooltip" data-placement="top" title="Ver imagenes de la idea" (click)="showImgListOfIdeas(idea.Id)">
+                                    <button class="btn btnImagesIdeas" data-toggle="tooltip" data-placement="top" title="Ver imagenes de la idea" (click)="showImgListOfIdeas(idea.IdeasDTO.IdIdeas)">
                                         <i class="fas fa-images"></i>
                                     </button>
                                 </div>
@@ -81,7 +81,7 @@
                                     <li class="list-group-item titleIdeasAdmin">Porta ac consectetur ac</li>
                                     <li class="list-group-item ideaAdmin">
                                         <p>
-                                            {{idea.IdeaText}}
+                                            {{idea.IdeasDTO.IdeaText}}
                                         </p>
                                     </li>
                                 </ul>
@@ -92,7 +92,7 @@
                                         <button class="btn btFinalizarIdeas"  data-toggle="modal" data-target=".exampleModalCenter">Administrar</button>
                                     </div>
                                     <div class="col-6 btnUploading">
-                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2" (click)="getIdIdea(idea.Id)">
+                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2" (click)="getIdIdea(idea.IdeasDTO.IdIdeas)">
                                             <span>
                                                 Subir
                                             </span> 
@@ -127,6 +127,15 @@
         </div>
     </div>
 </section>
+<!-- <section>
+    <div class="container">
+        <h3>Hola mundo</h3>
+        <div class="conatainerImgPrueba" id="imgPruebaCarousel">
+            
+        </div>
+        <button class="btn btn-primary" (click)="getTemplateImgsCarousell(id)">Mostrar imagenes</button>
+    </div>
+</section> -->
 <section class="sectionModalAdminIdeas">
     <!-- Modal -->
     <div class="modal-dialog modal-dialog-centered modal-lg fade" id="exampleModalCenter" class="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

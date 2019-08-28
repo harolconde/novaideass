@@ -10,7 +10,7 @@
 			<div class="containerCardsAdminAllUsers card-columns">
 				<div class="card " *ngFor="let user of users; index as i" id="user.IdUsers"
 					[routerLink]="['/usuario-ver', user.IdUsers]">
-					<div class="card-header">
+					<div *ngIf="user.UserStatus == 2; else activo" class="card-header bg-danger">
 						<div class="containerInfoUser">
 							<div class="img">
 								<img src="{{getImgUser(user.IdUsers)}}" alt="">
@@ -18,6 +18,16 @@
 							<h4>{{user.UserNickName}}</h4>
 						</div>
 					</div>
+					<ng-template #activo>
+						<div class="card-header">
+							<div class="containerInfoUser">
+								<div class="img">
+									<img src="{{getImgUser(user.IdUsers)}}" alt="">
+								</div>
+								<h4>{{user.UserNickName}}</h4>
+							</div>
+						</div>
+					</ng-template>
 					<div class="card-body">
 						<blockquote class="blockquote mb-0">
 							<span>{{user.UserFirstName}} {{user.UserLastName}}</span>
@@ -25,6 +35,10 @@
 								<cite title="Source Title" *ngIf="user.UserType == 1"> Normal </cite>
 								<cite title="Source Title" *ngIf="user.UserType == 2"> Comité </cite>
 								<cite title="Source Title" *ngIf="user.UserType == 3"> Administrador </cite>
+							</footer>
+							<footer class="blockquote-footer"> Estado de usuario:
+								<cite title="Source Title" *ngIf="user.UserStatus == 1" class="text-success"> Activo </cite>
+								<cite title="Source Title" *ngIf="user.UserStatus == 2" class="text-danger"> Inactivo </cite>
 							</footer>
 						</blockquote>
 					</div>

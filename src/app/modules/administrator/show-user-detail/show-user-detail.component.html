@@ -12,13 +12,22 @@
                 <div class="row">
                     <div class="col-12 col-md-12 col-lg-4">
                         <div class="card cardPerfilOneUser" id="user.UsersDTO.IdUsers">
-                            <div class="card-header">
+                            <div *ngIf="user.UsersDTO.userStatus === 2; else inactive" class="card-header bg-danger">
                                 <div class="containerInfoUser">
                                     <div class="img">
                                         <img src="{{getImgUserIndividual(user.UsersDTO.IdUsers)}}" alt="">
                                     </div>
                                 </div>
                             </div>
+                            <ng-template #inactive>
+                                <div class="card-header">
+                                    <div class="containerInfoUser">
+                                        <div class="img">
+                                            <img src="{{getImgUserIndividual(user.UsersDTO.IdUsers)}}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
                             <div class="card-body">
                                 <h4>{{user.UsersDTO.UserNickName}}</h4>
                                 <span>
@@ -69,26 +78,34 @@
                                             <h6>Editar datos de usuario</h6>
                                         </div>
                                         <div class="card-body">
-                                            <form [formGroup]="formEditarUsuario" (ngSubmit)="putEditUser(formEditarUsuario.value)" class="formUserDetail">
+                                            <form [formGroup]="formEditarUsuario"
+                                                (ngSubmit)="putEditUser(formEditarUsuario.value)"
+                                                class="formUserDetail">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Nickname usuario</label>
-                                                    <input type="text" formControlName="nickName" class="form-control" id="exampleInputEmail1"
-                                                        aria-describedby="emailHelp" placeholder="{{user.UsersDTO.UserNickName}}">
+                                                    <input type="text" formControlName="nickName" class="form-control"
+                                                        id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                        placeholder="{{user.UsersDTO.UserNickName}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="">Estado usuario</label>
-                                                    <select formControlName="optionStatus" class="form-control" id="optionStatus" name="status" ngModel>
-                                                        <!-- <option selected>{{user.UsersStatusDTO.UsersStatus}}</option> -->
-                                                        <option value="" *ngFor="let status of userStatus; index as i" [ngValue]="status"> {{status.name}} </option>
+                                                    <select formControlName="optionStatus" class="form-control"
+                                                        id="optionStatus" name="status">
+                                                        <option value="" selected>{{user.UsersStatusDTO.UsersStatus}}
+                                                        </option>
+                                                        <option *ngFor="let status of userStatus" [ngValue]="status">
+                                                            {{status.name}} </option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="">Tipo de usuario</label>
-                                                    <select formControlName="optionUserType" class="form-control" id="optionUserType" name="type">
-                                                        <!-- <option selected>
+                                                    <select formControlName="optionUserType" class="form-control"
+                                                        name="type" id="optionUserType">
+                                                        <option value="" selected>
                                                             {{user.UsersTypeDTO.UsersType}}
-                                                        </option> -->
-                                                        <option value="" *ngFor="let type of userTypeArray; index as i" [ngValue]="type">{{type.type}}</option>
+                                                        </option>
+                                                        <option *ngFor="let type of userTypeArray" [ngValue]="type">
+                                                            {{type.typeUser}}</option>
                                                     </select>
                                                 </div>
                                                 <div class="contentBtnEditUser">

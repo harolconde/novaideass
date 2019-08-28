@@ -57,7 +57,7 @@ export class UsersService {
         const user = new UserModel()
         user.IdUsers = userDates.IdUsers
         user.UserNickName = userDates.UserNickName
-        user.UserTypé = userDates.UserTypé
+        user.UserType = userDates.UserType
         user.UserStatus = userDates.UserStatus
         let headersUser = new HttpHeaders().set('Content-Type', 'application/json')
 
@@ -75,7 +75,7 @@ export class UsersService {
         const usersEdit = new UserModel()
         usersEdit.IdUsers = userDatesAdmon.IdUsers
         usersEdit.UserNickName = userDatesAdmon.UserNickName
-        usersEdit.UserTypé = userDatesAdmon.UserTypé
+        usersEdit.UserType = userDatesAdmon.UserType
         usersEdit.UserStatus = userDatesAdmon.UserStatus
 
         let headersUserAdmon = new HttpHeaders().set('Content-Type', 'application/json')

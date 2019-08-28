@@ -1,6 +1,6 @@
 export class UserModel{
     public IdUsers:any
     public UserNickName:string
-    public UserTypé:number
+    public UserType:number
     public UserStatus:number 
 }

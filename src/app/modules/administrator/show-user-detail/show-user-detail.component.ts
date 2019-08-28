@@ -16,6 +16,8 @@ import { UserModel } from '../../home/models/userModel';
 export class ShowUserDetailComponent implements OnInit {
 
     id: any
+    userActive: any
+    userRol: any
     user: any = {}
     ideaPrivate: any
     ideaPublic: any
@@ -26,14 +28,13 @@ export class ShowUserDetailComponent implements OnInit {
 
     public states: any = [
         { id: 1, name: 'Activo' },
-        { id: 2, name: 'Inactivo' },
-        { id: 3, name: 'Otro' }
+        { id: 2, name: 'Inactivo' }
     ]
 
     public userType: any = [
-        { id: 1, type: 'Normal' },
-        { id: 2, type: 'Comite' },
-        { id: 3, type: 'Administrador' }
+        { id: 1, typeUser: 'Normal' },
+        { id: 2, typeUser: 'Comité' },
+        { id: 3, typeUser: 'Administrador' }
     ]
 
     constructor(
@@ -56,7 +57,7 @@ export class ShowUserDetailComponent implements OnInit {
         setTimeout(() => {
             this.getDataUsersStatus()
             this.getDataUsetType()
-        }, 300)
+        }, 500)
     }
     getIdUser() {
         this.id = this.route.snapshot.paramMap.get('id')
@@ -187,11 +188,44 @@ export class ShowUserDetailComponent implements OnInit {
 
     putEditUser(formValueUserEdit: any) {
         console.log(this.formEditarUsuario.get('optionStatus').value.name)
-        let userDataEdit = new UserModel()
-        this.userData.idUserEdit = this.id
-        userDataEdit.IdUsers = this.id
-        userDataEdit.UserNickName = formValueUserEdit.nickName
-        this.userData.updAdmonDateUsers(userDataEdit)
+        console.log(this.formEditarUsuario.get('optionUserType').value.typeUser)
+        if (this.formEditarUsuario.get('optionStatus').value.name == "Activo") {
+            this.userActive = 1
+        }
+        else if (this.formEditarUsuario.get('optionStatus').value.name == "Inactivo") {
+            this.userActive = 2
+        }
+        else {
+            this.userActive = 0
+        }
+
+        if (this.formEditarUsuario.get('optionUserType').value.typeUser == 'Administrador') {
+            this.userRol = 3
+        }
+        else if (this.formEditarUsuario.get('optionUserType').value.typeUser == 'Comité') {
+            this.userRol = 2
+        }
+        else if (this.formEditarUsuario.get('optionUserType').value.typeUser == 'Normal') {
+            this.userRol = 1
+        }
+        else {
+            this.userRol = 0
+        }
+        setTimeout(() => {
+            console.log(this.userActive)
+            console.log(this.userRol)
+            let userDataEdit = new UserModel()
+            this.userData.idUserEdit = this.id
+            userDataEdit.IdUsers = this.id
+            userDataEdit.UserNickName = formValueUserEdit.nickName
+            userDataEdit.UserType = this.userRol
+            userDataEdit.UserStatus = this.userActive
+            this.userData.updAdmonDateUsers(userDataEdit)
+        }, 500)
+        setTimeout(() => {
+            this.getIdUser()
+        }, 600)
+
     }
 
 }
