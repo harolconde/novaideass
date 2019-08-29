@@ -9,26 +9,26 @@
             </div>
             <div class="col-12">
                 <div class="card cardOptionIdeas">
-                    <form [formGroup]="">
+                    <form [formGroup]="formIdeasAdministrator" (change)="filterIdeasAdmon(formIdeasAdministrator.value)">
                         <div class="card-body">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <input class="form-check-input" type="radio" id="inlineRadio1" value="option1" formControlName="idPublicadas" name="idPublicadas">
                                 <label class="form-check-label" for="inlineRadio1">Ideas publicadas</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <input class="form-check-input" type="radio" id="inlineRadio2" value="option2" formControlName="idDebate" name="idDebate">
                                 <label class="form-check-label" for="inlineRadio2">Ideas en debate</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                <input class="form-check-input" type="radio" id="inlineRadio3" value="option3" formControlName="idAprobadas" name="idAprobadas">
                                 <label class="form-check-label" for="inlineRadio3">Ideas aprobadas</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                                <input class="form-check-input" type="radio" id="inlineRadio4" value="option4" formControlName="idFinalizadas" name="idFinalizadas">
                                 <label class="form-check-label" for="inlineRadio4">Ideas finalizadas</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                                <input class="form-check-input" type="radio" id="inlineRadio5" value="option5" formControlName="idMuertas" name="idMuertas">
                                 <label class="form-check-label" for="inlineRadio5">Ideas muertas</label>
                             </div>
                         </div>
@@ -43,10 +43,7 @@
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item" *ngFor="let img of imgsList; index as j" id="imgCarousel-{{idea.IdeasDTO.IdIdeas}}-{{j}}">
-                                            <ng-template >
-
-                                            </ng-template>
-                                            <img src="{{getImgIdeas(idea.IdeasDTO.IdIdeas)}}" class="d-block w-100" alt="...">
+                                            <img src="{{getImgIdeas(img)}}" class="d-block w-100" alt="...">
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

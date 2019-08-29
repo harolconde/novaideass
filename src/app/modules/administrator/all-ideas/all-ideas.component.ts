@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { IdeasService } from '../../home/services/ideas.service'
-import { FormBuilder, Validators } from "@angular/forms"
+import { FormBuilder, Validators, FormGroup, FormControl, FormControlName } from "@angular/forms"
 import * as $ from 'jquery';
 import { environment } from '../../../../environments/environment';
 import { IdeasModel } from '../../home/models/modelIdea'
@@ -13,6 +13,7 @@ declare var $: any;
     templateUrl: './all-ideas.component.html',
     styleUrls: ['./all-ideas.component.scss']
 })
+
 export class AllIdeasComponent implements OnInit {
 
     // Formulario
@@ -29,7 +30,7 @@ export class AllIdeasComponent implements OnInit {
     public idCarousell: boolean = false
     public imgsList: any = []
     public idImgIdea: any = []
-    public cadena:any = []
+
 
     @Input() id: string;
     @Input() maxSize: number = 7
@@ -41,17 +42,22 @@ export class AllIdeasComponent implements OnInit {
         private http: HttpClient
     ) { }
 
+    formIdeasAdministrator = new FormGroup({
+        idPublicadas : new FormControl(''),
+        idDebate: new FormControl(''),
+        idAprobadas: new FormControl(''),
+        idFinalizadas: new FormControl(''),
+        idMuertas: new FormControl('')
+    })
+
     ngOnInit() {
         this.getAdminAllIdeas()
 
         // Pagination ngx
         this.pageChange = new EventEmitter(true);
-
-        ///this.getImgsIdea(this.id)
-
     }
 
-
+    // Administrar todas las ideas
     getAdminAllIdeas() {
         this._ideas.getIdeasAdmin().subscribe((data) => {
             this.ideas = data
@@ -61,27 +67,32 @@ export class AllIdeasComponent implements OnInit {
 
     // Imagenes de perfil usuarios
     getImgUser(id) {
-        return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
+        return `${environment.endpoint}/ImageUsers?opcion=1&idUsers=${id}`
     }
+
+    //Retornar el id de la idea
     getIdIdea(id) {
         this.idIdea = id
-        console.log(this.idIdea)
+        //console.log(this.idIdea)
         return this.idIdea
     }
+
+    // Traer lista de ideas
     getListImgsIdeas(id) {
         return this.http.get(`${environment.endpoint}/opcion=2&ideasIdIdea=${id}`)
     }
+
     getImgsIdea(id) {
         return this.http.get(`${environment.endpoint}/opcion=2&ideasIdIdea=${id}`).subscribe(data => {
-
             console.log(data)
-
         })
     }
+
     // Cancelar subida de imagenes
     cancelUploadImg() {
         this.imgIdeasSrc = '/assets/img/pics/photo.svg'
     }
+
     // Subir imagen a una idea.
     selectImg(file: FileList) {
         this.fileUpload = file.item(0);
@@ -92,15 +103,11 @@ export class AllIdeasComponent implements OnInit {
             this.imgIdeasSrc = event.target.result;
         };
         reader.readAsDataURL(this.fileUpload);
-
     }
 
     // Post images ideas
     postImgeIdeas() {
-
-        //console.log(this.idIdea)
         const uploadImg = new FormData()
-
         uploadImg.append('myFile', this.fileUpload, this.fileUpload.name)
         this.http.post(`${environment.endpoint}/Attachments?opcion=3&idIdea=${this.idIdea}`, uploadImg, {
             reportProgress: true,
@@ -108,6 +115,15 @@ export class AllIdeasComponent implements OnInit {
         }).subscribe(event => {
             console.log(event)
         })
+    }
+
+    // Filtrar todas las ideas
+    filterIdeasAdmon(formValueIdeas:any){
+        console.log(this.formIdeasAdministrator.get('idPublicadas').value)
+        console.log(this.formIdeasAdministrator.get('idDebate').value)
+        console.log(this.formIdeasAdministrator.get('idAprobadas').value)
+        console.log(this.formIdeasAdministrator.get('idFinalizadas').value)
+        console.log(this.formIdeasAdministrator.get('idMuertas').value)
     }
 
     // Obtener todas las imagenes de las ideas
@@ -142,38 +158,31 @@ export class AllIdeasComponent implements OnInit {
         // Mostrar imagenes retornadas 
         setTimeout(() => {
             this.getTemplateImgsCarousell(id)
-        },300)
+        }, 300)
     }
 
     // Retornar las imagenes de las ideas
-    getImgIdeas(id) {
-       //debugger
-        let urls : any [];
-        
-        for(let img of this.imgsList){
-            console.log(img)
-            urls = img
-            this.cadena = environment.endpoint + `/Attachments?opcion=1&idAttachments=${img.IdAttachments}&ideasIdIdea=${id}`
-            for(let i of urls){
-                console.log(i)
-            }
-        }
-        console.log(this.cadena)
-        //console.log(urls)
-        return this.cadena;
+    getImgIdeas(img) {
+        //debugger
+
+        const cadena = environment.endpoint + `/Attachments?opcion=1&idAttachments=${img.IdAttachments}&ideasIdIdea=${img.IdeasIdIdea}`
+
+        return cadena;
     }
 
     // Adicionar clase activa al primer elemento del carrusel de imagenes de las ideas
     getTemplateImgsCarousell(id) {
-        let carouselContainer:any = document.getElementById(`imgCarousel-${id}-0`)
+        let carouselContainer: any = document.getElementById(`imgCarousel-${id}-0`)
         // Adicionar clase activa
         carouselContainer.classList.add('active')
     }
 
+    // Ocultar modal
     hideModalsAll() {
         $('.modal').modal('hide')
     }
 }
+// Tooltips 
 (() => {
     $('[data-toggle="tooltip"]').tooltip()
 });

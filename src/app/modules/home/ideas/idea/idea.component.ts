@@ -49,6 +49,7 @@ export class IdeaComponent implements OnInit {
         //this._service.id = this.id
         this._service.getIdeaDetalle().subscribe((data) => {
             this.ideas = data;
+            console.log(this.ideas)
             console.log(this._service.id)
             console.log(data)
             this.pos = this.ideas.VotesTypeDTO.VotesLikeTotal

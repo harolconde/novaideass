@@ -59,6 +59,7 @@ export class ShowUserDetailComponent implements OnInit {
             this.getDataUsetType()
         }, 500)
     }
+
     getIdUser() {
         this.id = this.route.snapshot.paramMap.get('id')
         this.userData.getUser(this.id).subscribe(
@@ -176,16 +177,20 @@ export class ShowUserDetailComponent implements OnInit {
     getDataUsersStatus() {
         this.userStatus = this.states
     }
+
     getDataUsetType() {
         this.userTypeArray = this.userType
     }
+
     getImgUserIndividual(id) {
         return environment.endpoint + `/ImageUsers?opcion=1&idUsers=${id}`
     }
+
     goBack(): void {
         this.location.back()
     }
-
+    
+    // Editar usuario
     putEditUser(formValueUserEdit: any) {
         console.log(this.formEditarUsuario.get('optionStatus').value.name)
         console.log(this.formEditarUsuario.get('optionUserType').value.typeUser)
