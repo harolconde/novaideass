@@ -5,31 +5,28 @@
                 <div class="titleAdminAllIdeas">
                     <h3>Administrar todas las ideas </h3>
                     <hr>
-                </div> 
+                </div>
             </div>
             <div class="col-12">
                 <div class="card cardOptionIdeas">
-                    <form [formGroup]="formIdeasAdministrator" (change)="filterIdeasAdmon(formIdeasAdministrator.value)">
+                    <form [formGroup]="formIdeasAdministrator"
+                        (change)="filterIdeasAdmon(formIdeasAdministrator.value, id)">
                         <div class="card-body">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="inlineRadio1" value="option1" formControlName="idPublicadas" name="idPublicadas">
-                                <label class="form-check-label" for="inlineRadio1">Ideas publicadas</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="inlineRadio2" value="option2" formControlName="idDebate" name="idDebate">
-                                <label class="form-check-label" for="inlineRadio2">Ideas en debate</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="inlineRadio3" value="option3" formControlName="idAprobadas" name="idAprobadas">
-                                <label class="form-check-label" for="inlineRadio3">Ideas aprobadas</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="inlineRadio4" value="option4" formControlName="idFinalizadas" name="idFinalizadas">
-                                <label class="form-check-label" for="inlineRadio4">Ideas finalizadas</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="inlineRadio5" value="option5" formControlName="idMuertas" name="idMuertas">
-                                <label class="form-check-label" for="inlineRadio5">Ideas muertas</label>
+                            <div class="row">
+                                <div class="containerCheckBox col-12 col-md-2">
+                                    <div class="form-check form-check-inline ">
+                                        <input class="form-check-input form-check-ideas" type="checkbox" id="idPublicadas"
+                                            value="idPublicadas" formControlName="idPublicadas" name="idPublicadas">
+                                        <label class="form-check-label" for="inlineRadio1">Todas las Ideas</label>
+                                    </div>
+                                </div>
+                                <div class="input-group col-12 col-md-10">
+                                    <select formControlName="ideaSelection" class="form-control" id="ideaSelection" name="nombre">
+                                        <option value="" selected>Selecciona tipo de idea a mostrar</option>
+                                        <option *ngFor="let nombre of arrayIdeasNombres" [ngValue]="nombre"> {{nombre.name}} </option>
+                                    </select>
+                                    <label for="">Ideas {{nombreIdeas}}:{{ideasTotales}} </label>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -38,26 +35,32 @@
             <div class="col-12 containerCardsAdminAllIdeas">
                 <div class="row">
                     <div class="card-columns">
-                        <div class="card" *ngFor="let idea of ideas | paginate: {itemsPerPage: 10, currentPage: p }; index as i" id="{{idea.IdeasDTO.IdIdeas}}">
-                            <div class="carouselContainer carouselContainerImgsIdeas" id="carousel-{{idea.IdeasDTO.IdIdeas}}" >
+                        <div class="card"
+                            *ngFor="let idea of ideas | paginate: {itemsPerPage: 10, currentPage: p }; index as i"
+                            id="{{idea.IdeasDTO.IdIdeas}}">
+                            <div class="carouselContainer carouselContainerImgsIdeas"
+                                id="carousel-{{idea.IdeasDTO.IdIdeas}}">
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        <div class="carousel-item" *ngFor="let img of imgsList; index as j" id="imgCarousel-{{idea.IdeasDTO.IdIdeas}}-{{j}}">
+                                        <div class="carousel-item" *ngFor="let img of imgsList; index as j"
+                                            id="imgCarousel-{{idea.IdeasDTO.IdIdeas}}-{{j}}">
                                             <img src="{{getImgIdeas(img)}}" class="d-block w-100" alt="...">
                                         </div>
                                     </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                        data-slide="prev">
                                         <span class="" aria-hidden="true">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span class="sr-only">Previous</span>
                                     </a>
-                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                        data-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
                                 </div>
-                            </div> 
+                            </div>
                             <!-- <img src="{{getImgsIdea(idea.Id)}}" class="d-block w-100" alt="..."> -->
                             <div class="card-title">
                                 <div class="contentImgUserAdmon">
@@ -68,7 +71,9 @@
                                     <span>{{idea.IdeasDTO.IdeaCreateDt}}</span>
                                 </div>
                                 <div class="showImg">
-                                    <button class="btn btnImagesIdeas" data-toggle="tooltip" data-placement="top" title="Ver imagenes de la idea" (click)="showImgListOfIdeas(idea.IdeasDTO.IdIdeas)">
+                                    <button class="btn btnImagesIdeas" data-toggle="tooltip" data-placement="top"
+                                        title="Ver imagenes de la idea"
+                                        (click)="showImgListOfIdeas(idea.IdeasDTO.IdIdeas)">
                                         <i class="fas fa-images"></i>
                                     </button>
                                 </div>
@@ -86,13 +91,17 @@
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-6 btnEditFinish">
-                                        <button class="btn btFinalizarIdeas"  data-toggle="modal" data-target=".exampleModalCenter">Administrar</button>
+                                        <button class="btn btFinalizarIdeas" data-toggle="modal"
+                                            data-target=".exampleModalCenter">Administrar</button>
                                     </div>
                                     <div class="col-6 btnUploading">
-                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip" data-placement="bottom" title="Subir imagen" data-toggle="modal" data-target=".exampleModalCenter2" (click)="getIdIdea(idea.IdeasDTO.IdIdeas)">
+                                        <button class="btn btnUploadImgAdminIdeas" data-toggle="tooltip"
+                                            data-placement="bottom" title="Subir imagen" data-toggle="modal"
+                                            data-target=".exampleModalCenter2"
+                                            (click)="getIdIdea(idea.IdeasDTO.IdIdeas)">
                                             <span>
                                                 Subir
-                                            </span> 
+                                            </span>
                                             <i class="fas fa-image"></i>
                                         </button>
                                     </div>
@@ -101,10 +110,14 @@
                         </div>
                     </div>
                     <nav aria-label="Page navigation example" class="navigation">
-                        <pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event" class="paginationNgx">
+                        <pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event"
+                            class="paginationNgx">
                             <div class="pagination-previous" [class.disabled]="p1.isFirstPage()">
-                                <a *ngIf="!p1.isFirstPage()" (click)="p1.previous()" class="arrowPagination arrowPrevius"> <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowPrevius" alt=""> </a>
-                            </div>                          
+                                <a *ngIf="!p1.isFirstPage()" (click)="p1.previous()"
+                                    class="arrowPagination arrowPrevius"> <img
+                                        [src]="'assets/img/icons/dashboard/arrowPagination.svg'"
+                                        class="arrowPagination arrowPrevius" alt=""> </a>
+                            </div>
                             <div *ngFor="let page of p1.pages" [class.current]="p1.getCurrent() === page.value">
                                 <a (click)="p1.setCurrent(page.value)" *ngIf="p1.getCurrent() !== page.value">
                                     <span>{{ page.label }}</span>
@@ -113,11 +126,13 @@
                                     <span>{{ page.label }}</span>
                                 </div>
                             </div>
-                            
+
                             <div class="pagination-next" [class.disabled]="p1.isLastPage()">
-                                <a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext">  <img [src]="'assets/img/icons/dashboard/arrowPagination.svg'" class="arrowPagination arrowNext" alt=""></a>
+                                <a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext"> <img
+                                        [src]="'assets/img/icons/dashboard/arrowPagination.svg'"
+                                        class="arrowPagination arrowNext" alt=""></a>
                             </div>
-                        </pagination-template> 
+                        </pagination-template>
                     </nav>
                 </div>
             </div>
@@ -135,7 +150,8 @@
 </section> -->
 <section class="sectionModalAdminIdeas">
     <!-- Modal -->
-    <div class="modal-dialog modal-dialog-centered modal-lg fade" id="exampleModalCenter" class="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg fade" id="exampleModalCenter" class="exampleModalCenter"
+        tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -146,22 +162,25 @@
                 </div>
                 <div class="modal-body">
                     <span class="">
-                        - Selecciona una opcion. 
+                        - Selecciona una opcion.
                     </span>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                            value="option1" checked>
                         <label class="form-check-label" for="exampleRadios1">
                             Finalizar idea
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                            value="option2">
                         <label class="form-check-label" for="exampleRadios2">
                             Inhabilitar idea
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
+                            value="option3">
                         <label class="form-check-label" for="exampleRadios3">
                             Matar idea
                         </label>
@@ -176,7 +195,8 @@
     </div>
 
     <!-- Modal Subir imagen -->
-    <div class="modal-dialog modal-dialog-centered modal-lg fade" id="exampleModalCenter2" class="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg fade" id="exampleModalCenter2" class="exampleModalCenter2"
+        tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -187,26 +207,29 @@
                 </div>
                 <div class="modal-body">
                     <span class="">
-                        - Selecciona una imagen de tu equipo. 
+                        - Selecciona una imagen de tu equipo.
                     </span>
                     <div class="imgUpload">
                         <div class="containerImgUpload" id="containerImgUpload">
-                            <img id="upload" [src]="imgIdeasSrc"  alt="">
+                            <img id="upload" [src]="imgIdeasSrc" alt="">
                         </div>
                         <div class="containerBtnUpload">
-                            <input type="file"  id="imgUpload" class="inputUpload"  accept="image/*" (change)="selectImg($event.target.files);">
+                            <input type="file" id="imgUpload" class="inputUpload" accept="image/*"
+                                (change)="selectImg($event.target.files);">
                             <label for="imgUpload">
-                                    <!-- <button class="btn btn-secondary btn-lg btnUpload">
+                                <!-- <button class="btn btn-secondary btn-lg btnUpload">
                                         <span>Subir archivo</span>
                                     </button> -->
                                 <span class="btn btn-secondary btn-lg btnUpload">Subir archivo</span>
-                            </label> 
+                            </label>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelUploadImg()">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="postImgeIdeas()">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        (click)="cancelUploadImg()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal"
+                        (click)="postImgeIdeas()">Aceptar</button>
                 </div>
             </div>
         </div>

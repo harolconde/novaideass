@@ -3,11 +3,29 @@ $backgroundCards: #fff;
 $colorBorder: #dddddd;
 $colorText: #5A5858;
 $radiusButton: 50px;
+
+$grid-breakpoints: (
+  // Extra small screen / phone
+  "xs": 0,
+  // Small screen / phone
+  "sm": 576px,
+  // Medium screen / tablet
+  "md": 768px,
+  // Large screen / desktop
+  "lg": 992px,
+  // Extra large screen / wide desktop
+  "xl": 1200px
+);
+
 //Columnas a mostrar del estilo masonry
 @mixin count-cards($grid-columns){
     column-count: $grid-columns;
 };
-
+@mixin brackpoint-mobile(){
+    @media (min-width: map-get($grid-breakpoints, "xs" )) and (max-width: map-get($grid-breakpoints, "md")){
+        @content;
+    }
+}
 .sectionAllIdeasAdmin{
     padding-left: 36px;
     padding-right: 36px;
@@ -18,15 +36,48 @@ $radiusButton: 50px;
             .cardOptionIdeas{
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
                 .card-body{
-                    display: flex;
-                    justify-content: space-between;
-                    .form-check{
-                        .form-check-input{
-                            width: 20px;
-                            height: 20px;
+                    .row{
+                        .containerCheckBox{
+                            display: flex;
+                            align-items: center;
                         }
-                        .form-check-label{
-                            height: 18px;
+                        .form-check{
+                            .form-check-input{
+                                width: 20px;
+                                height: 20px;
+                            }
+                            .form-check-label{
+                                height: 18px;
+                                font-weight: 600;
+                                color: $colorText;
+                            }
+                        }
+                        .input-group{
+                            margin-top: .3rem;
+                            margin-bottom: .3rem;
+                            position: relative;
+                            @include brackpoint-mobile{
+                                flex-direction: column;
+                            }
+                            select{
+                                max-width: 40%;
+                                @include brackpoint-mobile{
+                                    max-width: 100%;
+                                    width: 100%;
+                                }
+                            }
+                            label{
+                                margin-top: .5rem;
+                                margin-bottom: .5rem;
+                                position: absolute;
+                                right: 1rem;
+                                font-weight: 600;
+                                color: $colorText;
+                                @include brackpoint-mobile{
+                                    position: relative;
+                                    margin-left: 1rem;
+                                }
+                            }
                         }
                     }
                 }

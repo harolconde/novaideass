@@ -22,7 +22,16 @@ export class AllIdeasComponent implements OnInit {
     // Ideas
     ideas: any[]
     idIdea: any
+    public arrayIdeasNombres: Array<any> = [
+        { name: 'Ideas postuladas' },
+        { name: 'Ideas en debate' },
+        { name: 'Ideas aprobadas' },
+        { name: 'Ideas finalizadas' },
+        { name: 'Ideas muertas' }
 
+    ]
+    public ideasTotales: any
+    public nombreIdeas: string
     // Imagen
     imgIdeasSrc: string = '/assets/img/pics/photo.svg'
     fileUpload: File = null;
@@ -30,7 +39,6 @@ export class AllIdeasComponent implements OnInit {
     public idCarousell: boolean = false
     public imgsList: any = []
     public idImgIdea: any = []
-
 
     @Input() id: string;
     @Input() maxSize: number = 7
@@ -43,11 +51,8 @@ export class AllIdeasComponent implements OnInit {
     ) { }
 
     formIdeasAdministrator = new FormGroup({
-        idPublicadas : new FormControl(''),
-        idDebate: new FormControl(''),
-        idAprobadas: new FormControl(''),
-        idFinalizadas: new FormControl(''),
-        idMuertas: new FormControl('')
+        idPublicadas: new FormControl(''),
+        ideaSelection: new FormControl('')
     })
 
     ngOnInit() {
@@ -118,12 +123,45 @@ export class AllIdeasComponent implements OnInit {
     }
 
     // Filtrar todas las ideas
-    filterIdeasAdmon(formValueIdeas:any){
-        console.log(this.formIdeasAdministrator.get('idPublicadas').value)
-        console.log(this.formIdeasAdministrator.get('idDebate').value)
-        console.log(this.formIdeasAdministrator.get('idAprobadas').value)
-        console.log(this.formIdeasAdministrator.get('idFinalizadas').value)
-        console.log(this.formIdeasAdministrator.get('idMuertas').value)
+    filterIdeasAdmon(formValueIdeas: any, id) {
+        const idPublic: any = this.formIdeasAdministrator.get('idPublicadas').value
+        const nombreIdeasSelect: any = this.formIdeasAdministrator.get('ideaSelection').value.name
+        let option: number
+
+        if (idPublic == true) {
+            console.log('Cheking')
+            
+            console.log(option)
+            option = 1
+            return this.nombreIdeas = 'todas'
+        }
+        switch (nombreIdeasSelect) {
+            case 'Ideas postuladas':
+                option = 1
+                this.nombreIdeas = 'postuladas'
+                break
+            case 'Ideas en debate':
+                option = 3
+                this.nombreIdeas = 'en debate'
+                break
+            case 'Ideas aprobadas':
+                option = 2
+                this.nombreIdeas = 'aprobadas'
+                break
+            case 'Ideas finalizadas':
+                option = 7
+                this.nombreIdeas = 'finalizadas'
+                break
+            case 'Ideas muertas':
+                option = 5
+                break
+        }
+        console.log(option)
+        this._ideas.estado = option
+        console.log(this._ideas.estado)
+        setTimeout(() => {
+            this.getAdminAllIdeas()
+        }, 200)
     }
 
     // Obtener todas las imagenes de las ideas
@@ -163,10 +201,7 @@ export class AllIdeasComponent implements OnInit {
 
     // Retornar las imagenes de las ideas
     getImgIdeas(img) {
-        //debugger
-
         const cadena = environment.endpoint + `/Attachments?opcion=1&idAttachments=${img.IdAttachments}&ideasIdIdea=${img.IdeasIdIdea}`
-
         return cadena;
     }
 
